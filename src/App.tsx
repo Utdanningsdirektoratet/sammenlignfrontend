@@ -16,7 +16,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact={true} component={Frontpage} />
           <Route path="/sammenligne" component={ComparisonPage} />
-          <Route path="/:omraade" component={AlphabeticOverviewPage} />
+          <Route path="/:area" component={AlphabeticOverviewPage} />
         </Switch>
       </BrowserRouter>
       // </ErrorBoundry>
