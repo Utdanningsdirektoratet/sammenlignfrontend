@@ -2,6 +2,7 @@ import * as React from "react";
 // import Plot from "react-plotly.js";
 
 import PageChrome from "../app/PageChrome";
+import Lonn from "../visualizations/Lonn";
 // import { getData } from "../../data/data";
 import { RouteComponentProps } from "react-router";
 
@@ -20,6 +21,8 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
       <PageChrome>
         <div>
           <h1>Sammenlign her</h1>
+          <h2>Lønn</h2>
+          <Lonn high={19300} low={14400} avg={16100}/>
         </div>
       </PageChrome>
     );
