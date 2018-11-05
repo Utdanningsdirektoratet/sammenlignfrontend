@@ -1,0 +1,7704 @@
+{
+  "yrke": [
+    {
+      "node": {
+        "id": "y_adjunkt",
+        "title": "Adjunkt",
+        "interesse": ["pedagogikk", "undervisning", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_advokat",
+        "title": "Advokat",
+        "interesse": ["lov og orden", "juss", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_advokatassistent",
+        "title": "Advokatassistent",
+        "interesse": ["lov og orden", "kontor og sekret\u00e6r", "juss"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_advokatsekretar",
+        "title": "Advokatsekret\u00e6r",
+        "interesse": ["lov og orden", "kontor og sekret\u00e6r", "juss"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_afisfullmektig",
+        "title": "AFIS-fullmektig",
+        "interesse": ["transport", "logistikk", "fly"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_agronom",
+        "title": "Agronom",
+        "interesse": ["dyr", "landbruk", "jordbruk (inkl dyrehold)", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_aksjemegler",
+        "title": "Aksjemegler",
+        "interesse": ["finans", "\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_aktivitor",
+        "title": "Aktivit\u00f8r",
+        "interesse": ["helse", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_aktuar",
+        "title": "Aktuar",
+        "interesse": ["finans", "\u00f8konomi", "matematikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_akupunktor",
+        "title": "Akupunkt\u00f8r",
+        "interesse": ["alternativ behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_allmennlege",
+        "title": "Allmennlege",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_aluminiumskonst",
+        "title": "Aluminiumskonstrukt\u00f8r",
+        "interesse": ["bygg og anlegg", "industri", "konstruksjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ambassador",
+        "title": "Ambassad\u00f8r",
+        "interesse": ["samfunn", "utlandet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ambulansearbeider",
+        "title": "Ambulansearbeider",
+        "interesse": [
+          "helse",
+          "sj\u00e5f\u00f8r (vei)",
+          "beredskap og sikkerhet"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_anestesilege",
+        "title": "Anestesilege",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_anestesisykepleier",
+        "title": "Anestesisykepleier",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_animator",
+        "title": "Animat\u00f8r",
+        "interesse": ["data", "design", "web, animasjon, spill", "film og tv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_anleggsgartner",
+        "title": "Anleggsgartner",
+        "interesse": ["bygg og anlegg", "landbruk", "gartneri og hage"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_anleggsmaskin",
+        "title": "Anleggsmaskinf\u00f8rer",
+        "interesse": ["transport", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_anleggsmaskinmek",
+        "title": "Anleggsmaskinmekaniker",
+        "interesse": ["bygg og anlegg", "mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ansatt_forsvaret",
+        "title": "Ansatt i Forsvaret",
+        "interesse": ["beredskap og sikkerhet", "lov og orden"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_antikvar",
+        "title": "Antikvar",
+        "interesse": ["historie", "kultur", "arkitektur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_apoteker",
+        "title": "Apoteker",
+        "interesse": ["helse", "apotek"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_apotektekniker",
+        "title": "Apotektekniker",
+        "interesse": ["helse", "apotek"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_arbeidsmedisiner",
+        "title": "Arbeidsmedisiner",
+        "interesse": ["medisin", "helse", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_arealplanlegger",
+        "title": "Arealplanlegger",
+        "interesse": ["samfunn", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_arkeolog",
+        "title": "Arkeolog",
+        "interesse": ["historie", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_arkitekt",
+        "title": "Arkitekt",
+        "interesse": ["arkitektur", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_arkivar",
+        "title": "Arkivar",
+        "interesse": ["historie", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_aromaterapeut",
+        "title": "Aromaterapeut",
+        "interesse": ["alternativ behandling", "hud og h\u00e5r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_art_director",
+        "title": "Art director",
+        "interesse": ["design", "media"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_asfaltor",
+        "title": "Asfalt\u00f8r",
+        "interesse": ["bygg og anlegg", "transport"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_astronaut",
+        "title": "Astronaut",
+        "interesse": ["teknologi", "realfag", "fysikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_astronom",
+        "title": "Astronom",
+        "interesse": ["teknologi", "realfag", "fysikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_attforingskonsulent",
+        "title": "Attf\u00f8ringskonsulent",
+        "interesse": ["sosialfag", "samfunn", "helse", "pedagogikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_au_pair",
+        "title": "Au pair",
+        "interesse": ["barn", "spr\u00e5k"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_audiograf",
+        "title": "Audiograf",
+        "interesse": ["helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_audiopedagog",
+        "title": "Audiopedagog",
+        "interesse": ["pedagogikk", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_automatiker",
+        "title": "Automatiker",
+        "interesse": ["elektro", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_avioniker",
+        "title": "Avioniker",
+        "interesse": ["elektro", "transport", "fly", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_avisbud",
+        "title": "Avisbud",
+        "interesse": ["logistikk", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_avloser",
+        "title": "Avl\u00f8ser",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_badevakt",
+        "title": "Badevakt",
+        "interesse": ["beredskap og sikkerhet", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_baker",
+        "title": "Baker",
+        "interesse": ["mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_banemontor",
+        "title": "Banemont\u00f8r",
+        "interesse": ["transport", "tog", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barista",
+        "title": "Barista",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barne_ungdomsarb",
+        "title": "Barne- og ungdomsarbeider",
+        "interesse": ["barn", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barne_ungdomspsyk",
+        "title": "Barne- og ungdomspsykiater",
+        "interesse": ["medisin", "helse", "psykisk helse", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barne_ung_psyk",
+        "title": "Barne- og ungdomspsykolog",
+        "interesse": ["barnehelse", "psykisk helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barnehage_ass",
+        "title": "Barnehageassistent",
+        "interesse": ["barn", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barnekirurg",
+        "title": "Barnekirurg",
+        "interesse": ["medisin", "helse", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barnelege",
+        "title": "Barnelege",
+        "interesse": ["helse", "medisin", "barnehelse", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sykepleier_barn",
+        "title": "Barnesykepleier",
+        "interesse": ["helse", "pleie", "barn", "barnehelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_barnevernspedagog",
+        "title": "Barnevernspedagog",
+        "interesse": ["barn", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bartender",
+        "title": "Bartender",
+        "interesse": ["salg", "mat", "hotell", "restaurant", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_batbygger",
+        "title": "B\u00e5tbygger",
+        "interesse": ["maritimt", "h\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_betongfagarbeider",
+        "title": "Betongfagarbeider",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bibliotekar",
+        "title": "Bibliotekar",
+        "interesse": ["spr\u00e5k", "kultur", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bilklargjorer",
+        "title": "Bilklargj\u00f8rer",
+        "interesse": ["salg", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_billakkerer",
+        "title": "Billakkerer",
+        "interesse": ["kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_billedkunstner",
+        "title": "Billedkunstner",
+        "interesse": ["kunst", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bilmekaniker_lett",
+        "title": "Bilmekaniker (lette kj\u00f8ret\u00f8y)",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bilmekaniker_tung",
+        "title": "Bilmekaniker (tunge kj\u00f8ret\u00f8y)",
+        "interesse": ["kj\u00f8ret\u00f8y", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bilselger",
+        "title": "Bilselger",
+        "interesse": ["salg", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bilskadereparator",
+        "title": "Bilskadereparat\u00f8r",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bioingenior",
+        "title": "Bioingeni\u00f8r",
+        "interesse": ["biologi", "ingeni\u00f8r", "realfag", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_biokjemiker",
+        "title": "Biokjemiker",
+        "interesse": ["kjemi", "biologi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_biolog",
+        "title": "Biolog",
+        "interesse": ["biologi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_biopat",
+        "title": "Biopat",
+        "interesse": ["alternativ behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bioteknolog",
+        "title": "Bioteknolog",
+        "interesse": [
+          "biologi",
+          "realfag",
+          "teknologi",
+          "ingeni\u00f8r",
+          "kjemi"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bistandsarbeider",
+        "title": "Bistandsarbeider",
+        "interesse": ["utlandet", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_blikkenslager",
+        "title": "Blikkenslager",
+        "interesse": [
+          "h\u00e5ndverk",
+          "bygg og anlegg",
+          "metall",
+          "konstruksjon"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_blomsterdekorator",
+        "title": "Blomsterdekorat\u00f8r",
+        "interesse": ["salg", "design", "gartneri og hage"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_blyglasshandverker",
+        "title": "Blyglassh\u00e5ndverker",
+        "interesse": [
+          "design",
+          "kunst",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bokhandler",
+        "title": "Bokhandler",
+        "interesse": ["salg", "spr\u00e5k"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bonde",
+        "title": "Bonde",
+        "interesse": ["dyr", "landbruk", "jordbruk (inkl dyrehold)", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bore_vedlikehold",
+        "title": "Bore- og vedlikeholdsoperat\u00f8r",
+        "interesse": ["olje og gass", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_botaniker",
+        "title": "Botaniker",
+        "interesse": ["biologi", "gartneri og hage", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_branningenior",
+        "title": "Branningeni\u00f8r",
+        "interesse": ["ingeni\u00f8r", "beredskap og sikkerhet", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_brannkonstabel",
+        "title": "Brannkonstabel",
+        "interesse": ["beredskap og sikkerhet", "lov og orden"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bryst_endokrinkirurg",
+        "title": "Bryst- og endokrinkirurg",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bronn",
+        "title": "Br\u00f8nnoperat\u00f8r",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bronn_el",
+        "title": "Br\u00f8nnoperat\u00f8r for elektriske kabeloperasjoner",
+        "interesse": ["olje og gass", "elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bronn_mek",
+        "title": "Br\u00f8nnoperat\u00f8r for mekaniske kabeloperasjoner",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bronn_komp",
+        "title": "Br\u00f8nnoperat\u00f8r komplettering",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bronn_kveil",
+        "title": "Br\u00f8nnoperat\u00f8r kveiler\u00f8r",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bronn_sement",
+        "title": "Br\u00f8nnoperat\u00f8r sementering",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bunadtilvirker",
+        "title": "Bunadtilvirker",
+        "interesse": [
+          "design",
+          "kultur",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_buntmaker",
+        "title": "Buntmaker",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bussjafor",
+        "title": "Bussj\u00e5f\u00f8r",
+        "interesse": ["transport", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_butikkmedarbeider",
+        "title": "Butikkmedarbeider",
+        "interesse": ["salg", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_butikkslakter",
+        "title": "Butikkslakter",
+        "interesse": ["salg", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_byggingenior",
+        "title": "Byggingeni\u00f8r",
+        "interesse": [
+          "realfag",
+          "bygg og anlegg",
+          "ingeni\u00f8r",
+          "konstruksjon"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bokker",
+        "title": "B\u00f8kker",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "trearbeid"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_borsemaker",
+        "title": "B\u00f8rsemaker",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "metall"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_cellebiolog",
+        "title": "Cellebiolog",
+        "interesse": ["biologi", "realfag", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_chassispabygger",
+        "title": "Chassisp\u00e5bygger",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_cncoperator",
+        "title": "CNC-operat\u00f8r",
+        "interesse": ["mekanikk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dansepedagog",
+        "title": "Dansepedagog",
+        "interesse": ["pedagogikk", "kultur", "idrett"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_danser",
+        "title": "Danser",
+        "interesse": ["kunst", "kultur", "idrett", "drama og teater"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dataelektroniker",
+        "title": "Dataelektroniker",
+        "interesse": ["elektro", "data"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dataingenior",
+        "title": "Dataingeni\u00f8r",
+        "interesse": ["data", "ingeni\u00f8r", "teknologi", "it-drift"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_designer",
+        "title": "Designer",
+        "interesse": ["design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_diakon",
+        "title": "Diakon",
+        "interesse": ["religion", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_diakonimedarbeider",
+        "title": "Diakonimedarbeider",
+        "interesse": ["religion", "omsorg", "helse", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dimensjonskontrollor",
+        "title": "Dimensjonskontroll\u00f8r",
+        "interesse": ["bygg og anlegg", "mekanikk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_diplomat",
+        "title": "Diplomat",
+        "interesse": ["samfunn", "utlandet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dirigent",
+        "title": "Dirigent",
+        "interesse": ["kunst", "musikk", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dommer",
+        "title": "Dommer",
+        "interesse": ["lov og orden", "juss", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dramaturg",
+        "title": "Dramaturg",
+        "interesse": ["kultur", "drama og teater", "film og tv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_driftsoperator_idrett",
+        "title": "Driftsoperat\u00f8r i idrettsanlegg",
+        "interesse": ["renhold", "idrett"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_duojar",
+        "title": "Duoj\u00e1r",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil",
+          "kultur"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dykker",
+        "title": "Dykker",
+        "interesse": ["marine fag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dyrepasser",
+        "title": "Dyrepasser",
+        "interesse": ["dyr", "dyrehelse", "biologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_dyrepleier",
+        "title": "Dyrepleier",
+        "interesse": ["dyr", "dyrehelse", "biologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_eiendomsmegler",
+        "title": "Eiendomsmegler",
+        "interesse": [
+          "lov og orden",
+          "juss",
+          "salg",
+          "\u00f8konomi",
+          "service"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_elektriker",
+        "title": "Elektriker",
+        "interesse": ["elektro", "bygningsh\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_elektrofagarbeider",
+        "title": "Elektrofagarbeider",
+        "interesse": ["elektro", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_elektroingenior",
+        "title": "Elektroingeni\u00f8r",
+        "interesse": ["elektro", "ingeni\u00f8r", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_elektroreparator",
+        "title": "Elektroreparat\u00f8r",
+        "interesse": ["elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_energimontor",
+        "title": "Energimont\u00f8r",
+        "interesse": ["elektro", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_energioperator",
+        "title": "Energioperat\u00f8r",
+        "interesse": ["elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_entomolog",
+        "title": "Entomolog",
+        "interesse": ["biologi", "realfag", "dyr"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ergoterapeut",
+        "title": "Ergoterapeut",
+        "interesse": ["helse", "behandling", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_etterforsker",
+        "title": "Etterforsker",
+        "interesse": ["lov og orden", "beredskap og sikkerhet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_eurytmist",
+        "title": "Eurytmist",
+        "interesse": ["pedagogikk", "undervisning", "dans"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fabrikksjef_fiske",
+        "title": "Fabrikksjef, fiske",
+        "interesse": ["industri", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_matprod",
+        "title": "Fagarbeider industriell matproduksjon",
+        "interesse": ["industri", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sjomatprod",
+        "title": "Fagarbeider sj\u00f8matproduksjon",
+        "interesse": ["mat", "fiskeri og havbruk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_faglarer",
+        "title": "Fagl\u00e6rer",
+        "interesse": ["pedagogikk", "barn", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_farging",
+        "title": "Fagoperat\u00f8r i farging, trykking og etterbehandling",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fiskered",
+        "title": "Fagoperat\u00f8r i fiskeredskapsfaget",
+        "interesse": ["industri", "maritimt", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_limtreprod",
+        "title": "Fagoperat\u00f8r i limtreproduksjonsfaget",
+        "interesse": ["h\u00e5ndverk", "trearbeid", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_polymerfag",
+        "title": "Fagoperat\u00f8r i polymerkompositt / herdeplast",
+        "interesse": ["industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_termoplastfaget",
+        "title": "Fagoperat\u00f8r i termoplast",
+        "interesse": ["industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_trelastfag",
+        "title": "Fagoperat\u00f8r i trelastfaget",
+        "interesse": ["industri", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_trikotasjefaget",
+        "title": "Fagoperat\u00f8r i trikotasje",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vevefag",
+        "title": "Fagoperat\u00f8r i veving",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_familieradgiver",
+        "title": "Familier\u00e5dgiver",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_farmasoyt",
+        "title": "Farmas\u00f8yt",
+        "interesse": ["helse", "apotek", "kjemi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_feier",
+        "title": "Feier",
+        "interesse": ["bygg og anlegg", "renhold"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fengselsbetjent",
+        "title": "Fengselsbetjent",
+        "interesse": ["lov og orden", "beredskap og sikkerhet", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_filigranssolvsmed",
+        "title": "Filigranss\u00f8lvsmed",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_filolog",
+        "title": "Filolog",
+        "interesse": ["spr\u00e5k", "historie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_filosof",
+        "title": "Filosof",
+        "interesse": ["samfunn", "historie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_finansanalytiker",
+        "title": "Finansanalytiker",
+        "interesse": ["finans", "\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_finmekaniker",
+        "title": "Finmekaniker",
+        "interesse": ["mekanikk", "h\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fiskeforsker",
+        "title": "Fiskeforsker",
+        "interesse": ["dyr", "biologi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fiskehelsebiolog",
+        "title": "Fiskehelsebiolog",
+        "interesse": ["dyrehelse", "dyr", "biologi", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fiskeoppdretter",
+        "title": "Fiskeoppdretter",
+        "interesse": ["mat", "biologi", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fisker",
+        "title": "Fisker",
+        "interesse": ["fiskeri og havbruk", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fjell_bergverk",
+        "title": "Fjell- og bergverksarbeider",
+        "interesse": ["bygg og anlegg", "geofag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_flygeleder",
+        "title": "Flygeleder",
+        "interesse": ["transport", "fly", "logistikk", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_flyinstruktor",
+        "title": "Flyinstrukt\u00f8r",
+        "interesse": ["transport", "fly", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_flyktningkonsulent",
+        "title": "Flyktningkonsulent",
+        "interesse": ["samfunn", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_flymotormekaniker",
+        "title": "Flymotormekaniker",
+        "interesse": ["mekanikk", "fly"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_flystrukturmekaniker",
+        "title": "Flystrukturmekaniker",
+        "interesse": ["mekanikk", "elektro", "fly"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_flysystemmek",
+        "title": "Flysystemmekaniker",
+        "interesse": ["fly", "mekanikk", "elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forfatter",
+        "title": "Forfatter",
+        "interesse": ["spr\u00e5k", "kultur", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forgyller",
+        "title": "Forgyller",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forretningsutvikler",
+        "title": "Forretningsutvikler",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forsikringsradg",
+        "title": "Forsikringsr\u00e5dgiver",
+        "interesse": ["salg", "kontor og sekret\u00e6r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forsker",
+        "title": "Forsker",
+        "interesse": ["forskning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fotballdommer",
+        "title": "Fotballdommer",
+        "interesse": ["idrett"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fotballspiller",
+        "title": "Fotballspiller",
+        "interesse": ["idrett"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fotballtrener",
+        "title": "Fotballtrener",
+        "interesse": ["idrett", "pedagogikk", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fotograf",
+        "title": "Fotograf",
+        "interesse": ["foto", "media", "film og tv", "kunst"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fotojournalist",
+        "title": "Fotojournalist",
+        "interesse": ["media", "foto", "film og tv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fotterapeut",
+        "title": "Fotterapeut",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_frisor",
+        "title": "Fris\u00f8r",
+        "interesse": ["hud og h\u00e5r", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fuoperator",
+        "title": "FU-operat\u00f8r",
+        "interesse": ["marine fag", "olje og gass", "elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fylkesjordsjef",
+        "title": "Fylkesjordsjef",
+        "interesse": ["jordbruk (inkl dyrehold)", "landbruk", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fylkesskogmester",
+        "title": "Fylkesskogmester",
+        "interesse": ["skogbruk", "landbruk", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fylkesskogsjef",
+        "title": "Fylkesskogsjef",
+        "interesse": ["skogbruk", "landbruk", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fysikalsk_medisiner",
+        "title": "Fysikalsk medisiner",
+        "interesse": ["medisin", "helse", "behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fysiker",
+        "title": "Fysiker",
+        "interesse": ["fysikk", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fysioterapeut",
+        "title": "Fysioterapeut",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forerhundtrener",
+        "title": "F\u00f8rerhundtrener",
+        "interesse": ["dyr", "pedagogikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_forsteamanuensis",
+        "title": "F\u00f8rsteamanuensis",
+        "interesse": ["forskning", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_garnframstiller",
+        "title": "Garnframstiller",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gartner",
+        "title": "Gartner",
+        "interesse": ["gartneri og hage", "landbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_garver",
+        "title": "Garver",
+        "interesse": ["h\u00e5ndverk", "tekstil", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_geofysiker",
+        "title": "Geofysiker",
+        "interesse": ["geofag", "fysikk", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_geograf",
+        "title": "Geograf",
+        "interesse": ["geofag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_geokjemiker",
+        "title": "Geokjemiker",
+        "interesse": ["geofag", "kjemi", "realfag", "olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_geolog",
+        "title": "Geolog",
+        "interesse": ["geofag", "realfag", "olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_geriater",
+        "title": "Geriater",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gestaltterapeut",
+        "title": "Gestaltterapeut",
+        "interesse": ["alternativ behandling", "terapi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gipsmaker",
+        "title": "Gipsmaker",
+        "interesse": ["design", "h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gjenvinningsoperator",
+        "title": "Gjenvinningsoperat\u00f8r",
+        "interesse": ["renhold"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gjortler",
+        "title": "Gj\u00f8rtler",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "metall"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_glassfagarbeider",
+        "title": "Glassfagarbeider",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_glasshandverker",
+        "title": "Glassh\u00e5ndverker",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "kunst",
+          "design"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_grafisk_designer",
+        "title": "Grafisk designer",
+        "interesse": [
+          "design",
+          "media",
+          "web, animasjon, spill",
+          "tegning",
+          "data"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gravferdskonsulent",
+        "title": "Gravferdskonsulent",
+        "interesse": ["omsorg", "kontor og sekret\u00e6r", "religion"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gravor",
+        "title": "Grav\u00f8r",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_grunder",
+        "title": "Gr\u00fcnder",
+        "interesse": ["ledelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_grunnskolelarer",
+        "title": "Grunnskolel\u00e6rer",
+        "interesse": ["pedagogikk", "barn", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_guide",
+        "title": "Guide",
+        "interesse": ["reiseliv", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gullsmed",
+        "title": "Gullsmed",
+        "interesse": ["design", "kunst", "h\u00e5ndverk", "metall"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_gynekolog",
+        "title": "Gynekolog",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_handbokbinder",
+        "title": "H\u00e5ndbokbinder",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_handvever",
+        "title": "H\u00e5ndvever",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "tekstil",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "kunst"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_havbunnsinstallator",
+        "title": "Havbunnsinstallat\u00f8r",
+        "interesse": ["olje og gass", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_havforsker",
+        "title": "Havforsker",
+        "interesse": [
+          "marine fag",
+          "realfag",
+          "geofag",
+          "fysikk",
+          "kjemi",
+          "biologi"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_havnesjef",
+        "title": "Havnesjef",
+        "interesse": ["maritimt", "transport", "logistikk", "ledelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_heismontor",
+        "title": "Heismont\u00f8r",
+        "interesse": ["elektro", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_helpdeskmedarbeider",
+        "title": "Helpdeskmedarbeider",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_helsefagarbeider",
+        "title": "Helsefagarbeider",
+        "interesse": ["helse", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_helsesekretar",
+        "title": "Helsesekret\u00e6r",
+        "interesse": [
+          "kontor og sekret\u00e6r",
+          "helseadministrasjon",
+          "helse"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_helsesoster",
+        "title": "Helses\u00f8ster",
+        "interesse": ["helse", "pleie", "barn", "barnehelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hematolog",
+        "title": "Hematolog",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_herreskredder",
+        "title": "Herreskredder",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "tekstil",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hestefaglart",
+        "title": "Hestefagl\u00e6rt",
+        "interesse": ["dyr", "landbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_historiker",
+        "title": "Historiker",
+        "interesse": ["historie", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hjemmehjelp",
+        "title": "Hjemmehjelp",
+        "interesse": ["helse", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hjul_reparator",
+        "title": "Hjulutrustningsreparat\u00f8r",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hmsingenior",
+        "title": "HMS-ingeni\u00f8r",
+        "interesse": [
+          "realfag",
+          "helse",
+          "ingeni\u00f8r",
+          "beredskap og sikkerhet"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_homeopat",
+        "title": "Homeopat",
+        "interesse": ["alternativ behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hotelldirektor",
+        "title": "Hotelldirekt\u00f8r",
+        "interesse": ["hotell", "\u00f8konomi", "ledelse", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hotellmedarbeider",
+        "title": "Hotellmedarbeider",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hovmester",
+        "title": "Hovmester",
+        "interesse": ["mat", "restaurant", "hotell", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hovslager",
+        "title": "Hovslager",
+        "interesse": ["dyr", "h\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hudlege",
+        "title": "Hudlege",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hudpleier",
+        "title": "Hudpleier",
+        "interesse": ["hud og h\u00e5r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_husokonom",
+        "title": "Hus\u00f8konom",
+        "interesse": ["\u00f8konomi", "hotell", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_hydrolog",
+        "title": "Hydrolog",
+        "interesse": ["realfag", "geofag", "marine fag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_idrettskonsulent",
+        "title": "Idrettskonsulent",
+        "interesse": ["idrett", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_idrettstrener",
+        "title": "Idrettstrener",
+        "interesse": ["pedagogikk", "barn", "idrett", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_idrettsutover",
+        "title": "Idrettsut\u00f8ver",
+        "interesse": ["idrett"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ikt_service",
+        "title": "IKT-servicemedarbeider",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_illustrator",
+        "title": "Illustrat\u00f8r",
+        "interesse": ["design", "kunst", "media", "web, animasjon, spill"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_indremedisiner",
+        "title": "Indremedisiner",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_design",
+        "title": "Industridesigner",
+        "interesse": ["design", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_overflate",
+        "title": "Industriell overflatebehandler ",
+        "interesse": ["bygg og anlegg", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_maler",
+        "title": "Industrimaler",
+        "interesse": ["industri", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_mekaniker",
+        "title": "Industrimekaniker",
+        "interesse": ["mekanikk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_montor",
+        "title": "Industrimont\u00f8r",
+        "interesse": ["industri", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_rorlegger",
+        "title": "Industrir\u00f8rlegger",
+        "interesse": ["industri", "bygg og anlegg", "bygningsh\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_snekker",
+        "title": "Industrisnekker",
+        "interesse": ["industri", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ind_tapet",
+        "title": "Industritapetserer",
+        "interesse": ["industri", "bygg og anlegg", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ingenior",
+        "title": "Ingeni\u00f8r",
+        "interesse": ["ingeni\u00f8r", "realfag", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ingenior_enok",
+        "title": "Ingeni\u00f8r i energi og milj\u00f8 i bygg",
+        "interesse": ["ingeni\u00f8r", "milj\u00f8", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_inspisient",
+        "title": "Inspisient",
+        "interesse": ["kultur", "drama og teater", "logistikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_institusjonskokk",
+        "title": "Institusjonskokk",
+        "interesse": ["mat", "restaurant", "hotell"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_instrumentalpedagog",
+        "title": "Instrumentalpedagog",
+        "interesse": ["musikk", "pedagogikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_intensivsykepleier",
+        "title": "Intensivsykepleier",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_interaksjonsdesigner",
+        "title": "Interaksjonsdesigner",
+        "interesse": ["data", "design", "web, animasjon, spill"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_interiorarkitekt",
+        "title": "Interi\u00f8rarkitekt",
+        "interesse": ["arkitektur", "design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_interiorkonsulent",
+        "title": "Interi\u00f8rkonsulent",
+        "interesse": ["design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_isolator",
+        "title": "Isolat\u00f8r",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_itadministrator",
+        "title": "IT-administrator",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_itkonsulent",
+        "title": "IT-konsulent",
+        "interesse": ["data"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_jordbrukssjef",
+        "title": "Jordbrukssjef",
+        "interesse": ["landbruk", "forvaltning", "jordbruk (inkl dyrehold)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_jordmor",
+        "title": "Jordmor",
+        "interesse": ["helse", "pleie", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_journalist",
+        "title": "Journalist",
+        "interesse": ["media", "samfunn", "formidling", "spr\u00e5k", "foto"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_jurist",
+        "title": "Jurist",
+        "interesse": ["lov og orden", "juss"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kabin_fly",
+        "title": "Kabinbesetning fly",
+        "interesse": ["transport", "fly", "service", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kantinemedarbeider",
+        "title": "Kantinemedarbeider",
+        "interesse": ["mat", "salg", "restaurant"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kaptein",
+        "title": "Kaptein",
+        "interesse": ["maritimt"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kardiolog",
+        "title": "Kardiolog",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_karriereveileder",
+        "title": "Karriereveileder",
+        "interesse": ["pedagogikk", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kateket",
+        "title": "Kateket",
+        "interesse": ["pedagogikk", "barn", "religion", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_keramiker",
+        "title": "Keramiker",
+        "interesse": [
+          "design",
+          "kunst",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kirketjener",
+        "title": "Kirketjener",
+        "interesse": ["religion", "kontor og sekret\u00e6r", "renhold"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kirkeverge",
+        "title": "Kirkeverge",
+        "interesse": ["religion", "kontor og sekret\u00e6r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kiropraktor",
+        "title": "Kiropraktor",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kirurg",
+        "title": "Kirurg",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kjemiingenior",
+        "title": "Kjemiingeni\u00f8r",
+        "interesse": ["kjemi", "ingeni\u00f8r", "realfag", "olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kjemiker",
+        "title": "Kjemiker",
+        "interesse": ["kjemi", "realfag", "olje og gass"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kjeveortoped",
+        "title": "Kjeveortoped",
+        "interesse": ["tannhelse", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kjole_draktsyer",
+        "title": "Kjole- og draktsyer",
+        "interesse": ["design", "tekstil", "h\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kjokkensjef",
+        "title": "Kj\u00f8kkensjef",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kjottskjarer",
+        "title": "Kj\u00f8ttskj\u00e6rer",
+        "interesse": ["mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_klesdesigner",
+        "title": "Klesdesigner",
+        "interesse": ["design", "h\u00e5ndverk", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ernaringsfys",
+        "title": "Klinisk ern\u00e6ringsfysiolog",
+        "interesse": ["ern\u00e6ring", "mat", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_klinisk_sosionom",
+        "title": "Klinisk sosionom",
+        "interesse": ["sosialfag", "helse", "terapi", "psykisk helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kokk",
+        "title": "Kokk",
+        "interesse": ["mat", "restaurant", "hotell", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kom_radgiver",
+        "title": "Kommunikasjonsr\u00e5dgiver",
+        "interesse": ["media", "spr\u00e5k", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_komponist",
+        "title": "Komponist",
+        "interesse": ["musikk", "kultur", "kunst"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_komposittbatbygger",
+        "title": "Komposittb\u00e5tbygger",
+        "interesse": ["maritimt", "h\u00e5ndverk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_konditor",
+        "title": "Konditor",
+        "interesse": ["mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_konduktor",
+        "title": "Kondukt\u00f8r",
+        "interesse": ["transport", "tog", "service", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_konservator",
+        "title": "Konservator",
+        "interesse": ["historie", "kultur", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_konsulent",
+        "title": "Konsulent",
+        "interesse": ["samfunn", "\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_byrakrat",
+        "title": "Konsulent i offentlig sektor",
+        "interesse": ["samfunn", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kontor",
+        "title": "Kontor- og administrasjonsmedarbeider",
+        "interesse": ["kontor og sekret\u00e6r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_koreograf",
+        "title": "Koreograf",
+        "interesse": ["musikk", "kultur", "drama og teater", "film og tv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kosmetolog",
+        "title": "Kosmetolog",
+        "interesse": ["hud og h\u00e5r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kostymesyer",
+        "title": "Kostymesyer",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "tekstil",
+          "drama og teater",
+          "film og tv",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kostokonom",
+        "title": "Kost\u00f8konom",
+        "interesse": [
+          "mat",
+          "ern\u00e6ring",
+          "restaurant",
+          "hotell",
+          "\u00f8konomi"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kranforer",
+        "title": "Kranf\u00f8rer",
+        "interesse": ["bygg og anlegg", "transport"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kreftsykepleier",
+        "title": "Kreftsykepleier",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kriminolog",
+        "title": "Kriminolog",
+        "interesse": ["samfunn", "lov og orden", "samfunnsvitenskap"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kulde_mont",
+        "title": "Kulde- og varmepumpemont\u00f8r",
+        "interesse": ["elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kulturviter",
+        "title": "Kulturhistoriker / kulturviter",
+        "interesse": ["kultur", "samfunn", "historie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_bank_rad",
+        "title": "Kunder\u00e5dgiver i bank",
+        "interesse": ["\u00f8konomi", "kontor og sekret\u00e6r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kunst_kulturformidler",
+        "title": "Kunst- og kulturformidler",
+        "interesse": ["kunst", "kultur", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kunsthandverker",
+        "title": "Kunsth\u00e5ndverker",
+        "interesse": ["design", "kunst", "h\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kunsthistoriker",
+        "title": "Kunsthistoriker",
+        "interesse": ["kunst", "historie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kunstner",
+        "title": "Kunstner",
+        "interesse": ["kunst", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kurator",
+        "title": "Kurator",
+        "interesse": ["kunst", "kultur", "historie", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kurvmaker",
+        "title": "Kurvmaker",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_kystskipper",
+        "title": "Kystskipper",
+        "interesse": ["maritimt", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_laborant",
+        "title": "Laborant",
+        "interesse": ["kjemi", "realfag", "biologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_landbruk_mek",
+        "title": "Landbruksmaskinmekaniker",
+        "interesse": ["mekanikk", "landbruk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_landbruksradgiver",
+        "title": "Landbruksr\u00e5dgiver",
+        "interesse": ["landbruk", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_landmaler",
+        "title": "Landm\u00e5ler",
+        "interesse": ["realfag", "bygg og anlegg", "geofag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_landskapsarkitekt",
+        "title": "Landskapsarkitekt",
+        "interesse": ["arkitektur", "bygg og anlegg", "gartneri og hage"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lasesmed",
+        "title": "L\u00e5sesmed",
+        "interesse": ["elektro", "beredskap og sikkerhet", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_leder",
+        "title": "Leder",
+        "interesse": ["ledelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lege",
+        "title": "Lege",
+        "interesse": ["medisin", "helse", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_legemiddelkons",
+        "title": "Legemiddelkonsulent",
+        "interesse": ["helse", "salg", "apotek"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lektor",
+        "title": "Lektor",
+        "interesse": ["pedagogikk", "undervisning", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_limnolog",
+        "title": "Limnolog",
+        "interesse": ["biologi", "realfag", "marine fag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_litteraturviter",
+        "title": "Litteraturviter",
+        "interesse": ["kultur", "spr\u00e5k", "historie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_logistikkoperator",
+        "title": "Logistikkoperat\u00f8r",
+        "interesse": ["logistikk", "transport"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_logoped",
+        "title": "Logoped",
+        "interesse": [
+          "spr\u00e5k",
+          "pedagogikk",
+          "barn",
+          "helse",
+          "behandling"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lokomotivforer",
+        "title": "Lokomotivf\u00f8rer",
+        "interesse": ["transport", "tog", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_los",
+        "title": "Los",
+        "interesse": ["maritimt", "beredskap og sikkerhet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lufthavnbetjent",
+        "title": "Lufthavnbetjent",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_legespesialist_lunge",
+        "title": "Lungespesialist",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lydkunstner",
+        "title": "Lydkunstner",
+        "interesse": ["kunst", "musikk", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lydtekniker",
+        "title": "Lydtekniker",
+        "interesse": ["elektro", "musikk", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_lystekniker",
+        "title": "Lystekniker",
+        "interesse": ["elektro", "kultur", "drama og teater", "film og tv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_larer",
+        "title": "L\u00e6rer",
+        "interesse": ["realfag", "pedagogikk", "barn", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_maler",
+        "title": "Maler",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mammalog",
+        "title": "Mammalog",
+        "interesse": ["dyr", "biologi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_manuellterapeut",
+        "title": "Manuellterapeut",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_marin_bioteknolog",
+        "title": "Marin bioteknolog",
+        "interesse": [
+          "kjemi",
+          "biologi",
+          "teknologi",
+          "realfag",
+          "ingeni\u00f8r"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_marinbiolog",
+        "title": "Marinbiolog",
+        "interesse": ["biologi", "marine fag", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_markedsanalytiker",
+        "title": "Markedsanalytiker",
+        "interesse": ["finans", "\u00f8konomi", "marked"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_markedsforer",
+        "title": "Markedsf\u00f8ringskonsulent",
+        "interesse": ["salg", "marked", "media"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_markedssjef",
+        "title": "Markedssjef",
+        "interesse": ["marked", "\u00f8konomi", "salg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_maskiningenior",
+        "title": "Maskiningeni\u00f8r",
+        "interesse": ["ingeni\u00f8r", "mekanikk", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_maskinist",
+        "title": "Maskinist",
+        "interesse": ["maritimt", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_maskinsjef",
+        "title": "Maskinsjef",
+        "interesse": ["maritimt", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_maskor_parykk",
+        "title": "Mask\u00f8r- og parykkmaker",
+        "interesse": [
+          "hud og h\u00e5r",
+          "drama og teater",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_massasjeterapeut",
+        "title": "Massasjeterapeut",
+        "interesse": ["behandling", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_matematiker",
+        "title": "Matematiker",
+        "interesse": ["matematikk", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_matros",
+        "title": "Matros",
+        "interesse": ["maritimt", "fiskeri og havbruk", "transport"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_matteknolog",
+        "title": "Matteknolog",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mediedesigner",
+        "title": "Mediedesigner",
+        "interesse": ["media", "design", "web, animasjon, spill"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mediegrafiker",
+        "title": "Mediegrafiker",
+        "interesse": ["media", "design", "web, animasjon, spill"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_megler",
+        "title": "Megler",
+        "interesse": ["finans"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mekaniker",
+        "title": "Mekaniker",
+        "interesse": ["mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_menighetspedagog",
+        "title": "Menighetspedagog",
+        "interesse": ["religion", "pedagogikk", "undervisning", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_meteorolog",
+        "title": "Meteorolog",
+        "interesse": ["realfag", "fysikk", "milj\u00f8"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mikrobiolog",
+        "title": "Mikrobiolog",
+        "interesse": ["biologi", "kjemi", "realfag", "helse", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_miljoarbeider",
+        "title": "Milj\u00f8arbeider",
+        "interesse": ["helse", "barn", "omsorg", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_miljoradgiver",
+        "title": "Milj\u00f8r\u00e5dgiver",
+        "interesse": ["samfunn", "milj\u00f8"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_miljoterapeut",
+        "title": "Milj\u00f8terapeut",
+        "interesse": ["helse", "barn", "omsorg", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_misjonar",
+        "title": "Misjon\u00e6r",
+        "interesse": ["religion", "utlandet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_modell",
+        "title": "Modell",
+        "interesse": ["hud og h\u00e5r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_modellbygger",
+        "title": "Modellbygger",
+        "interesse": ["industri", "metall", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_modist",
+        "title": "Modist",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_motormann",
+        "title": "Motormann",
+        "interesse": ["maritimt", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_motormekaniker",
+        "title": "Motormekaniker",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_motorsykkelmek",
+        "title": "Motorsykkelmekaniker",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_murer",
+        "title": "Murer",
+        "interesse": ["bygg og anlegg", "h\u00e5ndverk", "konstruksjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_museumsformidler",
+        "title": "Museumsformidler",
+        "interesse": ["kunst", "kultur", "historie", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_musiker",
+        "title": "Musiker",
+        "interesse": ["musikk", "kultur", "kunst"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_musikkpedagog",
+        "title": "Musikkpedagog",
+        "interesse": [
+          "kunst",
+          "musikk",
+          "kultur",
+          "pedagogikk",
+          "undervisning"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_musikkprodusent",
+        "title": "Musikkprodusent",
+        "interesse": ["musikk", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_musikkterapeut",
+        "title": "Musikkterapeut",
+        "interesse": ["musikk", "helse", "terapi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mykolog",
+        "title": "Mykolog",
+        "interesse": ["biologi", "realfag", "gartneri og hage"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mobeldesigner",
+        "title": "M\u00f8beldesigner",
+        "interesse": ["design", "h\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mobelsnekker",
+        "title": "M\u00f8belsnekker",
+        "interesse": ["h\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_mobeltapetserer",
+        "title": "M\u00f8beltapetserer",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_naprapat",
+        "title": "Naprapat",
+        "interesse": ["helse", "behandling", "alternativ behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_naturforvalter",
+        "title": "Naturforvalter",
+        "interesse": ["landbruk", "milj\u00f8", "forvaltning", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nautisk_instrument",
+        "title": "Nautisk instrumentmaker",
+        "interesse": ["mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ndtkontrollor",
+        "title": "NDT-kontroll\u00f8r",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_negledesigner",
+        "title": "Negledesigner",
+        "interesse": ["design", "hud og h\u00e5r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nettverksadm",
+        "title": "Nettverksadministrator",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nevrokirurg",
+        "title": "Nevrokirurg",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nevrolog",
+        "title": "Nevrolog",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nevrosykepleier",
+        "title": "Nevrosykepleier",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nuklearmedisiner",
+        "title": "Nukle\u00e6rmedisiner",
+        "interesse": ["medisin", "helse", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_nyrelege",
+        "title": "Nyrelege",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_naringsmiddeltekinker",
+        "title": "N\u00e6ringsmiddeltekniker",
+        "interesse": ["helse", "mat", "kjemi", "landbruk", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_naringsmiddeltek",
+        "title": "N\u00e6ringsmiddelteknolog",
+        "interesse": ["helse", "mat", "kjemi", "landbruk", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_obduksjonstek",
+        "title": "Obduksjonstekniker",
+        "interesse": ["helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_onkolog",
+        "title": "Onkolog",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_operasjonssykepleier",
+        "title": "Operasjonssykepleier",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_optiker",
+        "title": "Optiker",
+        "interesse": ["helse", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_optroniker",
+        "title": "Optroniker",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "mekanikk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_orgelbygger",
+        "title": "Orgelbygger",
+        "interesse": ["musikk", "h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ornitolog",
+        "title": "Ornitolog",
+        "interesse": ["dyr"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ortoped",
+        "title": "Ortoped",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ortopediingenior",
+        "title": "Ortopediingeni\u00f8r",
+        "interesse": ["behandling", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ortopeditekniker",
+        "title": "Ortopeditekniker",
+        "interesse": ["helse", "h\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ortoptist",
+        "title": "Ortoptist",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_oseanograf",
+        "title": "Oseanograf",
+        "interesse": ["marine fag", "biologi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_osteopat",
+        "title": "Osteopat",
+        "interesse": ["alternativ behandling", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_oversetter",
+        "title": "Oversetter",
+        "interesse": ["spr\u00e5k", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_overstyrmann",
+        "title": "Overstyrmann",
+        "interesse": ["maritimt"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_paleontolog",
+        "title": "Paleontolog",
+        "interesse": ["biologi", "geofag", "forskning", "historie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_patolog",
+        "title": "Patolog",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_pedagog",
+        "title": "Pedagog",
+        "interesse": ["pedagogikk", "barn", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ppradgiver",
+        "title": "Pedagogisk-psykologisk r\u00e5dgiver (PP-r\u00e5dgiver)",
+        "interesse": ["undervisning", "barn", "pedagogikk", "psykisk helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_perfusjonist",
+        "title": "Perfusjonist",
+        "interesse": ["helse", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_personalradgiver",
+        "title": "Personalr\u00e5dgiver",
+        "interesse": ["\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_personalsjef",
+        "title": "Personalsjef",
+        "interesse": ["forvaltning", "ledelse", "\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_personlig_ass",
+        "title": "Personlig assistent",
+        "interesse": ["helse", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_personlig_trener",
+        "title": "Personlig trener",
+        "interesse": ["idrett", "ern\u00e6ring"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_petroleum_ing",
+        "title": "Petroleumsingeni\u00f8r",
+        "interesse": ["olje og gass", "ingeni\u00f8r", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_pianostemmer",
+        "title": "Pianostemmer",
+        "interesse": ["musikk", "h\u00e5ndverk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_pikkolo",
+        "title": "Pikkolo",
+        "interesse": ["hotell", "service", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_pilot",
+        "title": "Pilot",
+        "interesse": ["transport", "fly", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_planteinspektor",
+        "title": "Planteinspekt\u00f8r",
+        "interesse": ["mat", "kjemi", "landbruk", "gartneri og hage"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_planteviter",
+        "title": "Planteviter",
+        "interesse": ["gartneri og hage", "landbruk", "biologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_plastikkirurg",
+        "title": "Plastikkirurg",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_plastmekaniker",
+        "title": "Plastmekaniker",
+        "interesse": ["mekanikk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_platearbeider",
+        "title": "Platearbeider",
+        "interesse": [
+          "bygg og anlegg",
+          "metall",
+          "h\u00e5ndverk",
+          "konstruksjon"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_pleiemedarbeider",
+        "title": "Pleiemedarbeider ",
+        "interesse": ["omsorg", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_politi",
+        "title": "Politi",
+        "interesse": ["lov og orden", "beredskap og sikkerhet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_politibetjent",
+        "title": "Politibetjent",
+        "interesse": ["lov og orden", "beredskap og sikkerhet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_politijurist",
+        "title": "Politijurist",
+        "interesse": ["lov og orden", "juss", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_politiker",
+        "title": "Politiker",
+        "interesse": ["samfunn", "lov og orden"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_portor",
+        "title": "Port\u00f8r",
+        "interesse": ["helse", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_postbud",
+        "title": "Postbud",
+        "interesse": ["transport", "logistikk", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_prest",
+        "title": "Prest",
+        "interesse": ["religion", "omsorg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_prod_elektro",
+        "title": "Produksjonselektroniker",
+        "interesse": ["elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_produksjonstekniker",
+        "title": "Produksjonstekniker",
+        "interesse": ["industri", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fiskefor",
+        "title": "Produktutvikler fiskef\u00f4r",
+        "interesse": ["industri", "maritimt", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_professor",
+        "title": "Professor",
+        "interesse": ["forskning", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_profileringsdesigner",
+        "title": "Profileringsdesigner ",
+        "interesse": ["design", "media"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_prosessingenior",
+        "title": "Prosessingeni\u00f8r",
+        "interesse": ["teknologi", "olje og gass", "realfag", "ingeni\u00f8r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_prosesstekniker",
+        "title": "Prosesstekniker",
+        "interesse": ["elektro", "olje og gass", "kjemi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_prosjektleder",
+        "title": "Prosjektleder",
+        "interesse": ["ledelse", "bygg og anlegg", "data"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_provisorfarmasoyt",
+        "title": "Provisorfarmas\u00f8yt",
+        "interesse": ["helse", "apotek"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_psykiater",
+        "title": "Psykiater",
+        "interesse": ["helse", "medisin", "psykisk helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_psykolog",
+        "title": "Psykolog",
+        "interesse": ["helse", "psykisk helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_psykoterapeut",
+        "title": "Psykoterapeut",
+        "interesse": ["psykisk helse", "helse", "terapi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_polsemaker",
+        "title": "P\u00f8lsemaker",
+        "interesse": ["mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_radgiver_off",
+        "title": "R\u00e5dgiver i offentlig sektor",
+        "interesse": ["samfunn", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_radiograf",
+        "title": "Radiograf",
+        "interesse": ["helse", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_radiolog",
+        "title": "Radiolog",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_redaktor",
+        "title": "Redakt\u00f8r",
+        "interesse": ["media", "spr\u00e5k", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_regissor",
+        "title": "Regiss\u00f8r",
+        "interesse": ["kunst", "kultur", "drama og teater"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_regnskapsforer",
+        "title": "Regnskapsf\u00f8rer",
+        "interesse": ["\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_reindriftsutover",
+        "title": "Reindriftsut\u00f8ver",
+        "interesse": ["dyr", "landbruk", "jordbruk (inkl dyrehold)", "mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_reiseleder",
+        "title": "Reiseleder",
+        "interesse": ["reiseliv", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_reiseliv",
+        "title": "Reiselivsmedarbeider",
+        "interesse": ["reiseliv", "salg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_rekvisitor",
+        "title": "Rekvisit\u00f8r",
+        "interesse": [
+          "design",
+          "kultur",
+          "h\u00e5ndverk",
+          "drama og teater",
+          "film og tv"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_renholdsoperator",
+        "title": "Renholdsoperat\u00f8r",
+        "interesse": ["renhold"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_repslager",
+        "title": "Repslager",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_resepsjonist",
+        "title": "Resepsjonist",
+        "interesse": ["service", "hotell", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_reseptarfarmasoyt",
+        "title": "Reseptarfarmas\u00f8yt",
+        "interesse": ["helse", "apotek"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_reservedelseksp",
+        "title": "Reservedelsekspedit\u00f8r",
+        "interesse": ["kj\u00f8ret\u00f8y", "salg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_revisor",
+        "title": "Revisor",
+        "interesse": ["\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_revmatolog",
+        "title": "Revmatolog",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_ridelarer",
+        "title": "Ridel\u00e6rer",
+        "interesse": ["dyr", "undervisning", "barn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_romteknolog",
+        "title": "Romteknolog",
+        "interesse": ["elektro", "realfag", "teknologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_rokter",
+        "title": "R\u00f8kter",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_rorlegger",
+        "title": "R\u00f8rlegger",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_roykdykker",
+        "title": "R\u00f8ykdykker",
+        "interesse": ["beredskap og sikkerhet", "lov og orden"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_saksbehandler",
+        "title": "Saksbehandler",
+        "interesse": ["forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_salgsmedarbeider",
+        "title": "Salgsmedarbeider",
+        "interesse": ["salg", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_salgssjef",
+        "title": "Salgssjef",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_salmaker",
+        "title": "Salmaker",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_samfunnsgeograf",
+        "title": "Samfunnsgeograf",
+        "interesse": ["geofag", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_samfunnsmedisiner",
+        "title": "Samfunnsmedisiner",
+        "interesse": ["medisin", "helse", "samfunn"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_samfunnsplanlegger",
+        "title": "Samfunnsplanlegger",
+        "interesse": ["samfunn", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_samfunnsokonom",
+        "title": "Samfunns\u00f8konom",
+        "interesse": ["\u00f8konomi", "samfunn", "forvaltning", "matematikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sanger",
+        "title": "Sanger",
+        "interesse": ["kunst", "musikk", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sangpedagog",
+        "title": "Sangpedagog",
+        "interesse": [
+          "kunst",
+          "musikk",
+          "kultur",
+          "pedagogikk",
+          "undervisning"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_scenograf",
+        "title": "Scenograf",
+        "interesse": ["design", "kultur", "drama og teater", "film og tv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_seilmaker",
+        "title": "Seilmaker",
+        "interesse": ["tekstil", "h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sekretar",
+        "title": "Sekret\u00e6r",
+        "interesse": ["kontor og sekret\u00e6r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_serigraf",
+        "title": "Serigraf",
+        "interesse": ["h\u00e5ndverk", "industri"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_servitor",
+        "title": "Servit\u00f8r",
+        "interesse": ["mat", "service", "hotell", "restaurant", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_signalmontor",
+        "title": "Signalmont\u00f8r",
+        "interesse": ["elektro", "tog"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sivilingenior",
+        "title": "Sivilingeni\u00f8r",
+        "interesse": ["realfag", "teknologi", "ingeni\u00f8r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sivilokonom",
+        "title": "Sivil\u00f8konom",
+        "interesse": ["\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sjafor",
+        "title": "Sj\u00e5f\u00f8r",
+        "interesse": ["transport", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sjomathandler",
+        "title": "Sj\u00f8mathandler",
+        "interesse": ["salg", "mat", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skadedyrbekjemper",
+        "title": "Skadedyrbekjemper",
+        "interesse": ["helse", "mat", "kjemi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_fiskeskipper",
+        "title": "Skipper p\u00e5 fiskefart\u00f8y",
+        "interesse": ["maritimt", "fiskeri og havbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skipsmegler",
+        "title": "Skipsmegler",
+        "interesse": ["\u00f8konomi", "finans", "maritimt"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skofag",
+        "title": "Skofagoperat\u00f8r",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skogbruksleder",
+        "title": "Skogbruksleder",
+        "interesse": ["skogbruk", "landbruk", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skogbrukssjef",
+        "title": "Skogbrukssjef",
+        "interesse": ["skogbruk", "landbruk", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skogsoperator",
+        "title": "Skogsoperat\u00f8r",
+        "interesse": ["skogbruk", "landbruk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skoleassistent",
+        "title": "Skoleassistent",
+        "interesse": ["pedagogikk", "barn", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sfo",
+        "title": "Skolefritidsleder (SFO)",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skomaker",
+        "title": "Skomaker",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skriftgransker",
+        "title": "Skriftgransker",
+        "interesse": ["lov og orden"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_skuespiller",
+        "title": "Skuespiller",
+        "interesse": ["drama og teater", "film og tv", "kultur", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_slakter",
+        "title": "Slakter",
+        "interesse": ["mat"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_smed",
+        "title": "Smed",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "metall"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sminkor",
+        "title": "Smink\u00f8r",
+        "interesse": ["hud og h\u00e5r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_soneterapeut",
+        "title": "Soneterapeut",
+        "interesse": ["alternativ behandling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sosialantropolog",
+        "title": "Sosialantropolog",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sosiolog",
+        "title": "Sosiolog",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sosionom",
+        "title": "Sosionom",
+        "interesse": ["helse", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_speditor",
+        "title": "Spedit\u00f8r",
+        "interesse": ["logistikk", "transport"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_legespesialist_ford",
+        "title": "Spesialist i ford\u00f8yelsessykdommer",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_spesialpedagog",
+        "title": "Spesialpedagog",
+        "interesse": ["pedagogikk", "barn", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_spilldesigner",
+        "title": "Spilldesigner",
+        "interesse": ["data", "web, animasjon, spill", "design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_spillprogrammerer",
+        "title": "Spillprogrammerer",
+        "interesse": ["teknologi", "web, animasjon, spill", "data", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sportsdommer",
+        "title": "Sportsdommer",
+        "interesse": ["idrett"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_statistiker",
+        "title": "Statistiker",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_statsviter",
+        "title": "Statsviter",
+        "interesse": ["samfunn", "samfunnsvitenskap", "forvaltning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_steinfagarbeider",
+        "title": "Steinfagarbeider",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_stillasbygger",
+        "title": "Stillasbygger",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_stipendiat",
+        "title": "Stipendiat",
+        "interesse": ["forskning", "undervisning"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_storurmaker",
+        "title": "Storurmaker",
+        "interesse": [
+          "mekanikk",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_strikkehandverker",
+        "title": "Strikkeh\u00e5ndverker",
+        "interesse": ["h\u00e5ndverk", "tekstil", "design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_studiekonsulent",
+        "title": "Studiekonsulent",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_styrmann",
+        "title": "Styrmann",
+        "interesse": ["maritimt"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_stoper",
+        "title": "St\u00f8per",
+        "interesse": ["industri", "metall", "mekanikk"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_stottekontakt",
+        "title": "St\u00f8ttekontakt",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sveiser",
+        "title": "Sveiser",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "metall",
+          "konstruksjon"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_sykepleier",
+        "title": "Sykepleier",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_solvsmed",
+        "title": "S\u00f8lvsmed",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall",
+          "design"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_taksidermist",
+        "title": "Taksidermist",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_takstmann",
+        "title": "Takstmann",
+        "interesse": ["\u00f8konomi", "bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_taktekker",
+        "title": "Taktekker",
+        "interesse": [
+          "bygg og anlegg",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tannhelsesekretar",
+        "title": "Tannhelsesekret\u00e6r",
+        "interesse": ["helse", "tannhelse", "kontor og sekret\u00e6r"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tannlege",
+        "title": "Tannlege",
+        "interesse": ["helse", "tannhelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tannpleier",
+        "title": "Tannpleier",
+        "interesse": ["helse", "tannhelse", "helseadministrasjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tanntekniker",
+        "title": "Tanntekniker",
+        "interesse": ["helse", "tannhelse", "helseadministrasjon"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tavlemontor",
+        "title": "Tavlemont\u00f8r",
+        "interesse": ["elektro", "data"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_taxisjafor",
+        "title": "Taxisj\u00e5f\u00f8r",
+        "interesse": ["transport", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tegnspraktolk",
+        "title": "Tegnspr\u00e5ktolk",
+        "interesse": ["spr\u00e5k", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_teknisk_forfatter",
+        "title": "Teknisk forfatter",
+        "interesse": ["spr\u00e5k", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_teknisk_tegner",
+        "title": "Teknisk tegner",
+        "interesse": ["bygg og anlegg", "arkitektur", "data"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tekstforfatter",
+        "title": "Tekstforfatter",
+        "interesse": ["spr\u00e5k", "formidling", "film og tv", "media"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tekstilrenser",
+        "title": "Tekstilrenser",
+        "interesse": ["renhold", "tekstil"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_telefonselger",
+        "title": "Telefonselger",
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_telemontor",
+        "title": "Telekommunikasjonsmont\u00f8r",
+        "interesse": ["elektro", "data"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_terapeut",
+        "title": "Terapeut",
+        "interesse": ["behandling", "terapi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_thoraxkirurg",
+        "title": "Thoraxkirurg",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tilkomsttekniker",
+        "title": "Tilkomsttekniker",
+        "interesse": ["bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_togelektriker",
+        "title": "Togelektriker",
+        "interesse": ["elektro", "tog"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_togleder",
+        "title": "Togleder",
+        "interesse": ["transport", "tog", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tolk",
+        "title": "Tolk",
+        "interesse": ["spr\u00e5k", "formidling"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_toller",
+        "title": "Toller",
+        "interesse": ["lov og orden", "beredskap og sikkerhet"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_trafikklarer",
+        "title": "Trafikkl\u00e6rer",
+        "interesse": ["transport", "undervisning", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_trebatbygger",
+        "title": "Treb\u00e5tbygger",
+        "interesse": ["maritimt", "h\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tredreier",
+        "title": "Tredreier",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "trearbeid"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_treskjarer",
+        "title": "Treskj\u00e6rer",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "trearbeid",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "kunst"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_trevaresnekker",
+        "title": "Trevaresnekker",
+        "interesse": ["bygg og anlegg", "h\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_trikkeforer",
+        "title": "Trikkef\u00f8rer ",
+        "interesse": ["transport", "tog", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tvfotograf",
+        "title": "TV-fotograf",
+        "interesse": ["media", "film og tv", "foto"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_tomrer",
+        "title": "T\u00f8mrer",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_undervisningsinsp",
+        "title": "Undervisningsinspekt\u00f8r",
+        "interesse": ["pedagogikk", "barn", "undervisning", "ledelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_urmaker",
+        "title": "Urmaker",
+        "interesse": [
+          "mekanikk",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_urolog",
+        "title": "Urolog",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_utmarkskonsulent",
+        "title": "Utmarkskonsulent",
+        "interesse": ["landbruk", "skogbruk", "forvaltning", "dyr"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_utstillingsdesigner",
+        "title": "Utstillingsdesigner",
+        "interesse": ["arkitektur", "design"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vaktmester",
+        "title": "Vaktmester / byggdrifter",
+        "interesse": ["renhold", "bygg og anlegg", "elektro"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vaskerioperator",
+        "title": "Vaskerioperat\u00f8r",
+        "interesse": ["renhold"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vei_anlegg_arb",
+        "title": "Vei- og anleggsarbeider",
+        "interesse": ["bygg og anlegg"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vekter",
+        "title": "Vekter",
+        "interesse": ["beredskap og sikkerhet", "lov og orden", "service"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_verktoymaker",
+        "title": "Verkt\u00f8ymaker",
+        "interesse": ["mekanikk", "h\u00e5ndverk", "industri", "metall"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vernepleier",
+        "title": "Vernepleier",
+        "interesse": ["helse", "pleie", "omsorg", "sosialfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_veterinar",
+        "title": "Veterin\u00e6r",
+        "interesse": ["dyr", "realfag", "dyrehelse", "biologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_videokunstner",
+        "title": "Videokunstner",
+        "interesse": ["kunst", "media", "kultur"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_vinkelner",
+        "title": "Vinkelner",
+        "interesse": ["mat", "restaurant", "reiseliv"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_virolog",
+        "title": "Virolog",
+        "interesse": ["biologi", "helse", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_webdesigner",
+        "title": "Webdesigner",
+        "interesse": ["design", "data", "web, animasjon, spill"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_yrkessjafor",
+        "title": "Yrkessj\u00e5f\u00f8r",
+        "interesse": ["transport", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_zoolog",
+        "title": "Zoolog",
+        "interesse": ["dyr", "biologi", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_okolog",
+        "title": "\u00d8kolog",
+        "interesse": ["biologi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_okonom",
+        "title": "\u00d8konom",
+        "interesse": ["\u00f8konomi", "regnskap"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_okonomikonsulent",
+        "title": "\u00d8konomikonsulent",
+        "interesse": ["\u00f8konomi"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_okonomisjef",
+        "title": "\u00d8konomisjef",
+        "interesse": ["\u00f8konomi", "ledelse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_legespesialist_onh",
+        "title": "\u00d8re-nese-hals-spesialist",
+        "interesse": ["medisin", "helse"],
+        "innholdstype": "Yrke"
+      }
+    },
+    {
+      "node": {
+        "id": "y_oyelege",
+        "title": "\u00d8yelege",
+        "interesse": ["helse", "medisin", "realfag"],
+        "innholdstype": "Yrke"
+      }
+    }
+  ],
+  "utdanning": [
+    {
+      "node": {
+        "id": "u_aktivitorfag",
+        "title": "Aktivit\u00f8rfag",
+        "interesse": ["helse", "omsorg", "barn"],
+        "innholdstype": "Utdanningsbeskrivelse",
+        "rader": [
+          { "tittel": "studietilfretshet", "visualiation": "" },
+          { "tittel": "studietilfretshet" }
+        ]
+      }
+    },
+    {
+      "node": {
+        "id": "u_akvakulturfag",
+        "title": "Akvakulturfag",
+        "interesse": ["marine fag", "biologi", "fiskeri og havbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_aluminiumkont",
+        "title": "Aluminiumskonstruksjonsfag",
+        "interesse": ["bygg og anlegg", "industri", "konstruksjon"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ambulansefag",
+        "title": "Ambulansefag",
+        "interesse": [
+          "helse",
+          "sj\u00e5f\u00f8r (vei)",
+          "beredskap og sikkerhet"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_animasjon_spill_3d",
+        "title": "Animasjon, spill- og 3D-design",
+        "interesse": ["design", "data", "web, animasjon, spill"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_anleggsgartnerfag",
+        "title": "Anleggsgartnerfag",
+        "interesse": ["gartneri og hage", "bygg og anlegg", "landbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_anleggsmaskinforerfag",
+        "title": "Anleggsmaskinf\u00f8rerfag",
+        "interesse": ["bygg og anlegg", "transport"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_anleggsmaskinmek",
+        "title": "Anleggsmaskinmekanikerfag",
+        "interesse": ["bygg og anlegg", "mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_apotekteknikk",
+        "title": "Apotekteknikk",
+        "interesse": ["helse", "apotek"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_arkeologi",
+        "title": "Arkeologi",
+        "interesse": ["historie", "kultur"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_arkitektur",
+        "title": "Arkitektur",
+        "interesse": ["arkitektur", "tegning", "design"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_asfaltfag",
+        "title": "Asfaltfag",
+        "interesse": ["bygg og anlegg", "transport"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_audiografutdanning",
+        "title": "Audiografutdanning",
+        "interesse": ["helse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_automatiseringsfag",
+        "title": "Automatiseringsfag",
+        "interesse": ["elektro", "mekanikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_avionikerfag",
+        "title": "Avionikerfag",
+        "interesse": ["elektro", "transport", "fly", "mekanikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bakerfag",
+        "title": "Bakerfag",
+        "interesse": ["mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_banemontorfag",
+        "title": "Banemont\u00f8rfag",
+        "interesse": ["transport", "tog", "bygg og anlegg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_barne_ungdomsarbeid",
+        "title": "Barne- og ungdomsarbeiderfag",
+        "interesse": ["barn", "omsorg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_barnehagelarer",
+        "title": "Barnehagel\u00e6rerutdanning",
+        "interesse": ["pedagogikk", "barn", "undervisning"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_barnevern",
+        "title": "Barnevern",
+        "interesse": ["barn", "barn", "sosialfag", "psykisk helse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_betongfag",
+        "title": "Betongfag",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kristen",
+        "title": "Bibel-, misjon\u00e6r- og menighetsarbeid",
+        "interesse": ["religion"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bibliotekarutdanning",
+        "title": "Bibliotekarutdanning",
+        "interesse": ["spr\u00e5k", "kultur", "service"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bilmek_lett",
+        "title": "Bilfaget, lette kj\u00f8ret\u00f8y",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bilmek_tung",
+        "title": "Bilfaget, tunge kj\u00f8ret\u00f8y",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_billakkererfag",
+        "title": "Billakkererfag",
+        "interesse": ["kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bilskadefag",
+        "title": "Bilskadefag",
+        "interesse": ["kj\u00f8ret\u00f8y", "mekanikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bioingeniorfag",
+        "title": "Bioingeni\u00f8rfag",
+        "interesse": ["helse", "ingeni\u00f8r", "kjemi", "biologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_biologi",
+        "title": "Biologi",
+        "interesse": ["biologi", "realfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_blomsterdekoratorfag",
+        "title": "Blomsterdekorat\u00f8rfag",
+        "interesse": ["salg", "design", "gartneri og hage"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_blyglasshandverkerfag",
+        "title": "Blyglassh\u00e5ndverkerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "design",
+          "kunst"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_boreoperatorfag",
+        "title": "Boreoperat\u00f8rfag",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bronnfag_el",
+        "title": "Br\u00f8nnfaget, elektriske kabeloperasjoner",
+        "interesse": ["olje og gass", "elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bronnfag_havbunn",
+        "title": "Br\u00f8nnfaget, havbunnsinstallasjoner",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bronnfag_komp",
+        "title": "Br\u00f8nnfaget, komplettering",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bronnfag_kveil",
+        "title": "Br\u00f8nnfaget, kveiler\u00f8roperasjoner",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bronnfag_mek",
+        "title": "Br\u00f8nnfaget, mekaniske kabeloperasjoner",
+        "interesse": ["olje og gass", "mekanikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bronnfag_sement",
+        "title": "Br\u00f8nnfaget, sementering",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bunadtilvirkerfag",
+        "title": "Bunadtilvirkerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "kultur",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_buntmakerfag",
+        "title": "Buntmakerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_butikkslakterfag",
+        "title": "Butikkslakterfag",
+        "interesse": ["mat", "salg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bygg_anlegg",
+        "title": "Bygg og anlegg",
+        "interesse": ["bygg og anlegg", "ingeni\u00f8r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bygg_anlegg_kem",
+        "title": "Bygg, anlegg og KEM",
+        "interesse": ["bygg og anlegg", "konstruksjon", "geofag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_byggdrifterfag",
+        "title": "Byggdrifterfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_bokkerfag",
+        "title": "B\u00f8kkerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "trearbeid"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_borsemakerfag",
+        "title": "B\u00f8rsemakerfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "metall"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_chassispabyggerfag",
+        "title": "Chassisp\u00e5byggerfag",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_cncmaskineringsfag",
+        "title": "CNC-maskineringsfag",
+        "interesse": ["mekanikk", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_dans",
+        "title": "Danse- og ballettutdanning",
+        "interesse": ["kunst", "dans"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_dataelektronikerfag",
+        "title": "Dataelektronikerfag",
+        "interesse": ["elektro", "data"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_datateknikk",
+        "title": "Datateknikk",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_design",
+        "title": "Design",
+        "interesse": ["design"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_diakoni",
+        "title": "Diakoni",
+        "interesse": ["religion", "sosialfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_dimensjonskont",
+        "title": "Dimensjonskontrollfag",
+        "interesse": ["bygg og anlegg", "mekanikk", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_dyrepleie",
+        "title": "Dyrepleie",
+        "interesse": ["dyrehelse", "dyr"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_eiendomsmegling",
+        "title": "Eiendomsmegling",
+        "interesse": [
+          "lov og orden",
+          "juss",
+          "salg",
+          "\u00f8konomi",
+          "service"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_elektrikerfag",
+        "title": "Elektrikerfag",
+        "interesse": ["elektro", "bygningsh\u00e5ndverk", "bygg og anlegg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_elektro",
+        "title": "Elektro",
+        "interesse": ["elektro", "bygg og anlegg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_elektrofag",
+        "title": "Elektrofag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_elektroreparatorfag",
+        "title": "Elektroreparat\u00f8rfag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_energimontorfag",
+        "title": "Energimont\u00f8rfag",
+        "interesse": ["elektro", "bygg og anlegg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_energioperatorfag",
+        "title": "Energioperat\u00f8rfag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_entreprenorskap",
+        "title": "Entrepren\u00f8rskap",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ergoterapi",
+        "title": "Ergoterapi",
+        "interesse": ["helse", "behandling", "sosialfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ernaring",
+        "title": "Ern\u00e6ring",
+        "interesse": ["helse", "mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_yrkesfaglarer",
+        "title": "Fag- og yrkesfagl\u00e6rerutdanning",
+        "interesse": ["pedagogikk", "undervisning"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_farmasi",
+        "title": "Farmasi",
+        "interesse": ["helse", "realfag", "apotek", "kjemi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_feierfag",
+        "title": "Feierfag",
+        "interesse": ["bygg og anlegg", "renhold"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_filigranssolvsmedfag",
+        "title": "Filigranss\u00f8lvsmedfag",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_film_tvproduksjon",
+        "title": "Film- og TV-produksjon",
+        "interesse": ["media", "film og tv"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_filosofi_etikk",
+        "title": "Filosofi og etikk",
+        "interesse": ["historie", "samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_finmekanikerfag",
+        "title": "Finmekanikerfag",
+        "interesse": ["mekanikk", "h\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fiske_fangst",
+        "title": "Fiske og fangst",
+        "interesse": ["mat", "fiskeri og havbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fiske_havbruk",
+        "title": "Fiske og havbruk",
+        "interesse": ["fiskeri og havbruk", "biologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_akvamedisin",
+        "title": "Fiskehelse og akvamedisin",
+        "interesse": ["biologi", "dyrehelse", "realfag", "medisin"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fjell_bergverksfag",
+        "title": "Fjell- og bergverksfag",
+        "interesse": ["bygg og anlegg", "geofag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_rovoperator",
+        "title": "Fjernstyrte undervannsoperasjoner",
+        "interesse": ["marine fag", "olje og gass", "elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_flymotormekanikerfag",
+        "title": "Flymotormekanikerfag",
+        "interesse": ["mekanikk", "fly"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_flystrukturmekaniker",
+        "title": "Flystrukturmekanikerfag",
+        "interesse": ["mekanikk", "elektro", "fly"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_flysystemmek",
+        "title": "Flysystemmekanikerfag",
+        "interesse": ["mekanikk", "fly", "elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_flytekniske_fag",
+        "title": "Flytekniske fag",
+        "interesse": ["mekanikk", "fly", "elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_exphil",
+        "title": "Forberedende pr\u00f8ver, historisk-filosofiske fag",
+        "interesse": ["historie", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_forfatterutdanning",
+        "title": "Forfatterutdanning",
+        "interesse": ["spr\u00e5k", "kultur", "formidling"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_forgyllerfag",
+        "title": "Forgyllerfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_forkurs",
+        "title": "Forkurs",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fotofag",
+        "title": "Fotofag",
+        "interesse": ["foto", "media", "kunst"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fotograffag",
+        "title": "Fotograffag",
+        "interesse": ["media", "foto"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fotografi",
+        "title": "Fotografi",
+        "interesse": ["media", "foto", "kunst"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fotterapi",
+        "title": "Fotterapi",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_frisorfag",
+        "title": "Fris\u00f8rfag",
+        "interesse": ["hud og h\u00e5r", "service"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fysikk",
+        "title": "Fysikk",
+        "interesse": ["fysikk", "realfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fysioterapi",
+        "title": "Fysioterapi",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gartneri_hagebruk",
+        "title": "Gartneri og hagebruk",
+        "interesse": ["gartneri og hage"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gartnernaring",
+        "title": "Gartnern\u00e6ring",
+        "interesse": ["gartneri og hage", "landbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_garverifag",
+        "title": "Garverifag",
+        "interesse": ["h\u00e5ndverk", "tekstil", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_geofag",
+        "title": "Geofag",
+        "interesse": ["geofag", "realfag", "olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gipsmakerfag",
+        "title": "Gipsmakerfag",
+        "interesse": ["design", "h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gjenvinningsfag",
+        "title": "Gjenvinningsfag",
+        "interesse": ["renhold"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gjortlerfag",
+        "title": "Gj\u00f8rtlerfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "metall"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_glassfag",
+        "title": "Glassfag",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_glasshandverkerfag",
+        "title": "Glassh\u00e5ndverkerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "kunst",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_grafisk_design",
+        "title": "Grafisk design",
+        "interesse": [
+          "design",
+          "media",
+          "web, animasjon, spill",
+          "tegning",
+          "data"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gravorfag",
+        "title": "Grav\u00f8rfag",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_grunnskolelarer_1_7",
+        "title": "Grunnskolel\u00e6rerutdanning 1.-7.",
+        "interesse": ["pedagogikk", "undervisning", "barn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_grunnskolelarer_5_10",
+        "title": "Grunnskolel\u00e6rerutdanning 5.-10.",
+        "interesse": ["pedagogikk", "undervisning", "barn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_gullsmedfag",
+        "title": "Gullsmedfag",
+        "interesse": ["h\u00e5ndverk", "design", "kunst", "metall"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_handbokbinderfag",
+        "title": "H\u00e5ndbokbinderfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_handveverfag",
+        "title": "H\u00e5ndveverfag",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "tekstil",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "kunst"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_heismontorfag",
+        "title": "Heismont\u00f8rfag",
+        "interesse": ["elektro", "bygg og anlegg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_helsearbeiderfag",
+        "title": "Helsearbeiderfag",
+        "interesse": ["helse", "omsorg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_helsefag",
+        "title": "Helsefag",
+        "interesse": [
+          "omsorg",
+          "pleie",
+          "psykisk helse",
+          "helse",
+          "helseadministrasjon"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_helsesekretar",
+        "title": "Helsesekret\u00e6r",
+        "interesse": [
+          "helse",
+          "helseadministrasjon",
+          "kontor og sekret\u00e6r"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_helsesosterutdanning",
+        "title": "Helses\u00f8sterutdanning",
+        "interesse": ["helse", "pleie", "barn", "barnehelse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_herreskredderfag",
+        "title": "Herreskredderfag",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "tekstil",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_hestefag",
+        "title": "Hestefag",
+        "interesse": ["dyr", "landbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_historie",
+        "title": "Historie",
+        "interesse": ["historie", "samfunn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_hjulutrustningsfag",
+        "title": "Hjulutrustningsfag",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_duodji_metall",
+        "title": "Horn-, bein- og metallduodjifag ",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_hotelledelse",
+        "title": "Hotelledelse",
+        "interesse": ["hotell", "ledelse", "reiseliv"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_hovslagerfag",
+        "title": "Hovslagerfag",
+        "interesse": ["dyr", "h\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_hudpleie",
+        "title": "Hudpleie",
+        "interesse": ["hud og h\u00e5r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_idrettsanleggsfag",
+        "title": "Idrettsanleggsfag",
+        "interesse": ["idrett", "renhold"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_idrettsfag",
+        "title": "Idrettsfag",
+        "interesse": ["idrett"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_iktservicefag",
+        "title": "IKT-servicefag",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_matprod",
+        "title": "Industriell matproduksjon",
+        "interesse": ["mat", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_overflate",
+        "title": "Industriell overflatebehandling",
+        "interesse": ["industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_sko",
+        "title": "Industriell skot\u00f8yproduksjon",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_maler",
+        "title": "Industrimalerfag",
+        "interesse": ["industri", "bygg og anlegg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_mekaniker",
+        "title": "Industrimekanikerfag",
+        "interesse": ["mekanikk", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_montor",
+        "title": "Industrimont\u00f8rfag",
+        "interesse": ["industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_oppmaling",
+        "title": "Industrioppm\u00e5lingsfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_rorlegger",
+        "title": "Industrir\u00f8rleggerfag",
+        "interesse": ["industri", "bygg og anlegg", "bygningsh\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_snekker",
+        "title": "Industrisnekkerfag",
+        "interesse": ["industri", "trearbeid"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_som",
+        "title": "Industris\u00f8mfag",
+        "interesse": ["h\u00e5ndverk", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_tapet",
+        "title": "Industritapetsererfag",
+        "interesse": ["industri", "bygg og anlegg", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_tekstil_farg",
+        "title": "Industritekstilfaget, farging, trykking og etterbehandling",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fiskeredskapfag",
+        "title": "Industritekstilfaget, fiskeredskap",
+        "interesse": ["industri", "maritimt", "fiskeri og havbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_indtekstil_garn",
+        "title": "Industritekstilfaget, garnfremstilling",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_trikotasje",
+        "title": "Industritekstilfaget, trikotasje",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_tekstil",
+        "title": "Industritekstilfaget, veving",
+        "interesse": ["industri", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ikt",
+        "title": "Informasjons- og datateknologi",
+        "interesse": ["data", "realfag", "teknologi", "ingeni\u00f8r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ingenior",
+        "title": "Ingeni\u00f8r",
+        "interesse": ["ingeni\u00f8r", "realfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_institusjonskokkfag",
+        "title": "Institusjonskokkfag",
+        "interesse": ["mat", "restaurant", "hotell"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_interior_dekorator",
+        "title": "Interi\u00f8r- og dekorat\u00f8rutdanning",
+        "interesse": ["design", "arkitektur"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ib",
+        "title": "International Baccalaureate",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_isolatorfag",
+        "title": "Isolat\u00f8rfag",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_it_webutvikling",
+        "title": "IT og webutvikling",
+        "interesse": ["data", "it-drift"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_jordbruk",
+        "title": "Jordbruk",
+        "interesse": ["landbruk", "jordbruk (inkl dyrehold)"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_jordmorutdanning",
+        "title": "Jordmorutdanning",
+        "interesse": ["helse", "pleie", "barn", "barnehelse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_journalistikk",
+        "title": "Journalistikk",
+        "interesse": ["media", "samfunn", "formidling", "spr\u00e5k"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_juss",
+        "title": "Juss",
+        "interesse": ["lov og orden", "juss", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_keramikerfag",
+        "title": "Keramikerfag",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "kunst",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kjemi",
+        "title": "Kjemi",
+        "interesse": ["kjemi", "mat", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kjemi_bioteknologi",
+        "title": "Kjemi og bioteknologi",
+        "interesse": [
+          "realfag",
+          "kjemi",
+          "biologi",
+          "teknologi",
+          "ingeni\u00f8r",
+          "olje og gass"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kjemiprosessfag",
+        "title": "Kjemiprosessfag",
+        "interesse": ["elektro", "olje og gass", "kjemi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kjole_draktsyerfag",
+        "title": "Kjole- og draktsyerfag",
+        "interesse": ["design", "h\u00e5ndverk", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kjottskjarerfag",
+        "title": "Kj\u00f8ttskj\u00e6rerfag",
+        "interesse": ["mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kokkfag",
+        "title": "Kokkfag",
+        "interesse": ["mat", "restaurant", "hotell"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_komm_medievit",
+        "title": "Kommunikasjon og medievitenskap",
+        "interesse": ["media", "samfunn", "kultur", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_komposittbat",
+        "title": "Komposittb\u00e5tbyggerfag",
+        "interesse": ["maritimt", "h\u00e5ndverk", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_konditorfag",
+        "title": "Konditorfag",
+        "interesse": ["mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kontorfag",
+        "title": "Kontor- og administrasjonsfag",
+        "interesse": ["kontor og sekret\u00e6r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kontor",
+        "title": "Kontor- og sekret\u00e6rutdanninger",
+        "interesse": ["kontor og sekret\u00e6r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kostymesyerfag",
+        "title": "Kostymesyerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "tekstil",
+          "drama og teater",
+          "film og tv",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kran_lofteoperasjon",
+        "title": "Kran- og l\u00f8fteoperasjonsfag",
+        "interesse": ["bygg og anlegg", "transport"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kriminologi",
+        "title": "Kriminologi",
+        "interesse": ["samfunn", "lov og orden", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kristendom_religion",
+        "title": "Kristendom og religion",
+        "interesse": ["religion"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kuldemontor",
+        "title": "Kulde- og varmepumpemont\u00f8rfag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kulturutdanning",
+        "title": "Kulturutdanning",
+        "interesse": ["kultur", "historie"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kunst_kunsthandverk",
+        "title": "Kunst og kunsth\u00e5ndverk",
+        "interesse": ["kunst", "tegning", "design"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kunstfag",
+        "title": "Kunstfag",
+        "interesse": ["kunst", "kultur", "tegning"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kunsthistorie",
+        "title": "Kunsthistorie",
+        "interesse": ["historie", "kunst"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_kurvmakerfag",
+        "title": "Kurvmakerfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "design"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_laboratoriefag",
+        "title": "Laboratoriefag",
+        "interesse": ["realfag", "kjemi", "biologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_landbruk",
+        "title": "Landbruk",
+        "interesse": ["landbruk", "dyr", "jordbruk (inkl dyrehold)", "mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_naturbruk",
+        "title": "Landbruksfag og naturbruk",
+        "interesse": ["landbruk", "jordbruk (inkl dyrehold)", "mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_landbruksmaskin",
+        "title": "Landbruksmaskinmekanikerfag",
+        "interesse": ["mekanikk", "landbruk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_lasesmedfag",
+        "title": "L\u00e5sesmedfag",
+        "interesse": ["mekanikk", "elektro", "beredskap og sikkerhet"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_lektorutdanning",
+        "title": "Lektorutdanning",
+        "interesse": ["pedagogikk", "undervisning"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_limtreproduksjonsfag",
+        "title": "Limtreproduksjonsfag",
+        "interesse": ["trearbeid", "h\u00e5ndverk", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_logistikk",
+        "title": "Logistikk",
+        "interesse": ["transport", "logistikk", "ingeni\u00f8r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_logistikkfag",
+        "title": "Logistikkfag",
+        "interesse": ["transport", "logistikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_larerutdanning",
+        "title": "L\u00e6rerutdanning",
+        "interesse": ["pedagogikk", "undervisning", "barn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_malerfag",
+        "title": "Malerfag",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ferskvannsbiologi",
+        "title": "Marin- og ferskvannsbiologi",
+        "interesse": ["marine fag", "biologi", "fiskeri og havbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_maritime_fag",
+        "title": "Maritime fag",
+        "interesse": ["maritimt"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_navigasjon",
+        "title": "Maritime navigasjonsfag",
+        "interesse": ["maritimt", "transport"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mask_parykkmaker",
+        "title": "Mask\u00f8r- og parykkmakerfag",
+        "interesse": [
+          "hud og h\u00e5r",
+          "drama og teater",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_matematikk",
+        "title": "Matematikk",
+        "interesse": ["realfag", "matematikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_matrosfag",
+        "title": "Matrosfag",
+        "interesse": ["maritimt", "transport", "fiskeri og havbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_matteknikk",
+        "title": "Matteknikk",
+        "interesse": ["mat", "biologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_matteknologi",
+        "title": "Matteknologi",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_matvitenskap",
+        "title": "Matvitenskap",
+        "interesse": ["mat", "ern\u00e6ring"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mediedesign",
+        "title": "Mediedesign",
+        "interesse": ["design", "media", "web, animasjon, spill"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mediegrafikerfag",
+        "title": "Mediegrafikerfag",
+        "interesse": ["design", "media", "web, animasjon, spill"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_medieproduksjon",
+        "title": "Medieproduksjon",
+        "interesse": ["media", "film og tv"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_medisin",
+        "title": "Medisin",
+        "interesse": ["helse", "medisin"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mekaniske_fag",
+        "title": "Mekaniske fag",
+        "interesse": ["mekanikk", "ingeni\u00f8r", "teknologi", "olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_militare_fag",
+        "title": "Milit\u00e6re fag",
+        "interesse": ["beredskap og sikkerhet", "lov og orden"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_miljo_studier",
+        "title": "Milj\u00f8- og forurensningsstudier",
+        "interesse": ["milj\u00f8", "samfunn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_modellbyggerfag",
+        "title": "Modellbyggerfag",
+        "interesse": ["industri", "metall", "mekanikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_modistfag",
+        "title": "Modistfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mote_industridesign",
+        "title": "Mote og industridesign",
+        "interesse": ["design", "kunst"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_motormannfag",
+        "title": "Motormannfag",
+        "interesse": ["mekanikk", "maritimt"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_motormekanikerfag",
+        "title": "Motormekanikerfag",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_motorsykkelfag",
+        "title": "Motorsykkelfag",
+        "interesse": ["mekanikk", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_murerfag",
+        "title": "Murerfag",
+        "interesse": ["bygg og anlegg", "h\u00e5ndverk", "konstruksjon"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_musikkterapi",
+        "title": "Musikkterapi",
+        "interesse": ["terapi", "musikk", "helse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mobelsnekkerfag",
+        "title": "M\u00f8belsnekkerfag",
+        "interesse": ["h\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_mobeltapetsererfag",
+        "title": "M\u00f8beltapetsererfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "tekstil"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_naturforvaltning",
+        "title": "Naturforvaltning",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_nautisk_instrument",
+        "title": "Nautisk instrumentmakerfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ndtkontrollorfag",
+        "title": "NDT-kontroll\u00f8rfag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tannlege",
+        "title": "Odontologi (tannlege)",
+        "interesse": ["helse", "tannhelse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_oppvekstfag",
+        "title": "Oppvekstfag",
+        "interesse": ["barn", "omsorg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_optikk",
+        "title": "Optikk",
+        "interesse": ["helse", "realfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_optronikerfag",
+        "title": "Optronikerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "mekanikk"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_orgelbyggerfag",
+        "title": "Orgelbyggerfag",
+        "interesse": ["h\u00e5ndverk", "musikk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ortopediteknikkfag",
+        "title": "Ortopediteknikkfag",
+        "interesse": ["helse", "h\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_oversettelse",
+        "title": "Oversettelse- og translat\u00f8rutdanning",
+        "interesse": ["spr\u00e5k", "formidling"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_pedagogikk",
+        "title": "Pedagogikk",
+        "interesse": ["pedagogikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_petroleum",
+        "title": "Petroleum",
+        "interesse": ["olje og gass"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_pianostemming",
+        "title": "Pianostemming og pianoteknikk",
+        "interesse": ["musikk", "h\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_plantevitenskap",
+        "title": "Plantevitenskap",
+        "interesse": ["gartneri og hage", "landbruk", "biologi", "arkitektur"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_plastmekanikerfag",
+        "title": "Plastmekanikerfag",
+        "interesse": ["mekanikk", "industri", "h\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_platearbeiderfag",
+        "title": "Platearbeiderfag",
+        "interesse": [
+          "bygg og anlegg",
+          "metall",
+          "h\u00e5ndverk",
+          "konstruksjon"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_politiutdanning",
+        "title": "Politiutdanning",
+        "interesse": ["lov og orden"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_polymerkomposittfag",
+        "title": "Polymerkomposittfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_portorfag",
+        "title": "Port\u00f8rfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ppu",
+        "title": "Praktisk-pedagogisk utdanning (PPU)",
+        "interesse": ["pedagogikk", "undervisning"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_teologi",
+        "title": "Presteutdanning (teolog) ",
+        "interesse": ["religion"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_prodelektroniker",
+        "title": "Produksjonselektronikerfag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_produksjonstek",
+        "title": "Produksjonsteknikkfag",
+        "interesse": ["industri", "mekanikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ind_design",
+        "title": "Produkt- og industridesign",
+        "interesse": ["design", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_profileringsdesignfag",
+        "title": "Profileringsdesignfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_prosessteknikk",
+        "title": "Prosessteknikk",
+        "interesse": ["kjemi", "olje og gass", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_psykisk_helsearbeid",
+        "title": "Psykisk helsearbeid",
+        "interesse": ["helse", "psykisk helse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_psykologi",
+        "title": "Psykologi",
+        "interesse": ["helse", "psykisk helse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_psykososialt_arbeid",
+        "title": "Psykososialt arbeid",
+        "interesse": ["helse", "psykisk helse", "barn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_polsemakerfag",
+        "title": "P\u00f8lsemakerfag",
+        "interesse": ["mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_radiografi",
+        "title": "Radiografi",
+        "interesse": ["helse", "teknologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_radiografi_evu",
+        "title": "Radiografi, videreutdanning",
+        "interesse": ["helse", "teknologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_regnskap_revisjon",
+        "title": "Regnskap og revisjon",
+        "interesse": ["\u00f8konomi", "regnskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_reindriftsfag",
+        "title": "Reindriftsfag",
+        "interesse": ["dyr", "landbruk", "jordbruk (inkl dyrehold)", "mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_reiselivsfag",
+        "title": "Reiselivsfag",
+        "interesse": ["reiseliv", "service"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_renholdsoperatorfag",
+        "title": "Renholdsoperat\u00f8rfag",
+        "interesse": ["renhold"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_repslagerfag",
+        "title": "Repslagerfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_resepsjonsfag",
+        "title": "Resepsjonsfag",
+        "interesse": ["hotell", "reiseliv", "service"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_reservedelsfag",
+        "title": "Reservedelsfag",
+        "interesse": ["salg", "kj\u00f8ret\u00f8y"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_romteknologi",
+        "title": "Romteknologi",
+        "interesse": ["elektro", "teknologi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_rorleggerfag",
+        "title": "R\u00f8rleggerfag",
+        "interesse": [
+          "bygg og anlegg",
+          "h\u00e5ndverk",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_salgsfag",
+        "title": "Salgsfag",
+        "interesse": ["salg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_salmakerfag",
+        "title": "Salmakerfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_samfunnsfag",
+        "title": "Samfunnsfag",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_samfunnsgeografi",
+        "title": "Samfunnsgeografi",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_samfunnsplanlegging",
+        "title": "Samfunnsplanlegging",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_samfunnssikkerhet_hms",
+        "title": "Samfunnssikkerhet (HMS)",
+        "interesse": ["beredskap og sikkerhet", "ingeni\u00f8r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_samfunnsokonomi",
+        "title": "Samfunns\u00f8konomi",
+        "interesse": ["\u00f8konomi", "samfunn", "matematikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sang_musikkutdanning",
+        "title": "Sang- og musikkutdanning",
+        "interesse": ["musikk", "kultur"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_seilmakerfag",
+        "title": "Seilmakerfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_serigrafifag",
+        "title": "Serigrafifag",
+        "interesse": ["h\u00e5ndverk", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_servitorfag",
+        "title": "Servit\u00f8rfag",
+        "interesse": ["mat", "service", "hotell", "restaurant"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_shipping",
+        "title": "Shipping",
+        "interesse": ["ledelse", "maritimt", "\u00f8konomi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_signalmontorfag",
+        "title": "Signalmont\u00f8rfag",
+        "interesse": ["elektro", "tog"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sikkerhetsfag",
+        "title": "Sikkerhetsfag",
+        "interesse": ["beredskap og sikkerhet", "lov og orden"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sivilingenior",
+        "title": "Sivilingeni\u00f8r",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sjomathandlerfag",
+        "title": "Sj\u00f8mathandlerfag",
+        "interesse": ["salg", "mat"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sjomatproduksjon",
+        "title": "Sj\u00f8matproduksjon",
+        "interesse": ["salg", "mat", "fiskeri og havbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_duodji_skinn",
+        "title": "Skinn- og pelsduodjifag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_skogbruk",
+        "title": "Skogbruk",
+        "interesse": ["landbruk", "skogbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_skogfag",
+        "title": "Skogfag",
+        "interesse": ["landbruk", "skogbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_skomakerfag",
+        "title": "Skomakerfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_slakterfag",
+        "title": "Slakterfag",
+        "interesse": ["mat", "landbruk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_smedfag",
+        "title": "Smedfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag", "metall"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sminke",
+        "title": "Smink\u00f8rutdanning (make-up artist)",
+        "interesse": ["hud og h\u00e5r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sosialantropologi",
+        "title": "Sosialantropologi",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sosionom",
+        "title": "Sosialt arbeid (sosionom)",
+        "interesse": ["helse", "sosialfag", "barn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sosiologi",
+        "title": "Sosiologi",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_spesped",
+        "title": "Spesialpedagogikk",
+        "interesse": ["pedagogikk", "barn", "sosialfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sprakutdanning",
+        "title": "Spr\u00e5kutdanning",
+        "interesse": ["spr\u00e5k"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_osteuropeiske_sprak",
+        "title": "Spr\u00e5kutdanning,  \u00f8steuropeiske spr\u00e5k",
+        "interesse": ["spr\u00e5k"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sprak_ikkeeuropeisk",
+        "title": "Spr\u00e5kutdanning, ikke-europeiske spr\u00e5k",
+        "interesse": ["spr\u00e5k"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sprak_klassiske",
+        "title": "Spr\u00e5kutdanning, klassiske spr\u00e5k",
+        "interesse": ["spr\u00e5k"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sprak_vesteuropeisk",
+        "title": "Spr\u00e5kutdanning, vesteuropeiske spr\u00e5k",
+        "interesse": ["spr\u00e5k"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sprakvitenskap",
+        "title": "Spr\u00e5kvitenskapelig utdanning",
+        "interesse": ["spr\u00e5k", "samfunn"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_statistikk",
+        "title": "Statistikk",
+        "interesse": ["matematikk", "\u00f8konomi", "realfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_statsvitenskap",
+        "title": "Statsvitenskap",
+        "interesse": ["samfunn", "samfunnsvitenskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_steinfag",
+        "title": "Steinfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "bygg og anlegg",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_stillasbyggerfag",
+        "title": "Stillasbyggerfag",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_storurmakerfag",
+        "title": "Storurmakerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "mekanikk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_strikkefag",
+        "title": "Strikkefag",
+        "interesse": ["h\u00e5ndverk", "tekstil", "industri"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_stoperifag",
+        "title": "St\u00f8perifag",
+        "interesse": ["h\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sveisefag",
+        "title": "Sveisefag",
+        "interesse": ["bygg og anlegg", "konstruksjon"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sykepleie",
+        "title": "Sykepleie",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_solvsmedfag",
+        "title": "S\u00f8lvsmedfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "design",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_taktekkerfag",
+        "title": "Tak- og membrantekkerfaget",
+        "interesse": [
+          "bygg og anlegg",
+          "konstruksjon",
+          "bygningsh\u00e5ndverk"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_taksidermistfag",
+        "title": "Taksidermistfag",
+        "interesse": ["h\u00e5ndverk", "sm\u00e5 h\u00e5ndverksfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tannhelsesekretar",
+        "title": "Tannhelsesekret\u00e6r",
+        "interesse": [
+          "helse",
+          "tannhelse",
+          "helseadministrasjon",
+          "kontor og sekret\u00e6r"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tannpleie",
+        "title": "Tannpleie",
+        "interesse": ["helse", "tannhelse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tannteknikk",
+        "title": "Tannteknikk",
+        "interesse": ["helse", "tannhelse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tavlemontorfag",
+        "title": "Tavlemont\u00f8rfag",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_teater_drama",
+        "title": "Teater og drama",
+        "interesse": ["drama og teater", "kultur", "film og tv"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tegnsprak_tolking",
+        "title": "Tegnspr\u00e5k og tolking",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tekstildesign",
+        "title": "Tekstildesign",
+        "interesse": ["kunst", "tekstil", "design"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_duodji_tekstil",
+        "title": "Tekstilduodjifag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tekstilrensfag",
+        "title": "Tekstilrensfag",
+        "interesse": ["renhold", "tekstil"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_telemontor",
+        "title": "Telekommunikasjonsmont\u00f8rfag",
+        "interesse": ["elektro", "data"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_terapi",
+        "title": "Terapeutiske utdanninger",
+        "interesse": ["alternativ behandling"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_termoplastfag",
+        "title": "Termoplastfag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tip",
+        "title": "TIP - Teknikk og industriell produksjon",
+        "interesse": [
+          "mekanikk",
+          "kj\u00f8ret\u00f8y",
+          "elektro",
+          "logistikk",
+          "bygg og anlegg"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_togelektrikerfag",
+        "title": "Togelektrikerfag",
+        "interesse": ["elektro", "tog"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_trafikkflyger",
+        "title": "Trafikkflyger",
+        "interesse": ["transport", "fly"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_trebatbyggerfag",
+        "title": "Treb\u00e5tbyggerfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "trearbeid"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tredreierfag",
+        "title": "Tredreierfag",
+        "interesse": [
+          "h\u00e5ndverk",
+          "trearbeid",
+          "sm\u00e5 h\u00e5ndverksfag"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_duodji_tre",
+        "title": "Treduodjifag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_trelastfag",
+        "title": "Trelastfag",
+        "interesse": ["industri", "trearbeid"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_treskjarerfag",
+        "title": "Treskj\u00e6rerfag",
+        "interesse": [
+          "design",
+          "h\u00e5ndverk",
+          "trearbeid",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "kunst"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_trebygg",
+        "title": "Trevare- og bygginnredningsfag",
+        "interesse": ["bygg og anlegg", "bygningsh\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_tomrerfag",
+        "title": "T\u00f8mrerfag",
+        "interesse": ["bygg og anlegg", "bygningsh\u00e5ndverk", "trearbeid"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_urmakerfag",
+        "title": "Urmakerfag",
+        "interesse": [
+          "mekanikk",
+          "h\u00e5ndverk",
+          "sm\u00e5 h\u00e5ndverksfag",
+          "metall"
+        ],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_utstillingsdesign",
+        "title": "Utstillingsdesign",
+        "interesse": ["design", "salg"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_utviklingsstudier",
+        "title": "Utviklingsstudier",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_utovende_musikk",
+        "title": "Ut\u00f8vende musikk",
+        "interesse": ["musikk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_vaskerifag",
+        "title": "Vaskerifaget",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_vei_anleggsfag",
+        "title": "Vei- og anleggsfag",
+        "interesse": ["bygg og anlegg", "transport"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_blikkenslager",
+        "title": "Ventilasjons- og blikkenslagerfag",
+        "interesse": ["bygg og anlegg", "bygningsh\u00e5ndverk"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_verktoymakerfag",
+        "title": "Verkt\u00f8ymakerfag",
+        "interesse": ["mekanikk", "h\u00e5ndverk", "industri", "metall"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_vernepleie",
+        "title": "Vernepleie",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_veterinarutdanning",
+        "title": "Veterin\u00e6rutdanning",
+        "interesse": ["dyr", "realfag", "dyrehelse", "medisin"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_duodji_vev",
+        "title": "Veve- og h\u00e5ndstrikkeduodjifag",
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_fysioterapi_evu",
+        "title": "Videreutdanning for fysioterapeuter",
+        "interesse": ["helse", "behandling"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_helse_sosial_evu",
+        "title": "Videreutdanning for helse- og sosialsektoren",
+        "interesse": ["helse", "sosialfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_larer_evu",
+        "title": "Videreutdanning for l\u00e6rere",
+        "interesse": ["pedagogikk", "undervisning"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sosial_evu",
+        "title": "Videreutdanning for sosialsektoren",
+        "interesse": ["helse", "sosialfag"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_sykepleie_evu",
+        "title": "Videreutdanning for sykepleiere",
+        "interesse": ["helse", "pleie"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_psykisk_helse_evu",
+        "title": "Videreutdanning i psykisk helsearbeid",
+        "interesse": ["helse", "psykisk helse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_okadm_evu",
+        "title": "Videreutdanninger i ledelse, organisasjon, administrasjon og \u00f8konomi",
+        "interesse": ["ledelse", "\u00f8konomi"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_viklerfag",
+        "title": "Viklerfaget",
+        "interesse": ["elektro"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_visuell_kom",
+        "title": "Visuell kommunikasjon",
+        "interesse": ["design", "media", "web, animasjon, spill"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_yveien",
+        "title": "Y-veien",
+        "interesse": ["ingeni\u00f8r"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_yrkessjaforfag",
+        "title": "Yrkessj\u00e5f\u00f8rfag",
+        "interesse": ["transport", "sj\u00e5f\u00f8r (vei)"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_okadm_ledelse",
+        "title": "\u00d8konomi, regnskap og ledelse",
+        "interesse": ["\u00f8konomi", "regnskap", "ledelse"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    },
+    {
+      "node": {
+        "id": "u_ok_adm",
+        "title": "\u00d8konomisk-administrative fag",
+        "interesse": ["\u00f8konomi", "regnskap"],
+        "innholdstype": "Utdanningsbeskrivelse"
+      }
+    }
+  ]
+}

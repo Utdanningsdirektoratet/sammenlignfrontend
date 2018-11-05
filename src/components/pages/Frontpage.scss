@@ -1,0 +1,12 @@
+.btn.btn-primary {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 1em;
+  background-color: lighten($color: #000000, $amount: 0.1);
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-evenly;
+}
