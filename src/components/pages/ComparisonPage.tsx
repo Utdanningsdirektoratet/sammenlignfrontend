@@ -3,6 +3,7 @@ import * as React from "react";
 
 import PageChrome from "../app/PageChrome";
 import Lonn from "../visualizations/Lonn";
+import Arbeidsledighet from "../visualizations/Arbeidsledighet";
 // import { getData } from "../../data/data";
 import { RouteComponentProps } from "react-router";
 
@@ -23,6 +24,9 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
           <h1>Sammenlign her</h1>
           <h2>Lønn</h2>
           <Lonn high={19300} low={14400} avg={16100}/>
+
+          <h2>Arbeidsledighet</h2>
+          <Arbeidsledighet newly={38} tenyears={2} />
         </div>
       </PageChrome>
     );
