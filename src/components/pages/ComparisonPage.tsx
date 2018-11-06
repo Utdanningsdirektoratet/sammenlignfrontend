@@ -33,7 +33,7 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
     // this.state;
     return (
       <PageChrome>
-        <div>
+        <div className="ComparisonPage">
           <h1>Sammenlign her</h1>
           <h2>Lønn</h2>
           <Lonn high={19300} low={14400} avg={16100} />
@@ -82,21 +82,25 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
           <NoData />
 
           <div className="flex-container">
-            <div className="flex-item-point">
-              {datapunkt.map((pkt, key) => (
-                <div key={key} className="flex-item title point-title">
-                  {pkt}
+            <div className="flex-container-row title-row">
+              {comparisonTypes.map((name, titleKey) => (
+                <div className="flex-item title" key={titleKey}>
+                  {name}
                 </div>
               ))}
             </div>
 
-            {comparisonTypes.map((name, titleKey) => (
-              <div className="flex-containter-row" key={titleKey}>
-                {datapunkt.map((pkt, pktKey) => (
-                  <div key={pktKey} className="flex-item component">
+            {datapunkt.map((pkt, key) => (
+              <div className="flex-container-row">
+                <div key={key} className="flex-item item-title">
+                  {pkt}
+                </div>
+                {comparisonTypes.map(itemKey => (
+                  <div key={itemKey} className="flex-item item">
                     {pkt}
                   </div>
                 ))}
+                <div />
               </div>
             ))}
           </div>
