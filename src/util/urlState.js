@@ -1,7 +1,7 @@
 export function getUrlState() {
   let hash = window.location.hash;
   if (hash[0] === "#") hash = hash.substr(1);
-  if (hash) return window.location.hash.split(",");
+  if (hash) return hash.split(",");
   return [];
 }
 
