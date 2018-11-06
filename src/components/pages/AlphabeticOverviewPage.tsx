@@ -1,49 +1,66 @@
-import * as React from "react";
+import React, { Fragment } from "react";
 
-import { RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 import "./AlphabeticOverviewPage.scss";
 
 import { getUrlState, toggleUrlState } from "../../util/urlState";
 import PageChrome from "../app/PageChrome";
-import { getConfig, IAreaConfig } from "../../data/data";
+import { getUtdanning, getYrke, getStudium } from "../../data/main";
+import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
+import { DataList, MainElement } from "../../data/ApiTypes";
 
-type State = {
-  selected: string[];
-  node: IAreaConfig | undefined;
-  interests: string[];
-};
-type RouteProps = {
-  area: string;
-};
+type State = { data: DataList };
 
-class AlphabeticOverviewPage extends React.Component<
-  RouteComponentProps<RouteProps>,
-  State
-> {
-  state: Readonly<State> = { selected: [], interests: [], node: undefined };
+type Props = RouteComponentProps<{ area: "utdanning" | "yrke" | "studie" }> &
+  AppStateProps;
+
+class AlphabeticOverviewPage extends React.Component<Props, State> {
+  state = { data: { list: [] as MainElement[], interesser: [] as string[] } };
   componentDidMount() {
     const { area } = this.props.match.params;
-    this.setState({ selected: getUrlState() });
-    getConfig((config: IAreaConfig) => this.setState({ node: config }), area);
+    console.log("mounted alphabeticOverviewPage");
+    switch (area) {
+      case "utdanning":
+        getUtdanning(data => this.setState({ data }));
+        break;
+      case "yrke":
+        getYrke(data => this.setState({ data }));
+        break;
+      case "studie":
+        getStudium(data => this.setState({ data }));
+        break;
+      default:
+        console.log("unknown area: ", area);
+    }
+  }
+  componentWillUnmount() {
+    console.log("closing alphabeticOverviewPage");
   }
   handleItemClick = (e: React.MouseEvent<HTMLElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
-    const newState = toggleUrlState(key);
-    this.setState({ selected: newState });
+    if (key) this.props.appState.toggleSelection(key);
   };
   render() {
     const { area } = this.props.match.params;
-    const { selected } = this.state;
-    const { node, interests } = this.state;
+    const selected = this.props.appState.selected;
+    const {
+      data: { interesser, list },
+    } = this.state;
+
     let selectedNodes = null;
-    if (this.state.selected) {
+    if (selected && selected.length > 0) {
       selectedNodes = (
-        <ul>
-          {this.state.selected.map(s => (
-            <li>{s}</li>
-          ))}
-        </ul>
+        <>
+          <Link to="/sammenligne" className="btn btn-primary">
+            Sammenlign her
+          </Link>
+          <ul>
+            {selected.map(s => (
+              <li>{s}</li>
+            ))}
+          </ul>
+        </>
       );
     }
 
@@ -51,10 +68,14 @@ class AlphabeticOverviewPage extends React.Component<
       <PageChrome>
         <h1>Alfabetisk oversikt {area}</h1>
         {selectedNodes}
-        {interests &&
-          interests.map((itrest: string, i: number) => (
-            <span key={i}>{itrest} </span>
-          ))}
+        {interesser && (
+          <div>
+            <h2>Interesser/kategorier</h2>
+            {interesser.map((itrest: string, i: number) => (
+              <span key={i}>{itrest} </span>
+            ))}
+          </div>
+        )}
         <ul className="alphabetic">
           {/* TODO: Rewrite to ignore empty characters +++ */}
           {"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ".split("").map(c => (
@@ -62,24 +83,23 @@ class AlphabeticOverviewPage extends React.Component<
               <h3 className="alphabetic-header">
                 <span>{c}</span>
               </h3>
-              {node &&
-                node.nodes
-                  .filter((o: any) =>
-                    o.title.toLowerCase().startsWith(c.toLowerCase())
-                  )
-                  .map((o: any, i: number) => (
-                    <span
-                      key={i}
-                      data-key={o.id}
-                      onClick={this.handleItemClick}
-                      className={
-                        selected && selected.indexOf(o.id) !== -1
-                          ? "selected"
-                          : ""
-                      }
-                    >
-                      {o.title}{" "}
-                    </span>
+              {list &&
+                list
+                  .filter(o => o.tittel.toLowerCase()[0] === c.toLowerCase())
+                  .map((o, i: number) => (
+                    <Fragment key={i}>
+                      <span
+                        data-key={o.uno_id}
+                        onClick={this.handleItemClick}
+                        className={
+                          selected && selected.indexOf(o.uno_id) !== -1
+                            ? "selected"
+                            : ""
+                        }
+                      >
+                        {o.tittel}
+                      </span>{" "}
+                    </Fragment>
                   ))}
             </li>
           ))}
@@ -89,4 +109,4 @@ class AlphabeticOverviewPage extends React.Component<
   }
 }
 
-export default AlphabeticOverviewPage;
+export default with_app_state(AlphabeticOverviewPage);
