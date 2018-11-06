@@ -4,7 +4,7 @@ import "./Visualization.scss";
 import Vanligeyrker from "../visualizations/Vanligeyrker";
 
 type Props = {
-  yrker: Array<{ title: string; percentage: number; info: any }>;
+  yrker: Array<{ id: number; title: string; percentage: number; info: any }>;
 };
 
 type MyState = {

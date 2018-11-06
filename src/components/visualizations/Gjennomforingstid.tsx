@@ -1,6 +1,6 @@
 import React from "react";
 import "./Gjennomforingstid.scss";
-import {ReactComponent as GjennomføringstidSvg} from "./Gjennomføringstid.svg";
+import {ReactComponent as GjennomforingstidSvg} from "./Gjennomforingstid.svg";
 
 type Props = {
   years: number;
@@ -21,7 +21,7 @@ class Gjennomforingstid extends React.Component<Props> {
       <div className="visualization_container">
         <div className="gjennomforingstid_container">
           <div className="gjennomforingstid_container-icon">
-            <GjennomføringstidSvg/>
+            <GjennomforingstidSvg/>
           </div>
           <div className="gjennomforingstid_container-years">
             {years} år

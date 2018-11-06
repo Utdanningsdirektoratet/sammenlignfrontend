@@ -24,13 +24,13 @@ class Frafall extends React.Component<Props> {
         <div className="frafall_container">
           <div className="frafall_container-icons">
             <div className="frafall_container-icons--firstline">
-              {allIcons.slice(0, 5).map(I => {
-                return <I className="frafall_container-icons--icon" />;
+              {allIcons.slice(0, 5).map((I, i:number) => {
+                return <I className="frafall_container-icons--icon" key={i} />;
               })}
             </div>
             <div className="frafall_container-icons--secondline">
-              {allIcons.slice(5, 10).map(I => {
-                return <I className="frafall_container-icons--icon" />;
+              {allIcons.slice(5, 10).map((I, i:number) => {
+                return <I className="frafall_container-icons--icon" key={i}/>;
               })}
             </div>
           </div>

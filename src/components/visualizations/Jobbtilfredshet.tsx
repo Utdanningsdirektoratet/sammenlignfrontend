@@ -24,13 +24,13 @@ type Props = {
                 <div className="jobbtilfredshet_container">
                     <div className="jobbtilfredshet_container-icons">
                         <div className="jobbtilfredshet_container-icons--firstline">
-                            {allIcons.slice(0, 5).map(I => {
-                                return <I className="jobbtilfredshet_container-icons--icon"/>;
+                            {allIcons.slice(0, 5).map((I, i:number) => {
+                                return <I className="jobbtilfredshet_container-icons--icon" key={i}/>;
                             })}
                         </div>
                         <div className="jobbtilfredshet_container-icons--secondline">
-                            {allIcons.slice(5, 10).map(I => {
-                                return <I className="jobbtilfredshet_container-icons--icon"/>;
+                            {allIcons.slice(5, 10).map((I, i:number) => {
+                                return <I className="jobbtilfredshet_container-icons--icon" key={i}/>;
                             })}
                         </div>
                     </div>
