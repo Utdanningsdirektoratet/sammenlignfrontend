@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./Arbeidsledighet.scss";
 import "./Visualization.scss";
 

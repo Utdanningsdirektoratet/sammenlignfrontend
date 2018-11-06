@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./Vanligeyrker.scss";
 import "./Visualization.scss";
 import Vanligeyrker from "../visualizations/Vanligeyrker";
