@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./Frafall.scss";
 import {ReactComponent as FrafallThumbsup} from "./Frafall-thumbsup.svg";
 import {ReactComponent as FrafallThumbsdown} from "./Frafall-thumbsdown.svg";

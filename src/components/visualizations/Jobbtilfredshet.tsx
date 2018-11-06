@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./Jobbtilfredshet.scss";
 import {ReactComponent as JobbtilfredshetSmiley} from "./Jobbtilfredshet-smiley.svg";
 import {ReactComponent as JobbtilfredshetSadface} from "./Jobbtilfredshet-sadface.svg";
