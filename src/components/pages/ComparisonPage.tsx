@@ -12,7 +12,14 @@ import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 // import { getData } from "../../data/data";
 import { RouteComponentProps } from "react-router";
 
-// import './ComparisonPage.css'
+import "./ComparisonPage.scss";
+
+const comparisonTypes = [
+  "y_bilmekaniker_lett",
+  "y_advokatsekretar",
+  "y_arbeidsmedisiner",
+];
+const datapunkt = ["lønn", "arbeidsledig", "gjennomføringstid"];
 
 class ComparisonPage extends React.Component<RouteComponentProps> {
   public componentDidMount() {
@@ -40,22 +47,46 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
               { title: "Fisker", percentage: 90, info: 12 },
               { title: "Fiskeopdretter", percentage: 45, info: 12 },
               { title: "Fiskehelsebiolog", percentage: 30, info: 12 },
-              { title: "Fagarbeider sjømatproduksjon", percentage: 25, info: 12 },
+              {
+                title: "Fagarbeider sjømatproduksjon",
+                percentage: 25,
+                info: 12,
+              },
               { title: "Sjømathandler", percentage: 15, info: 12 },
-              { title: "Fiskeforsker", percentage: 5, info: 12 }
+              { title: "Fiskeforsker", percentage: 5, info: 12 },
             ]}
           />
 
           <h2>Gjennomføringstid</h2>
-          <Gjennomforingstid years={5} months={9}></Gjennomforingstid>
+          <Gjennomforingstid years={5} months={9} />
 
           <h2>Frafall / stryk</h2>
-          <Frafall value={20}></Frafall>
+          <Frafall value={20} />
 
           <h2>Jobbtilfredshet</h2>
-          <Jobbtilfredshet value={92}></Jobbtilfredshet>
+          <Jobbtilfredshet value={92} />
 
           <NoData />
+
+          <div className="flex-container">
+            <div className="flex-item-point">
+              {datapunkt.map((pkt, key) => (
+                <div key={key} className="flex-item title point-title">
+                  {pkt}
+                </div>
+              ))}
+            </div>
+
+            {comparisonTypes.map((name, titleKey) => (
+              <div className="flex-containter-row" key={titleKey}>
+                {datapunkt.map((pkt, pktKey) => (
+                  <div key={pktKey} className="flex-item component">
+                    {pkt}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </PageChrome>
     );

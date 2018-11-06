@@ -1,0 +1,33 @@
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  color: black;
+  &.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 15px;
+  }
+
+  &.point-title {
+    vertical-align: middle;
+    margin-top: 17px;
+  }
+
+  &.component {
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+
+    margin: 10px;
+  }
+}
+
+.flex-containter-row {
+  padding: 5px;
+}
+
+.flex-item-point {
+  margin-top: 60px;
+}
