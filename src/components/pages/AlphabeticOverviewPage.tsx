@@ -10,13 +10,15 @@ import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement } from "../../data/ApiTypes";
 
-type State = { data: DataList };
+import InteresserFilter from "../filters/InteresseFilter";
+
+type State = { data: DataList, interesserSelected: string[] };
 
 type Props = RouteComponentProps<{ area: "utdanning" | "yrke" | "studie" }> &
   AppStateProps;
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
-  state = { data: { list: [] as MainElement[], interesser: [] as string[] } };
+  state = { data: { list: [] as MainElement[], interesser: [] as string[] }, interesserSelected: [] as string[] };
   componentDidMount() {
     const { area } = this.props.match.params;
     console.log("mounted alphabeticOverviewPage");
@@ -41,11 +43,42 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     const key = e.currentTarget.getAttribute("data-key");
     if (key) this.props.appState.toggleSelection(key);
   };
+  toggleSelectedInterests = (interest: string) => {
+    const interestIndex = this.state.interesserSelected.indexOf(interest);
+    if(interestIndex === -1) {
+      var selected = this.state.interesserSelected;
+      selected.push(interest);
+      this.setState({interesserSelected: selected})
+    }
+    else {
+      var selected = this.state.interesserSelected;
+      selected.splice(interestIndex, 1);
+      this.setState({interesserSelected: selected})
+    }
+  };
+
+  removeSelectedInterests = () => {
+    this.setState({interesserSelected: []});
+  };
+
+  isInterestSelected = (interests: string[] | undefined) => {
+    const interesserSelected = this.state.interesserSelected;
+    if(!this.state.interesserSelected || this.state.interesserSelected.length === 0)
+    return true;
+
+    if(!interests) return false;
+    
+    return interests.some((i) => {
+      return interesserSelected.indexOf(i) > -1;
+    });
+  };
+
   render() {
     const { area } = this.props.match.params;
     const selected = this.props.appState.selected;
     const {
       data: { interesser, list },
+      interesserSelected: interesserSelected,
     } = this.state;
 
     let selectedNodes = null;
@@ -70,10 +103,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         {selectedNodes}
         {interesser && (
           <div>
-            <h2>Interesser/kategorier</h2>
-            {interesser.map((itrest: string, i: number) => (
-              <span key={i}>{itrest} </span>
-            ))}
+            <InteresserFilter interesser={interesser} selected={interesserSelected} toggleSelected={this.toggleSelectedInterests} removeSelected={this.removeSelectedInterests}/>
           </div>
         )}
         <ul className="alphabetic">
@@ -85,17 +115,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               </h3>
               {list &&
                 list
-                  .filter(o => o.tittel.toLowerCase()[0] === c.toLowerCase())
+                  .filter(o => o.tittel.toLowerCase()[0] === c.toLowerCase() && this.isInterestSelected(o.interesser))
                   .map((o, i: number) => (
                     <Fragment key={i}>
                       <span
                         data-key={o.uno_id}
                         onClick={this.handleItemClick}
-                        className={
-                          selected && selected.indexOf(o.uno_id) !== -1
-                            ? "selected"
-                            : ""
-                        }
                       >
                         {o.tittel}
                       </span>{" "}
