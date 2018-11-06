@@ -1,0 +1,19 @@
+.jobbtilfredshet {
+    &_container {
+      //Scalable font size
+      font-size: 1rem;
+      text-align: center;
+      &-icons {
+          margin-bottom: 1em;
+          &--icon {
+              margin: .3em;
+              margin-bottom: 0;
+          }
+      }
+  
+      &-percentage {
+        font-size: 5em;
+      }
+    }
+  }
+  

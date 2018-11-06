@@ -8,6 +8,7 @@ import VanligeYrkerYrke from "../visualizations/VanligeYrkerYrke";
 import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 import NoData from "../visualizations/NoData";
 import Frafall from "../visualizations/Frafall";
+import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 // import { getData } from "../../data/data";
 import { RouteComponentProps } from "react-router";
 
@@ -50,6 +51,9 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
 
           <h2>Frafall / stryk</h2>
           <Frafall value={20}></Frafall>
+
+          <h2>Jobbtilfredshet</h2>
+          <Jobbtilfredshet value={92}></Jobbtilfredshet>
 
           <NoData />
         </div>
