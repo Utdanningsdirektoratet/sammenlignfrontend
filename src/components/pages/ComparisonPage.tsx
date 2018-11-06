@@ -5,6 +5,7 @@ import PageChrome from "../app/PageChrome";
 import Lonn from "../visualizations/Lonn";
 import Arbeidsledighet from "../visualizations/Arbeidsledighet";
 import VanligeYrkerYrke from "../visualizations/VanligeYrkerYrke";
+import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 // import { getData } from "../../data/data";
 import { RouteComponentProps } from "react-router";
 
@@ -41,6 +42,9 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
               { title: "Fiskeforsker", percentage: 5, info: 12 }
             ]}
           />
+
+          <h2>Gjennomføringstid</h2>
+          <Gjennomforingstid years={5} months={9}></Gjennomforingstid>
         </div>
       </PageChrome>
     );
