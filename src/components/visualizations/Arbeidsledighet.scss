@@ -1,0 +1,47 @@
+$color-darkblue: #020652;
+
+.arbeidsledighet {
+  &_container {
+    //Scalable font size
+    font-size: 1rem;
+
+    height: 100%;
+    width: 100%;
+
+    &-newly-title,
+    &-tenyears-title {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.percentagebar {
+  //Scalable font size
+  font-size: 1rem;
+
+  &_mainbar {
+    border-top: 1.5em solid #b1b1b1;
+    border-radius: 1em;
+  }
+
+  &_overlaybar {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: -1.5em;
+      border-top: 1.5em solid $color-darkblue;
+      border-radius: 1em;
+    }
+  }
+
+  &_percentage {
+    font-size: 1.8em;
+    font-weight: 500;
+    text-align: right;
+    margin-top: 0.4em;
+  }
+}
