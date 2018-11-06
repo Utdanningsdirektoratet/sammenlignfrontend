@@ -7,6 +7,7 @@ import Arbeidsledighet from "../visualizations/Arbeidsledighet";
 import VanligeYrkerYrke from "../visualizations/VanligeYrkerYrke";
 import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 import NoData from "../visualizations/NoData";
+import Frafall from "../visualizations/Frafall";
 // import { getData } from "../../data/data";
 import { RouteComponentProps } from "react-router";
 
@@ -46,6 +47,9 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
 
           <h2>Gjennomføringstid</h2>
           <Gjennomforingstid years={5} months={9}></Gjennomforingstid>
+
+          <h2>Frafall / stryk</h2>
+          <Frafall value={20}></Frafall>
 
           <NoData />
         </div>
