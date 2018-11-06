@@ -1,33 +1,43 @@
-.flex-container {
-  display: flex;
-}
-
-.flex-item {
-  color: black;
-  &.title {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 15px;
+.ComparisonPage {
+  .flex-container {
+    // display: flex;
+    height: 800px;
   }
 
-  &.point-title {
-    vertical-align: middle;
-    margin-top: 17px;
+  .flex-item {
+    color: black;
+
+    &.title {
+      font-size: 20px;
+      font-weight: bold;
+      min-width: 15%;
+      text-align: center;
+    }
+
+    &.item-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px;
+      width: 10%;
+      vertical-align: middle;
+    }
+
+    &.item {
+      border: 1px;
+      border-color: black;
+      border-style: solid;
+      min-width: 15%;
+      margin: 2px;
+    }
   }
 
-  &.component {
-    border: 1px;
-    border-color: black;
-    border-style: solid;
-
-    margin: 10px;
+  .flex-container-row {
+    height: 25%;
+    padding: 5px;
+    display: flex;
+    &.title-row {
+      height: 5%;
+      margin-left: 12%;
+    }
   }
-}
-
-.flex-containter-row {
-  padding: 5px;
-}
-
-.flex-item-point {
-  margin-top: 60px;
 }
