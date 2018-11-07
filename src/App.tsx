@@ -11,6 +11,7 @@ import AppContext, {
 } from "./components/app/AppContext";
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
+import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 class App extends Component<{}, AppState> {
@@ -22,17 +23,29 @@ class App extends Component<{}, AppState> {
     };
   }
   componentDidMount() {
-    // window.addEventListener("hashchange", this.updateUrlState);
+    const urlSelected = getUrlState();
+    if (urlSelected) {
+      this.setState({ selected: urlSelected });
+    }
+    window.addEventListener("hashchange", this.hashChangeListener);
   }
-  componentWillUnmount() {
-    // window.removeEventListener("hashchange", this.updateUrlState);
-  }
+  hashChangeListener = (e: HashChangeEvent) => {
+    const urlState = parseUrl(e.newURL);
+    const reactState = this.state.selected;
+    if (
+      urlState.length !== reactState.length ||
+      urlState.every((_, i) => urlState[i] === reactState[i])
+    ) {
+      this.setState({ selected: urlState });
+    }
+  };
   toggleSelection = (typ: string) => {
     this.setState(prevState => {
       const selected = prevState.selected.filter(sel => sel !== typ);
       if (selected.length === prevState.selected.length) {
         selected.push(typ);
       }
+      setUrlState(selected);
       return { selected };
     });
   };

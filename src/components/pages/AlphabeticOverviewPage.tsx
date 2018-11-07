@@ -4,11 +4,11 @@ import { Link, RouteComponentProps } from "react-router-dom";
 
 import "./AlphabeticOverviewPage.scss";
 
-import { getUrlState, toggleUrlState } from "../../util/urlState";
 import PageChrome from "../app/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement } from "../../data/ApiTypes";
+import SyncUrlState from "../app/SyncUrlState";
 
 type State = { data: DataList };
 
@@ -66,6 +66,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
     return (
       <PageChrome>
+        <SyncUrlState />
         <h1>Alfabetisk oversikt {area}</h1>
         {selectedNodes}
         {interesser && (
