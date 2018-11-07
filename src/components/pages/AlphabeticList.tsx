@@ -24,12 +24,12 @@ class AlphabeticList extends React.Component<Props> {
                   </h3>
                 ))}
                 </div>
-                <div>
+                <div className="alphabetic-list">
                 {c.strings.map(o => (
                   <Fragment key={o.uno_id}>
-                    <span data-key={o.uno_id} onClick={handleItemClicked}>
+                    <div className="alphabetic-list--item" data-key={o.uno_id} onClick={handleItemClicked}>
                       {o.tittel}
-                    </span>{" "}
+                    </div>{" "}
                   </Fragment>
                 ))}
                 </div>

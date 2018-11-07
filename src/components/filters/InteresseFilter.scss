@@ -1,8 +1,23 @@
 .interessefilter {
-    &_container {
-        &-nullstill {
-            cursor: pointer;
-            text-decoration: underline;
-        }
+  &_container {
+    margin: 2em;
+    &-nullstill {
+      cursor: pointer;
+      text-decoration: underline;
     }
+    &-items {
+      display: flex;
+      flex-flow: row wrap;
+      align-content: center;
+
+      &--item {
+        width: 20%;
+        word-break: break-word;
+        padding-right: 1em;
+        label {
+            cursor: pointer;
+        }
+      }
+    }
+  }
 }

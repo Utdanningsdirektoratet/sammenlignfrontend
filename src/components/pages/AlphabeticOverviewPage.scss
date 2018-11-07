@@ -1,10 +1,14 @@
 .alphabetic {
   list-style: none;
+  padding: 0;
+  margin: 2em;
 }
 
 .alphabetic-headers {
   justify-content: center;
   display: flex;
+  border-bottom: 1px solid black;
+  margin-bottom: 1em;
 }
 .alphabetic-header {
   display: flex;
@@ -13,15 +17,29 @@
   margin-left: 0.2em;
   margin-right: 0.2em;
   span {
-    background-color: yellowgreen;
+    background-color: orange;
 
     border-radius: 50%;
     display: block;
     height: 1.5em;
     width: 1.5em;
     text-align: center;
+    font-weight: 400;
   }
 }
 .selected {
   background-color: yellow;
 }
+.alphabetic-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+
+  &--item {
+    width: 20%;
+    word-break: break-word;
+    padding-right: 1em;
+  }
+}
+//flexbox wrap
+//@media
