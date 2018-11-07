@@ -10,13 +10,22 @@ import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement } from "../../data/ApiTypes";
 
-type State = { data: DataList };
+import InteresserFilter from "../filters/InteresseFilter";
+import AlphabeticList from "./AlphabeticList";
+
+type State = {
+  data: DataList;
+  interesserSelected: string[];
+};
 
 type Props = RouteComponentProps<{ area: "utdanning" | "yrke" | "studie" }> &
   AppStateProps;
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
-  state = { data: { list: [] as MainElement[], interesser: [] as string[] } };
+  state = {
+    data: { list: [] as MainElement[], interesser: [] as string[] },
+    interesserSelected: [] as string[],
+  };
   componentDidMount() {
     const { area } = this.props.match.params;
     console.log("mounted alphabeticOverviewPage");
@@ -37,15 +46,64 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   componentWillUnmount() {
     console.log("closing alphabeticOverviewPage");
   }
+  getFilteredList = () => {
+    const interesserSelected = this.state.interesserSelected;
+    const list = this.state.data.list;
+    if (!interesserSelected || interesserSelected.length === 0) return list;
+    return list.filter(l => {
+      if (!l.interesser) return false;
+
+      return l.interesser.some(i => {
+        return interesserSelected.indexOf(i) > -1;
+      });
+    });
+  };
   handleItemClick = (e: React.MouseEvent<HTMLElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
     if (key) this.props.appState.toggleSelection(key);
   };
+  toggleSelectedInterests = (interest: string) => {
+    const interestIndex = this.state.interesserSelected.indexOf(interest);
+    if (interestIndex === -1) {
+      var selected = this.state.interesserSelected;
+      selected.push(interest);
+      this.setState({
+        interesserSelected: selected,
+      });
+    } else {
+      var selected = this.state.interesserSelected;
+      selected.splice(interestIndex, 1);
+      this.setState({
+        interesserSelected: selected,
+      });
+    }
+  };
+
+  removeSelectedInterests = () => {
+    this.setState({ interesserSelected: [] });
+  };
+
+  isInterestSelected = (interests: string[] | undefined) => {
+    const interesserSelected = this.state.interesserSelected;
+    if (
+      !this.state.interesserSelected ||
+      this.state.interesserSelected.length === 0
+    )
+      return true;
+
+    if (!interests) return false;
+
+    return interests.some(i => {
+      return interesserSelected.indexOf(i) > -1;
+    });
+  };
+
   render() {
     const { area } = this.props.match.params;
     const selected = this.props.appState.selected;
     const {
       data: { interesser, list },
+      interesserSelected: interesserSelected,
     } = this.state;
 
     let selectedNodes = null;
@@ -70,39 +128,20 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         {selectedNodes}
         {interesser && (
           <div>
-            <h2>Interesser/kategorier</h2>
-            {interesser.map((itrest: string, i: number) => (
-              <span key={i}>{itrest} </span>
-            ))}
+            <InteresserFilter
+              interesser={interesser}
+              selected={interesserSelected}
+              toggleSelected={this.toggleSelectedInterests}
+              removeSelected={this.removeSelectedInterests}
+            />
           </div>
         )}
         <ul className="alphabetic">
-          {/* TODO: Rewrite to ignore empty characters +++ */}
-          {"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ".split("").map(c => (
-            <li key={c}>
-              <h3 className="alphabetic-header">
-                <span>{c}</span>
-              </h3>
-              {list &&
-                list
-                  .filter(o => o.tittel.toLowerCase()[0] === c.toLowerCase())
-                  .map((o, i: number) => (
-                    <Fragment key={i}>
-                      <span
-                        data-key={o.uno_id}
-                        onClick={this.handleItemClick}
-                        className={
-                          selected && selected.indexOf(o.uno_id) !== -1
-                            ? "selected"
-                            : ""
-                        }
-                      >
-                        {o.tittel}
-                      </span>{" "}
-                    </Fragment>
-                  ))}
-            </li>
-          ))}
+          <AlphabeticList
+            list={this.getFilteredList()}
+            handleItemClicked={this.handleItemClick}
+            selected={selected}
+          />
         </ul>
       </PageChrome>
     );

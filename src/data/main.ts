@@ -36,7 +36,8 @@ function getGeneric(result: (data: DataList) => void, prefix: "u" | "y" | "s") {
         el.interesser.forEach(i => (interesser[i] = true));
       }
     });
-    result({ list, interesser: Object.keys(interesser) });
+    const interesseKeys = Object.keys(interesser).sort();
+    result({ list, interesser: interesseKeys });
   });
 }
 

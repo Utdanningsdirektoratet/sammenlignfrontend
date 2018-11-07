@@ -1,21 +1,57 @@
 .alphabetic {
   list-style: none;
+  padding: 0;
+  margin: 2em;
 }
 
+.alphabetic-headers {
+  justify-content: center;
+  display: flex;
+  border-bottom: 1px solid black;
+  margin-bottom: 1em;
+}
 .alphabetic-header {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
   span {
-    background-color: yellowgreen;
+    background-color: orange;
 
     border-radius: 50%;
     display: block;
     height: 1.5em;
     width: 1.5em;
     text-align: center;
+    font-weight: 400;
   }
 }
 .selected {
   background-color: yellow;
+}
+.alphabetic-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+
+  &--item {
+    cursor: pointer;
+    width: 20%;
+    @media only screen and (min-width: 1000px) {
+      width: 20%;
+    }
+    @media only screen and (max-width: 900px) {
+      width: 30%;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 60%;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
+    word-break: break-word;
+    margin-right: 1em;
+    padding: .1em;
+  }
 }
