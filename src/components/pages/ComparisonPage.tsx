@@ -16,7 +16,7 @@ import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 
-const datapunkt = ["lønn", "arbeidsledig", "gjennomføringstid"];
+const datapunkt = ["lønn", "arbeidsledig", "gjennomføringstid", "stryk"];
 
 type State = {};
 type Props = RouteComponentProps & AppStateProps;
@@ -65,26 +65,27 @@ class ComparisonPage extends Component<Props, State> {
           <NoData />
 
           <div className="flex-container">
-            <div className="flex-container-row title-row">
+            <div className="flex-container-row titlerow">
               {comparisonTypes.map((name, titleKey) => (
-                <div className="flex-item title" key={titleKey}>
+                <div className="flex-item title" key={"A" + titleKey}>
                   {name}
                 </div>
               ))}
             </div>
 
             {datapunkt.map((pkt, key) => (
-              <div className="flex-container-row">
-                <div key={key} className="flex-item item-title">
+              <>
+                <div key={"B" + key} className="flex-item item-title">
                   {pkt}
                 </div>
-                {comparisonTypes.map(itemKey => (
-                  <div key={itemKey} className="flex-item item">
-                    {pkt}
-                  </div>
-                ))}
-                <div />
-              </div>
+                <div className="flex-container-row">
+                  {comparisonTypes.map((_, itemKey) => (
+                    <div key={"C" + key + itemKey} className="flex-item item">
+                      <NoData />
+                    </div>
+                  ))}
+                </div>
+              </>
             ))}
           </div>
         </div>

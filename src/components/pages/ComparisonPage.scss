@@ -32,12 +32,12 @@
   }
 
   .flex-container-row {
-    height: 25%;
+    min-height: 25%;
     padding: 5px;
     display: flex;
-    &.title-row {
+    &.titlerow {
       height: 5%;
-      margin-left: 12%;
+      min-height: 5%;
     }
   }
 }
