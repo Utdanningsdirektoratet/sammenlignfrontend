@@ -2,10 +2,16 @@
   list-style: none;
 }
 
+.alphabetic-headers {
+  justify-content: center;
+  display: flex;
+}
 .alphabetic-header {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
   span {
     background-color: yellowgreen;
 
