@@ -12,10 +12,22 @@
 
       &--item {
         width: 20%;
+        @media only screen and (min-width: 1000px) {
+          width: 20%;
+        }
+        @media only screen and (max-width: 900px) {
+          width: 30%;
+        }
+        @media only screen and (max-width: 600px) {
+          width: 60%;
+        }
+        @media only screen and (max-width: 500px) {
+          width: 100%;
+        }
         word-break: break-word;
         padding-right: 1em;
         label {
-            cursor: pointer;
+          cursor: pointer;
         }
       }
     }
