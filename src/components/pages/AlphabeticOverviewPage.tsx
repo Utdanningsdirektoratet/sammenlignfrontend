@@ -140,6 +140,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
           <AlphabeticList
             list={this.getFilteredList()}
             handleItemClicked={this.handleItemClick}
+            selected={selected}
           />
         </ul>
       </PageChrome>

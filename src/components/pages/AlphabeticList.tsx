@@ -5,11 +5,12 @@ import { alphabetize } from "../../util/AlphabeticList";
 type Props = {
   list: MainElement[];
   handleItemClicked: (e: React.MouseEvent<HTMLElement>) => void;
+  selected: string[];
 };
 
 class AlphabeticList extends React.Component<Props> {
   public render() {
-    const { list, handleItemClicked } = this.props;
+    const { list, handleItemClicked, selected } = this.props;
     const alphabetizedList = alphabetize(list, 5);
     return (
       <div className="alphabeticlist_container">
@@ -26,11 +27,11 @@ class AlphabeticList extends React.Component<Props> {
                 </div>
                 <div className="alphabetic-list">
                 {c.strings.map(o => (
-                  <Fragment key={o.uno_id}>
-                    <div className="alphabetic-list--item" data-key={o.uno_id} onClick={handleItemClicked}>
+                    <div key={o.uno_id} className={"alphabetic-list--item" + (selected && selected.indexOf(o.uno_id) !== -1
+                    ? " selected"
+                    : "")} data-key={o.uno_id} onClick={handleItemClicked}>
                       {o.tittel}
-                    </div>{" "}
-                  </Fragment>
+                    </div>
                 ))}
                 </div>
               </div>

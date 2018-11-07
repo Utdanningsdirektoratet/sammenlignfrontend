@@ -36,6 +36,7 @@
   align-content: center;
 
   &--item {
+    cursor: pointer;
     width: 20%;
     @media only screen and (min-width: 1000px) {
       width: 20%;
@@ -50,6 +51,7 @@
       width: 100%;
     }
     word-break: break-word;
-    padding-right: 1em;
+    margin-right: 1em;
+    padding: .1em;
   }
 }
