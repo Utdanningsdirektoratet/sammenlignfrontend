@@ -40,20 +40,25 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
               { id: 1, title: "Fisker", percentage: 90, info: 12 },
               { id: 2, title: "Fiskeopdretter", percentage: 45, info: 12 },
               { id: 3, title: "Fiskehelsebiolog", percentage: 30, info: 12 },
-              { id: 4, title: "Fagarbeider sjømatproduksjon", percentage: 25, info: 12 },
+              {
+                id: 4,
+                title: "Fagarbeider sjømatproduksjon",
+                percentage: 25,
+                info: 12,
+              },
               { id: 5, title: "Sjømathandler", percentage: 15, info: 12 },
-              { id: 6, title: "Fiskeforsker", percentage: 5, info: 12 }
+              { id: 6, title: "Fiskeforsker", percentage: 5, info: 12 },
             ]}
           />
 
           <h2>Gjennomføringstid</h2>
-          <Gjennomforingstid years={5} months={9}></Gjennomforingstid>
+          <Gjennomforingstid years={5} months={9} />
 
           <h2>Frafall / stryk</h2>
-          <Frafall value={20}></Frafall>
+          <Frafall value={20} />
 
           <h2>Jobbtilfredshet</h2>
-          <Jobbtilfredshet value={92}></Jobbtilfredshet>
+          <Jobbtilfredshet value={92} />
 
           <NoData />
         </div>
