@@ -40,29 +40,17 @@ class ComparisonPage extends Component<Props, State> {
           <h2>Vanlige yrker</h2>
           <VanligeYrkerYrke
             yrker={[
-<<<<<<< HEAD
               { id: 1, title: "Fisker", percentage: 90, info: 12 },
               { id: 2, title: "Fiskeopdretter", percentage: 45, info: 12 },
               { id: 3, title: "Fiskehelsebiolog", percentage: 30, info: 12 },
               {
                 id: 4,
-=======
-              { title: "Fisker", percentage: 90, info: 12 },
-              { title: "Fiskeopdretter", percentage: 45, info: 12 },
-              { title: "Fiskehelsebiolog", percentage: 30, info: 12 },
-              {
->>>>>>> first draft sammenligningsside
                 title: "Fagarbeider sjømatproduksjon",
                 percentage: 25,
                 info: 12,
               },
-<<<<<<< HEAD
               { id: 5, title: "Sjømathandler", percentage: 15, info: 12 },
               { id: 6, title: "Fiskeforsker", percentage: 5, info: 12 },
-=======
-              { title: "Sjømathandler", percentage: 15, info: 12 },
-              { title: "Fiskeforsker", percentage: 5, info: 12 },
->>>>>>> first draft sammenligningsside
             ]}
           />
 

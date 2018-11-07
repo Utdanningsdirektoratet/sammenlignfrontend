@@ -1,43 +1,35 @@
 .ComparisonPage {
   .flex-container {
-    // display: flex;
     height: 800px;
+    width: 80%;
+    margin: auto;
   }
 
   .flex-item {
-    color: black;
-
+    width: 100%;
     &.title {
-      font-size: 20px;
+      font-size: 1.3em;
       font-weight: bold;
-      min-width: 15%;
       text-align: center;
     }
 
     &.item-title {
-      font-size: 20px;
+      font-size: 1.3em;
       font-weight: bold;
-      margin: 15px;
-      width: 10%;
+      margin: 0.2em;
       vertical-align: middle;
+      text-align: center;
     }
 
     &.item {
-      border: 1px;
-      border-color: black;
-      border-style: solid;
-      min-width: 15%;
-      margin: 2px;
+      margin: 0.2em;
     }
   }
 
   .flex-container-row {
-    min-height: 25%;
-    padding: 5px;
+    padding: 0.5em;
     display: flex;
     &.titlerow {
-      height: 5%;
-      min-height: 5%;
     }
   }
 }
