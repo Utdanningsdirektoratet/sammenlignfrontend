@@ -1,0 +1,35 @@
+.ComparisonPage {
+  .flex-container {
+    height: 800px;
+    width: 80%;
+    margin: auto;
+  }
+
+  .flex-item {
+    width: 100%;
+    &.title {
+      font-size: 1.3em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &.item-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 0.2em;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    &.item {
+      margin: 0.2em;
+    }
+  }
+
+  .flex-container-row {
+    padding: 0.5em;
+    display: flex;
+    &.titlerow {
+    }
+  }
+}

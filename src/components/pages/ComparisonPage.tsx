@@ -1,6 +1,10 @@
-import * as React from "react";
+import React, { Component } from "react";
 // import Plot from "react-plotly.js";
+import { RouteComponentProps } from "react-router";
 
+import "./ComparisonPage.scss";
+
+import SyncUrlState from "../app/SyncUrlState";
 import PageChrome from "../app/PageChrome";
 import Lonn from "../visualizations/Lonn";
 import Arbeidsledighet from "../visualizations/Arbeidsledighet";
@@ -10,23 +14,22 @@ import NoData from "../visualizations/NoData";
 import Frafall from "../visualizations/Frafall";
 import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 // import { getData } from "../../data/data";
-import { RouteComponentProps } from "react-router";
+import { with_app_state, AppStateProps } from "../app/AppContext";
 
-// import './ComparisonPage.css'
+const datapunkt = ["lønn", "arbeidsledig", "gjennomføringstid", "stryk"];
 
-class ComparisonPage extends React.Component<RouteComponentProps> {
-  public componentDidMount() {
-    // getData((state: object) => {
-    //   this.setState(state);
-    // });
-  }
+type State = {};
+type Props = RouteComponentProps & AppStateProps;
 
-  public render() {
+class ComparisonPage extends Component<Props, State> {
+  render() {
+    const { selected: comparisonTypes } = this.props.appState;
     // let a = this.props.match.params["test"];
     // this.state;
     return (
       <PageChrome>
-        <div>
+        <SyncUrlState />
+        <div className="ComparisonPage">
           <h1>Sammenlign her</h1>
           <h2>Lønn</h2>
           <Lonn high={19300} low={14400} avg={16100} />
@@ -61,10 +64,35 @@ class ComparisonPage extends React.Component<RouteComponentProps> {
           <Jobbtilfredshet value={92} />
 
           <NoData />
+
+          <div className="flex-container">
+            <div className="flex-container-row titlerow">
+              {comparisonTypes.map((name, titleKey) => (
+                <div className="flex-item title" key={"A" + titleKey}>
+                  {name}
+                </div>
+              ))}
+            </div>
+
+            {datapunkt.map((pkt, key) => (
+              <>
+                <div key={"B" + key} className="flex-item item-title">
+                  {pkt}
+                </div>
+                <div className="flex-container-row">
+                  {comparisonTypes.map((_, itemKey) => (
+                    <div key={"C" + key + itemKey} className="flex-item item">
+                      <NoData />
+                    </div>
+                  ))}
+                </div>
+              </>
+            ))}
+          </div>
         </div>
       </PageChrome>
     );
   }
 }
 
-export default ComparisonPage;
+export default with_app_state(ComparisonPage);
