@@ -1,6 +1,5 @@
 import React from "react";
-import "./Vanligeyrker.scss";
-import "./Visualization.scss";
+import visualizationstyles from "./Visualization.module.scss";
 import Vanligeyrker from "../visualizations/Vanligeyrker";
 
 type Props = {
@@ -15,7 +14,7 @@ class VanligeYrkerYrke extends React.Component<Props, MyState> {
   public constructor(props: Props) {
     super(props);
     this.state = {
-      yrkerShown: 4
+      yrkerShown: 4,
     };
   }
 
@@ -36,7 +35,7 @@ class VanligeYrkerYrke extends React.Component<Props, MyState> {
     const { yrker } = this.props;
 
     return (
-      <div className="visualization_container">
+      <div className={visualizationstyles.visualization_container}>
         <Vanligeyrker
           yrker={yrker}
           yrkerShown={this.state.yrkerShown}

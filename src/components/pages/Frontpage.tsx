@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import PageChrome from "../app/PageChrome";
 import Translate from "../app/Translate";
 
-import "./Frontpage.scss";
+import styles from "./Frontpage.module.scss";
 
 class Frontpage extends React.Component {
   public render() {
@@ -14,11 +14,14 @@ class Frontpage extends React.Component {
           <h1>
             <Translate nb="Jeg vil sammenligne" nn="Eg vil sammenligna" />
           </h1>
-          <div className="button-row">
-            <Link to="/utdanning" className="btn btn-primary">
+          <div className={styles.button_row}>
+            <Link
+              to="/utdanning"
+              className={`${styles.btn} ${styles.btn_primary}`}
+            >
               <Translate nb="Utdanninger" nn="Utdanningar" />
             </Link>
-            <Link to="/yrke" className="btn btn-primary">
+            <Link to="/yrke" className={`${styles.btn} ${styles.btn_primary}`}>
               Yrker
             </Link>
           </div>

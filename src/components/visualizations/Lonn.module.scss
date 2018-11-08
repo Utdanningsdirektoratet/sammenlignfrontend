@@ -3,26 +3,26 @@ $color-darkblue: #020652;
 .lonn {
   &_container {
     //Scalable font size
-    font-size: 1rem;
+    font-size: 1em;
 
     height: 100%;
     border-left: 0.1em solid $color-darkblue;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 
-    &-title {
-        font-weight: 400;
-        margin-bottom: 2px;
-        font-size: 1.8em;
+    &_title {
+      font-weight: 400;
+      margin-bottom: 2px;
+      font-size: 1.8em;
     }
-    &-number {
-        font-weight: 400;
-        margin-top: 2px;
-        font-size: 2.2em;
+    &_number {
+      font-weight: 400;
+      margin-top: 2px;
+      font-size: 2.2em;
     }
 
-    &-high,
-    &-avg,
-    &-low {
+    &_high,
+    &_avg,
+    &_low {
       position: relative;
       margin-left: 2em;
       &:before {
@@ -35,23 +35,23 @@ $color-darkblue: #020652;
         border-radius: 1em;
       }
     }
-    &-avg {
+    &_avg {
       &:before {
         height: 140%;
         margin-top: -1em;
       }
-      .lonn_container-title {
+      .lonn_container_title {
         margin-top: 2em;
       }
-      .lonn_container-number {
+      .lonn_container_number {
         margin-bottom: 1.8em;
       }
     }
-    &-low {
+    &_low {
       &:before {
         margin-top: 0px;
       }
-      .lonn_container-number {
+      .lonn_container_number {
         margin-bottom: 0px;
       }
     }

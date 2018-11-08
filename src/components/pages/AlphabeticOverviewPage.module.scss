@@ -4,13 +4,13 @@
   margin: 2em;
 }
 
-.alphabetic-headers {
+.alphabetic_headers {
   justify-content: center;
   display: flex;
   border-bottom: 1px solid black;
   margin-bottom: 1em;
 }
-.alphabetic-header {
+.alphabetic_header {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
@@ -30,12 +30,12 @@
 .selected {
   background-color: yellow;
 }
-.alphabetic-list {
+.alphabetic_list {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
 
-  &--item {
+  &__item {
     cursor: pointer;
     width: 20%;
     @media only screen and (min-width: 1000px) {
@@ -52,6 +52,6 @@
     }
     word-break: break-word;
     margin-right: 1em;
-    padding: .1em;
+    padding: 0.1em;
   }
 }
