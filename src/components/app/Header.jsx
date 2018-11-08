@@ -1,10 +1,15 @@
 import React, { PureComponent } from "react";
+import LanguagePicker from "./LanguagePicker";
 
 //import './Header.css'
 
 class Header extends PureComponent {
   render() {
-    return null;
+    return (
+      <div className="Header">
+        <LanguagePicker />
+      </div>
+    );
   }
 }
 

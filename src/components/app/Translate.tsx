@@ -12,26 +12,8 @@ class Translate extends Component<Props> {
     return (
       <TranslateContext.Consumer>
         {(trans: Trans) => {
-          if (trans.lang === "nn") {
-            return (
-              <span
-                onClick={() => {
-                  trans.updateLang("nb");
-                }}
-              >
-                {nn}
-              </span>
-            );
-          }
-          return (
-            <span
-              onClick={() => {
-                trans.updateLang("nn");
-              }}
-            >
-              {nb}
-            </span>
-          );
+          const text = trans.lang === "nn" ? nn : nb;
+          return text;
         }}
       </TranslateContext.Consumer>
     );
