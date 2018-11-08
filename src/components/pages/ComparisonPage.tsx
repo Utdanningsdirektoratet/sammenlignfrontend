@@ -13,6 +13,7 @@ import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 import NoData from "../visualizations/NoData";
 import Frafall from "../visualizations/Frafall";
 import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
+import Hvilkejobber from "../visualizations/HvilkeJobber";
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 
@@ -30,6 +31,7 @@ class ComparisonPage extends Component<Props, State> {
       <PageChrome>
         <SyncUrlState />
         <div className="ComparisonPage">
+          <Hvilkejobber />
           <h1>Sammenlign her</h1>
           <h2>Lønn</h2>
           <Lonn high={19300} low={14400} avg={16100} />

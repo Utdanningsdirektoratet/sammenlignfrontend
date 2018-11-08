@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.css";
-
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
 import { TranslateRoot } from "./components/app/TranslateContext";
 import AppContext, {
