@@ -16,28 +16,30 @@ import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 
-const datapunkt = ["lønn", "arbeidsledig", "gjennomføringstid", "stryk"];
+const datapunkt = [
+  "lønn",
+  "arbeidsledig",
+  "gjennomføringstid",
+  "vanligeyrker",
+  "stryk",
+  "tilfredshet",
+  "ikke_eksisterende",
+];
 
 type State = {};
 type Props = RouteComponentProps & AppStateProps;
 
 class ComparisonPage extends Component<Props, State> {
-  render() {
-    const { selected: comparisonTypes } = this.props.appState;
-    // let a = this.props.match.params["test"];
-    // this.state;
-    return (
-      <PageChrome>
-        <SyncUrlState />
-        <div className={styles.ComparisonPage}>
-          <h1>Sammenlign her</h1>
-          <h2>Lønn</h2>
-          <Lonn high={19300} low={14400} avg={16100} />
-
-          <h2>Arbeidsledighet</h2>
-          <Arbeidsledighet newly={38} tenyears={2} />
-
-          <h2>Vanlige yrker</h2>
+  showWidget(widgetType: string) {
+    switch (widgetType) {
+      case "lønn": {
+        return <Lonn high={19300} low={14400} avg={16100} />;
+      }
+      case "arbeidsledig": {
+        return <Arbeidsledighet newly={38} tenyears={2} />;
+      }
+      case "vanligeyrker": {
+        return (
           <VanligeYrkerYrke
             yrker={[
               { id: 1, title: "Fisker", percentage: 90, info: 12 },
@@ -53,17 +55,31 @@ class ComparisonPage extends Component<Props, State> {
               { id: 6, title: "Fiskeforsker", percentage: 5, info: 12 },
             ]}
           />
+        );
+      }
+      case "stryk": {
+        return <Frafall value={20} />;
+      }
+      case "gjennomføringstid": {
+        return <Gjennomforingstid years={5} months={9} />;
+      }
+      case "tilfredshet": {
+        return <Jobbtilfredshet value={92} />;
+      }
+      default: {
+        return <NoData />;
+      }
+    }
+  }
 
-          <h2>Gjennomføringstid</h2>
-          <Gjennomforingstid years={5} months={9} />
+  render() {
+    const { selected: comparisonTypes } = this.props.appState;
 
-          <h2>Frafall / stryk</h2>
-          <Frafall value={20} />
-
-          <h2>Jobbtilfredshet</h2>
-          <Jobbtilfredshet value={92} />
-
-          <NoData />
+    return (
+      <PageChrome>
+        <SyncUrlState />
+        <div className={styles.ComparisonPage}>
+          <h1>Sammenlign her</h1>
 
           <div className={styles.flex_container}>
             <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
@@ -91,7 +107,7 @@ class ComparisonPage extends Component<Props, State> {
                       key={"C" + key + itemKey}
                       className={`${styles.flex_item} ${styles.item}`}
                     >
-                      <NoData />
+                      {this.showWidget(pkt)}
                     </div>
                   ))}
                 </div>
