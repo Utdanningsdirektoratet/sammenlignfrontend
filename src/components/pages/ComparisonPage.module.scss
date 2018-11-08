@@ -11,25 +11,31 @@
       font-size: 1.3em;
       font-weight: bold;
       text-align: center;
+      justify-content: center;
+      max-width: 30%;
     }
 
     &.item_title {
       font-size: 1.3em;
       font-weight: bold;
-      margin: 0.2em;
-      vertical-align: middle;
       text-align: center;
+      vertical-align: middle;
+      background-color: orange;
     }
 
     &.item {
-      margin: 0.2em;
+      max-width: 30%;
     }
   }
 
   .flex_container_row {
-    padding: 0.5em;
+    width: 100%;
     display: flex;
+    justify-content: center;
     &.titlerow {
+      width: 100%;
+      background-color: orange;
+      margin-bottom: 0.2em;
     }
   }
 }
