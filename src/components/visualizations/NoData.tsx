@@ -1,16 +1,18 @@
 import React from "react";
-import "./NoData.scss";
-import {ReactComponent as NoDataSvg} from "./NoData.svg";
+import styles from "./NoData.module.scss";
+import visualizationstyles from "./Visualization.module.scss";
+
+import { ReactComponent as NoDataSvg } from "./NoData.svg";
 
 class NoData extends React.Component {
   public render() {
     return (
-      <div className="visualization_container">
-        <div className="nodata_container">
-          <div className="nodata_container-icon">
-            <NoDataSvg/>
+      <div className={visualizationstyles.visualization_container}>
+        <div className={styles.nodata_container}>
+          <div className={styles.nodata_container_icon}>
+            <NoDataSvg />
           </div>
-          <div className="nodata_container-text">Ingen data</div>
+          <div className={styles.nodata_container_text}>Ingen data</div>
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
-import "./Lonn.scss";
-import "./Visualization.scss";
+import styles from "./Lonn.module.scss";
+import visualizationstyles from "./Visualization.module.scss";
 
 type Props = {
   high: number;
@@ -12,19 +12,19 @@ class Lonn extends React.Component<Props> {
   public render() {
     const { high, low, avg } = this.props;
     return (
-      <div className="visualization_container">
-        <div className="lonn_container">
-          <div className="lonn_container-high">
-            <div className="lonn_container-title">Høyeste</div>
-            <div className="lonn_container-number">{high} kr</div>
+      <div className={visualizationstyles.visualization_container}>
+        <div className={styles.lonn_container}>
+          <div className={styles.lonn_container_high}>
+            <div className={styles.lonn_container_title}>Høyeste</div>
+            <div className={styles.lonn_container_number}>{high} kr</div>
           </div>
-          <div className="lonn_container-avg">
-            <div className="lonn_container-title">Gjennomsnitt</div>
-            <div className="lonn_container-number">{avg} kr</div>
+          <div className={styles.lonn_container_avg}>
+            <div className={styles.lonn_container_title}>Gjennomsnitt</div>
+            <div className={styles.lonn_container_number}>{avg} kr</div>
           </div>
-          <div className="lonn_container-low">
-            <div className="lonn_container-title">Laveste</div>
-            <div className="lonn_container-number">{low} kr</div>
+          <div className={styles.lonn_container_low}>
+            <div className={styles.lonn_container_title}>Laveste</div>
+            <div className={styles.lonn_container_number}>{low} kr</div>
           </div>
         </div>
       </div>

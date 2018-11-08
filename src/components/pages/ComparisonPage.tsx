@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import Plot from "react-plotly.js";
 import { RouteComponentProps } from "react-router";
 
-import "./ComparisonPage.scss";
+import styles from "./ComparisonPage.module.scss";
 
 import SyncUrlState from "../app/SyncUrlState";
 import PageChrome from "../app/PageChrome";
@@ -29,7 +29,7 @@ class ComparisonPage extends Component<Props, State> {
     return (
       <PageChrome>
         <SyncUrlState />
-        <div className="ComparisonPage">
+        <div className={styles.ComparisonPage}>
           <h1>Sammenlign her</h1>
           <h2>Lønn</h2>
           <Lonn high={19300} low={14400} avg={16100} />
@@ -65,10 +65,13 @@ class ComparisonPage extends Component<Props, State> {
 
           <NoData />
 
-          <div className="flex-container">
-            <div className="flex-container-row titlerow">
+          <div className={styles.flex_container}>
+            <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
               {comparisonTypes.map((name, titleKey) => (
-                <div className="flex-item title" key={"A" + titleKey}>
+                <div
+                  className={`${styles.flex_item} ${styles.title}`}
+                  key={"A" + titleKey}
+                >
                   {name}
                 </div>
               ))}
@@ -76,12 +79,18 @@ class ComparisonPage extends Component<Props, State> {
 
             {datapunkt.map((pkt, key) => (
               <>
-                <div key={"B" + key} className="flex-item item-title">
+                <div
+                  key={"B" + key}
+                  className={`${styles.flex_item} ${styles.item_title}`}
+                >
                   {pkt}
                 </div>
-                <div className="flex-container-row">
+                <div className={styles.flex_container_row}>
                   {comparisonTypes.map((_, itemKey) => (
-                    <div key={"C" + key + itemKey} className="flex-item item">
+                    <div
+                      key={"C" + key + itemKey}
+                      className={`${styles.flex_item} ${styles.item}`}
+                    >
                       <NoData />
                     </div>
                   ))}

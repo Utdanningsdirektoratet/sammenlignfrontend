@@ -1,7 +1,9 @@
 import React from "react";
-import "./Frafall.scss";
-import {ReactComponent as FrafallThumbsup} from "./Frafall-thumbsup.svg";
-import {ReactComponent as FrafallThumbsdown} from "./Frafall-thumbsdown.svg";
+import styles from "./Frafall.module.scss";
+import visualizationstyles from "./Visualization.module.scss";
+
+import { ReactComponent as FrafallThumbsup } from "./Frafall-thumbsup.svg";
+import { ReactComponent as FrafallThumbsdown } from "./Frafall-thumbsdown.svg";
 
 type Props = {
   value: number;
@@ -20,21 +22,25 @@ class Frafall extends React.Component<Props> {
     const allIcons = negIcons.concat(posIcons);
 
     return (
-      <div className="visualization_container">
-        <div className="frafall_container">
-          <div className="frafall_container-icons">
-            <div className="frafall_container-icons--firstline">
-              {allIcons.slice(0, 5).map((I, i:number) => {
-                return <I className="frafall_container-icons--icon" key={i} />;
+      <div className={visualizationstyles.visualization_container}>
+        <div className={styles.frafall_container}>
+          <div className={styles.frafall_container_icons}>
+            <div className={styles.frafall_container_icons__firstline}>
+              {allIcons.slice(0, 5).map((I, i: number) => {
+                return (
+                  <I className={styles.frafall_container_icons__icon} key={i} />
+                );
               })}
             </div>
-            <div className="frafall_container-icons--secondline">
-              {allIcons.slice(5, 10).map((I, i:number) => {
-                return <I className="frafall_container-icons--icon" key={i}/>;
+            <div className={styles.frafall_container_icons__secondline}>
+              {allIcons.slice(5, 10).map((I, i: number) => {
+                return (
+                  <I className={styles.frafall_container_icons__icon} key={i} />
+                );
               })}
             </div>
           </div>
-          <div className="frafall_container-percentage">{value} %</div>
+          <div className={styles.frafall_container_percentage}>{value} %</div>
         </div>
       </div>
     );
