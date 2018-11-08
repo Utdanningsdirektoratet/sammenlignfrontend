@@ -10,6 +10,8 @@ const TranslateContext = React.createContext(defaultTrans as Trans);
 
 type Props = {
   children: ReactNode;
+  initialLang?: string;
+  onLanguageChange?: (string: Lang) => void;
 };
 
 export class TranslateRoot extends Component<Props, Trans> {
@@ -20,7 +22,10 @@ export class TranslateRoot extends Component<Props, Trans> {
     lang: defaultTrans.lang,
     updateLang: (lang: Lang) => {
       this.setState({ lang: lang });
-    }
+      if (this.props.onLanguageChange) {
+        this.props.onLanguageChange(lang);
+      }
+    },
   };
   //   }
   render() {

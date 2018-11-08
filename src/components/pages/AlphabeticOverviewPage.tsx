@@ -12,6 +12,7 @@ import SyncUrlState from "../app/SyncUrlState";
 
 import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
+import Translate from "../app/Translate";
 
 type State = {
   data: DataList;
@@ -125,7 +126,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     return (
       <PageChrome>
         <SyncUrlState />
-        <h1>Alfabetisk oversikt {area}</h1>
+        <h1>
+          <Translate
+            nb={"Alfabetisk oversikt " + area}
+            nn={"Alfabetisk oversyn " + area}
+          />
+        </h1>
         {selectedNodes}
         {interesser && (
           <div>
