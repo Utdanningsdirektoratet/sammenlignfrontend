@@ -11,7 +11,7 @@ class Frontpage extends React.Component {
     return (
       <PageChrome>
         <main>
-          <h1>
+          <h1 className={styles.compare_title}>
             <Translate nb="Jeg vil sammenligne" nn="Eg vil sammenligna" />
           </h1>
           <div className={styles.button_row}>

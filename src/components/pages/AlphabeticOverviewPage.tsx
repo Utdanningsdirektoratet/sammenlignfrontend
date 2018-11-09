@@ -130,30 +130,33 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     return (
       <PageChrome>
         <SyncUrlState />
-        <h1>
-          <Translate
-            nb={"Alfabetisk oversikt " + innholdstype}
-            nn={"Alfabetisk oversyn " + innholdstype}
-          />
-        </h1>
-        {selectedNodes}
-        {interesser && (
-          <div>
-            <InteresserFilter
-              interesser={interesser}
-              selected={interesserSelected}
-              toggleSelected={this.toggleSelectedInterests}
-              removeSelected={this.removeSelectedInterests}
+        <div className={styles.container}>
+          <h1>
+            <Translate
+              nb={"Alfabetisk oversikt " + innholdstype}
+              nn={"Alfabetisk oversyn " + innholdstype}
             />
-          </div>
-        )}
-        <ul className={styles.alphabetic}>
-          <AlphabeticList
-            list={this.getFilteredList()}
-            handleItemClicked={this.handleItemClick}
-            selected={selected}
-          />
-        </ul>
+          </h1>
+
+          {selectedNodes}
+          {interesser && (
+            <div>
+              <InteresserFilter
+                interesser={interesser}
+                selected={interesserSelected}
+                toggleSelected={this.toggleSelectedInterests}
+                removeSelected={this.removeSelectedInterests}
+              />
+            </div>
+          )}
+          <ul className={styles.alphabetic}>
+            <AlphabeticList
+              list={this.getFilteredList()}
+              handleItemClicked={this.handleItemClick}
+              selected={selected}
+            />
+          </ul>
+        </div>
       </PageChrome>
     );
   }
