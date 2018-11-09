@@ -13,6 +13,7 @@ import SyncUrlState from "../app/SyncUrlState";
 import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
+import Api from "../app/Api";
 
 type State = {
   data: DataList;
@@ -135,6 +136,14 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             nn={"Alfabetisk oversyn " + area}
           />
         </h1>
+        <Api url="https://jsonplaceholder.typicode.com/todos/1">
+          {(data: any) => (
+            <span>
+              API SuCCES
+              {console.log(data) == undefined && data.title}
+            </span>
+          )}
+        </Api>
         {selectedNodes}
         {interesser && (
           <div>
