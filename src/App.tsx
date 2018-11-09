@@ -20,13 +20,8 @@ class App extends Component<{}, AppState> {
     this.state = {
       ...defaultAppState,
       toggleSelection: this.toggleSelection,
+      selected: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
     };
-  }
-  componentDidMount() {
-    const urlSelected = getUrlState();
-    if (urlSelected) {
-      this.setState({ selected: urlSelected });
-    }
     window.addEventListener("hashchange", this.hashChangeListener);
   }
   hashChangeListener = (e: HashChangeEvent) => {
@@ -58,7 +53,10 @@ class App extends Component<{}, AppState> {
           <BrowserRouter>
             <Switch>
               <Route path="/" exact={true} component={Frontpage} />
-              <Route path="/sammenligne" component={ComparisonPage} />
+              <Route
+                path="/sammenligne/:innholdstype"
+                component={ComparisonPage}
+              />
               <Route path="/:area" component={AlphabeticOverviewPage} />
             </Switch>
           </BrowserRouter>
