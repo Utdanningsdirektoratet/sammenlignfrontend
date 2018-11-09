@@ -15,65 +15,52 @@ import Frafall from "../visualizations/Frafall";
 import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
+import comparisonsConfig from "../comparisonsConfig";
+import { API_DOMAIN } from "../../data/config";
+import { objectToQueryString } from "../../util/querystring";
 
-const datapunkt = [
-  "lønn",
-  "arbeidsledig",
-  "gjennomføringstid",
-  "vanligeyrker",
-  "stryk",
-  "tilfredshet",
-  "ikke_eksisterende",
-];
-
-type State = {};
-type Props = RouteComponentProps & AppStateProps;
+type State = any;
+type Props = RouteComponentProps<{ innholdstype: string }> & AppStateProps;
 
 class ComparisonPage extends Component<Props, State> {
-  showWidget(widgetType: string) {
-    switch (widgetType) {
-      case "lønn": {
-        return <Lonn high={19300} low={14400} avg={16100} />;
-      }
-      case "arbeidsledig": {
-        return <Arbeidsledighet newly={38} tenyears={2} />;
-      }
-      case "vanligeyrker": {
-        return (
-          <VanligeYrkerYrke
-            yrker={[
-              { id: 1, title: "Fisker", percentage: 90, info: 12 },
-              { id: 2, title: "Fiskeopdretter", percentage: 45, info: 12 },
-              { id: 3, title: "Fiskehelsebiolog", percentage: 30, info: 12 },
-              {
-                id: 4,
-                title: "Fagarbeider sjømatproduksjon",
-                percentage: 25,
-                info: 12,
-              },
-              { id: 5, title: "Sjømathandler", percentage: 15, info: 12 },
-              { id: 6, title: "Fiskeforsker", percentage: 5, info: 12 },
-            ]}
-          />
-        );
-      }
-      case "stryk": {
-        return <Frafall value={20} />;
-      }
-      case "gjennomføringstid": {
-        return <Gjennomforingstid years={5} months={9} />;
-      }
-      case "tilfredshet": {
-        return <Jobbtilfredshet value={92} />;
-      }
-      default: {
-        return <NoData />;
-      }
-    }
+  state: any = {};
+  componentDidMount() {
+    this.fetchData();
   }
-
+  fetchData() {
+    const { innholdstype } = this.props.match.params;
+    const comparisons = comparisonsConfig[innholdstype];
+    const { selected } = this.props.appState;
+    const comparisonTypes = selected.filter(
+      s => s[0] === innholdstype[0].toLowerCase()
+    );
+    comparisons.forEach(comparison => {
+      comparisonTypes.forEach(uno_id => {
+        const key = comparison.path + uno_id + JSON.stringify(comparison.query);
+        fetch(
+          `${API_DOMAIN}${comparison.path}?${objectToQueryString({
+            ...comparison.query,
+            uno_id: uno_id,
+            spraak: "nb",
+          })}`
+        )
+          .then(res => res.json())
+          .then(data => {
+            this.setState({ [key]: data[uno_id] });
+          })
+          .catch(e => {
+            //ignore
+          });
+      });
+    });
+  }
   render() {
-    const { selected: comparisonTypes } = this.props.appState;
+    const { innholdstype } = this.props.match.params;
+    const comparisons = comparisonsConfig[innholdstype];
+    const { selected } = this.props.appState;
+    const comparisonTypes = selected.filter(
+      s => s[0] === innholdstype[0].toLowerCase()
+    );
 
     return (
       <PageChrome>
@@ -83,35 +70,34 @@ class ComparisonPage extends Component<Props, State> {
 
           <div className={styles.flex_container}>
             <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
-              {comparisonTypes.map((name, titleKey) => (
-                <div
-                  className={`${styles.flex_item} ${styles.title}`}
-                  key={"A" + titleKey}
-                >
+              {comparisonTypes.map((name, i) => (
+                <div className={`${styles.flex_item} ${styles.title}`} key={i}>
                   {name}
                 </div>
               ))}
             </div>
 
-            {datapunkt.map((pkt, key) => (
-              <>
-                <div
-                  key={"B" + key}
-                  className={`${styles.flex_item} ${styles.item_title}`}
-                >
-                  {pkt}
-                </div>
+            {comparisons.map((comparison, i) => (
+              <div key={i}>
+                <h3 className={`${styles.flex_item} ${styles.item_title}`}>
+                  {comparison.title}
+                </h3>
                 <div className={styles.flex_container_row}>
-                  {comparisonTypes.map((_, itemKey) => (
-                    <div
-                      key={"C" + key + itemKey}
-                      className={`${styles.flex_item} ${styles.item}`}
-                    >
-                      {this.showWidget(pkt)}
-                    </div>
-                  ))}
+                  {comparisonTypes.map((type, i) => {
+                    const key =
+                      comparison.path + type + JSON.stringify(comparison.query);
+                    const data = this.state[key];
+                    return (
+                      <div
+                        key={i}
+                        className={`${styles.flex_item} ${styles.item}`}
+                      >
+                        {data ? comparison.render(data) : null}
+                      </div>
+                    );
+                  })}
                 </div>
-              </>
+              </div>
             ))}
           </div>
         </div>

@@ -113,7 +113,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       selectedNodes = (
         <>
           <Link
-            to="/sammenligne"
+            to={"/sammenligne/" + area}
             className={`${styles.btn} ${styles.btn_primary}`}
           >
             Sammenlign her
@@ -136,14 +136,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             nn={"Alfabetisk oversyn " + area}
           />
         </h1>
-        <Api url="https://jsonplaceholder.typicode.com/todos/1">
-          {(data: any) => (
-            <span>
-              API SuCCES
-              {console.log(data) == undefined && data.title}
-            </span>
-          )}
-        </Api>
         {selectedNodes}
         {interesser && (
           <div>

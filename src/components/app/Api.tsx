@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 import { with_app_state, AppStateProps } from "./AppContext";
 import { with_lang_props, LanguageProps } from "./TranslateContext";
+import { API_DOMAIN } from "../../data/config";
+import { objectToQueryString } from "../../util/querystring";
+
+export type QueryObject = { [a: string]: string };
 
 type MyProps = {
-  url: string;
+  path: string;
+  query?: QueryObject;
   children: (data: any) => JSX.Element;
 };
 type Props = MyProps & AppStateProps & LanguageProps;
 
-class Api extends Component<Props> {
+type State = {
+  data: any;
+};
+
+class Api extends Component<Props, State> {
   componentDidMount() {
-    const { url, lang } = this.props;
-    const res = fetch(`${url}?lang=${lang}`)
+    const { path, query, lang } = this.props;
+    const querystring = objectToQueryString({ ...query, sprak: lang });
+
+    fetch(`${API_DOMAIN}${path}?${querystring}`)
       .then(res => res.json())
       .then(data => this.setState({ data }));
   }
