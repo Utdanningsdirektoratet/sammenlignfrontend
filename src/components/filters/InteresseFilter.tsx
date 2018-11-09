@@ -1,5 +1,5 @@
 import React from "react";
-import "./InteresseFilter.scss";
+import styles from "./InteresseFilter.module.scss";
 
 type Props = {
   interesser: string[];
@@ -17,25 +17,31 @@ class InteresserFilter extends React.Component<Props> {
   public render() {
     const { interesser, selected, toggleSelected, removeSelected } = this.props;
     return (
-      <div className="interessefilter_container">
-        <h2 className="interessefilter_container-header">
+      <div className={styles.interessefilter_container}>
+        <h2 className={styles.interessefilter_container_header}>
           Interesser/kategorier
         </h2>
         <p
-          className="interessefilter_container-nullstill"
-          onClick={() => removeSelected()}>Nullstill X</p>
-        <div className="interessefilter_container-items">
+          className={styles.interessefilter_container_nullstill}
+          onClick={() => removeSelected()}
+        >
+          Nullstill X
+        </p>
+        <div className={styles.interessefilter_container_items}>
           {interesser.map((itrest: string, i: number) => (
-            <div className="interessefilter_container-items--item" key={i}>
-            <label>
-            <input
-                type="checkbox"
-                value={itrest}
-                checked={this.checkIsChecked(itrest)}
-                onChange={() => toggleSelected(itrest)}
-              />{" "}
-              {itrest}
-            </label>              
+            <div
+              className={styles.interessefilter_container_items__item}
+              key={i}
+            >
+              <label>
+                <input
+                  type="checkbox"
+                  value={itrest}
+                  checked={this.checkIsChecked(itrest)}
+                  onChange={() => toggleSelected(itrest)}
+                />{" "}
+                {itrest}
+              </label>
             </div>
           ))}
         </div>

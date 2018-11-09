@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { Link, RouteComponentProps } from "react-router-dom";
 
-import "./AlphabeticOverviewPage.scss";
+import styles from "./AlphabeticOverviewPage.module.scss";
 
 import PageChrome from "../app/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
@@ -111,7 +111,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     if (selected && selected.length > 0) {
       selectedNodes = (
         <>
-          <Link to="/sammenligne" className="btn btn-primary">
+          <Link
+            to="/sammenligne"
+            className={`${styles.btn} ${styles.btn_primary}`}
+          >
             Sammenlign her
           </Link>
           <ul>
@@ -143,7 +146,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             />
           </div>
         )}
-        <ul className="alphabetic">
+        <ul className={styles.alphabetic}>
           <AlphabeticList
             list={this.getFilteredList()}
             handleItemClicked={this.handleItemClick}

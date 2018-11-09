@@ -1,0 +1,17 @@
+.frafall {
+  &_container {
+    //Scalable font size
+    font-size: 1em;
+    text-align: center;
+    &_icons {
+      margin-bottom: 1em;
+      &__icon {
+        margin: 0.5em;
+      }
+    }
+
+    &_percentage {
+      font-size: 5em;
+    }
+  }
+}

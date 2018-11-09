@@ -1,0 +1,28 @@
+$color-darkblue: #020652;
+
+.vanligeyrker {
+  &_container {
+    //Scalable font size
+    font-size: 1em;
+
+    height: 100%;
+    width: 100%;
+    &_yrke {
+      font-size: 1.6em;
+
+      &__bar {
+        border-bottom: 1em solid $color-darkblue;
+        margin-bottom: 1em;
+        margin-top: 0.6em;
+      }
+    }
+
+    &_link {
+      font-size: 1.6em;
+      text-decoration: underline;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -3,13 +3,13 @@ $color-darkblue: #020652;
 .arbeidsledighet {
   &_container {
     //Scalable font size
-    font-size: 1rem;
+    font-size: 1em;
 
     height: 100%;
     width: 100%;
 
-    &-newly-title,
-    &-tenyears-title {
+    &_newly_title,
+    &_tenyears_title {
       font-size: 1.8em;
       margin-bottom: 1em;
     }
@@ -18,7 +18,7 @@ $color-darkblue: #020652;
 
 .percentagebar {
   //Scalable font size
-  font-size: 1rem;
+  font-size: 1em;
 
   &_mainbar {
     border-top: 1.5em solid #b1b1b1;

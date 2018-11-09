@@ -1,8 +1,8 @@
 import React from "react";
-import "./Vanligeyrker.scss";
+import styles from "./Vanligeyrker.module.scss";
 
 type Props = {
-  yrker: Array<{ id: number, title: string; percentage: number }>;
+  yrker: Array<{ id: number; title: string; percentage: number }>;
   yrkerShown: number;
   onLinkClicked: Function;
 };
@@ -12,10 +12,12 @@ class Vanligeyrker extends React.Component<Props> {
     const { yrker, yrkerShown, onLinkClicked } = this.props;
     const vanligeYrker = yrker.slice(0, yrkerShown).map(yrke => {
       return (
-        <div className="vanligeyrker_container-yrke" key={yrke.id}>
-          <div className="vanligeyrker_container-yrke--title">{yrke.title}</div>
+        <div className={styles.vanligeyrker_container_yrke} key={yrke.id}>
+          <div className={styles.vanligeyrker_container_yrke__title}>
+            {yrke.title}
+          </div>
           <div
-            className="vanligeyrker_container-yrke--bar"
+            className={styles.vanligeyrker_container_yrke__bar}
             style={{ width: `${yrke.percentage}%` }}
           />
         </div>
@@ -24,13 +26,17 @@ class Vanligeyrker extends React.Component<Props> {
 
     const link =
       yrker.length > yrkerShown ? (
-        <div className="vanligeyrker_container-link"
-          onClick={() => onLinkClicked()}>
+        <div
+          className={styles.vanligeyrker_container_link}
+          onClick={() => onLinkClicked()}
+        >
           Se flere yrker
         </div>
       ) : yrker.length === yrkerShown ? (
-        <div className="vanligeyrker_container-link"
-          onClick={() => onLinkClicked()}>
+        <div
+          className={styles.vanligeyrker_container_link}
+          onClick={() => onLinkClicked()}
+        >
           Se færre yrker
         </div>
       ) : (
@@ -38,7 +44,7 @@ class Vanligeyrker extends React.Component<Props> {
       );
 
     return (
-      <div className="vanligeyrker_container">
+      <div className={styles.vanligeyrker_container}>
         {vanligeYrker}
         {link}
       </div>

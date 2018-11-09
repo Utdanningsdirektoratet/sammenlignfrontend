@@ -1,4 +1,4 @@
-.btn.btn-primary {
+.btn.btn_primary {
   text-decoration: none;
   color: white;
   display: inline-block;
@@ -6,7 +6,7 @@
   background-color: lighten($color: #000000, $amount: 0.1);
 }
 
-.button-row {
+.button_row {
   display: flex;
   justify-content: space-evenly;
 }
