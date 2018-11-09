@@ -8,8 +8,7 @@ export function loadTSV(
     chart: React.RefObject<SVGSVGElement>;
     info: React.RefObject<HTMLDivElement>;
   },
-  filterChanged: boolean,
-  selectedFilter: string
+  setOnFilterSelect: (f: (className: string) => void) => void
 ) {
   const svg = d3.select(refs.chart.current);
   const thisContainer = d3.select(refs.container.current);
@@ -60,27 +59,10 @@ export function loadTSV(
   d3.tsv("https://groven.no/utdno/yustat/data/" + id + ".tsv").then(function(
     data: any
   ) {
-    // if (filterChanged && selectedFilter) {
-    //   setMapping(selectedFilter);
-    //   return null;
-    // }
-
     updateData();
-
-    d3.select("ul.tabs")
-      .selectAll("li")
-      .on("click", function() {
-        d3.select("ul.tabs")
-          .selectAll("li")
-          .classed("active", false);
-        if (this !== null) {
-          var thisElement = this as any;
-          setMapping(thisElement.className);
-        }
-        d3.select(this).classed("active", true);
-      });
-
-    d3.select("ul.tabs li:first-of-type").classed("active", true);
+    setOnFilterSelect((className: string) => {
+      setMapping(className);
+    });
 
     let yDomain = true;
 
@@ -371,11 +353,13 @@ export function loadTSV(
     }
 
     function createLegend() {
-      d3.select(".color-controler")
+      d3.select(".hvilkejobber_color-controler")
         .select("ul")
         .remove();
 
-      const colorControler = d3.select(".color-controler").append("ul");
+      const colorControler = d3
+        .select(".hvilkejobber_color-controler")
+        .append("ul");
       const markerSize = parseFloat(
         colorControler.style("font-size").slice(0, -2)
       );
@@ -414,7 +398,7 @@ export function loadTSV(
     function resize() {
       const colorHeight = parseFloat(
         d3
-          .select(".color-controler")
+          .select(".hvilkejobber_color-controler")
           .style("height")
           .slice(0, -2)
       );
@@ -538,35 +522,6 @@ export function loadTSV(
           .attr("dy", "1.5em")
           .style("font-size", "10px")
           .text("Vis alt");
-
-        // let left = margin.left;
-        // let i = 0;
-        // for (let key in rest) {
-        //   const width = xScale(rest[key]) - margin.left;
-        //   restRow.append('rect')
-        //     .on('click', function () {
-        //       showAll = true;
-        //       resize();
-        //     })
-        //     .attr('x', left)
-        //     .attr('y', yScale(yScale.domain()[10]))
-        //     .attr('width', width)
-        //     .attr("height", yScale.bandwidth())
-        //     .attr('fill', barColor(rest[key]));
-        //
-        //   restRow.append("text")
-        //     .attr("class", "part-values")
-        //     .attr("fill", (i === 1 ? "white" : "black"))
-        //     .attr("dominant-baseline", "ideographic")
-        //     .attr('x', left)
-        //     .attr('y', yScale(yScale.domain()[10]) + yScale.bandwidth())
-        //     .attr("dx", ".3em")
-        //     // .attr("dy", "1.3em")
-        //     .text(rest[key]);
-        //
-        //   left += width;
-        //   i++;
-        // }
       } else {
         svg.style("height", null);
 
@@ -691,7 +646,7 @@ export function loadTSV(
     }
 
     function createInfo(element: any, title: any, ...args: any) {
-      element.select(".title").html(title);
+      element.select(".hvilkejobber_title").html(title);
       const paraphs = element
         .select(".desc")
         .selectAll("p")
@@ -727,9 +682,8 @@ export function updateStats(
     chart: React.RefObject<SVGSVGElement>;
     info: React.RefObject<HTMLDivElement>;
   },
-  filterChanged: boolean,
-  selectedFilter: string
+  setOnFilterSelect: (f: (className: string) => void) => void
 ) {
   removeStats();
-  loadTSV(id, refs, filterChanged, selectedFilter);
+  loadTSV(id, refs, setOnFilterSelect);
 }

@@ -1,16 +1,20 @@
 import React, { ReactInstance } from "react";
-import * as d3 from "d3";
 
 import "./HvilkeJobber.scss";
-import HvilkeJobberSelektor from "./HvilkeJobberSelektor";
 import { updateStats } from "./HvilkeJobberHelperMethods";
-import { DSVRowString, DSVRowAny } from "d3";
 
 type MyState = {
-  selectedUtdanning: string;
+  selectedFilter: string;
 };
 
-class HvilkeJobber extends React.Component<any, MyState> {
+type MyProps = {
+  data: any;
+  onUtdanningChanged: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectedUtdanning: { unoId: string; title: string };
+  mainSelect: React.RefObject<HTMLSelectElement>;
+};
+
+class HvilkeJobber extends React.Component<MyProps, MyState> {
   myRefs: {
     container: React.RefObject<HTMLDivElement>;
     mainSelect: React.RefObject<HTMLSelectElement>;
@@ -18,100 +22,124 @@ class HvilkeJobber extends React.Component<any, MyState> {
     info: React.RefObject<HTMLDivElement>;
   } = {
     container: React.createRef<HTMLDivElement>(),
-    mainSelect: React.createRef<HTMLSelectElement>(),
+    mainSelect: this.props.mainSelect,
     chart: React.createRef<SVGSVGElement>(),
     info: React.createRef<HTMLDivElement>(),
   };
+  defaultSelectedFilter = "antall_personer";
   state = {
-    selectedUtdanning: "idrettsfag",
+    selectedFilter: this.defaultSelectedFilter,
   };
-  selectedFilter: string = "antall_personer";
+  onFilterSelect: ((className: string) => void) | null = null;
 
   componentDidMount() {
+    //updateStats(this.props.data);
     updateStats(
-      this.state.selectedUtdanning,
+      this.props.selectedUtdanning.unoId,
       this.myRefs,
-      false,
-      this.selectedFilter
+      this.setOnFilterSelect
     );
   }
 
-  handleUtdanningClicked = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    this.setState({ selectedUtdanning: event.target.value });
-    updateStats(event.target.value, this.myRefs, false, this.selectedFilter);
+  handleUtdanningClicked = (utdanning: { unoId: string; title: string }) => {
+    this.setState({ selectedFilter: this.defaultSelectedFilter });
+    updateStats(utdanning.unoId, this.myRefs, this.setOnFilterSelect);
+  };
+
+  setOnFilterSelect = (onFilterSelect: (className: string) => void) => {
+    this.onFilterSelect = onFilterSelect;
   };
 
   handleChangeFilter = (event: React.MouseEvent<HTMLLIElement>) => {
     var className = event.currentTarget.className;
-    this.selectedFilter = className;
-    updateStats(
-      this.state.selectedUtdanning,
-      this.myRefs,
-      true,
-      this.selectedFilter
-    );
-    // this.types = ["series-0", "series-1", "series-2"];
-    // moveBars(yScale, 500);
-    // this.mapping = {};
-    // tplMappings[className].forEach((v, i) => {
-    //   this.mapping[`series-${i}`] = v;
-    // });
-    // updateRows(this.chart.current);
-    // createLegend();
-    // moveBars(yScale, 500);
-    // this.yDomain = false;
-    // sortParts(this.types[0]);
+    this.setState({ selectedFilter: className });
+    if (this.onFilterSelect) this.onFilterSelect(className);
   };
 
   render() {
-    const { selectedUtdanning } = this.state;
+    const { selectedFilter } = this.state;
+    const { data, selectedUtdanning } = this.props;
     return (
       <div>
-        <HvilkeJobberSelektor
-          mainSelectRef={this.myRefs.mainSelect}
-          selected={selectedUtdanning}
-          onSelected={this.handleUtdanningClicked}
-        />
-        <h1>Hva jobber de som har er utdannet {selectedUtdanning} med?</h1>
-        <header className="d3-control-panel">
+        <h1>
+          Hva jobber de som har er utdannet {selectedUtdanning.unoId} med?
+        </h1>
+        <header className="hvilkejobber_d3-control-panel">
           <section>
             <h2>Vis</h2>
-            <ul className="tabs">
-              <li className="antall_personer" onClick={this.handleChangeFilter}>
+            <ul className="hvilkejobber_tabs">
+              <li
+                className={
+                  "antall_personer" +
+                  (selectedFilter === "antall_personer"
+                    ? " hvilkejobber_active"
+                    : "")
+                }
+                onClick={this.handleChangeFilter}
+              >
                 Antall personer
               </li>
-              <li className="kvinner_menn" onClick={this.handleChangeFilter}>
+              <li
+                className={
+                  "kvinner_menn" +
+                  (selectedFilter === "kvinner_menn"
+                    ? " hvilkejobber_active"
+                    : "")
+                }
+                onClick={this.handleChangeFilter}
+              >
                 Kvinner / menn
               </li>
               <li
-                className="offentlig_privat"
+                className={
+                  "offentlig_privat" +
+                  (selectedFilter === "offentlig_privat"
+                    ? " hvilkejobber_active"
+                    : "")
+                }
                 onClick={this.handleChangeFilter}
               >
                 Offentlig / Privat
               </li>
-              <li className="over_under_40" onClick={this.handleChangeFilter}>
+              <li
+                className={
+                  "over_under_40" +
+                  (selectedFilter === "over_under_40"
+                    ? " hvilkejobber_active"
+                    : "")
+                }
+                onClick={this.handleChangeFilter}
+              >
                 Over 40 år / Under 40 år
               </li>
-              <li className="kandidater_13" onClick={this.handleChangeFilter}>
+              <li
+                className={
+                  "kandidater_13" +
+                  (selectedFilter === "kandidater_13"
+                    ? " hvilkejobber_active"
+                    : "")
+                }
+                onClick={this.handleChangeFilter}
+              >
                 Nyutdanna
               </li>
             </ul>
           </section>
           <section>
-            <h2>Sorter etter</h2>
-            <div className="color-controler" />
+            <h2 className="hvilkejobber_color-header">Sorter etter</h2>
+            <div className="hvilkejobber_color-controler" />
           </section>
         </header>
-        <div className="container">
+        <div className="hvilkejobber_container">
           <div
-            className="chart-container"
+            className="hvilkejobber_chart-container"
             id="container"
             ref={this.myRefs.container}
           >
             <svg id="chart" ref={this.myRefs.chart} />
             <div id="info" ref={this.myRefs.info}>
-              <div className="title">infoTitle</div>
-              <div className="desc" />
+              <div className="hvilkejobber_title">infoTitle</div>
+              <div className="hvilkejobber_desc" />
             </div>
           </div>
         </div>

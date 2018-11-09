@@ -13,7 +13,7 @@ import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 import NoData from "../visualizations/NoData";
 import Frafall from "../visualizations/Frafall";
 import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
-import Hvilkejobber from "../visualizations/HvilkeJobber";
+import HvilkeJobberWrapper from "../visualizations/HvilkeJobberWrapper";
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 
@@ -25,6 +25,22 @@ const datapunkt = [
   "stryk",
   "tilfredshet",
   "ikke_eksisterende",
+];
+
+const utdanninger = [
+  { unoId: "statsviter", title: "Statsviter" },
+  { unoId: "idrettsfag", title: "Idrettsfag" },
+  { unoId: "akvakulturfag", title: "Akvakulturfag" },
+  { unoId: "ambulansefag", title: "Ambulansefag" },
+  { unoId: "apotekteknikkfag", title: "Apotekteknikkfag" },
+  { unoId: "automatiseringsfag", title: "Automatiseringsfag" },
+  { unoId: "betongfag", title: "Betongfag" },
+  { unoId: "cncmaskineringsfag", title: "CNC-maskineringsfag" },
+  { unoId: "statsviter", title: "Statsviter" },
+  { unoId: "statsviter", title: "Statsviter" },
+  { unoId: "statsviter", title: "Statsviter" },
+  { unoId: "statsviter", title: "Statsviter" },
+  { unoId: "statsviter", title: "Statsviter" },
 ];
 
 type State = {};
@@ -81,7 +97,7 @@ class ComparisonPage extends Component<Props, State> {
         <SyncUrlState />
         <div className={styles.ComparisonPage}>
           <h1>Sammenlign her</h1>
-
+          <HvilkeJobberWrapper utdanninger={utdanninger} />
           <div className={styles.flex_container}>
             <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
               {comparisonTypes.map((name, titleKey) => (
