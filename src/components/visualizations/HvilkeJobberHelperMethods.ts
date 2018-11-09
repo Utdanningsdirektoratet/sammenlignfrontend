@@ -1,10 +1,18 @@
 import * as d3 from "d3";
-import { ValueFn } from "d3";
-import { any } from "prop-types";
 
-export function loadTSV(id: string) {
-  const svg = d3.select("#chart");
-  const container = d3.select("#container");
+export function loadTSV(
+  id: string,
+  refs: {
+    container: React.RefObject<HTMLDivElement>;
+    mainSelect: React.RefObject<HTMLSelectElement>;
+    chart: React.RefObject<SVGSVGElement>;
+    info: React.RefObject<HTMLDivElement>;
+  },
+  filterChanged: boolean,
+  selectedFilter: string
+) {
+  const svg = d3.select(refs.chart.current);
+  const thisContainer = d3.select(refs.container.current);
   const win = d3.select(window);
 
   const xScale = d3.scaleLinear();
@@ -20,7 +28,9 @@ export function loadTSV(id: string) {
     .scaleOrdinal(d3.schemeCategory10)
     .domain(types)
     .range(["#daaa00", "#443c38", "#e8e8e8"]);
-  const sumColor = d3.scaleLinear().range([1, 2, 3]); //"red", "gray", "#00cd77"
+  const sumColor = d3
+    .scaleLinear()
+    .range((["red", "gray", "#00cd77"] as any) as number[]);
   const tplMappings: { [id: string]: string[] } = {
     antall_personer: ["antall personer"],
     offentlig_privat: [
@@ -50,7 +60,10 @@ export function loadTSV(id: string) {
   d3.tsv("https://groven.no/utdno/yustat/data/" + id + ".tsv").then(function(
     data: any
   ) {
-    if (!data) return null;
+    // if (filterChanged && selectedFilter) {
+    //   setMapping(selectedFilter);
+    //   return null;
+    // }
 
     updateData();
 
@@ -72,7 +85,7 @@ export function loadTSV(id: string) {
     let yDomain = true;
 
     xScale
-      .domain([0, (d3.max(data, (d: any) => d.sum) as unknown) as number])
+      .domain([0, (d3.max(data, (d: any) => d.sum) as any) as number])
       .nice();
     yScale.domain(
       data.sort((a: any, b: any) => b.sum - a.sum).map((d: any) => d.name)
@@ -86,7 +99,7 @@ export function loadTSV(id: string) {
       }
     }
 
-    const info = d3.select("#info");
+    const thisInfo = d3.select(refs.info.current);
     let infoMargin: { [id: number]: number };
 
     const g = svg.append("g").attr("class", "axis");
@@ -154,7 +167,7 @@ export function loadTSV(id: string) {
         const primer = v.type === types[0];
         const vname: string = v.name;
         sortParts(v.type);
-        info.style("display", "none");
+        thisInfo.style("display", "none");
         svg
           .select(".hovered")
           .selectAll("rect")
@@ -171,7 +184,7 @@ export function loadTSV(id: string) {
           .remove();
       })
       .on("mouseover touchstart", function(v: any) {
-        info.style("display", "inline");
+        thisInfo.style("display", "inline");
 
         const key = mapping[v.type];
         const sum = d3.sum(data, (d: any) => d[key]);
@@ -198,7 +211,7 @@ export function loadTSV(id: string) {
             v.value / v.sum
           )} <b>${unit}</b> .`;
         }
-        createInfo(info, heading, description);
+        createInfo(thisInfo, heading, description);
 
         svg
           .select(".hovered")
@@ -215,13 +228,13 @@ export function loadTSV(id: string) {
       .on("mousemove", function() {
         var chartElement: any = document.getElementById("chart");
         var mouse = d3.mouse(chartElement);
-        info
+        thisInfo
           .style("display", "inline")
           .style("left", mouse[0] + 10 + infoMargin[0] + "px")
           .style("top", mouse[1] + 10 + infoMargin[1] + "px");
       })
       .on("mouseout touchend", function(v) {
-        info.style("display", "none");
+        thisInfo.style("display", "none");
         svg
           .select(".hovered")
           .selectAll("rect")
@@ -417,7 +430,7 @@ export function loadTSV(id: string) {
       moveAxis();
       moveBars();
 
-      infoMargin = calcMargin(container);
+      infoMargin = calcMargin(thisContainer);
     }
 
     function moveAxis(duration = 0, delay = 0) {
@@ -706,7 +719,17 @@ function removeStats() {
   d3.selectAll("g.show_top10").remove();
 }
 
-export function updateStats(id: string) {
+export function updateStats(
+  id: string,
+  refs: {
+    container: React.RefObject<HTMLDivElement>;
+    mainSelect: React.RefObject<HTMLSelectElement>;
+    chart: React.RefObject<SVGSVGElement>;
+    info: React.RefObject<HTMLDivElement>;
+  },
+  filterChanged: boolean,
+  selectedFilter: string
+) {
   removeStats();
-  loadTSV(id);
+  loadTSV(id, refs, filterChanged, selectedFilter);
 }
