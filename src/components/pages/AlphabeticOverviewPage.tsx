@@ -108,18 +108,17 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     const {
       data: { interesser, list },
       interesserSelected: interesserSelected,
+      redirectToHomepage,
     } = this.state;
+    if (redirectToHomepage) {
+      return <Redirect to="/" />;
+    }
 
     let selectedNodes = null;
     if (selected && selected.length > 0) {
       selectedNodes = (
         <>
-          <Link
-            to={"/sammenligne/" + innholdstype}
-            className={`${styles.btn} ${styles.btn_primary}`}
-          >
-            Sammenlign her
-          </Link>
+          <Link to={"/sammenligne/" + innholdstype}>Sammenlign her</Link>
           <ul>
             {selected.map(s => (
               <li>{s}</li>
