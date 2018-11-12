@@ -13,6 +13,7 @@ import SyncUrlState from "../app/SyncUrlState";
 import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
+import Api from "../app/Api";
 
 type State = {
   data: DataList;

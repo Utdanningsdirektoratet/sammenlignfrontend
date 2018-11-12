@@ -26,13 +26,8 @@ class App extends Component<{}, AppState> {
     this.state = {
       ...defaultAppState,
       toggleSelection: this.toggleSelection,
+      selected: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
     };
-  }
-  componentDidMount() {
-    const urlSelected = getUrlState();
-    if (urlSelected) {
-      this.setState({ selected: urlSelected });
-    }
     window.addEventListener("hashchange", this.hashChangeListener);
   }
   hashChangeListener = (e: HashChangeEvent) => {

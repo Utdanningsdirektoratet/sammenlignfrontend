@@ -30,10 +30,29 @@ export class TranslateRoot extends Component<Props, Trans> {
   //   }
   render() {
     return (
-      <TranslateContext.Provider value={this.state}>
+      <TranslateContext.Provider value={this.state} key={this.state.lang}>
         {this.props.children}
       </TranslateContext.Provider>
     );
   }
 }
+
+export type LanguageProps = {
+  lang: Lang;
+};
+
+export function with_lang_props<P>(
+  WrappedComponent: React.ComponentClass<any>
+) {
+  return (function(props: any) {
+    return (
+      <TranslateContext.Consumer>
+        {translateContext => (
+          <WrappedComponent lang={translateContext.lang} {...props} />
+        )}
+      </TranslateContext.Consumer>
+    );
+  } as any) as React.ComponentClass<P>;
+}
+
 export default TranslateContext;

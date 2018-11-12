@@ -1,5 +1,6 @@
 import { MainElement, Main, DataList } from "./ApiTypes";
 import main_json from "./main.json";
+import { API_DOMAIN } from "./config";
 
 let mainFetchStarted = false;
 let mainCache: Main | null = null;
@@ -8,7 +9,7 @@ function getMain(result: (data: Main) => void) {
   if (mainCache) return result(mainCache);
   if (mainFetchStarted) return;
   mainFetchStarted = true;
-  fetch("https://sammenlign.utdanning.no/rest/main")
+  fetch(API_DOMAIN + "/rest/main")
     .then(response => response.json())
     .then(data => {
       mainCache = data;
