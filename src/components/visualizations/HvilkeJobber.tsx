@@ -54,10 +54,6 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
     updateTSVData(data, this.myRefs);
   };
 
-  setOnFilterSelect = (onFilterSelect: (className: string) => void) => {
-    this.onFilterSelect = onFilterSelect;
-  };
-
   handleChangeFilter = (event: React.MouseEvent<HTMLLIElement>) => {
     var className = event.currentTarget.className.split(" ")[0];
     this.setState({ selectedFilter: className });
