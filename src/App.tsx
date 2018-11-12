@@ -14,6 +14,12 @@ import Frontpage from "./components/pages/Frontpage";
 import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
+function render(Component: React.ComponentClass) {
+  // This wrapper rendering is required because to ensure a full component unmount/mount cycle
+  // when clicking on links. For some reason React-router does not provide this easily
+  return (props: any) => <Component {...props} key={props.location.pathname} />;
+}
+
 class App extends Component<{}, AppState> {
   constructor(props: any) {
     super(props);
@@ -57,9 +63,15 @@ class App extends Component<{}, AppState> {
         <TranslateRoot>
           <BrowserRouter>
             <Switch>
-              <Route path="/" exact={true} component={Frontpage} />
-              <Route path="/sammenligne" component={ComparisonPage} />
-              <Route path="/:area" component={AlphabeticOverviewPage} />
+              <Route path="/" exact={true} render={render(Frontpage)} />
+              <Route
+                path="/sammenligne/:innholdstype"
+                render={render(ComparisonPage)}
+              />
+              <Route
+                path="/:innholdstype"
+                render={render(AlphabeticOverviewPage)}
+              />
             </Switch>
           </BrowserRouter>
         </TranslateRoot>

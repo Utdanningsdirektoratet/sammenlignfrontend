@@ -19,7 +19,9 @@ type State = {
   interesserSelected: string[];
 };
 
-type Props = RouteComponentProps<{ area: "utdanning" | "yrke" | "studie" }> &
+type Props = RouteComponentProps<{
+  innholdstype: "utdanning" | "yrke" | "studie";
+}> &
   AppStateProps;
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
@@ -28,9 +30,9 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     interesserSelected: [] as string[],
   };
   componentDidMount() {
-    const { area } = this.props.match.params;
+    const { innholdstype } = this.props.match.params;
     console.log("mounted alphabeticOverviewPage");
-    switch (area) {
+    switch (innholdstype) {
       case "utdanning":
         getUtdanning(data => this.setState({ data }));
         break;
@@ -41,7 +43,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         getStudium(data => this.setState({ data }));
         break;
       default:
-        console.log("unknown area: ", area);
+        console.log("unknown innholdstype: ", innholdstype);
     }
   }
   componentWillUnmount() {
@@ -100,7 +102,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { area } = this.props.match.params;
+    const { innholdstype } = this.props.match.params;
     const selected = this.props.appState.selected;
     const {
       data: { interesser, list },
@@ -112,7 +114,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       selectedNodes = (
         <>
           <Link
-            to="/sammenligne"
+            to={"/sammenligne/" + innholdstype}
             className={`${styles.btn} ${styles.btn_primary}`}
           >
             Sammenlign her
@@ -131,8 +133,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         <SyncUrlState />
         <h1>
           <Translate
-            nb={"Alfabetisk oversikt " + area}
-            nn={"Alfabetisk oversyn " + area}
+            nb={"Alfabetisk oversikt " + innholdstype}
+            nn={"Alfabetisk oversyn " + innholdstype}
           />
         </h1>
         {selectedNodes}
