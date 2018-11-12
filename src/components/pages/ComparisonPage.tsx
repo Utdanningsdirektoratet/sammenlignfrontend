@@ -36,11 +36,6 @@ const utdanninger = [
   { unoId: "automatiseringsfag", title: "Automatiseringsfag" },
   { unoId: "betongfag", title: "Betongfag" },
   { unoId: "cncmaskineringsfag", title: "CNC-maskineringsfag" },
-  { unoId: "statsviter", title: "Statsviter" },
-  { unoId: "statsviter", title: "Statsviter" },
-  { unoId: "statsviter", title: "Statsviter" },
-  { unoId: "statsviter", title: "Statsviter" },
-  { unoId: "statsviter", title: "Statsviter" },
 ];
 
 type State = {};

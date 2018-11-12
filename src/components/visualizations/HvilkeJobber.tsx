@@ -1,7 +1,7 @@
 import React, { ReactInstance } from "react";
 
 import "./HvilkeJobber.scss";
-import { updateStats } from "./HvilkeJobberHelperMethods";
+import { updateStats, updateTSVData } from "./HvilkeJobberHelperMethods";
 
 type MyState = {
   selectedFilter: string;
@@ -31,19 +31,27 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
     selectedFilter: this.defaultSelectedFilter,
   };
   onFilterSelect: ((className: string) => void) | null = null;
+  filters: { className: string; title: string }[] = [
+    { className: "antall_personer", title: "Antall personer" },
+    { className: "kvinner_menn", title: "Kvinner / menn" },
+    { className: "offentlig_privat", title: "Offentlig / Privat" },
+    { className: "over_under_40", title: "Over 40 år / Under 40 år" },
+    { className: "kandidater_13", title: "Nyutdanna" },
+  ];
 
   componentDidMount() {
-    //updateStats(this.props.data);
-    updateStats(
-      this.props.selectedUtdanning.unoId,
-      this.myRefs,
-      this.setOnFilterSelect
-    );
+    updateTSVData(this.props.data, this.myRefs);
   }
 
-  handleUtdanningClicked = (utdanning: { unoId: string; title: string }) => {
+  componentWillReceiveProps(nextProps: MyProps) {
+    if (nextProps.data !== this.props.data) {
+      this.handleUtdanningClicked(nextProps.data);
+    }
+  }
+
+  handleUtdanningClicked = (data: any) => {
     this.setState({ selectedFilter: this.defaultSelectedFilter });
-    updateStats(utdanning.unoId, this.myRefs, this.setOnFilterSelect);
+    updateTSVData(data, this.myRefs);
   };
 
   setOnFilterSelect = (onFilterSelect: (className: string) => void) => {
@@ -51,14 +59,15 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
   };
 
   handleChangeFilter = (event: React.MouseEvent<HTMLLIElement>) => {
-    var className = event.currentTarget.className;
+    var className = event.currentTarget.className.split(" ")[0];
     this.setState({ selectedFilter: className });
     if (this.onFilterSelect) this.onFilterSelect(className);
+    updateStats(className);
   };
 
   render() {
     const { selectedFilter } = this.state;
-    const { data, selectedUtdanning } = this.props;
+    const { selectedUtdanning } = this.props;
     return (
       <div>
         <h1>
@@ -68,61 +77,20 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
           <section>
             <h2>Vis</h2>
             <ul className="hvilkejobber_tabs">
-              <li
-                className={
-                  "antall_personer" +
-                  (selectedFilter === "antall_personer"
-                    ? " hvilkejobber_active"
-                    : "")
-                }
-                onClick={this.handleChangeFilter}
-              >
-                Antall personer
-              </li>
-              <li
-                className={
-                  "kvinner_menn" +
-                  (selectedFilter === "kvinner_menn"
-                    ? " hvilkejobber_active"
-                    : "")
-                }
-                onClick={this.handleChangeFilter}
-              >
-                Kvinner / menn
-              </li>
-              <li
-                className={
-                  "offentlig_privat" +
-                  (selectedFilter === "offentlig_privat"
-                    ? " hvilkejobber_active"
-                    : "")
-                }
-                onClick={this.handleChangeFilter}
-              >
-                Offentlig / Privat
-              </li>
-              <li
-                className={
-                  "over_under_40" +
-                  (selectedFilter === "over_under_40"
-                    ? " hvilkejobber_active"
-                    : "")
-                }
-                onClick={this.handleChangeFilter}
-              >
-                Over 40 år / Under 40 år
-              </li>
-              <li
-                className={
-                  "kandidater_13" +
-                  (selectedFilter === "kandidater_13"
-                    ? " hvilkejobber_active"
-                    : "")
-                }
-                onClick={this.handleChangeFilter}
-              >
-                Nyutdanna
-              </li>
+              {this.filters.map((f, i) => (
+                <li
+                  key={f.className}
+                  className={
+                    f.className +
+                    (selectedFilter === f.className
+                      ? " hvilkejobber_active"
+                      : "")
+                  }
+                  onClick={this.handleChangeFilter}
+                >
+                  {f.title}
+                </li>
+              ))}
             </ul>
           </section>
           <section>
@@ -133,11 +101,11 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
         <div className="hvilkejobber_container">
           <div
             className="hvilkejobber_chart-container"
-            id="container"
+            id="hvilkejobber_container"
             ref={this.myRefs.container}
           >
-            <svg id="chart" ref={this.myRefs.chart} />
-            <div id="info" ref={this.myRefs.info}>
+            <svg id="hvilkejobber_chart" ref={this.myRefs.chart} />
+            <div id="hvilkejobber_info" ref={this.myRefs.info}>
               <div className="hvilkejobber_title">infoTitle</div>
               <div className="hvilkejobber_desc" />
             </div>

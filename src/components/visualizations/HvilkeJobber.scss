@@ -8,7 +8,7 @@
     margin: 0 auto;
   }
 
-  #info .hvilkejobber_title {
+  #hvilkejobber_info .hvilkejobber_title {
     font-weight: normal;
     border-bottom: 0.1em gray solid;
   }
@@ -77,11 +77,11 @@
     color: #fff;
   }
 
-  #chart {
+  #hvilkejobber_chart {
     width: 100%;
     height: 100%;
   }
-  #info {
+  #hvilkejobber_info {
     position: absolute;
     display: none;
     background: rgba(0, 0, 10, 0.8);
@@ -94,8 +94,8 @@
     min-width: 4em;
     max-width: 66%;
   }
-  #info h3,
-  #info p {
+  #hvilkejobber_info h3,
+  #hvilkejobber_info p {
     margin: auto;
   }
 

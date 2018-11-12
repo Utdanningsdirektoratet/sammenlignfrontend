@@ -5,6 +5,7 @@ import HvilkeJobber from "./HvilkeJobber";
 import visualizationstyles from "./Visualization.module.scss";
 
 import HvilkeJobberSelektor from "./HvilkeJobberSelektor";
+import { rejects } from "assert";
 
 type Utdanning = { unoId: string; title: string };
 
@@ -19,42 +20,32 @@ type MyState = {
 
 class HvilkeJobberWrapper extends React.Component<myProps, MyState> {
   mainSelect = React.createRef<HTMLSelectElement>();
-  hvilkeJobberRef = React.createRef<HvilkeJobber>();
 
   state: MyState = {
-    selectedUtdanning: { unoId: "idrettsfag", title: "Idrettsfag" },
+    selectedUtdanning: { unoId: "statsviter", title: "Statsviter" },
     data: null,
   };
   componentDidMount() {
-    this.getTsv();
+    this.getTsv(this.state.selectedUtdanning.unoId);
   }
 
   onUtdanningChanged = (event: React.ChangeEvent<HTMLSelectElement>) => {
     this.setState({
       selectedUtdanning: {
         unoId: event.target.value,
-        title: event.target.value ? event.target.value : event.target.value,
+        title: event.target.title ? event.target.title : event.target.value,
       },
     });
-    this.getTsv();
-    if (this.hvilkeJobberRef.current)
-      this.hvilkeJobberRef.current.handleUtdanningClicked({
-        unoId: event.target.value,
-        title: event.target.value,
-      });
+    this.getTsv(event.target.value);
   };
 
-  getTsv() {
-    d3.tsv(
-      "https://groven.no/utdno/yustat/data/" +
-        this.state.selectedUtdanning.unoId +
-        ".tsv"
-    ).then((data: any) => {
-      this.setState({ data: data });
-    });
-  }
-
-  //component lifesycle, getDerrivedStateFromProps
+  getTsv = (unoId: string) => {
+    d3.tsv("https://groven.no/utdno/yustat/data/" + unoId + ".tsv").then(
+      (data: any) => {
+        this.setState({ data: data });
+      }
+    );
+  };
 
   render() {
     if (this.state.data) {
@@ -70,7 +61,6 @@ class HvilkeJobberWrapper extends React.Component<myProps, MyState> {
             />
             <HvilkeJobber
               mainSelect={this.mainSelect}
-              ref={this.hvilkeJobberRef}
               data={this.state.data}
               onUtdanningChanged={this.onUtdanningChanged}
               selectedUtdanning={this.state.selectedUtdanning}
