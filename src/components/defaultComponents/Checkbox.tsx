@@ -19,14 +19,8 @@ class Checkbox extends Component<Props> {
     this.props.onChange(event);
   };
 
-  onHelpIconClick = () => {
-    if (this.props.onHelpTextClick && !this.props.helpTextOpen)
-      this.props.onHelpTextClick(true);
-  };
-
-  onHelpIconClose = () => {
-    if (this.props.onHelpTextClick && this.props.helpTextOpen)
-      this.props.onHelpTextClick(false);
+  onHelpIconClick = (open: boolean) => {
+    if (this.props.onHelpTextClick) this.props.onHelpTextClick(open);
   };
 
   render() {
@@ -35,7 +29,7 @@ class Checkbox extends Component<Props> {
       helpText = (
         <div className={`${styles.checkbox_helptext}`}>
           <span
-            onClick={() => this.onHelpIconClick()}
+            onClick={() => this.onHelpIconClick(true)}
             className={`${styles.checkbox_helptext_icon}`}
           >
             (?)
@@ -54,7 +48,7 @@ class Checkbox extends Component<Props> {
                 <Translate nb={this.props.textNb} nn={this.props.textNn} />
                 <span
                   className={`${styles.checkbox_helptext_container_icon}`}
-                  onClick={() => this.onHelpIconClose()}
+                  onClick={() => this.onHelpIconClick(false)}
                 />
               </b>
               <br />{" "}

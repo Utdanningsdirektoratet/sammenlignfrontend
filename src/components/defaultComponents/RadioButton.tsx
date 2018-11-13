@@ -20,14 +20,8 @@ class RadioButton extends Component<Props> {
     this.props.onChange(event);
   };
 
-  onHelpIconClick = () => {
-    if (this.props.onHelpTextClick && !this.props.helpTextOpen)
-      this.props.onHelpTextClick(true);
-  };
-
-  onHelpIconClose = () => {
-    if (this.props.onHelpTextClick && this.props.helpTextOpen)
-      this.props.onHelpTextClick(false);
+  onHelpIconClick = (open: boolean) => {
+    if (this.props.onHelpTextClick) this.props.onHelpTextClick(open);
   };
 
   render() {
@@ -36,7 +30,7 @@ class RadioButton extends Component<Props> {
       helpText = (
         <div className={`${styles.radio_helptext}`}>
           <span
-            onClick={() => this.onHelpIconClick()}
+            onClick={() => this.onHelpIconClick(true)}
             className={`${styles.radio_helptext_icon}`}
           >
             (?)
@@ -55,7 +49,7 @@ class RadioButton extends Component<Props> {
                 <Translate nb={this.props.textNb} nn={this.props.textNn} />
                 <span
                   className={`${styles.radio_helptext_container_icon}`}
-                  onClick={() => this.onHelpIconClose()}
+                  onClick={() => this.onHelpIconClick(false)}
                 />
               </b>
               <br />{" "}
