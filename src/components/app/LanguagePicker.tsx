@@ -1,17 +1,27 @@
 import React from "react";
 import TranslateContext from "./TranslateContext";
 
+import styles from "../pages/PageChrome/Header.module.scss";
+
 function LanguagePicker() {
   return (
     <TranslateContext.Consumer>
       {translateContext => (
-        <div className="LanguagePicker">
-          <button onClick={e => translateContext.updateLang("nb")}>
+        <div className={styles.languagepicker}>
+          <span
+            className={styles.languagepicker_language}
+            onClick={e => translateContext.updateLang("nb")}
+          >
             Bokmål
-          </button>
-          <button onClick={e => translateContext.updateLang("nn")}>
+          </span>
+          /
+          <span
+            className={styles.languagepicker_language}
+            onClick={e => translateContext.updateLang("nn")}
+          >
             Nynorsk
-          </button>
+          </span>
+          <span>FontSize</span>
         </div>
       )}
     </TranslateContext.Consumer>

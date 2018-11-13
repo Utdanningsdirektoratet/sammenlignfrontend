@@ -1,0 +1,22 @@
+.flex_item {
+  width: 100%;
+  &.title {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    max-width: 30%;
+  }
+
+  &.item_title {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    background-color: orange;
+  }
+
+  &.item {
+    max-width: 30%;
+  }
+}

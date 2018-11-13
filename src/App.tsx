@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import TestPage from "./components/pages/TestPage";
 
 import styles from "./App.module.css";
-
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
 import { TranslateRoot } from "./components/app/TranslateContext";
 import AppContext, {
@@ -13,6 +12,7 @@ import AppContext, {
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
 import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
+import D3TestPage from "./components/pages/D3TestPage";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -65,6 +65,7 @@ class App extends Component<{}, AppState> {
                 render={render(ComparisonPage)}
               />
               <Route path="/test" render={TestPage} />
+              <Route path="/d3test" render={D3TestPage} />
               <Route
                 path="/:innholdstype"
                 render={render(AlphabeticOverviewPage)}

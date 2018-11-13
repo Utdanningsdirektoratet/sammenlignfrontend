@@ -1,0 +1,42 @@
+.selection {
+  background-color: #fbe5d0;
+
+  ul {
+    padding: 0;
+  }
+
+  &_row {
+    justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    &_item {
+      display: flex;
+      width: 15%;
+      height: 2em;
+      border: solid 1px orange;
+      background-color: white;
+      text-align: center;
+      &_text {
+        width: 85%;
+        font-weight: bold;
+        font-size: 1em;
+        margin: auto;
+      }
+      &_close {
+        width: 7%;
+        height: 60%;
+        margin: auto;
+        float: right;
+        background-color: orange;
+        border-radius: 50%;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    li {
+      list-style-type: none;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import Header from "./Header";
-import TranslateContext from "./TranslateContext";
+import SecondHeader from "./SecondHeader";
+import TranslateContext from "../../app/TranslateContext";
 
 //import './PageChrome.css'
 
@@ -15,6 +16,7 @@ class PageChrome extends PureComponent {
         {transContext => (
           <div lang={transContext.lang}>
             <Header />
+            <SecondHeader />
             {this.props.children}
             {/* <Footer /> */}
           </div>

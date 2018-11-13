@@ -4,11 +4,13 @@ import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
 import styles from "./AlphabeticOverviewPage.module.scss";
 
-import PageChrome from "../app/PageChrome";
+import PageChrome from "./PageChrome/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
-import { DataList, MainElement } from "../../data/ApiTypes";
+import { DataList, MainElement, Innholdstype } from "../../data/ApiTypes";
 import SyncUrlState from "../app/SyncUrlState";
+import CompareSelection from "./Shared/CompareSelection";
+import SelectedCompares from "./Shared/SelectedCompares";
 
 import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
@@ -22,7 +24,7 @@ type State = {
 };
 
 type Props = RouteComponentProps<{
-  innholdstype: "utdanning" | "yrke" | "studie";
+  innholdstype: Innholdstype;
 }> &
   AppStateProps;
 
@@ -101,6 +103,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     });
   };
 
+  removeSelectedUnoId = () => {
+    console.log("Remove uno_id: ");
+  };
+
   render() {
     const { innholdstype } = this.props.match.params;
     const selected = this.props.appState.selected;
@@ -113,47 +119,37 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       return <Redirect to="/" />;
     }
 
-    let selectedNodes = null;
-    if (selected && selected.length > 0) {
-      selectedNodes = (
-        <>
-          <Link to={"/sammenligne/" + innholdstype}>Sammenlign her</Link>
-          <ul>
-            {selected.map(s => (
-              <li>{s}</li>
-            ))}
-          </ul>
-        </>
-      );
-    }
-
     return (
       <PageChrome>
         <SyncUrlState />
-        <h1>
-          <Translate
-            nb={"Alfabetisk oversikt " + innholdstype}
-            nn={"Alfabetisk oversyn " + innholdstype}
-          />
-        </h1>
-        {selectedNodes}
-        {interesser && (
-          <div>
-            <InteresserFilter
-              interesser={interesser}
-              selected={interesserSelected}
-              toggleSelected={this.toggleSelectedInterests}
-              removeSelected={this.removeSelectedInterests}
+        <CompareSelection innholdstype={innholdstype} />
+        <div className={styles.container}>
+          <h1>
+            <Translate
+              nb={"Alfabetisk oversikt " + innholdstype}
+              nn={"Alfabetisk oversyn " + innholdstype}
             />
-          </div>
-        )}
-        <ul className={styles.alphabetic}>
-          <AlphabeticList
-            list={this.getFilteredList()}
-            handleItemClicked={this.handleItemClick}
-            selected={selected}
-          />
-        </ul>
+          </h1>
+
+          <SelectedCompares innholdstype={innholdstype} />
+          {interesser && (
+            <div>
+              <InteresserFilter
+                interesser={interesser}
+                selected={interesserSelected}
+                toggleSelected={this.toggleSelectedInterests}
+                removeSelected={this.removeSelectedInterests}
+              />
+            </div>
+          )}
+          <ul className={styles.alphabetic}>
+            <AlphabeticList
+              list={this.getFilteredList()}
+              handleItemClicked={this.handleItemClick}
+              selected={selected}
+            />
+          </ul>
+        </div>
       </PageChrome>
     );
   }

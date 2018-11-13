@@ -27,6 +27,7 @@
     font-weight: 400;
   }
 }
+
 .selected {
   background-color: yellow;
 }
@@ -34,6 +35,10 @@
   display: flex;
   flex-flow: row wrap;
   align-content: center;
+
+  &_container {
+    justify-content: center;
+  }
 
   &__item {
     cursor: pointer;

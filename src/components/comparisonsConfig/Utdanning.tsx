@@ -5,10 +5,10 @@ import { MainElement, LonnElement } from "../../data/ApiTypes";
 
 const Utdanning: SammenligningTemplate[] = [
   {
-    title: "Lønnsstatestikk",
+    title: "Lønnsstatistikk",
     widget_id: "lonn",
     path: "/rest/lonn",
-    query: { sektor: "A" },
+    //query: { sektor: "A" },
     render: (data: LonnElement) => (
       <div>
         hei

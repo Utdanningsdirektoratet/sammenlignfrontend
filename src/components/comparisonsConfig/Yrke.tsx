@@ -44,7 +44,7 @@ import { MainElement, LonnElement } from "../../data/ApiTypes";
 
 const Yrke: SammenligningTemplate[] = [
   {
-    title: "Lønnsstatestikk",
+    title: "Lønnsstatistikk",
     widget_id: "lonn",
     path: "/rest/lonn",
     query: { sektor: "A" },
