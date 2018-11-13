@@ -65,7 +65,7 @@ interface ISektor {
   S: IArbeidstid;
 }
 export type Sektor = "A" | "K" | "P" | "S";
-export type Innholdstype = "Yrker" | "Utdanning";
+export type Innholdstype = "yrke" | "utdanning" | "studie";
 export interface LonnElement {
   [kategori: string]: ISektor;
 }

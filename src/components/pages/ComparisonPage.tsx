@@ -67,7 +67,7 @@ class ComparisonPage extends Component<Props, State> {
       <PageChrome>
         <SyncUrlState />
         <div className={styles.ComparisonPage}>
-          <h1>Sammenlign her</h1>
+          <h1 className={`${styles.flex_container_row}`}>Sammenlign her</h1>
           <div className={styles.flex_container}>
             <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
               {comparisonTypes.map((name, i) => (
