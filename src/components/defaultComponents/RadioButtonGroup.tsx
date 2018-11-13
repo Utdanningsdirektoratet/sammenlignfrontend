@@ -26,6 +26,7 @@ class RadioButtonGroup extends Component<Props> {
   render() {
     return this.props.group.map(g => (
       <RadioButton
+        key={g.valueKey}
         textNb={g.textNb}
         textNn={g.textNn}
         isSelected={g.selected}

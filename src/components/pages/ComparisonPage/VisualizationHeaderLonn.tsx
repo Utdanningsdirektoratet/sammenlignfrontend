@@ -51,9 +51,9 @@ class VisualizationHeaderLonn extends Component<Props, State> {
     }
   }
 
-  onFilterButtonClick = () => {
-    if (!this.state.open == false) this.setState({ openHelpText: "" });
-    this.setState({ open: !this.state.open });
+  onFilterButtonClick = (open: boolean) => {
+    if (open == false) this.setState({ openHelpText: "" });
+    this.setState({ open: open });
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -138,7 +138,7 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 className={`${
                   styles.visualizationheader_container_modal_header_icon
                 }`}
-                onClick={() => this.onFilterButtonClick()}
+                onClick={() => this.onFilterButtonClick(false)}
               />
             </div>
           </div>
@@ -510,14 +510,10 @@ class VisualizationHeaderLonn extends Component<Props, State> {
             )
           </span>
           <span
-            className={
-              this.state.open
-                ? `${styles.visualizationheader_container_header__title_icon__hidden +
-                    " " +
-                    styles.visualizationheader_container_header__title_icon}`
-                : `${styles.visualizationheader_container_header__title_icon}`
-            }
-            onClick={() => this.onFilterButtonClick()}
+            className={`${
+              styles.visualizationheader_container_header__title_icon
+            }`}
+            onClick={() => this.onFilterButtonClick(true)}
           />
         </div>
         {Modal}
