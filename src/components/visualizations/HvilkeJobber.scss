@@ -1,0 +1,135 @@
+.hvilkejobber {
+  //Scalable font size
+  font-size: 1em;
+
+  &_chart-container {
+    width: 100%;
+    max-width: 100em;
+    margin: 0 auto;
+  }
+
+  #hvilkejobber_info .hvilkejobber_title {
+    font-weight: normal;
+    border-bottom: 0.1em gray solid;
+  }
+
+  &_d3-control-panel {
+    padding: 0.5em;
+    display: grid;
+  }
+
+  &_color-header {
+    margin-top: 14px !important;
+  }
+
+  &_d3-control-panel h2 {
+    clear: both;
+    float: left;
+    min-width: 5em;
+    font-size: 1em;
+    margin: 0;
+  }
+
+  &_color-controler ul {
+    max-width: 80em;
+    margin: 1em auto 0.5em;
+  }
+
+  &_color-controler li {
+    display: inline-block;
+    margin: auto 0.6em;
+  }
+
+  &_color-controler svg {
+    display: inline-block;
+    margin-right: 0.3em;
+  }
+
+  ul.hvilkejobber_tabs {
+    max-width: 100em;
+    margin: 0.5em auto 1em;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.hvilkejobber_tabs:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  ul.hvilkejobber_tabs li {
+    float: left;
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+    border: rgb(248, 147, 48) solid 2px;
+    border-radius: 18px;
+    width: 13.5em;
+    height: 2.5em;
+    line-height: 2.3em;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  ul.hvilkejobber_tabs li.hvilkejobber_active {
+    border-color: rgb(51, 51, 51);
+    background: rgb(51, 51, 51);
+    color: #fff;
+  }
+
+  #hvilkejobber_chart {
+    width: 100%;
+    height: 100%;
+  }
+  #hvilkejobber_info {
+    position: absolute;
+    display: none;
+    background: rgba(0, 0, 10, 0.8);
+    font-size: 1em;
+    color: white;
+    padding: 0.6em;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    min-width: 4em;
+    max-width: 66%;
+  }
+  #hvilkejobber_info h3,
+  #hvilkejobber_info p {
+    margin: auto;
+  }
+
+  .axis text {
+    font-family: "roboto,Arial,Helvetica,sans-serif", roboto, Arial, Helvetica,
+      sans-serif, sans-serif;
+  }
+
+  .yaxis text {
+    font-size: 9px;
+  }
+  .base text {
+    font-size: 0.6em;
+    font-family: "roboto,Arial,Helvetica,sans-serif", roboto, Arial, Helvetica,
+      sans-serif, monospace;
+  }
+  .xaxis .tick line {
+    stroke: silver;
+  }
+  .xaxis-bottom .tick line {
+    stroke: #ddd;
+    stroke-dasharray: 2, 2;
+  }
+  text.part-values {
+    font-size: 9px;
+    font-family: "roboto,Arial,Helvetica,sans-serif", roboto, Arial, Helvetica,
+      sans-serif, monospace;
+  }
+
+  .parts rect {
+    opacity: 0.8;
+  }
+
+  .part-bars {
+    cursor: pointer;
+  }
+}

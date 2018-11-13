@@ -13,6 +13,7 @@ import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 import NoData from "../visualizations/NoData";
 import Frafall from "../visualizations/Frafall";
 import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
+
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 import comparisonsConfig from "../comparisonsConfig";
@@ -79,7 +80,6 @@ class ComparisonPage extends Component<Props, State> {
         <SyncUrlState />
         <div className={styles.ComparisonPage}>
           <h1 className={`${styles.flex_container_row}`}>Sammenlign her</h1>
-
           <div className={styles.flex_container}>
             <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
               {comparisonTypes.map((name, i) => (
