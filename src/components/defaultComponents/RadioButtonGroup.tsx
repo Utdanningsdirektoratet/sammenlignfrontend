@@ -6,6 +6,9 @@ type RadioButtonGroupType = {
   textNn: string;
   selected: boolean;
   valueKey: string;
+  helpText?: string;
+  onHelpTextClick?: (open: boolean) => void;
+  helpTextOpen?: boolean;
 };
 
 type Props = {
@@ -21,16 +24,17 @@ class RadioButtonGroup extends Component<Props> {
 
   render() {
     return this.props.group.map(g => (
-      <li key={g.valueKey}>
-        <RadioButton
-          textNb={g.textNb}
-          textNn={g.textNn}
-          isSelected={g.selected}
-          name={this.props.name}
-          valueKey={g.valueKey}
-          onChange={this.testOnChange}
-        />
-      </li>
+      <RadioButton
+        textNb={g.textNb}
+        textNn={g.textNn}
+        isSelected={g.selected}
+        name={this.props.name}
+        valueKey={g.valueKey}
+        onChange={this.testOnChange}
+        helpText={g.helpText}
+        onHelpTextClick={g.onHelpTextClick}
+        helpTextOpen={g.helpTextOpen}
+      />
     ));
   }
 }

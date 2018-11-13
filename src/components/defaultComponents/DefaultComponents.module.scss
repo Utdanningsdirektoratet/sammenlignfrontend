@@ -1,0 +1,96 @@
+.checkbox,
+.radio {
+  font-size: 1rem;
+  &_helptext {
+    display: inline;
+
+    &_icon {
+      color: orange;
+      margin-left: 4px;
+      width: 100px;
+      height: 100px;
+      position: relative;
+      z-index: 5;
+      cursor: pointer;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none; /* Standard */
+    }
+    &_container {
+      font-size: 0.8em;
+      border: 1px solid black;
+      background-color: white;
+      color: black;
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      p {
+        margin: 0.8em;
+      }
+      &__hidden {
+        visibility: hidden;
+      }
+      &_icon {
+        float: right;
+
+        // border: 1px solid orange;
+        // width: 20px;
+        // height: 20px;
+        // border-radius: 100%;
+        // position: relative;
+        // margin: 4px;
+        // margin-left: 8px;
+        // vertical-align: middle;
+        // &:before,
+        // &:after {
+        //   content: "";
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        //   right: 0;
+        //   bottom: 0;
+        //   background: orange;
+        // }
+        // &:before {
+        //   width: 2px;
+        //   margin: 2px auto;
+        //   transform: (rotate(45deg));
+        // }
+        // &:after {
+        //   margin: auto 2px;
+        //   height: 2px;
+        //   transform: (rotate(-45deg));
+        // }
+        cursor: pointer;
+        background-color: #fbe3b7;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        position: relative;
+        margin: 4px;
+        margin-left: 8px;
+        display: inline-block;
+        vertical-align: middle;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 80%;
+          top: 50%;
+          left: 0;
+          margin-top: -1px;
+          margin-left: 2px;
+          background: #000;
+        }
+        &::before {
+          transform: (rotate(45deg));
+        }
+        &::after {
+          transform: (rotate(-45deg));
+        }
+      }
+    }
+  }
+}

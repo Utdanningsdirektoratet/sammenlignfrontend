@@ -24,6 +24,7 @@
           &__hidden {
             visibility: hidden;
           }
+          cursor: pointer;
           border: 1px solid orange;
           width: 20px;
           height: 20px;
@@ -78,6 +79,7 @@
         &_icon {
           float: right;
 
+          cursor: pointer;
           border: 1px solid orange;
           width: 20px;
           height: 20px;
