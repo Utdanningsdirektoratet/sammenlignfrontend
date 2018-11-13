@@ -153,7 +153,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Arbeidstid.some((a: Arbeidstid) => {
                   return a === "H";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber heltid."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber heltid."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open =>
                   this.onHelpTextClick(open, "Arbeidstid-H")
                 }
@@ -167,7 +168,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Arbeidstid.some((a: Arbeidstid) => {
                   return a === "D";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber deltid."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber deltid."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open =>
                   this.onHelpTextClick(open, "Arbeidstid-D")
                 }
@@ -181,7 +183,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Arbeidstid.some((a: Arbeidstid) => {
                   return a === "A";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open =>
                   this.onHelpTextClick(open, "Arbeidstid-A")
                 }
@@ -197,7 +200,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "P";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-P")}
                 helpTextOpen={this.state.openHelpText === "Sektor-P"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
@@ -209,7 +213,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "S";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-S")}
                 helpTextOpen={this.state.openHelpText === "Sektor-S"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
@@ -221,7 +226,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "K";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-K")}
                 helpTextOpen={this.state.openHelpText === "Sektor-K"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
@@ -233,7 +239,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "A";
                 })}
-                helpText="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
+                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-A")}
                 helpTextOpen={this.state.openHelpText === "Sektor-A"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
@@ -247,7 +254,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: Tidsenhet === "Årlig",
                     valueKey: "Årlig",
-                    helpText: "Viser sum lønn utbetalt i året.",
+                    helpTextNb: "Viser sum lønn utbetalt i året.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Tidsenhet-Årlig"),
                     helpTextOpen: this.state.openHelpText === "Tidsenhet-Årlig",
@@ -257,7 +265,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: Tidsenhet === "Månedlig",
                     valueKey: "Månedlig",
-                    helpText: "Viser sum lønn utbetalt månedlig.",
+                    helpTextNb: "Viser sum lønn utbetalt månedlig.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Tidsenhet-Månedlig"),
                     helpTextOpen:
@@ -268,7 +277,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: Tidsenhet === "Ca. timelønn",
                     valueKey: "Ca. timelønn",
-                    helpText: "Viser sum lønn utbetalt per time.",
+                    helpTextNb: "Viser sum lønn utbetalt per time.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Tidsenhet-Ca. timelønn"),
                     helpTextOpen:
@@ -287,8 +297,9 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: Lønn === "Brutto",
                     valueKey: "Brutto",
-                    helpText:
+                    helpTextNb:
                       "Viser sum lønn utbetalt i brutto, eksklusive overtid.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Lønn-Brutto"),
                     helpTextOpen: this.state.openHelpText === "Lønn-Brutto",
@@ -298,8 +309,9 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: Lønn === "Med overtid",
                     valueKey: "Med overtid",
-                    helpText:
+                    helpTextNb:
                       "Viser sum lønn utbetalt i brutto, inklusive overtid.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Lønn-Med overtid"),
                     helpTextOpen:
@@ -318,7 +330,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: StatistiskMål === "Median",
                     valueKey: "Median",
-                    helpText: "Viser utregnet median for lønn utbetalt.",
+                    helpTextNb: "Viser utregnet median for lønn utbetalt.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "StatistiskMål-Median"),
                     helpTextOpen:
@@ -329,7 +342,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     textNn: "nynorsk",
                     selected: StatistiskMål === "Gjennomsnitt",
                     valueKey: "Gjennomsnitt",
-                    helpText: "Viser gjennomsnittlig lønn utbetalt.",
+                    helpTextNb: "Viser gjennomsnittlig lønn utbetalt.",
+                    helpTextNn: "nynorsk",
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "StatistiskMål-Gjennomsnitt"),
                     helpTextOpen:
@@ -349,7 +363,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Kjønn.some((a: Kjønn) => {
                   return a === "K";
                 })}
-                helpText="Viser tall beregnet på grunnlag av kvinner."
+                helpTextNb="Viser tall beregnet på grunnlag av kvinner."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-K")}
                 helpTextOpen={this.state.openHelpText === "Kjønn-K"}
                 onChange={event => this.onFilterClicked(event, "Kjønn")}
@@ -361,7 +376,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Kjønn.some((a: Kjønn) => {
                   return a === "M";
                 })}
-                helpText="Viser tall beregnet på grunnlag av menn."
+                helpTextNb="Viser tall beregnet på grunnlag av menn."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-M")}
                 helpTextOpen={this.state.openHelpText === "Kjønn-M"}
                 onChange={event => this.onFilterClicked(event, "Kjønn")}
@@ -373,7 +389,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 isSelected={Kjønn.some((a: Kjønn) => {
                   return a === "A";
                 })}
-                helpText="Viser tall beregnet på grunnlag av både kvinner og menn."
+                helpTextNb="Viser tall beregnet på grunnlag av både kvinner og menn."
+                helpTextNn="nynorsk"
                 onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-A")}
                 helpTextOpen={this.state.openHelpText === "Kjønn-A"}
                 onChange={event => this.onFilterClicked(event, "Kjønn")}

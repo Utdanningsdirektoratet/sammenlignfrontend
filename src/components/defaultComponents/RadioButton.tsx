@@ -8,7 +8,8 @@ type Props = {
   isSelected: boolean;
   name: string;
   valueKey: string;
-  helpText?: string;
+  helpTextNb?: string;
+  helpTextNn?: string;
   onHelpTextClick?: (open: boolean) => void;
   helpTextOpen?: boolean;
   onChange: (event: any) => void;
@@ -31,7 +32,7 @@ class RadioButton extends Component<Props> {
 
   render() {
     let helpText = null;
-    if (this.props.helpText)
+    if (this.props.helpTextNb && this.props.helpTextNn)
       helpText = (
         <div className={`${styles.radio_helptext}`}>
           <span
@@ -57,7 +58,11 @@ class RadioButton extends Component<Props> {
                   onClick={() => this.onHelpIconClose()}
                 />
               </b>
-              <br /> {this.props.helpText}
+              <br />{" "}
+              <Translate
+                nb={this.props.helpTextNb}
+                nn={this.props.helpTextNn}
+              />
             </p>
           </div>
         </div>

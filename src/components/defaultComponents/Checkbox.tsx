@@ -7,7 +7,8 @@ type Props = {
   textNn: string;
   isSelected: boolean;
   valueKey: string;
-  helpText?: string;
+  helpTextNb?: string;
+  helpTextNn?: string;
   onHelpTextClick?: (open: boolean) => void;
   helpTextOpen?: boolean;
   onChange: (event: ChangeEventHandler<HTMLInputElement>) => void;
@@ -30,7 +31,7 @@ class Checkbox extends Component<Props> {
 
   render() {
     let helpText = null;
-    if (this.props.helpText)
+    if (this.props.helpTextNb && this.props.helpTextNn)
       helpText = (
         <div className={`${styles.checkbox_helptext}`}>
           <span
@@ -56,7 +57,11 @@ class Checkbox extends Component<Props> {
                   onClick={() => this.onHelpIconClose()}
                 />
               </b>
-              <br /> {this.props.helpText}
+              <br />{" "}
+              <Translate
+                nb={this.props.helpTextNb}
+                nn={this.props.helpTextNn}
+              />
             </p>
           </div>
         </div>
