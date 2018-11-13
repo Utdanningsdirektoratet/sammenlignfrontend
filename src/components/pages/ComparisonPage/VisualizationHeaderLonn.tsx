@@ -30,7 +30,7 @@ type State = {
 };
 
 class VisualizationHeaderLonn extends Component<Props, State> {
-  state = { open: true, openHelpText: "" };
+  state = { open: false, openHelpText: "" };
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigLønn = {
