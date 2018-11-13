@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./SelectedCompare.module.scss";
-import { Innholdstype } from "../../data/ApiTypes";
-import { with_app_state, AppStateProps } from "./AppContext";
+import { Innholdstype } from "../../../data/ApiTypes";
+import { with_app_state, AppStateProps } from "../../app/AppContext";
 
 type Props = {
   innholdstype: Innholdstype;

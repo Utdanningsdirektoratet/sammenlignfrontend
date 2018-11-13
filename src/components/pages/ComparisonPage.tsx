@@ -5,7 +5,7 @@ import { RouteComponentProps } from "react-router";
 import styles from "./ComparisonPage.module.scss";
 
 import SyncUrlState from "../app/SyncUrlState";
-import PageChrome from "../app/PageChrome";
+import PageChrome from "./PageChrome/PageChrome";
 import Lonn from "../visualizations/Lonn";
 import Arbeidsledighet from "../visualizations/Arbeidsledighet";
 import VanligeYrkerYrke from "../visualizations/VanligeYrkerYrke";

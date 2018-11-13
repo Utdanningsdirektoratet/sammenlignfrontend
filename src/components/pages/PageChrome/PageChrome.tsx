@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import Header from "./Header";
 import SecondHeader from "./SecondHeader";
-import TranslateContext from "./TranslateContext";
+import TranslateContext from "../../app/TranslateContext";
 
 //import './PageChrome.css'
 

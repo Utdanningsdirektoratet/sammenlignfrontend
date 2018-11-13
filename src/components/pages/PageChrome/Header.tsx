@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
-import LanguagePicker from "./LanguagePicker";
-import Translate from "../app/Translate";
+import LanguagePicker from "../../app/LanguagePicker";
+import Translate from "../../app/Translate";
 
 import styles from "./Header.module.scss";
 

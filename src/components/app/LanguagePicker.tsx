@@ -1,7 +1,7 @@
 import React from "react";
 import TranslateContext from "./TranslateContext";
 
-import styles from "./Header.module.scss";
+import styles from "../pages/PageChrome/Header.module.scss";
 
 function LanguagePicker() {
   return (

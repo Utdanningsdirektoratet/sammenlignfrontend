@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Translate from "./Translate";
-import styles from "../pages/Frontpage.module.scss";
+import Translate from "../../app/Translate";
+import styles from "../Frontpage.module.scss";
 
 type Props = {
   innholdstype: string;

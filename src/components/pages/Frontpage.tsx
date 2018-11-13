@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import PageChrome from "../app/PageChrome";
-import CompareSelection from "../app/CompareSelection";
+import PageChrome from "./PageChrome/PageChrome";
+import CompareSelection from "./Shared/CompareSelection";
 
 import styles from "./Frontpage.module.scss";
 

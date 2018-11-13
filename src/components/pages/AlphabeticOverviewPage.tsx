@@ -4,13 +4,13 @@ import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
 import styles from "./AlphabeticOverviewPage.module.scss";
 
-import PageChrome from "../app/PageChrome";
+import PageChrome from "./PageChrome/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement, Innholdstype } from "../../data/ApiTypes";
 import SyncUrlState from "../app/SyncUrlState";
-import CompareSelection from "../app/CompareSelection";
-import SelectedCompares from "../app/SelectedCompares";
+import CompareSelection from "./Shared/CompareSelection";
+import SelectedCompares from "./Shared/SelectedCompares";
 
 import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
