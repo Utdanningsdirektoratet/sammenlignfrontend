@@ -9,6 +9,8 @@ const Utdanning: SammenligningTemplate[] = [
     widget_id: "lonn",
     path: "/rest/lonn",
     query: { sektor: "A" },
+    // headerConfigDefault: {checkboxes: [["heltid"],[], ["årlig"]],},
+    // headerConfigTemplate: {checkboxes: [["heltid", "deltid"], ["kjønn"], ["årlig", "månedlig"]],},
     render: (data: LonnElement) => (
       <div>
         hei

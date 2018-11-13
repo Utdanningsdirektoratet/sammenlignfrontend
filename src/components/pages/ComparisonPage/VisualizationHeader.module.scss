@@ -1,0 +1,117 @@
+.visualizationheader {
+  font-size: 1rem;
+  &_lonn {
+    position: relative;
+    &_header {
+      background-color: white;
+      &__title {
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: 700;
+        &_filter {
+          font-weight: normal;
+          font-size: 0.8em;
+
+          ul {
+            display: inline-block;
+            padding-left: 0;
+            li {
+              display: inline-block;
+            }
+          }
+        }
+        &_icon {
+          &__hidden {
+            visibility: hidden;
+          }
+          border: 1px solid orange;
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          position: relative;
+          margin: 4px;
+          margin-left: 8px;
+          display: inline-block;
+          vertical-align: middle;
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: orange;
+          }
+          &:before {
+            width: 2px;
+            margin: 2px auto;
+          }
+          &:after {
+            margin: auto 2px;
+            height: 2px;
+          }
+        }
+      }
+    }
+    &_modal {
+      position: absolute;
+      top: 2em;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      width: 35%;
+      padding: 0.8em;
+      color: white;
+      background-color: #3a3a3a;
+      &_header {
+        font-size: 1.2em;
+        display: block;
+        &_title {
+          font-weight: 500;
+          text-transform: uppercase;
+          &__desc {
+            text-transform: lowercase;
+          }
+        }
+        &_icon {
+          float: right;
+
+          border: 1px solid orange;
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          position: relative;
+          margin: 4px;
+          display: inline-block;
+          vertical-align: middle;
+          background: white;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: orange;
+            margin: auto 2px;
+            height: 2px;
+          }
+        }
+      }
+      &_filters {
+        font-size: 1.1em;
+        ul {
+          padding-left: 0;
+        }
+        li {
+          list-style-type: none;
+          input {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
