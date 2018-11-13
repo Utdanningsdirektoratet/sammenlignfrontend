@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 
 import PageChrome from "../app/PageChrome";
-import Translate from "../app/Translate";
+import CompareSelection from "../app/CompareSelection";
 
 import styles from "./Frontpage.module.scss";
 
@@ -11,20 +10,7 @@ class Frontpage extends React.Component {
     return (
       <PageChrome>
         <main>
-          <h1 className={styles.compare_title}>
-            <Translate nb="Jeg vil sammenligne" nn="Eg vil sammenligna" />
-          </h1>
-          <div className={styles.button_row}>
-            <Link
-              to="/utdanning"
-              className={`${styles.btn} ${styles.btn_primary}`}
-            >
-              <Translate nb="Utdanninger" nn="Utdanningar" />
-            </Link>
-            <Link to="/yrke" className={`${styles.btn} ${styles.btn_primary}`}>
-              Yrker
-            </Link>
-          </div>
+          <CompareSelection innholdstype={"..."} />
         </main>
       </PageChrome>
     );
