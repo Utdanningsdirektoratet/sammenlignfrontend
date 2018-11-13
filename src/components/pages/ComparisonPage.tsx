@@ -13,23 +13,12 @@ import Gjennomforingstid from "../visualizations/Gjennomforingstid";
 import NoData from "../visualizations/NoData";
 import Frafall from "../visualizations/Frafall";
 import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
-import HvilkeJobberWrapper from "../visualizations/HvilkeJobberWrapper";
+
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 import comparisonsConfig from "../comparisonsConfig";
 import { API_DOMAIN } from "../../data/config";
 import { objectToQueryString } from "../../util/querystring";
-
-const utdanninger = [
-  { unoId: "statsviter", title: "Statsviter" },
-  { unoId: "idrettsfag", title: "Idrettsfag" },
-  { unoId: "akvakulturfag", title: "Akvakulturfag" },
-  { unoId: "ambulansefag", title: "Ambulansefag" },
-  { unoId: "apotekteknikkfag", title: "Apotekteknikkfag" },
-  { unoId: "automatiseringsfag", title: "Automatiseringsfag" },
-  { unoId: "betongfag", title: "Betongfag" },
-  { unoId: "cncmaskineringsfag", title: "CNC-maskineringsfag" },
-];
 
 type State = any;
 type Props = RouteComponentProps<{ innholdstype: string }> & AppStateProps;
@@ -79,7 +68,6 @@ class ComparisonPage extends Component<Props, State> {
         <SyncUrlState />
         <div className={styles.ComparisonPage}>
           <h1>Sammenlign her</h1>
-          <HvilkeJobberWrapper utdanninger={utdanninger} />
           <div className={styles.flex_container}>
             <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
               {comparisonTypes.map((name, i) => (
