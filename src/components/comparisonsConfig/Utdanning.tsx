@@ -8,7 +8,7 @@ const Utdanning: SammenligningTemplate[] = [
     title: "Lønnsstatestikk",
     widget_id: "lonn",
     path: "/rest/lonn",
-    query: { sektor: "A" },
+    //query: { sektor: "A" },
     render: (data: LonnElement) => (
       <div>
         hei
