@@ -110,30 +110,34 @@ class VisualizationHeaderLonn extends Component<Props, State> {
     if (!this.props.config.Arbeidstid) return null;
     if (this.state.open)
       Modal = (
-        <div className={`${styles.visualizationheader_lonn_modal}`}>
-          <div className={`${styles.visualizationheader_lonn_modal_header}`}>
+        <div className={`${styles.visualizationheader_container_modal}`}>
+          <div
+            className={`${styles.visualizationheader_container_modal_header}`}
+          >
             <div
               className={`${
-                styles.visualizationheader_lonn_modal_header_title
+                styles.visualizationheader_container_modal_header_title
               }`}
             >
               <Translate nb="Lønn" nn="nynorsk" /> -{" "}
               <span
                 className={`${
-                  styles.visualizationheader_lonn_modal_header_title__desc
+                  styles.visualizationheader_container_modal_header_title__desc
                 }`}
               >
                 <Translate nb="visningsalternativer" nn="nynorsk" />
               </span>
               <div
                 className={`${
-                  styles.visualizationheader_lonn_modal_header_icon
+                  styles.visualizationheader_container_modal_header_icon
                 }`}
                 onClick={() => this.onFilterButtonClick()}
               />
             </div>
           </div>
-          <div className={`${styles.visualizationheader_lonn_modal_filters}`}>
+          <div
+            className={`${styles.visualizationheader_container_modal_filters}`}
+          >
             <ul>
               <li>
                 <Checkbox
@@ -322,13 +326,15 @@ class VisualizationHeaderLonn extends Component<Props, State> {
       );
 
     return (
-      <div className={`${styles.visualizationheader_lonn}`}>
-        <div className={`${styles.visualizationheader_lonn_header}`} />
-        <div className={`${styles.visualizationheader_lonn_header__title}`}>
+      <div className={`${styles.visualizationheader_container}`}>
+        <div className={`${styles.visualizationheader_container_header}`} />
+        <div
+          className={`${styles.visualizationheader_container_header__title}`}
+        >
           <Translate nb="Lønn" nn="nynorsk" />{" "}
           <span
             className={`${
-              styles.visualizationheader_lonn_header__title_filter
+              styles.visualizationheader_container_header__title_filter
             }`}
           >
             (
@@ -431,10 +437,10 @@ class VisualizationHeaderLonn extends Component<Props, State> {
           <span
             className={
               this.state.open
-                ? `${styles.visualizationheader_lonn_header__title_icon__hidden +
+                ? `${styles.visualizationheader_container_header__title_icon__hidden +
                     " " +
-                    styles.visualizationheader_lonn_header__title_icon}`
-                : `${styles.visualizationheader_lonn_header__title_icon}`
+                    styles.visualizationheader_container_header__title_icon}`
+                : `${styles.visualizationheader_container_header__title_icon}`
             }
             onClick={() => this.onFilterButtonClick()}
           />
