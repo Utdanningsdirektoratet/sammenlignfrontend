@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
 import styles from "./AlphabeticOverviewPage.module.scss";
 
@@ -18,6 +18,7 @@ import Api from "../app/Api";
 type State = {
   data: DataList;
   interesserSelected: string[];
+  redirectToHomepage: boolean;
 };
 
 type Props = RouteComponentProps<{
@@ -29,10 +30,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
     data: { list: [] as MainElement[], interesser: [] as string[] },
     interesserSelected: [] as string[],
+    redirectToHomepage: false,
   };
   componentDidMount() {
     const { innholdstype } = this.props.match.params;
-    console.log("mounted alphabeticOverviewPage");
     switch (innholdstype) {
       case "utdanning":
         getUtdanning(data => this.setState({ data }));
@@ -44,12 +45,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         getStudium(data => this.setState({ data }));
         break;
       default:
-        console.log("unknown innholdstype: ", innholdstype);
+        this.setState({ redirectToHomepage: true });
     }
   }
-  componentWillUnmount() {
-    console.log("closing alphabeticOverviewPage");
-  }
+
   getFilteredList = () => {
     const interesserSelected = this.state.interesserSelected;
     const list = this.state.data.list;
