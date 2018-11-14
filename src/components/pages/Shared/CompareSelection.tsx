@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Translate from "../../app/Translate";
-import styles from "../Frontpage.module.scss";
+import styles from "./CompareSelection.module.scss";
 
 type Props = {
   innholdstype: string;
@@ -20,11 +20,18 @@ class CompareSelection extends Component<Props> {
         <div className={styles.button_row}>
           <Link
             to="/utdanning"
-            className={`${styles.btn} ${styles.btn_primary}`}
+            className={`${styles.btn} ${styles.btn_primary} ${
+              innholdstype == "utdanning" ? styles.btn_selected : ""
+            }`}
           >
             <Translate nb="Utdanninger" nn="Utdanningar" />
           </Link>
-          <Link to="/yrke" className={`${styles.btn} ${styles.btn_primary}`}>
+          <Link
+            to="/yrke"
+            className={`${styles.btn} ${styles.btn_primary} ${
+              innholdstype == "yrke" ? styles.btn_selected : ""
+            }`}
+          >
             Yrker
           </Link>
         </div>
