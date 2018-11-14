@@ -3,7 +3,7 @@ import React from "react";
 import { SammenligningTemplate } from "./index";
 import { MainElement, LonnElement } from "../../data/ApiTypes";
 import VisualizationHeaderLonn, {
-  VisualizationHeaderConfigLønn,
+  VisualizationHeaderConfigLonn,
 } from "../pages/ComparisonPage/VisualizationHeaderLonn";
 
 const Utdanning: SammenligningTemplate[] = [
@@ -13,7 +13,7 @@ const Utdanning: SammenligningTemplate[] = [
     path: "/rest/lonn",
     HeaderComponent: VisualizationHeaderLonn,
     //query: { sektor: "A" },
-    render: (data: LonnElement, config: VisualizationHeaderConfigLønn) => (
+    render: (data: LonnElement, config: VisualizationHeaderConfigLonn) => (
       <div>
         hei
         {Object.keys(data).map(key => {

@@ -6,7 +6,7 @@ import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import { ComparisonHeaderProps } from "./ComparisonHeader";
 
-export type VisualizationHeaderConfigLønn = {
+export type VisualizationHeaderConfigLonn = {
   Arbeidstid: Arbeidstid[];
   Sektor: Sektor[];
   Tidsenhet: Tidsenhet;
@@ -26,13 +26,13 @@ type State = {
 };
 
 class VisualizationHeaderLonn extends Component<
-  ComparisonHeaderProps<VisualizationHeaderConfigLønn>,
+  ComparisonHeaderProps<VisualizationHeaderConfigLonn>,
   State
 > {
   state = { open: false, openHelpText: "" };
 
   componentDidMount = () => {
-    var config: VisualizationHeaderConfigLønn = {
+    var config: VisualizationHeaderConfigLonn = {
       Arbeidstid: ["A"],
       Sektor: ["A"],
       Tidsenhet: "Årlig",
@@ -44,7 +44,7 @@ class VisualizationHeaderLonn extends Component<
     this.props.setConfig(config);
   };
   componentWillReceiveProps(
-    nextProps: ComparisonHeaderProps<VisualizationHeaderConfigLønn>
+    nextProps: ComparisonHeaderProps<VisualizationHeaderConfigLonn>
   ) {
     if (nextProps.config !== this.props.config) {
       this.forceUpdate();
