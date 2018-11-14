@@ -110,10 +110,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     });
   };
 
-  removeSelectedUnoId = () => {
-    console.log("Remove uno_id: ");
-  };
-
   render() {
     const { innholdstype } = this.props.match.params;
     const selected = this.props.appState.selected;
@@ -131,13 +127,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         <SyncUrlState />
         <CompareSelection innholdstype={innholdstype} />
         <div className={styles.container}>
-          <h1>
-            <Translate
-              nb={"Alfabetisk oversikt " + innholdstype}
-              nn={"Alfabetisk oversyn " + innholdstype}
-            />
-          </h1>
-
           <SelectedCompares innholdstype={innholdstype} />
           <div className={`${styles.selection_row}`}>
             <Link
