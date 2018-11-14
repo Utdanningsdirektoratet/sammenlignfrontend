@@ -4,6 +4,7 @@ import styles from "./ComparisonRow.module.scss";
 
 import { SammenligningTemplate } from "../../comparisonsConfig";
 import ComparisonHeader from "./ComparisonHeader";
+import ComparisonCell from "./ComparisonCell";
 
 type Props = {
   comparison: SammenligningTemplate;
@@ -40,9 +41,12 @@ class ComparisonRow extends Component<Props, State> {
           {comparisonTypes.map((uno_id, i) => {
             const data = rowData ? rowData[uno_id] : null;
             return (
-              <div key={i} className={`${styles.flex_item} ${styles.item}`}>
-                {data ? comparison.render(data, config) : null}
-              </div>
+              <ComparisonCell
+                key={i}
+                data={data}
+                config={config}
+                comparison={comparison}
+              />
             );
           })}
         </div>
