@@ -5,14 +5,14 @@ import { QueryObject } from "../app/Api";
 import { Innholdstype } from "../../data/ApiTypes";
 import { ComparisonHeaderProps } from "../pages/ComparisonPage/ComparisonHeader";
 
-export type SammenligningTemplate = {
+export interface SammenligningTemplate {
   title: string;
   widget_id: string;
   path: string;
   query?: QueryObject;
-  HeaderComponent?: React.ComponentClass<ComparisonHeaderProps>;
+  HeaderComponent?: React.ComponentClass<ComparisonHeaderProps<any>>;
   render: (data: any, config?: any) => JSX.Element;
-};
+}
 
 const exported: { [key: string]: SammenligningTemplate[] } = {
   yrke: Yrke,
