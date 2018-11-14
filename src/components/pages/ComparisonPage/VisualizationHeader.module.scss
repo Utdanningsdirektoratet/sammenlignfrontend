@@ -8,10 +8,11 @@
         text-align: center;
         font-size: 1.3em;
         font-weight: 700;
+        text-transform: uppercase;
         &_filter {
           font-weight: normal;
           font-size: 0.8em;
-
+          text-transform: lowercase;
           ul {
             display: inline-block;
             padding-left: 0;

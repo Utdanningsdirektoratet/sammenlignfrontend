@@ -4,13 +4,13 @@ import styles from "./ComparisonHeader.module.scss";
 
 import { SammenligningTemplate } from "../../comparisonsConfig";
 
-export type ComparisonHeaderProps = {
+export interface ComparisonHeaderProps<T> {
   comparison: SammenligningTemplate;
-  config: any;
-  setConfig: (config: any) => void;
-};
+  config: T;
+  setConfig: (config: T) => void;
+}
 
-class ComparisonHeader extends Component<ComparisonHeaderProps> {
+class ComparisonHeader extends Component<ComparisonHeaderProps<any>> {
   render() {
     const { comparison } = this.props;
     return (

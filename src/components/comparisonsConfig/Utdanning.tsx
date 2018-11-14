@@ -2,14 +2,18 @@ import React from "react";
 
 import { SammenligningTemplate } from "./index";
 import { MainElement, LonnElement } from "../../data/ApiTypes";
+import VisualizationHeaderLonn, {
+  VisualizationHeaderConfigLønn,
+} from "../pages/ComparisonPage/VisualizationHeaderLonn";
 
 const Utdanning: SammenligningTemplate[] = [
   {
     title: "Lønnsstatistikk",
     widget_id: "lonn",
     path: "/rest/lonn",
+    HeaderComponent: VisualizationHeaderLonn,
     //query: { sektor: "A" },
-    render: (data: LonnElement) => (
+    render: (data: LonnElement, config: VisualizationHeaderConfigLønn) => (
       <div>
         hei
         {Object.keys(data).map(key => {

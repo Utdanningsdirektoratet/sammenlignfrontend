@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import TestPage from "./components/pages/TestPage";
 
 import styles from "./App.module.css";
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
@@ -64,7 +63,6 @@ class App extends Component<{}, AppState> {
                 path="/sammenligne/:innholdstype"
                 render={render(ComparisonPage)}
               />
-              <Route path="/test" render={TestPage} />
               <Route path="/d3test" render={D3TestPage} />
               <Route
                 path="/:innholdstype"

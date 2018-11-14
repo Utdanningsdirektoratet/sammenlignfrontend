@@ -2,6 +2,9 @@ import React from "react";
 
 import { SammenligningTemplate } from "./index";
 import { MainElement, LonnElement } from "../../data/ApiTypes";
+import VisualizationHeaderLonn, {
+  VisualizationHeaderConfigLønn,
+} from "../pages/ComparisonPage/VisualizationHeaderLonn";
 
 // switch (widgetType) {
 //   case "lønn": {
@@ -47,12 +50,13 @@ const Yrke: SammenligningTemplate[] = [
     title: "Lønnsstatistikk",
     widget_id: "lonn",
     path: "/rest/lonn",
+    HeaderComponent: VisualizationHeaderLonn,
     query: { sektor: "A" },
-    render: (data: LonnElement) => (
+    render: (data: LonnElement, config: VisualizationHeaderConfigLønn) => (
       <div>
         {Object.keys(data).map(key => {
           const lonn = data[key];
-          return <div>{lonn.A.D.sektor}</div>;
+          return <div>{config.Kjønn}</div>;
         })}
       </div>
     ),

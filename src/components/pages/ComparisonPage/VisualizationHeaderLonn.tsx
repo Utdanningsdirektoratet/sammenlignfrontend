@@ -4,8 +4,9 @@ import Translate from "../../app/Translate";
 import styles from "./VisualizationHeader.module.scss";
 import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
+import { ComparisonHeaderProps } from "./ComparisonHeader";
 
-type VisualizationHeaderConfigLønn = {
+export type VisualizationHeaderConfigLønn = {
   Arbeidstid: Arbeidstid[];
   Sektor: Sektor[];
   Tidsenhet: Tidsenhet;
@@ -19,17 +20,15 @@ type Lønn = "Brutto" | "Med overtid";
 type StatistiskMål = "Median" | "Gjennomsnitt";
 type Kjønn = "A" | "K" | "M";
 
-type Props = {
-  config: VisualizationHeaderConfigLønn;
-  setConfig: (config: any) => void;
-};
-
 type State = {
   open: boolean;
   openHelpText: string;
 };
 
-class VisualizationHeaderLonn extends Component<Props, State> {
+class VisualizationHeaderLonn extends Component<
+  ComparisonHeaderProps<VisualizationHeaderConfigLønn>,
+  State
+> {
   state = { open: false, openHelpText: "" };
 
   componentDidMount = () => {
@@ -44,8 +43,9 @@ class VisualizationHeaderLonn extends Component<Props, State> {
 
     this.props.setConfig(config);
   };
-
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(
+    nextProps: ComparisonHeaderProps<VisualizationHeaderConfigLønn>
+  ) {
     if (nextProps.config !== this.props.config) {
       this.forceUpdate();
     }
@@ -570,18 +570,4 @@ class VisualizationHeaderLonn extends Component<Props, State> {
     );
   }
 }
-
-export class VisualizationHeaderWrapper extends Component<any, any> {
-  state: any = {};
-  setConfig = (config: any) => {
-    this.setState(config);
-  };
-
-  render() {
-    return (
-      <VisualizationHeaderLonn config={this.state} setConfig={this.setConfig} />
-    );
-  }
-}
-
 export default VisualizationHeaderLonn;
