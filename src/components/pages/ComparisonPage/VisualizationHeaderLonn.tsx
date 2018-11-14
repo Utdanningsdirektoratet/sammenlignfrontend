@@ -147,14 +147,17 @@ class VisualizationHeaderLonn extends Component<Props, State> {
           >
             <ul>
               <Checkbox
-                textNb="Heltid"
-                textNn="nynorsk"
+                text={<Translate nb="Heltid" nn="nynorsk" />}
                 valueKey="H"
                 isSelected={Arbeidstid.some((a: Arbeidstid) => {
                   return a === "H";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber heltid."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber heltid."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open =>
                   this.onHelpTextClick(open, "Arbeidstid-H")
                 }
@@ -162,14 +165,17 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 onChange={event => this.onFilterClicked(event, "Arbeidstid")}
               />
               <Checkbox
-                textNb="Deltid"
-                textNn="nynorsk"
+                text={<Translate nb="Deltid" nn="nynorsk" />}
                 valueKey="D"
                 isSelected={Arbeidstid.some((a: Arbeidstid) => {
                   return a === "D";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber deltid."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber deltid."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open =>
                   this.onHelpTextClick(open, "Arbeidstid-D")
                 }
@@ -177,14 +183,17 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 onChange={event => this.onFilterClicked(event, "Arbeidstid")}
               />
               <Checkbox
-                textNb="Begge"
-                textNn="nynorsk"
+                text={<Translate nb="Begge" nn="nynorsk" />}
                 valueKey="A"
                 isSelected={Arbeidstid.some((a: Arbeidstid) => {
                   return a === "A";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open =>
                   this.onHelpTextClick(open, "Arbeidstid-A")
                 }
@@ -194,53 +203,65 @@ class VisualizationHeaderLonn extends Component<Props, State> {
             </ul>
             <ul>
               <Checkbox
-                textNb="Privat"
-                textNn="nynorsk"
+                text={<Translate nb="Privat" nn="nynorsk" />}
                 valueKey="P"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "P";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-P")}
                 helpTextOpen={this.state.openHelpText === "Sektor-P"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
-                textNb="Statlig"
-                textNn="nynorsk"
+                text={<Translate nb="Statlig" nn="nynorsk" />}
                 valueKey="S"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "S";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-S")}
                 helpTextOpen={this.state.openHelpText === "Sektor-S"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
-                textNb="Kommunal"
-                textNn="nynorsk"
+                text={<Translate nb="Kommunal" nn="nynorsk" />}
                 valueKey="K"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "K";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-K")}
                 helpTextOpen={this.state.openHelpText === "Sektor-K"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
-                textNb="Alle"
-                textNn="nynorsk"
+                text={<Translate nb="Alle" nn="nynorsk" />}
                 valueKey="A"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "A";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-A")}
                 helpTextOpen={this.state.openHelpText === "Sektor-A"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
@@ -250,35 +271,44 @@ class VisualizationHeaderLonn extends Component<Props, State> {
               <RadioButtonGroup
                 group={[
                   {
-                    textNb: "Per år",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Per år" nn="nynorsk" />,
                     selected: Tidsenhet === "Årlig",
                     valueKey: "Årlig",
-                    helpTextNb: "Viser sum lønn utbetalt i året.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser sum lønn utbetalt i året."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Tidsenhet-Årlig"),
                     helpTextOpen: this.state.openHelpText === "Tidsenhet-Årlig",
                   },
                   {
-                    textNb: "Per måned",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Per måned" nn="nynorsk" />,
                     selected: Tidsenhet === "Månedlig",
                     valueKey: "Månedlig",
-                    helpTextNb: "Viser sum lønn utbetalt månedlig.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser sum lønn utbetalt månedlig."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Tidsenhet-Månedlig"),
                     helpTextOpen:
                       this.state.openHelpText === "Tidsenhet-Månedlig",
                   },
                   {
-                    textNb: "Per time",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Per time" nn="nynorsk" />,
                     selected: Tidsenhet === "Ca. timelønn",
                     valueKey: "Ca. timelønn",
-                    helpTextNb: "Viser sum lønn utbetalt per time.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser sum lønn utbetalt per time."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Tidsenhet-Ca. timelønn"),
                     helpTextOpen:
@@ -293,25 +323,29 @@ class VisualizationHeaderLonn extends Component<Props, State> {
               <RadioButtonGroup
                 group={[
                   {
-                    textNb: "Brutto",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Brutto" nn="nynorsk" />,
                     selected: Lønn === "Brutto",
                     valueKey: "Brutto",
-                    helpTextNb:
-                      "Viser sum lønn utbetalt i brutto, eksklusive overtid.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser sum lønn utbetalt i brutto, eksklusive overtid."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Lønn-Brutto"),
                     helpTextOpen: this.state.openHelpText === "Lønn-Brutto",
                   },
                   {
-                    textNb: "Inklusiv overtid",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Inklusiv overtid" nn="nynorsk" />,
                     selected: Lønn === "Med overtid",
                     valueKey: "Med overtid",
-                    helpTextNb:
-                      "Viser sum lønn utbetalt i brutto, inklusive overtid.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser sum lønn utbetalt inklusive overtid."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "Lønn-Med overtid"),
                     helpTextOpen:
@@ -326,24 +360,30 @@ class VisualizationHeaderLonn extends Component<Props, State> {
               <RadioButtonGroup
                 group={[
                   {
-                    textNb: "Median",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Median" nn="nynorsk" />,
                     selected: StatistiskMål === "Median",
                     valueKey: "Median",
-                    helpTextNb: "Viser utregnet median for lønn utbetalt.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser utregnet median for lønn utbetalt."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "StatistiskMål-Median"),
                     helpTextOpen:
                       this.state.openHelpText === "StatistiskMål-Median",
                   },
                   {
-                    textNb: "Gjennomsnitt",
-                    textNn: "nynorsk",
+                    text: <Translate nb="Gjennomsnitt" nn="nynorsk" />,
                     selected: StatistiskMål === "Gjennomsnitt",
                     valueKey: "Gjennomsnitt",
-                    helpTextNb: "Viser gjennomsnittlig lønn utbetalt.",
-                    helpTextNn: "nynorsk",
+                    helptext: (
+                      <Translate
+                        nb="Viser gjennomsnittlig lønn utbetalt."
+                        nn="nynorsk"
+                      />
+                    ),
                     onHelpTextClick: open =>
                       this.onHelpTextClick(open, "StatistiskMål-Gjennomsnitt"),
                     helpTextOpen:
@@ -357,40 +397,49 @@ class VisualizationHeaderLonn extends Component<Props, State> {
 
             <ul>
               <Checkbox
-                textNb="Kvinner"
-                textNn="nynorsk"
+                text={<Translate nb="Kvinner" nn="nynorsk" />}
                 valueKey="K"
                 isSelected={Kjønn.some((a: Kjønn) => {
                   return a === "K";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av kvinner."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av kvinner."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-K")}
                 helpTextOpen={this.state.openHelpText === "Kjønn-K"}
                 onChange={event => this.onFilterClicked(event, "Kjønn")}
               />
               <Checkbox
-                textNb="Menn"
-                textNn="nynorsk"
+                text={<Translate nb="Menn" nn="nynorsk" />}
                 valueKey="M"
                 isSelected={Kjønn.some((a: Kjønn) => {
                   return a === "M";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av menn."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av menn."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-M")}
                 helpTextOpen={this.state.openHelpText === "Kjønn-M"}
                 onChange={event => this.onFilterClicked(event, "Kjønn")}
               />
               <Checkbox
-                textNb="Begge"
-                textNn="nynorsk"
+                text={<Translate nb="Begge" nn="nynorsk" />}
                 valueKey="A"
                 isSelected={Kjønn.some((a: Kjønn) => {
                   return a === "A";
                 })}
-                helpTextNb="Viser tall beregnet på grunnlag av både kvinner og menn."
-                helpTextNn="nynorsk"
+                helpText={
+                  <Translate
+                    nb="Viser tall beregnet på grunnlag av både kvinner og menn."
+                    nn="nynorsk"
+                  />
+                }
                 onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-A")}
                 helpTextOpen={this.state.openHelpText === "Kjønn-A"}
                 onChange={event => this.onFilterClicked(event, "Kjønn")}

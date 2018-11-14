@@ -2,12 +2,10 @@ import React, { Component, ChangeEventHandler } from "react";
 import RadioButton from "./RadioButton";
 
 type RadioButtonGroupType = {
-  textNb: string;
-  textNn: string;
+  text: JSX.Element;
   selected: boolean;
   valueKey: string;
-  helpTextNb?: string;
-  helpTextNn?: string;
+  helptext?: JSX.Element;
   onHelpTextClick?: (open: boolean) => void;
   helpTextOpen?: boolean;
 };
@@ -27,14 +25,12 @@ class RadioButtonGroup extends Component<Props> {
     return this.props.group.map(g => (
       <RadioButton
         key={g.valueKey}
-        textNb={g.textNb}
-        textNn={g.textNn}
+        text={g.text}
         isSelected={g.selected}
         name={this.props.name}
         valueKey={g.valueKey}
         onChange={this.testOnChange}
-        helpTextNb={g.helpTextNb}
-        helpTextNn={g.helpTextNn}
+        helpText={g.helptext}
         onHelpTextClick={g.onHelpTextClick}
         helpTextOpen={g.helpTextOpen}
       />

@@ -1,14 +1,11 @@
 import React, { Component, ChangeEventHandler } from "react";
-import Translate from "../app/Translate";
 import styles from "./DefaultComponents.module.scss";
 
 type Props = {
-  textNb: string;
-  textNn: string;
+  text: JSX.Element;
   isSelected: boolean;
   valueKey: string;
-  helpTextNb?: string;
-  helpTextNn?: string;
+  helpText?: JSX.Element;
   onHelpTextClick?: (open: boolean) => void;
   helpTextOpen?: boolean;
   onChange: (event: ChangeEventHandler<HTMLInputElement>) => void;
@@ -24,9 +21,10 @@ class Checkbox extends Component<Props> {
   };
 
   render() {
-    let helpText = null;
-    if (this.props.helpTextNb && this.props.helpTextNn)
-      helpText = (
+    const { text, helpText } = this.props;
+    let helpTextDom = null;
+    if (this.props.helpText)
+      helpTextDom = (
         <div className={`${styles.checkbox_helptext}`}>
           <span
             onClick={() => this.onHelpIconClick(true)}
@@ -45,17 +43,13 @@ class Checkbox extends Component<Props> {
           >
             <p>
               <b>
-                <Translate nb={this.props.textNb} nn={this.props.textNn} />
+                {text}
                 <span
                   className={`${styles.checkbox_helptext_container_icon}`}
                   onClick={() => this.onHelpIconClick(false)}
                 />
               </b>
-              <br />{" "}
-              <Translate
-                nb={this.props.helpTextNb}
-                nn={this.props.helpTextNn}
-              />
+              <br /> {helpText}
             </p>
           </div>
         </div>
@@ -69,9 +63,9 @@ class Checkbox extends Component<Props> {
             checked={this.props.isSelected}
             onChange={this.onChange}
           />
-          {<Translate nb={this.props.textNb} nn={this.props.textNn} />}
+          {text}
         </label>
-        {helpText}
+        {helpTextDom}
       </li>
     );
   }
