@@ -16,6 +16,7 @@ import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
 import Api from "../app/Api";
+import { with_lang_props, LanguageProps } from "../app/TranslateContext";
 
 type State = {
   data: DataList;
@@ -26,7 +27,8 @@ type State = {
 type Props = RouteComponentProps<{
   innholdstype: Innholdstype;
 }> &
-  AppStateProps;
+  AppStateProps &
+  LanguageProps;
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
@@ -35,16 +37,21 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     redirectToHomepage: false,
   };
   componentDidMount() {
-    const { innholdstype } = this.props.match.params;
+    const {
+      match: {
+        params: { innholdstype },
+      },
+      lang,
+    } = this.props;
     switch (innholdstype) {
       case "utdanning":
-        getUtdanning(data => this.setState({ data }));
+        getUtdanning(lang, data => this.setState({ data }));
         break;
       case "yrke":
-        getYrke(data => this.setState({ data }));
+        getYrke(lang, data => this.setState({ data }));
         break;
       case "studie":
-        getStudium(data => this.setState({ data }));
+        getStudium(lang, data => this.setState({ data }));
         break;
       default:
         this.setState({ redirectToHomepage: true });
@@ -155,4 +162,4 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 }
 
-export default with_app_state(AlphabeticOverviewPage);
+export default with_lang_props(with_app_state(AlphabeticOverviewPage));
