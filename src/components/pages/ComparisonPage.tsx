@@ -6,13 +6,6 @@ import styles from "./ComparisonPage.module.scss";
 
 import SyncUrlState from "../app/SyncUrlState";
 import PageChrome from "./PageChrome/PageChrome";
-import Lonn from "../visualizations/Lonn";
-import Arbeidsledighet from "../visualizations/Arbeidsledighet";
-import VanligeYrkerYrke from "../visualizations/VanligeYrkerYrke";
-import Gjennomforingstid from "../visualizations/Gjennomforingstid";
-import NoData from "../visualizations/NoData";
-import Frafall from "../visualizations/Frafall";
-import Jobbtilfredshet from "../visualizations/Jobbtilfredshet";
 
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
