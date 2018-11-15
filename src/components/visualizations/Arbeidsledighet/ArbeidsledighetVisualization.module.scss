@@ -7,6 +7,9 @@
     display: flex;
     width: 100%;
     &_icon {
+      &_container {
+        display: flex;
+      }
       width: auto;
       svg {
         height: 1em;

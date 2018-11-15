@@ -97,7 +97,11 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
             break;
           case "A":
             key = (
-              <div>
+              <div
+                className={
+                  styles.arbeidsledighetvisualization_kjonn_icon_container
+                }
+              >
                 <Smiley />
                 <Mustache />
               </div>
