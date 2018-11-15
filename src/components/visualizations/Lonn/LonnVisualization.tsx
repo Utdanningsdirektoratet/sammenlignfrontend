@@ -11,6 +11,7 @@ import visualizationstyles from "../Visualization.module.scss";
 import { ReactComponent as Smiley } from "../Generic/Smiley.svg";
 import { ReactComponent as Mustache } from "../Generic/Mustache.svg";
 import styles from "./LonnVisualization.module.scss";
+import Translate from "../../app/Translate";
 
 type Props = {
   data: LonnObject;
@@ -100,7 +101,11 @@ class LonnVisualization extends React.Component<Props> {
                 {kjønn.length > 1 ? d.key : ""}
               </div>
               <div className={styles.lonnVisualization_kjonn_text}>
-                {d.value === null ? "Ingen data" : d.value + " kr"}
+                {d.value === null ? (
+                  <Translate nb="Ingen data" nn="nynorsk" />
+                ) : (
+                  d.value + " kr"
+                )}
               </div>
             </div>
           );

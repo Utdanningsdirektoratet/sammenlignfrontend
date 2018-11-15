@@ -11,6 +11,7 @@ import { ReactComponent as Smiley } from "../Generic/Smiley.svg";
 import { ReactComponent as Mustache } from "../Generic/Mustache.svg";
 import PercentageBar from "../Generic/PercentageBar";
 import styles from "./ArbeidsledighetVisualization.module.scss";
+import Translate from "../../app/Translate";
 
 type Props = {
   data: ArbeidsledighetObject;
@@ -73,13 +74,13 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
 
       switch (f) {
         case "710":
-          key = "7-10 år etter endt utdanning";
+          key = <Translate nb="7-10 år etter endt utdanning" nn="nynorsk" />;
           break;
         case "13":
-          key = "1-3 år etter endt utdanning";
+          key = <Translate nb="1-3 år etter endt utdanning" nn="nynorsk" />;
           break;
         case "A":
-          key = "Alle";
+          key = <Translate nb="Alle" nn="nynorsk" />;
           break;
       }
 
@@ -159,7 +160,7 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                               styles.arbeidsledighetvisualization_kjonn_container_text
                             }
                           >
-                            Ingen data
+                            <Translate nb="Ingen data" nn="nynorsk" />
                           </div>
                         ) : visning === "Andel" ? (
                           <PercentageBar value={a.value} />
