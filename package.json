@@ -5,19 +5,22 @@
   "dependencies": {
     "@types/d3": "^5.0.1",
     "@types/jest": "23.3.9",
-    "@types/node": "10.12.2",
-    "@types/react": "16.4.18",
+    "@types/node": "10.12.8",
+    "@types/react": "16.7.6",
     "@types/react-dom": "16.0.9",
     "@types/react-router-dom": "^4.3.1",
     "d3": "^5.7.0",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.10.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "typescript": "3.1.6"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +37,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "https://Utdanningsdirektoratet.github.io/sammenlignfrontend"
 }
