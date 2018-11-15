@@ -1,7 +1,11 @@
 import React from "react";
 
 import { SammenligningTemplate } from "./index";
-import { MainElement, LonnElement } from "../../data/ApiTypes";
+import {
+  MainElement,
+  LonnElement,
+  ArbeidsledighetElement,
+} from "../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
 } from "../pages/ComparisonPage/VisualizationHeaderLonn";
@@ -31,12 +35,21 @@ const Utdanning: SammenligningTemplate[] = [
   {
     title: "Arbeidsledighet",
     widget_id: "arbeidsledighet",
-    path: "/rest/main",
-    render: (data: MainElement) => (
-      <>
-        <span>{data.funksjon}</span>
-      </>
-    ),
+    path: "/rest/arbeidsledighet",
+    render: (fullData: ArbeidsledighetElement) => {
+      const data = fullData[Object.keys(fullData)[0]];
+      return (
+        <div>
+          <span>Andel arbeidsledige: {data.arbeidsledige_andel}</span>
+          <br />
+          <span>
+            Andel kvinner arbeidsledig: {data.arbeidsledige_andel_kvinner}
+          </span>
+          <br />
+          <span>Andel menn arbeidsledig: {data.arbeidsledige_andel_menn}</span>
+        </div>
+      );
+    },
   },
   {
     title: "Uno id",
