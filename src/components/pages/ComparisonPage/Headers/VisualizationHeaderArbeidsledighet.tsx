@@ -5,13 +5,16 @@ import styles from "./VisualizationHeader.module.scss";
 import { ComparisonHeaderProps } from "../ComparisonHeader";
 import HeaderModalKjonn from "./HeaderModalKjonn";
 import Checkbox from "../../../defaultComponents/Checkbox";
+import RadioButtonGroup from "../../../defaultComponents/RadioButtonGroup";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
   Kjønn: Kjønn[];
   Fullført: Fullført[];
+  Visning: Visning;
 };
 
-type Fullført = "710" | "13" | "A";
+export type Fullført = "710" | "13" | "A";
+export type Visning = "Andel" | "Antall";
 type State = {
   open: boolean;
   openHelpText: string;
@@ -25,8 +28,9 @@ class VisualizationHeaderArbeidsledighet extends Component<
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigArbeidsledighet = {
-      Kjønn: ["A"],
-      Fullført: ["A"],
+      Kjønn: ["A", "K", "M"],
+      Fullført: ["A", "710", "13"],
+      Visning: "Andel",
     };
 
     this.props.setConfig(config);
@@ -70,6 +74,9 @@ class VisualizationHeaderArbeidsledighet extends Component<
           config.Fullført.push(value);
         }
         break;
+      case "Visning":
+        config.Visning = value;
+        break;
       default:
         return;
     }
@@ -77,7 +84,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
   };
 
   render() {
-    const { Kjønn, Fullført } = this.props.config;
+    const { Kjønn, Fullført, Visning } = this.props.config;
     let Modal = null;
     if (!this.props.config.Kjønn) return null;
 
@@ -174,6 +181,42 @@ class VisualizationHeaderArbeidsledighet extends Component<
                 }
               />
             </ul>
+            <ul>
+              <RadioButtonGroup
+                group={[
+                  {
+                    text: <Translate nb="Andel" nn="nynorsk" />,
+                    selected: Visning === "Andel",
+                    valueKey: "Andel",
+                    helptext: (
+                      <Translate
+                        nb="Viser andel arbeidsledige som prosent."
+                        nn="nynorsk"
+                      />
+                    ),
+                    onHelpTextClick: open =>
+                      this.onHelpTextClick(open, "Visning-Andel"),
+                    helpTextOpen: this.state.openHelpText === "Visning-Andel",
+                  },
+                  {
+                    text: <Translate nb="Antall" nn="nynorsk" />,
+                    selected: Visning === "Antall",
+                    valueKey: "Antall",
+                    helptext: (
+                      <Translate
+                        nb="Viser antall arbeidsledige."
+                        nn="nynorsk"
+                      />
+                    ),
+                    onHelpTextClick: open =>
+                      this.onHelpTextClick(open, "Visning-Antall"),
+                    helpTextOpen: this.state.openHelpText === "Visning-Antall",
+                  },
+                ]}
+                name="antall"
+                onChange={event => this.onFilterClicked(event, "Visning")}
+              />
+            </ul>
             <HeaderModalKjonn
               kjønn={Kjønn}
               onHelpTextClick={this.onHelpTextClick}
@@ -224,6 +267,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
                   }
                 })}
               </li>
+              <li>{", " + Visning}</li>
               <li>
                 {Kjønn.map((d: string, i: number) => {
                   let text = "";

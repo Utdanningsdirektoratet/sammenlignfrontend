@@ -13,6 +13,7 @@ import LonnWrapper from "../visualizations/Lonn/LonnWrapper";
 import VisualizationHeaderArbeidsledighet, {
   VisualizationHeaderConfigArbeidsledighet,
 } from "../pages/ComparisonPage/Headers/VisualizationHeaderArbeidsledighet";
+import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 
 // switch (widgetType) {
 //   case "lønn": {
@@ -74,17 +75,8 @@ const Yrke: SammenligningTemplate[] = [
       config: VisualizationHeaderConfigArbeidsledighet
     ) => {
       const data = fullData[Object.keys(fullData)[0]];
-      return (
-        <div>
-          <span>Andel arbeidsledige: {data.arbeidsledige_andel}</span>
-          <br />
-          <span>
-            Andel kvinner arbeidsledig: {data.arbeidsledige_andel_kvinner}
-          </span>
-          <br />
-          <span>Andel menn arbeidsledig: {data.arbeidsledige_andel_menn}</span>
-        </div>
-      );
+
+      return <ArbeidsledighetWrapper data={data} config={config} />;
     },
   },
   {

@@ -27,13 +27,11 @@ class LonnWrapper extends React.Component<Props> {
             if (!lonn[s][a]) return <NoData key={s + a} />;
             return (
               <LonnVisualization
-                data={{
-                  data: lonn[s][a],
-                  kjønn: kjønnData,
-                  lønn: config.Lønn,
-                  statistiskMål: config.StatistiskMål,
-                  tidsenhet: config.Tidsenhet,
-                }}
+                data={lonn[s][a]}
+                kjønn={kjønnData}
+                lønn={config.Lønn}
+                statistiskMål={config.StatistiskMål}
+                tidsenhet={config.Tidsenhet}
               />
             );
           });
