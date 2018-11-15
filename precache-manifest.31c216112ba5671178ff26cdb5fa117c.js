@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/sammenlignfrontend/static/media/Mustache.5bfeee98.svg"
   },
   {
-    "revision": "5d2305726dafd43fdc954f1a7e3f56ba",
+    "revision": "24b1cb7f0c0333c73a0cb35bbf95bc0c",
     "url": "/sammenlignfrontend/index.html"
   }
 ];
