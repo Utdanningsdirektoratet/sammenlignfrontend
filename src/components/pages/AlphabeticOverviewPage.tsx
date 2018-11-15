@@ -14,6 +14,8 @@ import Modal from "../app/InteresseModal";
 import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
 
+import SelectedInterests from "./AlphabeticComparisonPage/SelectedInterests";
+
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
 import Api from "../app/Api";
@@ -92,7 +94,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     }
   };
 
-  removeSelectedInterests = () => {
+  removeAllSelectedInterests = () => {
     this.setState({ interesserSelected: [] });
   };
 
@@ -129,21 +131,30 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         <CompareSelection innholdstype={innholdstype} />
         <div className={styles.container}>
           <SelectedCompares innholdstype={innholdstype} />
-          <div className={`${styles.selection_row}`}>
-            <Link
-              to={"/sammenligne/" + innholdstype}
-              className={`${styles.selection_row}`}
-            >
-              Sammenlign her
-            </Link>
-          </div>
+
+          {selected.some(uno_id => uno_id[0] === innholdstype[0]) ? (
+            <div className={`${styles.selection_row}`}>
+              <Link
+                to={"/sammenligne/" + innholdstype}
+                className={`${styles.selection_row}`}
+              >
+                Sammenlign her
+              </Link>
+            </div>
+          ) : null}
 
           <Modal
             interesser={interesser}
             selected={interesserSelected}
             toggleSelected={this.toggleSelectedInterests}
-            removeSelected={this.removeSelectedInterests}
+            removeAllSelected={this.removeAllSelectedInterests}
           />
+
+          <SelectedInterests
+            selected={interesserSelected}
+            // removeSelectedInterest={}
+          />
+
           <ul className={styles.alphabetic}>
             <AlphabeticList
               list={this.getFilteredList()}

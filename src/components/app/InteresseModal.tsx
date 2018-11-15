@@ -8,7 +8,7 @@ type Props = {
   interesser: string[];
   selected: string[];
   toggleSelected: Function;
-  removeSelected: Function;
+  removeAllSelected: Function;
 };
 
 class Modal extends Component<Props> {
@@ -30,23 +30,28 @@ class Modal extends Component<Props> {
   }
 
   render() {
-    const { interesser, selected, toggleSelected, removeSelected } = this.props;
+    const {
+      interesser,
+      selected,
+      toggleSelected,
+      removeAllSelected,
+    } = this.props;
 
     return (
       <div>
-        <button onClick={this.handleOpenModal}>Trigger Modal</button>
+        <button onClick={this.handleOpenModal}>Interesser</button>
         <ReactModal
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="Interesser/Kategorier"
           onRequestClose={this.handleCloseModal}
         >
-          <button onClick={this.handleCloseModal}>Close Modal</button>
+          <button onClick={this.handleCloseModal}>Lukk</button>
 
           <InteresserFilter
             interesser={interesser}
             selected={selected}
             toggleSelected={toggleSelected}
-            removeSelected={removeSelected}
+            removeAllSelected={removeAllSelected}
           />
         </ReactModal>
       </div>
