@@ -1,5 +1,5 @@
 import React from "react";
-import HvilkeJobberWrapper from "../visualizations/HvilkeJobberWrapper";
+import HvilkeJobberWrapper from "../visualizations/Old/HvilkeJobberWrapper";
 
 const utdanninger = [
   { unoId: "statsviter", title: "Statsviter" },

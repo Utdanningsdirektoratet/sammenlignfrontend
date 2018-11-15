@@ -1,6 +1,6 @@
 import React from "react";
 import visualizationstyles from "./Visualization.module.scss";
-import Vanligeyrker from "../visualizations/Vanligeyrker";
+import Vanligeyrker from "./Vanligeyrker";
 
 type Props = {
   yrker: Array<{ id: number; title: string; percentage: number; info: any }>;

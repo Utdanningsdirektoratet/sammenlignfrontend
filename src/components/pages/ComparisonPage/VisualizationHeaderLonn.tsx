@@ -15,10 +15,10 @@ export type VisualizationHeaderConfigLonn = {
   Kjønn: Kjønn[];
 };
 
-type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
-type Lønn = "Brutto" | "Med overtid";
-type StatistiskMål = "Median" | "Gjennomsnitt";
-type Kjønn = "A" | "K" | "M";
+export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
+export type Lønn = "Brutto" | "Med overtid";
+export type StatistiskMål = "Median" | "Gjennomsnitt";
+export type Kjønn = "A" | "K" | "M";
 
 type State = {
   open: boolean;

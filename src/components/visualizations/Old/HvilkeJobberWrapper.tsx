@@ -2,7 +2,7 @@ import React, { ReactInstance } from "react";
 import * as d3 from "d3";
 
 import HvilkeJobber from "./HvilkeJobber";
-import visualizationstyles from "./Visualization.module.scss";
+import visualizationstyles from "../Visualization.module.scss";
 
 import HvilkeJobberSelektor from "./HvilkeJobberSelektor";
 import { rejects } from "assert";

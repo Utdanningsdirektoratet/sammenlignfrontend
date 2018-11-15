@@ -9,6 +9,7 @@ import {
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
 } from "../pages/ComparisonPage/VisualizationHeaderLonn";
+import LonnWrapper from "../visualizations/Lonn/LonnWrapper";
 
 // switch (widgetType) {
 //   case "lønn": {
@@ -57,12 +58,7 @@ const Yrke: SammenligningTemplate[] = [
     HeaderComponent: VisualizationHeaderLonn,
     query: { sektor: "A" },
     render: (data: LonnElement, config: VisualizationHeaderConfigLonn) => (
-      <div>
-        {Object.keys(data).map(key => {
-          const lonn = data[key];
-          return <div>{config.Kjønn}</div>;
-        })}
-      </div>
+      <LonnWrapper data={data} config={config} />
     ),
   },
   {
@@ -104,7 +100,7 @@ const Yrke: SammenligningTemplate[] = [
       data.interesser ? (
         <ul>
           {data.interesser.map(interresse => (
-            <li>{interresse}</li>
+            <li key={interresse}>{interresse}</li>
           ))}
         </ul>
       ) : (

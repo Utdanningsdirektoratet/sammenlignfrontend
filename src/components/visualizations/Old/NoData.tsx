@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./NoData.module.scss";
-import visualizationstyles from "./Visualization.module.scss";
+import visualizationstyles from "../Visualization.module.scss";
 
 import { ReactComponent as NoDataSvg } from "./NoData.svg";
 
