@@ -12,6 +12,30 @@ export interface MainElement {
   _version_: number;
 }
 
+export interface ArbeidsledighetElement {
+  [kategori: string]: ArbeidsledighetObject;
+}
+
+export interface ArbeidsledighetObject {
+  nus_navn: string;
+  id: string;
+  uno_id: string;
+  arbeidsledige_andel_menn: number;
+  arbeidsledige_antall13: number;
+  arbeidsledige_andel13: number;
+  arbeidsledige_andel40: number;
+  nus_kode: string;
+  path: string;
+  arbeidsledige_andel710: number;
+  arbeidsledige_andel_kvinner: number;
+  nus_kortnavn: string;
+  arbeidsledige_antall: number;
+  arbeidsledige_antall710: number;
+  arbeidsledige_andel: number;
+  funksjon: string;
+  _version_: number;
+}
+
 export interface LonnObject {
   A_antall_ansatte: number;
   A_wage_avg: number;

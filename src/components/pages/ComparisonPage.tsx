@@ -22,7 +22,7 @@ import { objectToQueryString } from "../../util/querystring";
 import { with_lang_props, LanguageProps } from "../app/TranslateContext";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
 
-type State = { [dataKey: string]: { [uno_id: string]: any } };
+type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: string }> &
   AppStateProps &
   LanguageProps;
@@ -62,7 +62,7 @@ class ComparisonPage extends Component<Props, State> {
           this.setState({ [dataKey]: data });
         })
         .catch(e => {
-          //ignore
+          this.setState({ [dataKey]: false });
         });
       // TODO: set timeout to render loading page
     });
@@ -93,6 +93,7 @@ class ComparisonPage extends Component<Props, State> {
               const dataKey =
                 comparison.path + JSON.stringify(comparison.query);
               const rowData = this.state[dataKey];
+              if (rowData === false) return null;
               return (
                 <ComparisonRow
                   key={i}
