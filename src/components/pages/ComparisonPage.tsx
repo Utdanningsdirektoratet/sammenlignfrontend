@@ -14,9 +14,12 @@ import { API_DOMAIN } from "../../data/config";
 import { objectToQueryString } from "../../util/querystring";
 import { with_lang_props, LanguageProps } from "../app/TranslateContext";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
+import CompareSelection from "./Shared/CompareSelection";
+import SelectedCompares from "./Shared/SelectedCompares";
+import { Innholdstype } from "../../data/ApiTypes";
 
-type State = { [dataKey: string]: { [uno_id: string]: any } };
-type Props = RouteComponentProps<{ innholdstype: string }> &
+type State = { [dataKey: string]: { [uno_id: string]: any } | false };
+type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
   AppStateProps &
   LanguageProps;
 
@@ -55,7 +58,7 @@ class ComparisonPage extends Component<Props, State> {
           this.setState({ [dataKey]: data });
         })
         .catch(e => {
-          //ignore
+          this.setState({ [dataKey]: false });
         });
       // TODO: set timeout to render loading page
     });
@@ -74,18 +77,13 @@ class ComparisonPage extends Component<Props, State> {
         <div className={styles.ComparisonPage}>
           <h1 className={`${styles.flex_container_row}`}>Sammenlign her</h1>
           <div className={styles.flex_container}>
-            <div className={`${styles.flex_container_row} ${styles.titlerow}`}>
-              {comparisonTypes.map((name, i) => (
-                <div className={`${styles.flex_item} ${styles.title}`} key={i}>
-                  {name}
-                </div>
-              ))}
-            </div>
+            <SelectedCompares innholdstype={innholdstype} />
 
             {comparisons.map((comparison, i) => {
               const dataKey =
                 comparison.path + JSON.stringify(comparison.query);
               const rowData = this.state[dataKey];
+              if (rowData === false) return null;
               return (
                 <ComparisonRow
                   key={i}
