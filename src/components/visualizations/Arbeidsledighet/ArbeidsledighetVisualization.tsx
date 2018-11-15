@@ -142,13 +142,17 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                     </div>
                   ) : (
                     <div className={styles.arbeidsledighetvisualization_kjonn}>
-                      <div
-                        className={
-                          styles.arbeidsledighetvisualization_kjonn_icon
-                        }
-                      >
-                        {kjønn.length > 1 ? a.key : ""}
-                      </div>
+                      {kjønn.length > 1 ? (
+                        <div
+                          className={
+                            styles.arbeidsledighetvisualization_kjonn_icon
+                          }
+                        >
+                          {a.key}
+                        </div>
+                      ) : (
+                        ""
+                      )}
                       <div
                         className={
                           styles.arbeidsledighetvisualization_kjonn_container

@@ -28,9 +28,9 @@ class VisualizationHeaderArbeidsledighet extends Component<
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigArbeidsledighet = {
-      Kjønn: ["A", "K", "M"],
-      Fullført: ["A", "710", "13"],
-      Visning: "Andel",
+      Kjønn: ["A"],
+      Fullført: ["A"],
+      Visning: "Antall",
     };
 
     this.props.setConfig(config);
