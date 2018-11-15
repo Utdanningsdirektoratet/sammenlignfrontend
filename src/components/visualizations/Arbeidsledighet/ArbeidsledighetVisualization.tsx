@@ -127,16 +127,22 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
         {dom.map(d => {
           return (
             <div>
-              <div className={styles.arbeidsledighetvisualization_text}>
-                {fullført.length > 1 ? d.key : ""}
-              </div>
+              {fullført.length > 1 ? (
+                <div className={styles.arbeidsledighetvisualization_text}>
+                  {d.key}
+                </div>
+              ) : (
+                ""
+              )}
               <div>
                 {d.value.map((a: any) => {
                   return visning === "Andel" && a.value !== null ? (
                     <div>
                       <div
                         className={
-                          styles.arbeidsledighetvisualization_kjonn_icon
+                          styles.arbeidsledighetvisualization_kjonn_icon +
+                          " " +
+                          styles.arbeidsledighetvisualization_kjonn_icon_percentage
                         }
                       >
                         {kjønn.length > 1 ? a.key : ""}
@@ -164,6 +170,9 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                       >
                         {a.value === null ? (
                           <div
+                            style={
+                              kjønn.length > 1 ? { marginBottom: `10px` } : {}
+                            }
                             className={
                               styles.arbeidsledighetvisualization_kjonn_container_text
                             }
@@ -174,6 +183,9 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                           <PercentageBar value={a.value} />
                         ) : (
                           <div
+                            style={
+                              kjønn.length > 1 ? { marginBottom: `10px` } : {}
+                            }
                             className={
                               styles.arbeidsledighetvisualization_kjonn_container_text
                             }

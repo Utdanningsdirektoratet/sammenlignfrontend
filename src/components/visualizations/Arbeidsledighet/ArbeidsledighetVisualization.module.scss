@@ -16,11 +16,13 @@
         width: 1em;
       }
       margin-right: 5px;
+      &_percentage {
+        margin-bottom: 5px;
+      }
     }
     &_container {
       width: 80%;
       &_text {
-        margin-bottom: 10px;
         font-weight: 500;
       }
     }
