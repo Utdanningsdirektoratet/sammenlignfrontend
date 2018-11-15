@@ -1,12 +1,11 @@
 import React from "react";
 
 import {
-  Kjønn,
   StatistiskMål,
   Lønn,
   Tidsenhet,
-} from "../../pages/ComparisonPage/VisualizationHeaderLonn";
-import { LonnObject } from "../../../data/ApiTypes";
+} from "../../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
+import { LonnObject, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
 import { ReactComponent as Smiley } from "./Smiley.svg";

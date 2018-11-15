@@ -8,8 +8,11 @@ import {
 } from "../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
-} from "../pages/ComparisonPage/VisualizationHeaderLonn";
+} from "../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
 import LonnWrapper from "../visualizations/Lonn/LonnWrapper";
+import VisualizationHeaderArbeidsledighet, {
+  VisualizationHeaderConfigArbeidsledighet,
+} from "../pages/ComparisonPage/Headers/VisualizationHeaderArbeidsledighet";
 
 // switch (widgetType) {
 //   case "lønn": {
@@ -65,7 +68,11 @@ const Yrke: SammenligningTemplate[] = [
     title: "Arbeidsledighet",
     widget_id: "arbeidsledighet",
     path: "/rest/arbeidsledighet",
-    render: (fullData: ArbeidsledighetElement) => {
+    HeaderComponent: VisualizationHeaderArbeidsledighet,
+    render: (
+      fullData: ArbeidsledighetElement,
+      config: VisualizationHeaderConfigArbeidsledighet
+    ) => {
       const data = fullData[Object.keys(fullData)[0]];
       return (
         <div>

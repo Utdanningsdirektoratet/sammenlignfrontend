@@ -1,10 +1,11 @@
-import { Arbeidstid, Sektor } from "../../../data/ApiTypes";
+import { Arbeidstid, Sektor, Kjønn } from "../../../../data/ApiTypes";
 import React, { Component } from "react";
-import Translate from "../../app/Translate";
+import Translate from "../../../app/Translate";
 import styles from "./VisualizationHeader.module.scss";
-import Checkbox from "../../defaultComponents/Checkbox";
-import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
-import { ComparisonHeaderProps } from "./ComparisonHeader";
+import Checkbox from "../../../defaultComponents/Checkbox";
+import RadioButtonGroup from "../../../defaultComponents/RadioButtonGroup";
+import { ComparisonHeaderProps } from "../ComparisonHeader";
+import HeaderModalKjonn from "./HeaderModalKjonn";
 
 export type VisualizationHeaderConfigLonn = {
   Arbeidstid: Arbeidstid[];
@@ -18,7 +19,6 @@ export type VisualizationHeaderConfigLonn = {
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
 export type Lønn = "Brutto" | "Med overtid";
 export type StatistiskMål = "Median" | "Gjennomsnitt";
-export type Kjønn = "A" | "K" | "M";
 
 type State = {
   open: boolean;
@@ -394,57 +394,12 @@ class VisualizationHeaderLonn extends Component<
                 onChange={event => this.onFilterClicked(event, "StatistiskMål")}
               />
             </ul>
-
-            <ul>
-              <Checkbox
-                text={<Translate nb="Kvinner" nn="nynorsk" />}
-                valueKey="K"
-                isSelected={Kjønn.some((a: Kjønn) => {
-                  return a === "K";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av kvinner."
-                    nn="nynorsk"
-                  />
-                }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-K")}
-                helpTextOpen={this.state.openHelpText === "Kjønn-K"}
-                onChange={event => this.onFilterClicked(event, "Kjønn")}
-              />
-              <Checkbox
-                text={<Translate nb="Menn" nn="nynorsk" />}
-                valueKey="M"
-                isSelected={Kjønn.some((a: Kjønn) => {
-                  return a === "M";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av menn."
-                    nn="nynorsk"
-                  />
-                }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-M")}
-                helpTextOpen={this.state.openHelpText === "Kjønn-M"}
-                onChange={event => this.onFilterClicked(event, "Kjønn")}
-              />
-              <Checkbox
-                text={<Translate nb="Begge" nn="nynorsk" />}
-                valueKey="A"
-                isSelected={Kjønn.some((a: Kjønn) => {
-                  return a === "A";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av både kvinner og menn."
-                    nn="nynorsk"
-                  />
-                }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Kjønn-A")}
-                helpTextOpen={this.state.openHelpText === "Kjønn-A"}
-                onChange={event => this.onFilterClicked(event, "Kjønn")}
-              />
-            </ul>
+            <HeaderModalKjonn
+              kjønn={Kjønn}
+              onHelpTextClick={this.onHelpTextClick}
+              onFilterClicked={this.onFilterClicked}
+              openHelpText={this.state.openHelpText}
+            />
           </div>
         </div>
       );

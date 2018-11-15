@@ -8,7 +8,7 @@ import {
 } from "../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
-} from "../pages/ComparisonPage/VisualizationHeaderLonn";
+} from "../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
 
 const Utdanning: SammenligningTemplate[] = [
   {
