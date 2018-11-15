@@ -9,10 +9,11 @@ import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement, Innholdstype } from "../../data/ApiTypes";
 import SyncUrlState from "../app/SyncUrlState";
+import Modal from "../app/InteresseModal";
+
 import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
 
-import InteresserFilter from "../filters/InteresseFilter";
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
 import Api from "../app/Api";
@@ -136,16 +137,13 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               Sammenlign her
             </Link>
           </div>
-          {interesser && (
-            <div>
-              <InteresserFilter
-                interesser={interesser}
-                selected={interesserSelected}
-                toggleSelected={this.toggleSelectedInterests}
-                removeSelected={this.removeSelectedInterests}
-              />
-            </div>
-          )}
+
+          <Modal
+            interesser={interesser}
+            selected={interesserSelected}
+            toggleSelected={this.toggleSelectedInterests}
+            removeSelected={this.removeSelectedInterests}
+          />
           <ul className={styles.alphabetic}>
             <AlphabeticList
               list={this.getFilteredList()}
