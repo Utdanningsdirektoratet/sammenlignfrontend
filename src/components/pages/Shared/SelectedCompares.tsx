@@ -50,14 +50,6 @@ class SelectedCompares extends Component<AppStateProps & Props> {
               </li>
             ))}
           </ul>
-          <div className={`${styles.selection_row}`}>
-            <Link
-              to={"/sammenligne/" + innholdstype}
-              className={`${styles.selection_row}`}
-            >
-              Sammenlign her
-            </Link>
-          </div>
         </div>
       </>
     );

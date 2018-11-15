@@ -139,6 +139,14 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
           </h1>
 
           <SelectedCompares innholdstype={innholdstype} />
+          <div className={`${styles.selection_row}`}>
+            <Link
+              to={"/sammenligne/" + innholdstype}
+              className={`${styles.selection_row}`}
+            >
+              Sammenlign her
+            </Link>
+          </div>
           {interesser && (
             <div>
               <InteresserFilter
