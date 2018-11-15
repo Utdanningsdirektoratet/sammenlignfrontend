@@ -1,9 +1,6 @@
 import React from "react";
-import { LonnElement, Sektor, Arbeidstid } from "../../../data/ApiTypes";
-import {
-  VisualizationHeaderConfigLonn,
-  Kjønn,
-} from "../../pages/ComparisonPage/VisualizationHeaderLonn";
+import { LonnElement, Sektor, Arbeidstid, Kjønn } from "../../../data/ApiTypes";
+import { VisualizationHeaderConfigLonn } from "../../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
 import NoData from "../Old/NoData";
 import LonnVisualization from "./LonnVisualization";
 
@@ -30,13 +27,11 @@ class LonnWrapper extends React.Component<Props> {
             if (!lonn[s][a]) return <NoData key={s + a} />;
             return (
               <LonnVisualization
-                data={{
-                  data: lonn[s][a],
-                  kjønn: kjønnData,
-                  lønn: config.Lønn,
-                  statistiskMål: config.StatistiskMål,
-                  tidsenhet: config.Tidsenhet,
-                }}
+                data={lonn[s][a]}
+                kjønn={kjønnData}
+                lønn={config.Lønn}
+                statistiskMål={config.StatistiskMål}
+                tidsenhet={config.Tidsenhet}
               />
             );
           });

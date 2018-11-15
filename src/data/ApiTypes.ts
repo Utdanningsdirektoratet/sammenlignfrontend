@@ -101,3 +101,4 @@ export type DataList = {
   list: MainElement[];
   interesser: string[];
 };
+export type Kjønn = "A" | "K" | "M";

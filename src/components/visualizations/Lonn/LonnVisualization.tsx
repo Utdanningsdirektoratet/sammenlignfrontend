@@ -1,19 +1,19 @@
 import React from "react";
 
 import {
-  Kjønn,
   StatistiskMål,
   Lønn,
   Tidsenhet,
-} from "../../pages/ComparisonPage/VisualizationHeaderLonn";
-import { LonnObject } from "../../../data/ApiTypes";
+} from "../../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
+import { LonnObject, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
-import { ReactComponent as Smiley } from "./Smiley.svg";
-import { ReactComponent as Mustache } from "./Mustache.svg";
+import { ReactComponent as Smiley } from "../Generic/Smiley.svg";
+import { ReactComponent as Mustache } from "../Generic/Mustache.svg";
 import styles from "./LonnVisualization.module.scss";
+import Translate from "../../app/Translate";
 
-type LonnVisualizationData = {
+type Props = {
   data: LonnObject;
   kjønn: Kjønn[];
   statistiskMål: StatistiskMål;
@@ -21,38 +21,33 @@ type LonnVisualizationData = {
   tidsenhet: Tidsenhet;
 };
 
-type Props = {
-  data: LonnVisualizationData;
-};
-
 class LonnVisualization extends React.Component<Props> {
   getDataQuery = (kjønn: Kjønn) => {
     let wage = kjønn + "_wage";
 
-    switch (this.props.data.lønn) {
+    switch (this.props.lønn) {
       case "Brutto":
         break;
       case "Med overtid":
-        wage = wage + "_overtime";
+        wage += "_overtime";
         break;
     }
 
-    switch (this.props.data.statistiskMål) {
+    switch (this.props.statistiskMål) {
       case "Median":
-        wage = wage + "_median";
+        wage += "_median";
         break;
       case "Gjennomsnitt":
-        wage = wage + "_avg";
+        wage += "_avg";
         break;
     }
-    console.log(wage);
     return wage;
   };
 
   calcWageTimeUnit = (wage: string) => {
-    if (!(this.props.data.data as any)[wage]) return null;
-    let wageCalc = (this.props.data.data as any)[wage] as number;
-    switch (this.props.data.tidsenhet) {
+    if (!(this.props.data as any)[wage]) return null;
+    let wageCalc = (this.props.data as any)[wage] as number;
+    switch (this.props.tidsenhet) {
       case "Årlig":
         wageCalc *= 12;
         break;
@@ -66,9 +61,9 @@ class LonnVisualization extends React.Component<Props> {
   };
 
   render() {
-    const { data } = this.props;
+    const { kjønn } = this.props;
     let dom: any[] = [];
-    data.kjønn.map(k => {
+    kjønn.map(k => {
       let key = null;
       switch (k) {
         case "K":
@@ -103,10 +98,14 @@ class LonnVisualization extends React.Component<Props> {
           return (
             <div className={styles.lonnVisualization_kjonn}>
               <div className={styles.lonnVisualization_kjonn_icon}>
-                {data.kjønn.length > 1 ? d.key : ""}
+                {kjønn.length > 1 ? d.key : ""}
               </div>
               <div className={styles.lonnVisualization_kjonn_text}>
-                {d.value === null ? "Ingen data" : d.value + " kr"}
+                {d.value === null ? (
+                  <Translate nb="Ingen data" nn="nynorsk" />
+                ) : (
+                  d.value + " kr"
+                )}
               </div>
             </div>
           );

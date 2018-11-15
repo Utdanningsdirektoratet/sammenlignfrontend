@@ -1,0 +1,30 @@
+.arbeidsledighetvisualization {
+  &_text {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  &_kjonn {
+    display: flex;
+    width: 100%;
+    &_icon {
+      &_container {
+        display: flex;
+      }
+      width: auto;
+      svg {
+        height: 1em;
+        width: 1em;
+      }
+      margin-right: 5px;
+      &_percentage {
+        margin-bottom: 5px;
+      }
+    }
+    &_container {
+      width: 80%;
+      &_text {
+        font-weight: 500;
+      }
+    }
+  }
+}
