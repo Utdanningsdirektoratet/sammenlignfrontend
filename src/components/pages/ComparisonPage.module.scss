@@ -1,4 +1,22 @@
 .ComparisonPage {
+  .breadcrumb {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4em;
+    &_link {
+      flex-flow: row wrap;
+      display: flex;
+      text-decoration: none;
+      color: black;
+      svg {
+        height: 1em;
+        margin-right: 10px;
+        margin-top: 6px;
+      }
+    }
+  }
   .flex_container {
     height: 800px;
     width: 80%;
