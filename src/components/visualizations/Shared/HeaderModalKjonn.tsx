@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Translate from "../../../app/Translate";
-import Checkbox from "../../../defaultComponents/Checkbox";
-import { Kjønn } from "../../../../data/ApiTypes";
+import Translate from "../../app/Translate";
+import Checkbox from "../../defaultComponents/Checkbox";
+import { Kjønn } from "../../../data/ApiTypes";
 
 type Props = {
   kjønn: Kjønn[];

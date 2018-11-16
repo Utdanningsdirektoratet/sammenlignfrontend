@@ -3,7 +3,7 @@ import React from "react";
 import {
   Fullført,
   Visning,
-} from "../../pages/ComparisonPage/Headers/VisualizationHeaderArbeidsledighet";
+} from "../Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import { ArbeidsledighetObject, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
