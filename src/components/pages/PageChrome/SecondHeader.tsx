@@ -9,10 +9,10 @@ class SecondHeader extends PureComponent {
         <div className={styles.secondheader_content}>
           <div className={styles.secondheader_content_item}>UTDANNING.NO</div>
           <input
-            className={styles.secondheader_content_item}
-            placeholder="Finn utdanning,yrke eller skole"
+            className={styles.secondheader_content_items_searchbox}
+            placeholder="Finn utdanning, yrke eller skole"
           />
-          <div className={styles.secondheader_content_item}>
+          <div className={styles.secondheader_content_items}>
             <span>Meny</span>
             <span>Min Side</span>
           </div>
