@@ -12,6 +12,7 @@ import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
 import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
 import D3TestPage from "./components/pages/D3TestPage";
+import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -64,6 +65,7 @@ class App extends Component<{}, AppState> {
                 render={render(ComparisonPage)}
               />
               <Route path="/d3test" render={D3TestPage} />
+              <Route path="/search" render={SearchBoxPage} />
               <Route
                 path="/:innholdstype"
                 render={render(AlphabeticOverviewPage)}
