@@ -5,7 +5,7 @@ type Props = {
   interesser: string[];
   selected: string[];
   toggleSelected: Function;
-  removeSelected: Function;
+  removeAllSelected: Function;
 };
 
 class InteresserFilter extends React.Component<Props> {
@@ -15,7 +15,12 @@ class InteresserFilter extends React.Component<Props> {
   };
 
   public render() {
-    const { interesser, selected, toggleSelected, removeSelected } = this.props;
+    const {
+      interesser,
+      selected,
+      toggleSelected,
+      removeAllSelected,
+    } = this.props;
     return (
       <div className={styles.interessefilter_container}>
         <h2 className={styles.interessefilter_container_header}>
@@ -23,7 +28,7 @@ class InteresserFilter extends React.Component<Props> {
         </h2>
         <p
           className={styles.interessefilter_container_nullstill}
-          onClick={() => removeSelected()}
+          onClick={() => removeAllSelected()}
         >
           Nullstill X
         </p>

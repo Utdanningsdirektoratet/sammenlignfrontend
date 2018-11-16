@@ -1,0 +1,39 @@
+.selection {
+  ul {
+    padding: 0;
+  }
+
+  &_row {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+
+    &_item {
+      display: flex;
+      margin: 0.2em;
+      width: 15%;
+      height: 2em;
+      background-color: gray;
+      text-align: center;
+      &_text {
+        width: 85%;
+        font-size: 1em;
+        margin: auto;
+        color: lightgray;
+      }
+      &_close {
+        text-align: center;
+        width: 7%;
+        margin: auto;
+        color: lightgray;
+
+        background-color: gray;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    li {
+      list-style-type: none;
+    }
+  }
+}
