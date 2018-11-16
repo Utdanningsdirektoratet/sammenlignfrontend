@@ -1,20 +1,38 @@
 .selection {
+  width: 100%;
   ul {
     padding: 0;
   }
 
   &_row {
+    width: 80%;
+    margin: auto;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
 
     &_item {
       display: flex;
-      margin: 0.2em;
-      width: 15%;
+
+      width: 10%;
       height: 2em;
-      background-color: gray;
+      background-color: black;
       text-align: center;
+      margin-left: 2px;
+      margin-right: 2px;
+
+      &:first-child {
+        margin-left: 0px;
+        margin-right: 2px;
+      }
+      &:last-child {
+        margin-left: 2px;
+        margin-right: 0px;
+      }
+      &:only-child {
+        margin-left: 0px;
+        margin-right: 0px;
+      }
       &_text {
         width: 85%;
         font-size: 1em;
@@ -24,10 +42,11 @@
       &_close {
         text-align: center;
         width: 7%;
+        padding: 2px;
         margin: auto;
         color: lightgray;
 
-        background-color: gray;
+        background-color: black;
         border: none;
         cursor: pointer;
       }
