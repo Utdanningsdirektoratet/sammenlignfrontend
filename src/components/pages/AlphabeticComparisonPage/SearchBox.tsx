@@ -4,6 +4,7 @@ import { API_DOMAIN } from "../../../data/config";
 import { with_lang_props, LanguageProps } from "../../app/TranslateContext";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import styles from "./SearchBox.module.scss";
+import { ReactComponent as Search } from "../../../fontawesome/solid/search.svg";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -87,6 +88,7 @@ class SearchBox extends Component<
             className={styles.searchbox_container_input}
             placeholder={"Søk etter " + this.props.innholdstype}
           />
+          <Search />
         </div>
         <div className={styles.searchbox_dropdown}>
           {this.state.data.length > 0 ? (

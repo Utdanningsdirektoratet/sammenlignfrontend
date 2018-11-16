@@ -7,8 +7,8 @@ import {
 import { ArbeidsledighetObject, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
-import { ReactComponent as Smiley } from "../Generic/Smiley.svg";
-import { ReactComponent as Mustache } from "../Generic/Mustache.svg";
+import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
+import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import PercentageBar from "../Generic/PercentageBar";
 import styles from "./ArbeidsledighetVisualization.module.scss";
 import Translate from "../../app/Translate";
@@ -90,10 +90,10 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
         let key = null;
         switch (k) {
           case "K":
-            key = <Smiley />;
+            key = <Female />;
             break;
           case "M":
-            key = <Mustache />;
+            key = <Male />;
             break;
           case "A":
             key = (
@@ -102,8 +102,8 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                   styles.arbeidsledighetvisualization_kjonn_icon_container
                 }
               >
-                <Smiley />
-                <Mustache />
+                <Female />
+                <Male />
               </div>
             );
             break;
