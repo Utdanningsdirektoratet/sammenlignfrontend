@@ -1,0 +1,60 @@
+.searchbox {
+  margin: 30px;
+  &_container {
+    position: absolute;
+    &_input {
+      height: 24px;
+      border-radius: 10px;
+      border: 1px solid #dedede;
+      padding: 4px;
+      &:focus {
+        outline: none;
+        border-color: orange;
+      }
+    }
+  }
+  &_dropdown {
+    position: relative;
+    height: 200px;
+    width: 400px;
+    top: 35px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        border: 1px solid #dedede;
+        border-top: 0;
+        padding-left: 1.5em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+        &:first-child {
+          border-top: 1px solid #dedede;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+        }
+        &:last-child {
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+      }
+    }
+
+    &_selectable {
+      cursor: pointer;
+      &:hover {
+        background-color: #ffda95;
+      }
+    }
+  }
+}

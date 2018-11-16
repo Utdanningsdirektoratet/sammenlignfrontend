@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { SammenligningTemplate } from "../../comparisonsConfig";
 
 import styles from "./ComparisonCell.module.scss";
+import NoData from "../../visualizations/Old/NoData";
 
 type Props = {
   data: any;
@@ -23,7 +24,7 @@ class ComparisonCell extends Component<Props, State> {
         const { data, config, comparison } = this.props;
         return (
           <div className={`${styles.flex_item} ${styles.item}`}>
-            {data ? comparison.render(data, config) : null}
+            {data ? comparison.render(data, config) : <NoData />}
           </div>
         );
       } catch (error) {
