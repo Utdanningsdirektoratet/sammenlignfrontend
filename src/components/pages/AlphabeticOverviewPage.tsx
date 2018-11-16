@@ -20,6 +20,7 @@ import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
 import Api from "../app/Api";
 import { with_lang_props, LanguageProps } from "../app/TranslateContext";
+import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 
 type State = {
   data: DataList;
@@ -130,30 +131,34 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         <SyncUrlState />
         <CompareSelection innholdstype={innholdstype} />
         <div className={styles.container}>
-          <SelectedCompares innholdstype={innholdstype} />
+          <div>
+            <SelectedCompares innholdstype={innholdstype} />
 
-          {selected.some(uno_id => uno_id[0] === innholdstype[0]) ? (
-            <div className={`${styles.selection_row}`}>
-              <Link
-                to={"/sammenligne/" + innholdstype}
-                className={`${styles.selection_row}`}
-              >
-                Sammenlign her
-              </Link>
-            </div>
-          ) : null}
+            {selected.some(uno_id => uno_id[0] === innholdstype[0]) ? (
+              <div className={`${styles.selection_row}`}>
+                <Link
+                  to={"/sammenligne/" + innholdstype}
+                  className={`${styles.selection_row}`}
+                >
+                  Sammenlign her
+                </Link>
+              </div>
+            ) : null}
+          </div>
 
-          <InteresseModal
-            interesser={interesser}
-            selected={interesserSelected}
-            toggleSelected={this.toggleSelectedInterests}
-            removeAllSelected={this.removeAllSelectedInterests}
-          />
-
-          <SelectedInterests
-            selected={interesserSelected}
-            toggleSelectedInterests={this.toggleSelectedInterests}
-          />
+          <div>
+            <InteresseModal
+              interesser={interesser}
+              selected={interesserSelected}
+              toggleSelected={this.toggleSelectedInterests}
+              removeAllSelected={this.removeAllSelectedInterests}
+            />
+            <SelectedInterests
+              selected={interesserSelected}
+              toggleSelectedInterests={this.toggleSelectedInterests}
+            />
+            <SearchBox innholdstype={innholdstype} />;
+          </div>
 
           <ul className={styles.alphabetic}>
             <AlphabeticList
