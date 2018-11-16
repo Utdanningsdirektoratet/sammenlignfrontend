@@ -1,0 +1,16 @@
+.selection {
+  width: 100%;
+
+  &_row {
+    height: 4em;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: space-between;
+  }
+  &_search {
+    float: right;
+  }
+}

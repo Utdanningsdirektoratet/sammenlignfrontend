@@ -20,6 +20,8 @@ import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
 import Api from "../app/Api";
 import { with_lang_props, LanguageProps } from "../app/TranslateContext";
+import SearchBox from "./AlphabeticComparisonPage/SearchBox";
+import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
 
 type State = {
@@ -147,16 +149,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             ) : null}
           </div>
 
-          <InteresseModal
+          <InterestsHeader
+            innholdstype={innholdstype}
             interesser={interesser}
             selected={interesserSelected}
-            toggleSelected={this.toggleSelectedInterests}
-            removeAllSelected={this.removeAllSelectedInterests}
-          />
-
-          <SelectedInterests
-            selected={interesserSelected}
             toggleSelectedInterests={this.toggleSelectedInterests}
+            removeAllSelected={this.removeAllSelectedInterests}
           />
 
           <ul className={styles.alphabetic}>

@@ -29,7 +29,7 @@ class SelectedInterests extends Component<Props> {
                   data-uno_id={selected}
                   onClick={this.handleRemoveClick}
                 >
-                  X
+                  x
                 </button>
               </li>
             ))}
