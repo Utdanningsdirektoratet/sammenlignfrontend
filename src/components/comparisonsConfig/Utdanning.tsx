@@ -9,6 +9,10 @@ import {
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
 } from "../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
+import VisualizationHeaderArbeidsledighet, {
+  VisualizationHeaderConfigArbeidsledighet,
+} from "../pages/ComparisonPage/Headers/VisualizationHeaderArbeidsledighet";
+import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 
 const Utdanning: SammenligningTemplate[] = [
   {
@@ -36,19 +40,14 @@ const Utdanning: SammenligningTemplate[] = [
     title: "Arbeidsledighet",
     widget_id: "arbeidsledighet",
     path: "/rest/arbeidsledighet",
-    render: (fullData: ArbeidsledighetElement) => {
+    HeaderComponent: VisualizationHeaderArbeidsledighet,
+    render: (
+      fullData: ArbeidsledighetElement,
+      config: VisualizationHeaderConfigArbeidsledighet
+    ) => {
       const data = fullData[Object.keys(fullData)[0]];
-      return (
-        <div>
-          <span>Andel arbeidsledige: {data.arbeidsledige_andel}</span>
-          <br />
-          <span>
-            Andel kvinner arbeidsledig: {data.arbeidsledige_andel_kvinner}
-          </span>
-          <br />
-          <span>Andel menn arbeidsledig: {data.arbeidsledige_andel_menn}</span>
-        </div>
-      );
+
+      return <ArbeidsledighetWrapper data={data} config={config} />;
     },
   },
   {

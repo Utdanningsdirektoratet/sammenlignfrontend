@@ -7,10 +7,18 @@
       border-radius: 10px;
       border: 1px solid #dedede;
       padding: 4px;
+      position: absolute;
+      width: 200px;
       &:focus {
         outline: none;
         border-color: orange;
       }
+    }
+    svg {
+      position: relative;
+      height: 1.2em;
+      top: 7px;
+      left: 180px;
     }
   }
   &_dropdown {
