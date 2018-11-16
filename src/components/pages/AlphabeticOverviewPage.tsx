@@ -6,10 +6,10 @@ import styles from "./AlphabeticOverviewPage.module.scss";
 
 import PageChrome from "./PageChrome/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
-import { with_app_state, AppState, AppStateProps } from "../app/AppContext";
+import { with_app_state, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement, Innholdstype } from "../../data/ApiTypes";
 import SyncUrlState from "../app/SyncUrlState";
-import Modal from "../app/InteresseModal";
+import InteresseModal from "../app/InteresseModal";
 
 import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
@@ -143,7 +143,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             </div>
           ) : null}
 
-          <Modal
+          <InteresseModal
             interesser={interesser}
             selected={interesserSelected}
             toggleSelected={this.toggleSelectedInterests}
@@ -152,7 +152,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
           <SelectedInterests
             selected={interesserSelected}
-            // removeSelectedInterest={}
+            toggleSelectedInterests={this.toggleSelectedInterests}
           />
 
           <ul className={styles.alphabetic}>
