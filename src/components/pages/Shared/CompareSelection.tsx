@@ -15,25 +15,31 @@ class CompareSelection extends Component<Props> {
       <>
         <h1 className={styles.compare_title}>
           <Translate nb="Jeg vil sammenligne" nn="Eg vil sammenligna" />{" "}
-          {innholdstype}
+          {innholdstype === "utdanning"
+            ? "utdanninger"
+            : innholdstype === "yrke"
+            ? "yrker"
+            : innholdstype}
         </h1>
         <div className={styles.button_row}>
-          <Link
-            to="/utdanning"
-            className={`${styles.btn} ${styles.btn_primary} ${
-              innholdstype == "utdanning" ? styles.btn_selected : ""
-            }`}
-          >
-            <Translate nb="Utdanninger" nn="Utdanningar" />
-          </Link>
-          <Link
-            to="/yrke"
-            className={`${styles.btn} ${styles.btn_primary} ${
-              innholdstype == "yrke" ? styles.btn_selected : ""
-            }`}
-          >
-            Yrker
-          </Link>
+          <div className={styles.button_row_content}>
+            <Link
+              to="/utdanning"
+              className={`${styles.btn} ${styles.btn_primary} ${
+                innholdstype == "utdanning" ? styles.btn_selected : ""
+              }`}
+            >
+              <Translate nb="Utdanninger" nn="Utdanningar" />
+            </Link>
+            <Link
+              to="/yrke"
+              className={`${styles.btn} ${styles.btn_primary} ${
+                innholdstype == "yrke" ? styles.btn_selected : ""
+              }`}
+            >
+              Yrker
+            </Link>
+          </div>
         </div>
       </>
     );

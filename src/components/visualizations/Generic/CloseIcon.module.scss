@@ -1,0 +1,35 @@
+.icon {
+  &_close {
+    float: right;
+    cursor: pointer;
+    background-color: #fbe3b7;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+    margin: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 80%;
+      top: 50%;
+      left: 0;
+      margin-top: -1px;
+      margin-left: 2px;
+      background: #000;
+    }
+    &:before {
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &:after {
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+  }
+}
