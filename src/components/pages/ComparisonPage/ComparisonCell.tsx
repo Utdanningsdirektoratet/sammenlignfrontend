@@ -8,6 +8,7 @@ type Props = {
   data: any;
   config: any;
   comparison: SammenligningTemplate;
+  rowIndex: number;
 };
 
 type State = { error: boolean };
@@ -21,10 +22,10 @@ class ComparisonCell extends Component<Props, State> {
   render() {
     if (!this.state.error)
       try {
-        const { data, config, comparison } = this.props;
+        const { data, config, comparison, rowIndex } = this.props;
         return (
           <div className={`${styles.flex_item} ${styles.item}`}>
-            {data ? comparison.render(data, config) : <NoData />}
+            {data ? comparison.render(data, config, rowIndex) : <NoData />}
           </div>
         );
       } catch (error) {
