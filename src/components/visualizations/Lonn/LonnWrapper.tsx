@@ -1,6 +1,6 @@
 import React from "react";
 import { LonnElement, Sektor, Arbeidstid, Kjønn } from "../../../data/ApiTypes";
-import { VisualizationHeaderConfigLonn } from "../../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
+import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
 import NoData from "../Old/NoData";
 import LonnVisualization from "./LonnVisualization";
 

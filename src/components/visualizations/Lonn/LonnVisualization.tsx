@@ -1,10 +1,6 @@
 import React from "react";
 
-import {
-  StatistiskMål,
-  Lønn,
-  Tidsenhet,
-} from "../../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
+import { StatistiskMål, Lønn, Tidsenhet } from "./VisualizationHeaderLonn";
 import { LonnObject, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";

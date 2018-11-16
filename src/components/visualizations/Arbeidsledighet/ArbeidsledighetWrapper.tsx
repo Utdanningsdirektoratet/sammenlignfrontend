@@ -3,7 +3,7 @@ import { ArbeidsledighetObject, Kjønn } from "../../../data/ApiTypes";
 import {
   VisualizationHeaderConfigArbeidsledighet,
   Fullført,
-} from "../../pages/ComparisonPage/Headers/VisualizationHeaderArbeidsledighet";
+} from "../Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import ArbeidsledighetVisualization from "./ArbeidsledighetVisualization";
 
 type Props = {

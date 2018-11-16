@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import styles from "./ComparisonRow.module.scss";
 
 import { SammenligningTemplate } from "../../comparisonsConfig";
-import ComparisonHeader from "./ComparisonHeader";
+import ComparisonHeader from "../../visualizations/Shared/ComparisonHeader";
 import ComparisonCell from "./ComparisonCell";
 
 type Props = {

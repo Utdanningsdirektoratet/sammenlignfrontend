@@ -1,11 +1,11 @@
-import { Arbeidstid, Sektor, Kjønn } from "../../../../data/ApiTypes";
+import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
-import Translate from "../../../app/Translate";
-import styles from "./VisualizationHeader.module.scss";
-import Checkbox from "../../../defaultComponents/Checkbox";
-import RadioButtonGroup from "../../../defaultComponents/RadioButtonGroup";
-import { ComparisonHeaderProps } from "../ComparisonHeader";
-import HeaderModalKjonn from "./HeaderModalKjonn";
+import Translate from "../../app/Translate";
+import styles from "../Shared/VisualizationHeader.module.scss";
+import Checkbox from "../../defaultComponents/Checkbox";
+import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
+import { ComparisonHeaderProps } from "../Shared/ComparisonHeader";
+import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
 
 export type VisualizationHeaderConfigLonn = {
   Arbeidstid: Arbeidstid[];

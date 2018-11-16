@@ -8,11 +8,11 @@ import {
 } from "../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
-} from "../pages/ComparisonPage/Headers/VisualizationHeaderLonn";
+} from "../visualizations/Lonn/VisualizationHeaderLonn";
 import LonnWrapper from "../visualizations/Lonn/LonnWrapper";
 import VisualizationHeaderArbeidsledighet, {
   VisualizationHeaderConfigArbeidsledighet,
-} from "../pages/ComparisonPage/Headers/VisualizationHeaderArbeidsledighet";
+} from "../visualizations/Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 
 // switch (widgetType) {

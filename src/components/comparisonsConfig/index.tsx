@@ -3,7 +3,7 @@ import Yrke from "./Yrke";
 
 import { QueryObject } from "../app/Api";
 import { Innholdstype } from "../../data/ApiTypes";
-import { ComparisonHeaderProps } from "../pages/ComparisonPage/ComparisonHeader";
+import { ComparisonHeaderProps } from "../visualizations/Shared/ComparisonHeader";
 
 export interface SammenligningTemplate {
   title: string;
