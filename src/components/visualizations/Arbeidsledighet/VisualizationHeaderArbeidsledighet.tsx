@@ -8,7 +8,7 @@ import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
-  Kjønn: Kjønn[];
+  Kjønn: Kjønn;
   Fullført: Fullført[];
   Visning: Visning;
 };
@@ -28,7 +28,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigArbeidsledighet = {
-      Kjønn: ["A"],
+      Kjønn: "A",
       Fullført: ["A"],
       Visning: "Antall",
     };
@@ -59,12 +59,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
     var value = event.target.id;
     switch (key) {
       case "Kjønn":
-        var index = config.Kjønn.indexOf(value);
-        if (index > -1) {
-          config.Kjønn.splice(index, 1);
-        } else {
-          config.Kjønn.push(value);
-        }
+        config.Kjønn = value;
         break;
       case "Arbeidsledighet":
         var index = config.Fullført.indexOf(value);
@@ -269,31 +264,15 @@ class VisualizationHeaderArbeidsledighet extends Component<
               </li>
               <li>{", " + Visning}</li>
               <li>
-                {Kjønn.map((d: string, i: number) => {
-                  let text = "";
-                  if (Fullført.length > 0 && i === 0) text = ",";
-                  if (i > 0) text = "/";
-                  switch (d) {
-                    case "K":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Kvinner" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "M":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Menn" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "A":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Begge" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
+                {Kjønn === "A" ? (
+                  <span>
+                    {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                  </span>
+                ) : (
+                  <span>
+                    {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                  </span>
+                )}
               </li>
             </ul>
             )

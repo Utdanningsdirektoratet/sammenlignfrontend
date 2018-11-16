@@ -76,7 +76,7 @@ export interface LonnObject {
   uno_id: string;
   _version_: number;
 }
-interface IArbeidstid {
+export interface IArbeidstid {
   A: LonnObject;
   D: LonnObject;
   H: LonnObject;
@@ -101,4 +101,4 @@ export type DataList = {
   list: MainElement[];
   interesser: string[];
 };
-export type Kjønn = "A" | "K" | "M";
+export type Kjønn = "A" | "KM";

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
-import Checkbox from "../../defaultComponents/Checkbox";
+import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import { Kjønn } from "../../../data/ApiTypes";
 
 type Props = {
-  kjønn: Kjønn[];
+  kjønn: Kjønn;
   onHelpTextClick: (open: boolean, key: string) => void;
   onFilterClicked: (event: any, key: string) => void;
   openHelpText: string;
@@ -20,53 +20,39 @@ class HeaderModalKjønn extends React.Component<Props> {
     } = this.props;
     return (
       <ul>
-        <Checkbox
-          text={<Translate nb="Kvinner" nn="nynorsk" />}
-          valueKey="K"
-          isSelected={kjønn.some((a: Kjønn) => {
-            return a === "K";
-          })}
-          helpText={
-            <Translate
-              nb="Viser tall beregnet på grunnlag av kvinner."
-              nn="nynorsk"
-            />
-          }
-          onHelpTextClick={open => onHelpTextClick(open, "Kjønn-K")}
-          helpTextOpen={openHelpText === "Kjønn-K"}
-          onChange={event => onFilterClicked(event, "Kjønn")}
-        />
-        <Checkbox
-          text={<Translate nb="Menn" nn="nynorsk" />}
-          valueKey="M"
-          isSelected={kjønn.some((a: Kjønn) => {
-            return a === "M";
-          })}
-          helpText={
-            <Translate
-              nb="Viser tall beregnet på grunnlag av menn."
-              nn="nynorsk"
-            />
-          }
-          onHelpTextClick={open => onHelpTextClick(open, "Kjønn-M")}
-          helpTextOpen={openHelpText === "Kjønn-M"}
-          onChange={event => onFilterClicked(event, "Kjønn")}
-        />
-        <Checkbox
-          text={<Translate nb="Begge" nn="nynorsk" />}
-          valueKey="A"
-          isSelected={kjønn.some((a: Kjønn) => {
-            return a === "A";
-          })}
-          helpText={
-            <Translate
-              nb="Viser tall beregnet på grunnlag av både kvinner og menn."
-              nn="nynorsk"
-            />
-          }
-          onHelpTextClick={open => onHelpTextClick(open, "Kjønn-A")}
-          helpTextOpen={openHelpText === "Kjønn-A"}
-          onChange={event => onFilterClicked(event, "Kjønn")}
+        <RadioButtonGroup
+          group={[
+            {
+              text: <Translate nb="Alle" nn="nynorsk" />,
+              selected: kjønn === "A",
+              valueKey: "A",
+              helptext: (
+                <Translate
+                  nb="Viser tall beregnet på grunnlag av både kvinner og menn."
+                  nn="nynorsk"
+                />
+              ),
+              onHelpTextClick: open =>
+                this.props.onHelpTextClick(open, "Kjønn-A"),
+              helpTextOpen: this.props.openHelpText === "Kjønn-A",
+            },
+            {
+              text: <Translate nb="Kvinner og menn" nn="nynorsk" />,
+              selected: kjønn === "KM",
+              valueKey: "KM",
+              helptext: (
+                <Translate
+                  nb="Viser tall beregnet på grunnlag av kvinner og menn hver for seg."
+                  nn="nynorsk"
+                />
+              ),
+              onHelpTextClick: open =>
+                this.props.onHelpTextClick(open, "Kjønn-KM"),
+              helpTextOpen: this.props.openHelpText === "Kjønn-KM",
+            },
+          ]}
+          name="Kjønn"
+          onChange={event => this.props.onFilterClicked(event, "Kjønn")}
         />
       </ul>
     );

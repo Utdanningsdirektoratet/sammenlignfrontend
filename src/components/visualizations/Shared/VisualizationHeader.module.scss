@@ -22,6 +22,9 @@
           }
         }
         &_icon {
+          // @media (min-width: 576px) {
+          //   display: none;
+          // }
           cursor: pointer;
           border: 1px solid orange;
           width: 20px;
@@ -54,6 +57,10 @@
       }
     }
     &_modal {
+      // @media (min-width: 576px) {
+      //   display: none;
+      // }
+
       position: absolute;
       top: 2em;
       margin-left: auto;
