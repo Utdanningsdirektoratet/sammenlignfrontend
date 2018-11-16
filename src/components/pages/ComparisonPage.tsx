@@ -17,6 +17,9 @@ import ComparisonRow from "./ComparisonPage/ComparisonRow";
 import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
 import { Innholdstype } from "../../data/ApiTypes";
+import Translate from "../app/Translate";
+import { Link } from "react-router-dom";
+import { ReactComponent as ArrowLeft } from "../../fontawesome/solid/arrow-left.svg";
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
@@ -70,12 +73,27 @@ class ComparisonPage extends Component<Props, State> {
     const comparisonTypes = selected.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
-
+    let breadcrumb = innholdstype;
+    switch (innholdstype) {
+      case "utdanning":
+        breadcrumb += "er";
+        break;
+      case "yrke":
+        breadcrumb += "r";
+        break;
+      default:
+        break;
+    }
     return (
       <PageChrome>
         <SyncUrlState />
         <div className={styles.ComparisonPage}>
-          <h1 className={`${styles.flex_container_row}`}>Sammenlign her</h1>
+          <div className={styles.breadcrumb}>
+            <Link to={"/" + innholdstype} className={styles.breadcrumb_link}>
+              <ArrowLeft />
+              <Translate nb={"Velg andre " + breadcrumb} nn="nynorsk" />
+            </Link>
+          </div>
           <div className={styles.flex_container}>
             <SelectedCompares innholdstype={innholdstype} />
 
