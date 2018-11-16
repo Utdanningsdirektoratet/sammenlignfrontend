@@ -14,20 +14,13 @@ type Props = {
 class Modal extends Component<Props> {
   state: State = { showModal: false };
 
-  constructor(props: any) {
-    super(props);
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
-  handleOpenModal() {
+  handleOpenModal = () => {
     this.setState({ showModal: true });
-  }
+  };
 
-  handleCloseModal() {
+  handleCloseModal = () => {
     this.setState({ showModal: false });
-  }
+  };
 
   render() {
     const {

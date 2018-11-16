@@ -4,10 +4,15 @@ import styles from "./SelectedInterests.module.scss";
 
 type Props = {
   selected: string[];
-  //removeSelectedInterest: Function;
+  toggleSelectedInterests: Function;
 };
 
 class SelectedInterests extends Component<Props> {
+  handleRemoveClick = (e: React.MouseEvent<HTMLElement>) => {
+    this.props.toggleSelectedInterests(
+      e.currentTarget.getAttribute("data-uno_id")
+    );
+  };
   render() {
     const { selected } = this.props;
     return (
@@ -22,7 +27,7 @@ class SelectedInterests extends Component<Props> {
                 <button
                   className={`${styles.selection_row_item_close}`}
                   data-uno_id={selected}
-                  // onClick={this.handleRemoveClick}
+                  onClick={this.handleRemoveClick}
                 >
                   X
                 </button>
