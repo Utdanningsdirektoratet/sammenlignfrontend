@@ -22,14 +22,13 @@ export type StatistiskMål = "Median" | "Gjennomsnitt";
 
 type State = {
   open: boolean;
-  openHelpText: string;
 };
 
 class VisualizationHeaderLonn extends Component<
   ComparisonHeaderProps<VisualizationHeaderConfigLonn>,
   State
 > {
-  state = { open: false, openHelpText: "" };
+  state = { open: false };
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigLonn = {
@@ -52,7 +51,6 @@ class VisualizationHeaderLonn extends Component<
   }
 
   onFilterButtonClick = (open: boolean) => {
-    if (open == false) this.setState({ openHelpText: "" });
     this.setState({ open: open });
   };
 
@@ -97,11 +95,6 @@ class VisualizationHeaderLonn extends Component<
         return;
     }
     this.props.setConfig(config);
-  };
-
-  onHelpTextClick = (open: boolean, key: string) => {
-    if (open) this.setState({ openHelpText: key });
-    else this.setState({ openHelpText: "" });
   };
 
   render() {
@@ -158,10 +151,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidstid-H")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidstid-H"}
                 onChange={event => this.onFilterClicked(event, "Arbeidstid")}
               />
               <Checkbox
@@ -176,10 +165,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidstid-D")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidstid-D"}
                 onChange={event => this.onFilterClicked(event, "Arbeidstid")}
               />
               <Checkbox
@@ -194,10 +179,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidstid-A")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidstid-A"}
                 onChange={event => this.onFilterClicked(event, "Arbeidstid")}
               />
             </ul>
@@ -214,8 +195,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-P")}
-                helpTextOpen={this.state.openHelpText === "Sektor-P"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
@@ -230,8 +209,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-S")}
-                helpTextOpen={this.state.openHelpText === "Sektor-S"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
@@ -246,8 +223,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-K")}
-                helpTextOpen={this.state.openHelpText === "Sektor-K"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
@@ -262,8 +237,6 @@ class VisualizationHeaderLonn extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open => this.onHelpTextClick(open, "Sektor-A")}
-                helpTextOpen={this.state.openHelpText === "Sektor-A"}
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
             </ul>
@@ -280,9 +253,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Tidsenhet-Årlig"),
-                    helpTextOpen: this.state.openHelpText === "Tidsenhet-Årlig",
                   },
                   {
                     text: <Translate nb="Per måned" nn="nynorsk" />,
@@ -294,10 +264,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Tidsenhet-Månedlig"),
-                    helpTextOpen:
-                      this.state.openHelpText === "Tidsenhet-Månedlig",
                   },
                   {
                     text: <Translate nb="Per time" nn="nynorsk" />,
@@ -309,10 +275,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Tidsenhet-Ca. timelønn"),
-                    helpTextOpen:
-                      this.state.openHelpText === "Tidsenhet-Ca. timelønn",
                   },
                 ]}
                 name="tidsenhet"
@@ -332,9 +294,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Lønn-Brutto"),
-                    helpTextOpen: this.state.openHelpText === "Lønn-Brutto",
                   },
                   {
                     text: <Translate nb="Inklusiv overtid" nn="nynorsk" />,
@@ -346,10 +305,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Lønn-Med overtid"),
-                    helpTextOpen:
-                      this.state.openHelpText === "Lønn-Med overtid",
                   },
                 ]}
                 name="lønn"
@@ -369,10 +324,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "StatistiskMål-Median"),
-                    helpTextOpen:
-                      this.state.openHelpText === "StatistiskMål-Median",
                   },
                   {
                     text: <Translate nb="Gjennomsnitt" nn="nynorsk" />,
@@ -384,10 +335,6 @@ class VisualizationHeaderLonn extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "StatistiskMål-Gjennomsnitt"),
-                    helpTextOpen:
-                      this.state.openHelpText === "StatistiskMål-Gjennomsnitt",
                   },
                 ]}
                 name="statistiskmål"
@@ -396,9 +343,7 @@ class VisualizationHeaderLonn extends Component<
             </ul>
             <HeaderModalKjonn
               kjønn={Kjønn}
-              onHelpTextClick={this.onHelpTextClick}
               onFilterClicked={this.onFilterClicked}
-              openHelpText={this.state.openHelpText}
             />
           </div>
         </div>

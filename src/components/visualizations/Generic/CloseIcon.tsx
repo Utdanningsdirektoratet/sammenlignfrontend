@@ -1,4 +1,3 @@
-//<span class="DefaultComponents_checkbox_helptext_container_icon__YzEON"></span>
 import React, { Component } from "react";
 import styles from "./CloseIcon.module.scss";
 
