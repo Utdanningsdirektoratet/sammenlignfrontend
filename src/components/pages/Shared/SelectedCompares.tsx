@@ -37,7 +37,7 @@ class SelectedCompares extends Component<AppStateProps & Props> {
         <div className={`${styles.selection}`}>
           <ul className={`${styles.selection_row}`}>
             {selected_uno_id.map(uno_id => (
-              <li className={`${styles.selection_row_item}`}>
+              <li key={uno_id} className={`${styles.selection_row_item}`}>
                 <div className={`${styles.selection_row_item_text}`}>
                   {uno_id}
                 </div>
