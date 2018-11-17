@@ -2,6 +2,7 @@ import { MainElement, Main, DataList } from "./ApiTypes";
 import main_json from "./main.json";
 import { API_DOMAIN } from "./config";
 import { Lang } from "../components/app/TranslateContext";
+import { objectToQueryString } from "../util/querystring";
 
 let mainFetchStarted = false;
 let mainCache: Main | null = null;
@@ -10,7 +11,14 @@ function getMain(lang: Lang, result: (data: Main) => void) {
   if (mainCache) return result(mainCache);
   if (mainFetchStarted) return;
   mainFetchStarted = true;
-  fetch(API_DOMAIN + `/rest/main?sprak=${lang}&felt=tittel,interesser`)
+  fetch(
+    API_DOMAIN +
+      "/rest/main?" +
+      objectToQueryString({
+        spraak: lang,
+        felt: "tittel,interesser",
+      })
+  )
     .then(response => response.json())
     .then(data => {
       mainCache = data;
