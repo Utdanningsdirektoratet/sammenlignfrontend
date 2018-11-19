@@ -87,13 +87,13 @@ class VisualizationHeaderArbeidsledighet extends Component<
                 styles.visualizationheader_container_modal_header_title
               }`}
             >
-              <Translate nb="Arbeidsledighet" nn="nynorsk" /> -{" "}
+              <Translate nb="Arbeidsledighet" /> -{" "}
               <span
                 className={`${
                   styles.visualizationheader_container_modal_header_title__desc
                 }`}
               >
-                <Translate nb="visningsalternativer" nn="nynorsk" />
+                <Translate nb="visningsalternativer" />
               </span>
               <div
                 className={`${
@@ -108,50 +108,38 @@ class VisualizationHeaderArbeidsledighet extends Component<
           >
             <ul>
               <Checkbox
-                text={
-                  <Translate nb="7-10 år etter endt utdannelse" nn="nynorsk" />
-                }
+                text={<Translate nb="7-10 år etter endt utdannelse" />}
                 valueKey="710"
                 isSelected={Fullført.some((a: Fullført) => {
                   return a === "710";
                 })}
                 helpText={
-                  <Translate
-                    nb="Viser antall arbeidsledige 7-10 år etter endt utdannelse."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser antall arbeidsledige 7-10 år etter endt utdannelse." />
                 }
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
               />
               <Checkbox
-                text={
-                  <Translate nb="1-3 år etter endt utdannelse" nn="nynorsk" />
-                }
+                text={<Translate nb="1-3 år etter endt utdannelse" />}
                 valueKey="13"
                 isSelected={Fullført.some((a: Fullført) => {
                   return a === "13";
                 })}
                 helpText={
-                  <Translate
-                    nb="Viser antall arbeidsledige 1-3 år etter endt utdannelse."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser antall arbeidsledige 1-3 år etter endt utdannelse." />
                 }
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
               />
               <Checkbox
-                text={<Translate nb="All" nn="nynorsk" />}
+                text={<Translate nb="All" />}
                 valueKey="A"
                 isSelected={Fullført.some((a: Fullført) => {
                   return a === "A";
                 })}
-                helpText={
-                  <Translate nb="Viser antall arbeidsledige." nn="nynorsk" />
-                }
+                helpText={<Translate nb="Viser antall arbeidsledige." />}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -161,26 +149,18 @@ class VisualizationHeaderArbeidsledighet extends Component<
               <RadioButtonGroup
                 group={[
                   {
-                    text: <Translate nb="Andel" nn="nynorsk" />,
+                    text: <Translate nb="Andel" />,
                     selected: Visning === "Andel",
                     valueKey: "Andel",
                     helptext: (
-                      <Translate
-                        nb="Viser andel arbeidsledige som prosent."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser andel arbeidsledige som prosent." />
                     ),
                   },
                   {
-                    text: <Translate nb="Antall" nn="nynorsk" />,
+                    text: <Translate nb="Antall" />,
                     selected: Visning === "Antall",
                     valueKey: "Antall",
-                    helptext: (
-                      <Translate
-                        nb="Viser antall arbeidsledige."
-                        nn="nynorsk"
-                      />
-                    ),
+                    helptext: <Translate nb="Viser antall arbeidsledige." />,
                   },
                 ]}
                 name="antall"
@@ -202,7 +182,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
           <div
             className={`${styles.visualizationheader_container_header__title}`}
           >
-            <Translate nb="Arbeidsledighet" nn="nynorsk" />{" "}
+            <Translate nb="Arbeidsledighet" />{" "}
             <span
               className={`${
                 styles.visualizationheader_container_header__title_filter
@@ -218,19 +198,19 @@ class VisualizationHeaderArbeidsledighet extends Component<
                       case "710":
                         return (
                           <span key={f}>
-                            {text} <Translate nb="7-10 år" nn="nynorsk" />{" "}
+                            {text} <Translate nb="7-10 år" />{" "}
                           </span>
                         );
                       case "13":
                         return (
                           <span key={f}>
-                            {text} <Translate nb="1-3 år" nn="nynorsk" />{" "}
+                            {text} <Translate nb="1-3 år" />{" "}
                           </span>
                         );
                       case "A":
                         return (
                           <span key={f}>
-                            {text} <Translate nb="Alle" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Alle" />{" "}
                           </span>
                         );
                     }
@@ -240,11 +220,11 @@ class VisualizationHeaderArbeidsledighet extends Component<
                 <li>
                   {Kjønn === "A" ? (
                     <span>
-                      {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Alle" />{" "}
                     </span>
                   ) : (
                     <span>
-                      {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Kvinner og menn" />{" "}
                     </span>
                   )}
                 </li>

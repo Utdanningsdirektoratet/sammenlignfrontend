@@ -18,8 +18,6 @@ import SelectedInterests from "./AlphabeticComparisonPage/SelectedInterests";
 
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
-import Api from "../app/Api";
-import { with_lang_props, LanguageProps } from "../app/TranslateContext";
 import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
@@ -33,8 +31,7 @@ type State = {
 type Props = RouteComponentProps<{
   innholdstype: Innholdstype;
 }> &
-  AppStateProps &
-  LanguageProps;
+  AppStateProps;
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
@@ -47,17 +44,16 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       match: {
         params: { innholdstype },
       },
-      lang,
     } = this.props;
     switch (innholdstype) {
       case "utdanning":
-        getUtdanning(lang, data => this.setState({ data }));
+        getUtdanning(data => this.setState({ data }));
         break;
       case "yrke":
-        getYrke(lang, data => this.setState({ data }));
+        getYrke(data => this.setState({ data }));
         break;
       case "studie":
-        getStudium(lang, data => this.setState({ data }));
+        getStudium(data => this.setState({ data }));
         break;
       default:
         this.setState({ redirectToHomepage: true });
@@ -143,7 +139,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
                   className={`${styles.compare_section_row_item}`}
                 >
                   <BalanceScale />
-                  <Translate nb="Sammenlign" nn="Samanlikna" />
+                  <Translate nb="Sammenlign" />
                 </Link>
               </div>
             ) : null}
@@ -170,4 +166,4 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 }
 
-export default with_lang_props(with_app_state(AlphabeticOverviewPage));
+export default with_app_state(AlphabeticOverviewPage);

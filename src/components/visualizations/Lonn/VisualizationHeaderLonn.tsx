@@ -109,13 +109,13 @@ class VisualizationHeaderLonn extends Component<
                 styles.visualizationheader_container_modal_header_title
               }`}
             >
-              <Translate nb="Lønn" nn="nynorsk" /> -{" "}
+              <Translate nb="Lønn" /> -{" "}
               <span
                 className={`${
                   styles.visualizationheader_container_modal_header_title__desc
                 }`}
               >
-                <Translate nb="visningsalternativer" nn="nynorsk" />
+                <Translate nb="visningsalternativer" />
               </span>
               <div
                 className={`${
@@ -132,36 +132,27 @@ class VisualizationHeaderLonn extends Component<
               <RadioButtonGroup
                 group={[
                   {
-                    text: <Translate nb="Heltid" nn="nynorsk" />,
+                    text: <Translate nb="Heltid" />,
                     selected: Arbeidstid === "H",
                     valueKey: "H",
                     helptext: (
-                      <Translate
-                        nb="Viser tall beregnet på grunnlag av dem som jobber heltid."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser tall beregnet på grunnlag av dem som jobber heltid." />
                     ),
                   },
                   {
-                    text: <Translate nb="Deltid" nn="nynorsk" />,
+                    text: <Translate nb="Deltid" />,
                     selected: Arbeidstid === "D",
                     valueKey: "D",
                     helptext: (
-                      <Translate
-                        nb="Viser tall beregnet på grunnlag av dem som jobber deltid."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser tall beregnet på grunnlag av dem som jobber deltid." />
                     ),
                   },
                   {
-                    text: <Translate nb="Begge" nn="nynorsk" />,
+                    text: <Translate nb="Begge" />,
                     selected: Arbeidstid === "A",
                     valueKey: "A",
                     helptext: (
-                      <Translate
-                        nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid." />
                     ),
                   },
                 ]}
@@ -171,58 +162,46 @@ class VisualizationHeaderLonn extends Component<
             </ul>
             <ul>
               <Checkbox
-                text={<Translate nb="Privat" nn="nynorsk" />}
+                text={<Translate nb="Privat" />}
                 valueKey="P"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "P";
                 })}
                 helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor." />
                 }
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
-                text={<Translate nb="Statlig" nn="nynorsk" />}
+                text={<Translate nb="Statlig" />}
                 valueKey="S"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "S";
                 })}
                 helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor." />
                 }
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
-                text={<Translate nb="Kommunal" nn="nynorsk" />}
+                text={<Translate nb="Kommunal" />}
                 valueKey="K"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "K";
                 })}
                 helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor." />
                 }
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
               <Checkbox
-                text={<Translate nb="Alle" nn="nynorsk" />}
+                text={<Translate nb="Alle" />}
                 valueKey="A"
                 isSelected={Sektor.some((a: Sektor) => {
                   return a === "A";
                 })}
                 helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor." />
                 }
                 onChange={event => this.onFilterClicked(event, "Sektor")}
               />
@@ -231,36 +210,27 @@ class VisualizationHeaderLonn extends Component<
               <RadioButtonGroup
                 group={[
                   {
-                    text: <Translate nb="Per år" nn="nynorsk" />,
+                    text: <Translate nb="Per år" />,
                     selected: Tidsenhet === "Årlig",
                     valueKey: "Årlig",
                     helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt i året."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser sum lønn utbetalt i året." />
                     ),
                   },
                   {
-                    text: <Translate nb="Per måned" nn="nynorsk" />,
+                    text: <Translate nb="Per måned" />,
                     selected: Tidsenhet === "Månedlig",
                     valueKey: "Månedlig",
                     helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt månedlig."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser sum lønn utbetalt månedlig." />
                     ),
                   },
                   {
-                    text: <Translate nb="Per time" nn="nynorsk" />,
+                    text: <Translate nb="Per time" />,
                     selected: Tidsenhet === "Ca. timelønn",
                     valueKey: "Ca. timelønn",
                     helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt per time."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser sum lønn utbetalt per time." />
                     ),
                   },
                 ]}
@@ -272,25 +242,19 @@ class VisualizationHeaderLonn extends Component<
               <RadioButtonGroup
                 group={[
                   {
-                    text: <Translate nb="Brutto" nn="nynorsk" />,
+                    text: <Translate nb="Brutto" />,
                     selected: Lønn === "Brutto",
                     valueKey: "Brutto",
                     helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt i brutto, eksklusive overtid."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser sum lønn utbetalt i brutto, eksklusive overtid." />
                     ),
                   },
                   {
-                    text: <Translate nb="Inklusiv overtid" nn="nynorsk" />,
+                    text: <Translate nb="Inklusiv overtid" />,
                     selected: Lønn === "Med overtid",
                     valueKey: "Med overtid",
                     helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt inklusive overtid."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser sum lønn utbetalt inklusive overtid." />
                     ),
                   },
                 ]}
@@ -302,25 +266,19 @@ class VisualizationHeaderLonn extends Component<
               <RadioButtonGroup
                 group={[
                   {
-                    text: <Translate nb="Median" nn="nynorsk" />,
+                    text: <Translate nb="Median" />,
                     selected: StatistiskMål === "Median",
                     valueKey: "Median",
                     helptext: (
-                      <Translate
-                        nb="Viser utregnet median for lønn utbetalt."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser utregnet median for lønn utbetalt." />
                     ),
                   },
                   {
-                    text: <Translate nb="Gjennomsnitt" nn="nynorsk" />,
+                    text: <Translate nb="Gjennomsnitt" />,
                     selected: StatistiskMål === "Gjennomsnitt",
                     valueKey: "Gjennomsnitt",
                     helptext: (
-                      <Translate
-                        nb="Viser gjennomsnittlig lønn utbetalt."
-                        nn="nynorsk"
-                      />
+                      <Translate nb="Viser gjennomsnittlig lønn utbetalt." />
                     ),
                   },
                 ]}
@@ -343,7 +301,7 @@ class VisualizationHeaderLonn extends Component<
           <div
             className={`${styles.visualizationheader_container_header__title}`}
           >
-            <Translate nb="Lønn" nn="nynorsk" />{" "}
+            <Translate nb="Lønn" />{" "}
             <span
               className={`${
                 styles.visualizationheader_container_header__title_filter
@@ -354,15 +312,15 @@ class VisualizationHeaderLonn extends Component<
                 <li>
                   {Arbeidstid === "A" ? (
                     <span>
-                      {","} <Translate nb="Begge" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Begge" />{" "}
                     </span>
                   ) : Arbeidstid === "D" ? (
                     <span>
-                      {","} <Translate nb="Deltid" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Deltid" />{" "}
                     </span>
                   ) : (
                     <span key={Arbeidstid}>
-                      {","} <Translate nb="Heltid" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Heltid" />{" "}
                     </span>
                   )}
                 </li>
@@ -374,25 +332,25 @@ class VisualizationHeaderLonn extends Component<
                       case "A":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Alle" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Alle" />{" "}
                           </span>
                         );
                       case "K":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Kommunal" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Kommunal" />{" "}
                           </span>
                         );
                       case "P":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Privat" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Privat" />{" "}
                           </span>
                         );
                       case "S":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Statlig" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Statlig" />{" "}
                           </span>
                         );
                     }
@@ -407,11 +365,11 @@ class VisualizationHeaderLonn extends Component<
                 <li>
                   {Kjønn === "A" ? (
                     <span>
-                      {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Alle" />{" "}
                     </span>
                   ) : (
                     <span>
-                      {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Kvinner og menn" />{" "}
                     </span>
                   )}
                 </li>
