@@ -1,0 +1,28 @@
+.container {
+  z-index: 2;
+  font-size: 1.6em;
+  background-color: darkgray;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  &_showAll {
+    margin-right: 20px;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  &_alphabet {
+    &_letter {
+      margin-left: 4px;
+      margin-right: 4px;
+      cursor: pointer;
+      &_unselected {
+        color: grey;
+        cursor: auto;
+      }
+      &_selected {
+        color: orange;
+      }
+    }
+  }
+}
