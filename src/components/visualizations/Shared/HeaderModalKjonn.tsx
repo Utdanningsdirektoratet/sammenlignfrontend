@@ -5,19 +5,12 @@ import { Kjønn } from "../../../data/ApiTypes";
 
 type Props = {
   kjønn: Kjønn[];
-  onHelpTextClick: (open: boolean, key: string) => void;
   onFilterClicked: (event: any, key: string) => void;
-  openHelpText: string;
 };
 
 class HeaderModalKjønn extends React.Component<Props> {
   render() {
-    const {
-      kjønn,
-      onHelpTextClick,
-      onFilterClicked,
-      openHelpText,
-    } = this.props;
+    const { kjønn, onFilterClicked } = this.props;
     return (
       <ul>
         <Checkbox
@@ -32,8 +25,6 @@ class HeaderModalKjønn extends React.Component<Props> {
               nn="nynorsk"
             />
           }
-          onHelpTextClick={open => onHelpTextClick(open, "Kjønn-K")}
-          helpTextOpen={openHelpText === "Kjønn-K"}
           onChange={event => onFilterClicked(event, "Kjønn")}
         />
         <Checkbox
@@ -48,8 +39,6 @@ class HeaderModalKjønn extends React.Component<Props> {
               nn="nynorsk"
             />
           }
-          onHelpTextClick={open => onHelpTextClick(open, "Kjønn-M")}
-          helpTextOpen={openHelpText === "Kjønn-M"}
           onChange={event => onFilterClicked(event, "Kjønn")}
         />
         <Checkbox
@@ -64,8 +53,6 @@ class HeaderModalKjønn extends React.Component<Props> {
               nn="nynorsk"
             />
           }
-          onHelpTextClick={open => onHelpTextClick(open, "Kjønn-A")}
-          helpTextOpen={openHelpText === "Kjønn-A"}
           onChange={event => onFilterClicked(event, "Kjønn")}
         />
       </ul>

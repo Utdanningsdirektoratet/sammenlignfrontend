@@ -17,14 +17,13 @@ export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
 type State = {
   open: boolean;
-  openHelpText: string;
 };
 
 class VisualizationHeaderArbeidsledighet extends Component<
   ComparisonHeaderProps<VisualizationHeaderConfigArbeidsledighet>,
   State
 > {
-  state = { open: false, openHelpText: "" };
+  state = { open: false };
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigArbeidsledighet = {
@@ -45,13 +44,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
   }
 
   onFilterButtonClick = (open: boolean) => {
-    if (open == false) this.setState({ openHelpText: "" });
     this.setState({ open: open });
-  };
-
-  onHelpTextClick = (open: boolean, key: string) => {
-    if (open) this.setState({ openHelpText: key });
-    else this.setState({ openHelpText: "" });
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -133,10 +126,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidsledighet-710")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidsledighet-710"}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -155,10 +144,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidsledighet-13")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidsledighet-13"}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -172,10 +157,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                 helpText={
                   <Translate nb="Viser antall arbeidsledige." nn="nynorsk" />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidsledighet-A")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidsledighet-A"}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -194,9 +175,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Visning-Andel"),
-                    helpTextOpen: this.state.openHelpText === "Visning-Andel",
                   },
                   {
                     text: <Translate nb="Antall" nn="nynorsk" />,
@@ -208,9 +186,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Visning-Antall"),
-                    helpTextOpen: this.state.openHelpText === "Visning-Antall",
                   },
                 ]}
                 name="antall"
@@ -219,9 +194,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
             </ul>
             <HeaderModalKjonn
               kjønn={Kjønn}
-              onHelpTextClick={this.onHelpTextClick}
               onFilterClicked={this.onFilterClicked}
-              openHelpText={this.state.openHelpText}
             />
           </div>
         </div>
