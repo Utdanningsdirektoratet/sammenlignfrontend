@@ -118,7 +118,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
   render() {
     const { innholdstype } = this.props.match.params;
-    const selected = this.props.appState.selected;
+    const { selected_uno_id } = this.props.appState;
     const {
       data: { interesser, list },
       interesserSelected: interesserSelected,
@@ -136,7 +136,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
           <div className={styles.compare_section}>
             <SelectedCompares innholdstype={innholdstype} />
 
-            {selected.some(uno_id => uno_id[0] === innholdstype[0]) ? (
+            {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
               <div className={`${styles.compare_section_row}`}>
                 <Link
                   to={"/sammenligne/" + innholdstype}
@@ -161,7 +161,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             <AlphabeticList
               list={this.getFilteredList()}
               handleItemClicked={this.handleItemClick}
-              selected={selected}
+              selected_uno_id={selected_uno_id}
             />
           </ul>
         </div>

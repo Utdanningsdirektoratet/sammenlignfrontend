@@ -5,6 +5,7 @@ import styles from "./SelectedCompare.module.scss";
 import { Innholdstype } from "../../../data/ApiTypes";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import CloseIcon from "../../visualizations/Generic/CloseIcon";
+import UnoId from "../../app/UnoId";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -21,14 +22,14 @@ class SelectedCompares extends Component<AppStateProps & Props> {
 
   render() {
     const {
-      appState: { selected },
+      appState: { selected_uno_id },
       innholdstype,
     } = this.props;
-    const selected_uno_id = selected.filter(
+    const filtered_uno_id = selected_uno_id.filter(
       uno_id => uno_id[0].toLowerCase() === innholdstype[0].toLowerCase()
     );
 
-    if (selected_uno_id.length === 0) {
+    if (filtered_uno_id.length === 0) {
       return null;
     }
 
@@ -36,10 +37,10 @@ class SelectedCompares extends Component<AppStateProps & Props> {
       <>
         <div className={`${styles.selection}`}>
           <ul className={`${styles.selection_row}`}>
-            {selected_uno_id.map(uno_id => (
+            {filtered_uno_id.map(uno_id => (
               <li key={uno_id} className={`${styles.selection_row_item}`}>
                 <div className={`${styles.selection_row_item_text}`}>
-                  {uno_id}
+                  <UnoId uno_id={uno_id} />
                 </div>
                 <CloseIcon unoId={uno_id} onClick={this.handleRemoveClick} />
               </li>

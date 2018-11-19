@@ -37,10 +37,10 @@ class ComparisonPage extends Component<Props, State> {
         params: { innholdstype },
       },
       lang,
-      appState: { selected },
+      appState: { selected_uno_id },
     } = this.props;
     const comparisons = comparisonsConfig[innholdstype];
-    const comparisonTypes = selected.filter(
+    const comparisonTypes = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
     const uno_ids_string = comparisonTypes.join(",");
@@ -69,8 +69,8 @@ class ComparisonPage extends Component<Props, State> {
   render() {
     const { innholdstype } = this.props.match.params;
     const comparisons = comparisonsConfig[innholdstype];
-    const { selected } = this.props.appState;
-    const comparisonTypes = selected.filter(
+    const { selected_uno_id } = this.props.appState;
+    const comparisonTypes = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
     let breadcrumb = innholdstype;
