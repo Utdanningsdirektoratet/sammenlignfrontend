@@ -95,7 +95,14 @@ class SearchBox extends Component<
           />
           <Search />
         </div>
-        <div className={styles.searchbox_dropdown}>
+        <div
+          className={
+            this.state.data.length > 0 ||
+            (this.state.listText !== "" && this.state.searchString.length > 0)
+              ? styles.searchbox_dropdown
+              : styles.searchbox_dropdown_hidden
+          }
+        >
           {this.state.data.length > 0 ? (
             <ul>
               {this.state.data.map((d: MainElement) => (
