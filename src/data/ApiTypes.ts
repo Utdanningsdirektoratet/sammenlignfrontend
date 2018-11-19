@@ -82,7 +82,7 @@ export interface IArbeidstid {
   H: LonnObject;
 }
 export type Arbeidstid = "A" | "D" | "H";
-interface ISektor {
+export interface ISektor {
   A: IArbeidstid;
   K: IArbeidstid;
   P: IArbeidstid;

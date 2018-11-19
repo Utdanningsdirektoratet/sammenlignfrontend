@@ -11,7 +11,13 @@ export interface SammenligningTemplate {
   path: string;
   query?: QueryObject;
   HeaderComponent?: React.ComponentClass<ComparisonHeaderProps<any>>;
-  render: (data: any, config?: any, rowIndex?: number) => JSX.Element;
+  render: (
+    data: any,
+    config?: any,
+    rowIndex?: number,
+    unoId?: string,
+    setConfig?: (config: any) => void
+  ) => JSX.Element;
 }
 
 const exported: { [key: string]: SammenligningTemplate[] } = {
