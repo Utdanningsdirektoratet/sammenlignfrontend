@@ -4,10 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styles from "./App.module.css";
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
 import { TranslateRoot } from "./components/app/TranslateContext";
-import AppContext, {
-  AppState,
-  defaultAppState,
-} from "./components/app/AppContext";
+import AppContext, { AppState } from "./components/app/AppContext";
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
 import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
@@ -25,30 +22,29 @@ class App extends Component<{}, AppState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      ...defaultAppState,
       toggleSelection: this.toggleSelection,
-      selected: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
+      selected_uno_id: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
     };
     window.addEventListener("hashchange", this.hashChangeListener);
   }
   hashChangeListener = (e: HashChangeEvent) => {
     const urlState = parseUrl(e.newURL);
-    const reactState = this.state.selected;
+    const reactState = this.state.selected_uno_id;
     if (
       urlState.length !== reactState.length ||
       urlState.every((_, i) => urlState[i] === reactState[i])
     ) {
-      this.setState({ selected: urlState });
+      this.setState({ selected_uno_id: urlState });
     }
   };
   toggleSelection = (typ: string) => {
     this.setState(prevState => {
-      const selected = prevState.selected.filter(sel => sel !== typ);
-      if (selected.length === prevState.selected.length) {
+      const selected = prevState.selected_uno_id.filter(sel => sel !== typ);
+      if (selected.length === prevState.selected_uno_id.length) {
         selected.push(typ);
       }
       setUrlState(selected);
-      return { selected };
+      return { selected_uno_id: selected };
     });
   };
 

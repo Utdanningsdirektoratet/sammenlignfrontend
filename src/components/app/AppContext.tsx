@@ -1,20 +1,23 @@
 import React from "react";
+import { Main } from "../../data/ApiTypes";
 
 export type AppState = {
-  selected: string[];
-  toggleSelection: (typ: string) => void;
+  selected_uno_id: string[];
+  toggleSelection: (uno_id: string) => void;
 };
 
 export interface AppStateProps {
   appState: AppState;
 }
 
-export const defaultAppState: AppState = {
-  selected: [],
-  toggleSelection: (typ: string) => {},
-};
+// export const defaultAppState: AppState = {
+//   selected: [],
+//   toggleSelection: (typ: string) => {},
+//   main: {},
+//   updateMain: (main: Main) => {},
+// };
 
-const AppContext = React.createContext(defaultAppState);
+const AppContext = React.createContext({} as AppState);
 
 export function with_app_state<P>(WrappedComponent: React.ComponentClass<any>) {
   return (function(props: any) {
