@@ -6,8 +6,6 @@ type RadioButtonGroupType = {
   selected: boolean;
   valueKey: string;
   helptext?: JSX.Element;
-  onHelpTextClick?: (open: boolean) => void;
-  helpTextOpen?: boolean;
 };
 
 type Props = {
@@ -31,8 +29,6 @@ class RadioButtonGroup extends Component<Props> {
         valueKey={g.valueKey}
         onChange={this.testOnChange}
         helpText={g.helptext}
-        onHelpTextClick={g.onHelpTextClick}
-        helpTextOpen={g.helpTextOpen}
       />
     ));
   }

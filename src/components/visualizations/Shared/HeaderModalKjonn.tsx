@@ -5,19 +5,12 @@ import { Kjønn } from "../../../data/ApiTypes";
 
 type Props = {
   kjønn: Kjønn;
-  onHelpTextClick: (open: boolean, key: string) => void;
   onFilterClicked: (event: any, key: string) => void;
-  openHelpText: string;
 };
 
 class HeaderModalKjønn extends React.Component<Props> {
   render() {
-    const {
-      kjønn,
-      onHelpTextClick,
-      onFilterClicked,
-      openHelpText,
-    } = this.props;
+    const { kjønn, onFilterClicked } = this.props;
     return (
       <ul>
         <RadioButtonGroup
@@ -32,9 +25,6 @@ class HeaderModalKjønn extends React.Component<Props> {
                   nn="nynorsk"
                 />
               ),
-              onHelpTextClick: open =>
-                this.props.onHelpTextClick(open, "Kjønn-A"),
-              helpTextOpen: this.props.openHelpText === "Kjønn-A",
             },
             {
               text: <Translate nb="Kvinner og menn" nn="nynorsk" />,
@@ -46,9 +36,6 @@ class HeaderModalKjønn extends React.Component<Props> {
                   nn="nynorsk"
                 />
               ),
-              onHelpTextClick: open =>
-                this.props.onHelpTextClick(open, "Kjønn-KM"),
-              helpTextOpen: this.props.openHelpText === "Kjønn-KM",
             },
           ]}
           name="Kjønn"

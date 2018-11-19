@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./SelectedCompare.module.scss";
 import { Innholdstype } from "../../../data/ApiTypes";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
+import CloseIcon from "../../visualizations/Generic/CloseIcon";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -36,17 +37,11 @@ class SelectedCompares extends Component<AppStateProps & Props> {
         <div className={`${styles.selection}`}>
           <ul className={`${styles.selection_row}`}>
             {selected_uno_id.map(uno_id => (
-              <li className={`${styles.selection_row_item}`}>
+              <li key={uno_id} className={`${styles.selection_row_item}`}>
                 <div className={`${styles.selection_row_item_text}`}>
                   {uno_id}
                 </div>
-                <button
-                  className={`${styles.selection_row_item_close}`}
-                  data-uno_id={uno_id}
-                  onClick={this.handleRemoveClick}
-                >
-                  X
-                </button>
+                <CloseIcon unoId={uno_id} onClick={this.handleRemoveClick} />
               </li>
             ))}
           </ul>

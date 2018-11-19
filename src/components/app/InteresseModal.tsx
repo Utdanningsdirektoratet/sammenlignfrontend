@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactModal from "react-modal";
 import InteresserFilter from "../filters/InteresseFilter";
 
+import style from "./InteresseModal.module.scss";
+
 type State = { showModal: boolean };
 
 type Props = {
@@ -31,8 +33,10 @@ class Modal extends Component<Props> {
     } = this.props;
 
     return (
-      <div>
-        <button onClick={this.handleOpenModal}>Interesser</button>
+      <>
+        <button onClick={this.handleOpenModal} className={`${style.btn}`}>
+          Interesser
+        </button>
         <ReactModal
           isOpen={this.state.showModal}
           contentLabel="Interesser/Kategorier"
@@ -47,7 +51,7 @@ class Modal extends Component<Props> {
             removeAllSelected={removeAllSelected}
           />
         </ReactModal>
-      </div>
+      </>
     );
   }
 }

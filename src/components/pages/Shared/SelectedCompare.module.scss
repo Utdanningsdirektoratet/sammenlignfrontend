@@ -1,5 +1,6 @@
 .selection {
   background-color: #fbe5d0;
+  padding: 10px;
 
   ul {
     padding: 0;
@@ -13,26 +14,29 @@
     &_item {
       display: flex;
       width: 15%;
-      height: 2em;
-      border: solid 1px orange;
+      border: solid 2px orange;
       background-color: white;
       text-align: center;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
       &_text {
-        width: 85%;
+        width: 75%;
         font-weight: bold;
         font-size: 1em;
-        margin: auto;
+        margin: 10px;
+        overflow-wrap: break-word;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
       }
-      &_close {
-        width: 7%;
-        height: 60%;
-        margin: auto;
-        float: right;
-        background-color: orange;
-        border-radius: 50%;
-        padding: 0;
-        border: none;
-        cursor: pointer;
+      span {
+        align-self: center;
       }
     }
     li {

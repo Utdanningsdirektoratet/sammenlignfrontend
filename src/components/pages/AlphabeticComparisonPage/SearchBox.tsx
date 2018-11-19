@@ -5,6 +5,7 @@ import { with_lang_props, LanguageProps } from "../../app/TranslateContext";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "../../../fontawesome/solid/search.svg";
+import { objectToQueryString } from "../../../util/querystring";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -41,7 +42,11 @@ class SearchBox extends Component<
     }
     this.setState({ searchString: value });
 
-    fetch(API_DOMAIN + "/rest/suggest?sprak=" + this.props.lang + "&q=" + value)
+    fetch(
+      API_DOMAIN +
+        "/rest/suggest?" +
+        objectToQueryString({ sprak: this.props.lang, q: value })
+    )
       .then(resp => resp.json())
       .then((data: MainElement[]) => {
         if (this.state.searchString === value) {

@@ -17,14 +17,13 @@ export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
 type State = {
   open: boolean;
-  openHelpText: string;
 };
 
 class VisualizationHeaderArbeidsledighet extends Component<
   ComparisonHeaderProps<VisualizationHeaderConfigArbeidsledighet>,
   State
 > {
-  state = { open: false, openHelpText: "" };
+  state = { open: false };
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigArbeidsledighet = {
@@ -45,13 +44,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
   }
 
   onFilterButtonClick = (open: boolean) => {
-    if (open == false) this.setState({ openHelpText: "" });
     this.setState({ open: open });
-  };
-
-  onHelpTextClick = (open: boolean, key: string) => {
-    if (open) this.setState({ openHelpText: key });
-    else this.setState({ openHelpText: "" });
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -128,10 +121,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidsledighet-710")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidsledighet-710"}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -150,10 +139,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                     nn="nynorsk"
                   />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidsledighet-13")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidsledighet-13"}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -167,10 +152,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                 helpText={
                   <Translate nb="Viser antall arbeidsledige." nn="nynorsk" />
                 }
-                onHelpTextClick={open =>
-                  this.onHelpTextClick(open, "Arbeidsledighet-A")
-                }
-                helpTextOpen={this.state.openHelpText === "Arbeidsledighet-A"}
                 onChange={event =>
                   this.onFilterClicked(event, "Arbeidsledighet")
                 }
@@ -189,9 +170,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Visning-Andel"),
-                    helpTextOpen: this.state.openHelpText === "Visning-Andel",
                   },
                   {
                     text: <Translate nb="Antall" nn="nynorsk" />,
@@ -203,9 +181,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
                         nn="nynorsk"
                       />
                     ),
-                    onHelpTextClick: open =>
-                      this.onHelpTextClick(open, "Visning-Antall"),
-                    helpTextOpen: this.state.openHelpText === "Visning-Antall",
                   },
                 ]}
                 name="antall"
@@ -214,77 +189,78 @@ class VisualizationHeaderArbeidsledighet extends Component<
             </ul>
             <HeaderModalKjonn
               kjønn={Kjønn}
-              onHelpTextClick={this.onHelpTextClick}
               onFilterClicked={this.onFilterClicked}
-              openHelpText={this.state.openHelpText}
             />
           </div>
         </div>
       );
     }
     return (
-      <div className={`${styles.visualizationheader_container}`}>
-        <div className={`${styles.visualizationheader_container_header}`} />
-        <div
-          className={`${styles.visualizationheader_container_header__title}`}
-        >
-          <Translate nb="Arbeidsledighet" nn="nynorsk" />{" "}
-          <span
-            className={`${
-              styles.visualizationheader_container_header__title_filter
-            }`}
+      <div>
+        <div className={`${styles.visualizationheader_container}`}>
+          <div className={`${styles.visualizationheader_container_header}`} />
+          <div
+            className={`${styles.visualizationheader_container_header__title}`}
           >
-            (
-            <ul>
-              <li>
-                {Fullført.map((f: string, i: number) => {
-                  let text = "";
-                  if (i > 0) text = "/";
-                  switch (f) {
-                    case "710":
-                      return (
-                        <span key={f}>
-                          {text} <Translate nb="7-10 år" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "13":
-                      return (
-                        <span key={f}>
-                          {text} <Translate nb="1-3 år" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "A":
-                      return (
-                        <span key={f}>
-                          {text} <Translate nb="Alle" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
-              </li>
-              <li>{", " + Visning}</li>
-              <li>
-                {Kjønn === "A" ? (
-                  <span>
-                    {","} <Translate nb="Alle" nn="nynorsk" />{" "}
-                  </span>
-                ) : (
-                  <span>
-                    {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
-                  </span>
-                )}
-              </li>
-            </ul>
-            )
-          </span>
-          <span
-            className={`${
-              styles.visualizationheader_container_header__title_icon
-            }`}
-            onClick={() => this.onFilterButtonClick(true)}
-          />
+            <Translate nb="Arbeidsledighet" nn="nynorsk" />{" "}
+            <span
+              className={`${
+                styles.visualizationheader_container_header__title_filter
+              }`}
+            >
+              (
+              <ul>
+                <li>
+                  {Fullført.map((f: string, i: number) => {
+                    let text = "";
+                    if (i > 0) text = "/";
+                    switch (f) {
+                      case "710":
+                        return (
+                          <span key={f}>
+                            {text} <Translate nb="7-10 år" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "13":
+                        return (
+                          <span key={f}>
+                            {text} <Translate nb="1-3 år" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "A":
+                        return (
+                          <span key={f}>
+                            {text} <Translate nb="Alle" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                    }
+                  })}
+                </li>
+                <li>{", " + Visning}</li>
+                <li>
+                  {Kjønn === "A" ? (
+                    <span>
+                      {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                    </span>
+                  ) : (
+                    <span>
+                      {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                    </span>
+                  )}
+                </li>
+              </ul>
+              )
+            </span>
+            <span
+              className={`${
+                styles.visualizationheader_container_header__title_icon
+              }`}
+              onClick={() => this.onFilterButtonClick(true)}
+            />
+          </div>
+          {Modal}
         </div>
-        {Modal}
+        {this.props.children}
       </div>
     );
   }
