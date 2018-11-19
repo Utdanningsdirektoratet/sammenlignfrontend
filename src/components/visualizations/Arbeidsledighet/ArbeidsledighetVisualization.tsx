@@ -164,7 +164,10 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                 <div>
                   {array.map(a => {
                     return visning === "Andel" ? (
-                      <div key={a.key}>
+                      <div
+                        key={a.key}
+                        className={styles.arbeidsledighetvisualization_kjonn}
+                      >
                         <div
                           className={
                             styles.arbeidsledighetvisualization_kjonn_icon +
