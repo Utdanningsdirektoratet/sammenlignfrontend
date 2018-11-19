@@ -4,25 +4,24 @@ import { API_DOMAIN } from "./config";
 import { Lang } from "../components/app/TranslateContext";
 import { objectToQueryString } from "../util/querystring";
 
-let mainFetchStarted = false;
+let mainFetchStarted: Promise<any> | null = null;
 let mainCache: Main | null = null;
 
-function getMain(lang: Lang, result: (data: Main) => void) {
+export function getMain(lang: Lang, result: (data: Main) => void) {
   if (mainCache) return result(mainCache);
-  if (mainFetchStarted) return;
-  mainFetchStarted = true;
-  fetch(
-    API_DOMAIN +
-      "/rest/main?" +
-      objectToQueryString({
-        spraak: lang,
-        felt: "tittel,interesser",
-      })
+  if (mainFetchStarted)
+    return mainFetchStarted.then(data => {
+      result(data);
+      return data;
+    });
+  mainFetchStarted = fetch(
+    API_DOMAIN + `/rest/main?sprak=${lang}&felt=tittel,interesser`
   )
     .then(response => response.json())
     .then(data => {
       mainCache = data;
       result(data);
+      return data;
     })
     .catch(e => {
       mainCache = main_json as Main;

@@ -7,12 +7,12 @@ import styles from "./AlphabeticOverviewPage.module.scss";
 type Props = {
   list: MainElement[];
   handleItemClicked: (e: React.MouseEvent<HTMLElement>) => void;
-  selected: string[];
+  selected_uno_id: string[];
 };
 
 class AlphabeticList extends React.Component<Props> {
   public render() {
-    const { list, handleItemClicked, selected } = this.props;
+    const { list, handleItemClicked, selected_uno_id } = this.props;
     const alphabetizedList = alphabetize(list, 5);
     return (
       <div className={styles.alphabeticlist_container}>
@@ -33,7 +33,8 @@ class AlphabeticList extends React.Component<Props> {
                       key={o.uno_id}
                       className={
                         styles.alphabetic_list__item +
-                        (selected && selected.indexOf(o.uno_id) !== -1
+                        (selected_uno_id &&
+                        selected_uno_id.indexOf(o.uno_id) !== -1
                           ? " " + styles.selected
                           : "")
                       }
