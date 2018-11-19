@@ -32,4 +32,60 @@
       transform: rotate(-45deg);
     }
   }
+  &_close2 {
+    float: right;
+    cursor: pointer;
+    border: 1px solid orange;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+    margin: 4px;
+    vertical-align: middle;
+    background: white;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: orange;
+      margin: auto 2px;
+      height: 2px;
+    }
+  }
+
+  &_open {
+    cursor: pointer;
+    border: 1px solid orange;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+    margin: 4px;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: orange;
+    }
+    &:before {
+      width: 2px;
+      margin: 2px auto;
+    }
+    &:after {
+      margin: auto 2px;
+      height: 2px;
+    }
+  }
 }

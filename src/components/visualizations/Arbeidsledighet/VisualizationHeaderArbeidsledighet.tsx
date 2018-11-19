@@ -11,6 +11,7 @@ export type VisualizationHeaderConfigArbeidsledighet = {
   Kjønn: Kjønn;
   Fullført: Fullført[];
   Visning: Visning;
+  rows: string[];
 };
 
 export type Fullført = "710" | "13" | "A";
@@ -30,6 +31,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
       Kjønn: "A",
       Fullført: ["A"],
       Visning: "Antall",
+      rows: [""],
     };
 
     this.props.setConfig(config);
@@ -61,6 +63,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
         } else {
           config.Fullført.push(value);
         }
+        config.Fullført.sort();
         break;
       case "Visning":
         config.Visning = value;
@@ -68,6 +71,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
       default:
         return;
     }
+
     this.props.setConfig(config);
   };
 

@@ -9,6 +9,8 @@ type Props = {
   config: any;
   comparison: SammenligningTemplate;
   rowIndex: number;
+  unoId: string;
+  setConfig: (config: any) => void;
 };
 
 type State = { error: boolean };
@@ -22,10 +24,21 @@ class ComparisonCell extends Component<Props, State> {
   render() {
     if (!this.state.error)
       try {
-        const { data, config, comparison, rowIndex } = this.props;
+        const {
+          data,
+          config,
+          comparison,
+          rowIndex,
+          unoId,
+          setConfig,
+        } = this.props;
         return (
           <div className={`${styles.flex_item} ${styles.item}`}>
-            {data ? comparison.render(data, config, rowIndex) : <NoData />}
+            {data ? (
+              comparison.render(data, config, rowIndex, unoId, setConfig)
+            ) : (
+              <NoData />
+            )}
           </div>
         );
       } catch (error) {

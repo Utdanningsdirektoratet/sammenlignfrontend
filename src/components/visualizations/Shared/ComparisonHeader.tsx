@@ -6,7 +6,7 @@ import { SammenligningTemplate } from "../../comparisonsConfig";
 
 export interface ComparisonHeaderProps<T> {
   comparison: SammenligningTemplate;
-  children: JSX.Element[];
+  children: any;
   config: T;
   setConfig: (config: T) => void;
 }

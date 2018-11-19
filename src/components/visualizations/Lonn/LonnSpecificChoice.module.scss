@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+}
+
+.box {
+  margin: 10px;
+  display: flex;
+
+  &_text {
+    font-weight: 600;
+    &_header {
+      text-transform: uppercase;
+    }
+  }
+  &_icon {
+    span {
+      margin-top: -2px;
+      margin-right: 10px;
+      margin-left: 0;
+    }
+  }
+}
+
+.modal {
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  border: 1px solid orange;
+  top: -10px;
+  &_header {
+    margin: 10px;
+    display: flex;
+    &_icon {
+      span {
+        margin-top: -2px;
+        margin-right: 10px;
+        margin-left: 0;
+      }
+    }
+    &_text {
+      font-weight: 600;
+      &_header {
+        text-transform: uppercase;
+      }
+      &_content {
+        li {
+          list-style-type: none;
+        }
+      }
+    }
+  }
+}

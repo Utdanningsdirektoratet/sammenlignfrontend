@@ -32,6 +32,8 @@ class ComparisonRow extends Component<Props, State> {
           config={config}
           comparison={comparison}
           rowIndex={rowIndex}
+          unoId={uno_id}
+          setConfig={this.setConfig}
         />
       );
     });
@@ -40,28 +42,30 @@ class ComparisonRow extends Component<Props, State> {
     const { comparison, comparisonTypes, rowData } = this.props;
     const config = this.state;
     const HeaderComponent = comparison.HeaderComponent || ComparisonHeader;
-    let content: JSX.Element[];
+    let content: any;
     if (config.rows) {
       content = (config.rows as string[]).map((row, rowIndex) => (
         <div key={rowIndex}>
-          <h4>{row}</h4>
-          {this.renderRow(rowIndex)}
+          {row ? <h4 className={styles.row_headline}>{row}</h4> : null}
+          <div className={styles.flex_container_row}>
+            {this.renderRow(rowIndex)}
+          </div>
         </div>
       ));
     } else {
-      content = this.renderRow(0);
+      content = (
+        <div className={styles.flex_container_row}>{this.renderRow(0)}</div>
+      );
     }
     return (
       <div>
-        <div className={styles.flex_container_row}>
-          <HeaderComponent
-            comparison={comparison}
-            config={config}
-            setConfig={this.setConfig}
-          >
-            {content}
-          </HeaderComponent>
-        </div>
+        <HeaderComponent
+          comparison={comparison}
+          config={config}
+          setConfig={this.setConfig}
+        >
+          {content}
+        </HeaderComponent>
       </div>
     );
   }

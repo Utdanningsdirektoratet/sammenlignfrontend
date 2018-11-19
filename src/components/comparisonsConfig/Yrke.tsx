@@ -61,8 +61,20 @@ const Yrke: SammenligningTemplate[] = [
     path: "/rest/lonn",
     HeaderComponent: VisualizationHeaderLonn,
     query: { sektor: "A" },
-    render: (data: LonnElement, config: VisualizationHeaderConfigLonn) => (
-      <LonnWrapper data={data} config={config} />
+    render: (
+      data: LonnElement,
+      config: VisualizationHeaderConfigLonn,
+      rowIndex?: number,
+      unoId?: string,
+      setConfig?: (config: any) => void
+    ) => (
+      <LonnWrapper
+        data={data}
+        config={config}
+        rowIndex={rowIndex}
+        unoId={unoId}
+        setConfig={setConfig}
+      />
     ),
   },
   {
