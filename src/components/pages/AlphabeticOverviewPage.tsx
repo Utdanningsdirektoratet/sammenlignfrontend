@@ -26,7 +26,6 @@ import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-
 
 type State = {
   data: DataList;
-  interesserSelected: string[];
   redirectToHomepage: boolean;
 };
 
@@ -39,7 +38,6 @@ type Props = RouteComponentProps<{
 class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
     data: { list: [] as MainElement[], interesser: [] as string[] },
-    interesserSelected: [] as string[],
     redirectToHomepage: false,
   };
   componentDidMount() {
@@ -65,7 +63,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 
   getFilteredList = () => {
-    const interesserSelected = this.state.interesserSelected;
+    const interesserSelected = this.props.appState.selected_interests;
     const list = this.state.data.list;
     if (!interesserSelected || interesserSelected.length === 0) return list;
     return list.filter(l => {
@@ -78,36 +76,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   };
   handleItemClick = (e: React.MouseEvent<HTMLElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
-    if (key) this.props.appState.toggleSelection(key);
-  };
-  toggleSelectedInterests = (interest: string) => {
-    const interestIndex = this.state.interesserSelected.indexOf(interest);
-    if (interestIndex === -1) {
-      var selected = this.state.interesserSelected;
-      selected.push(interest);
-      this.setState({
-        interesserSelected: selected,
-      });
-    } else {
-      var selected = this.state.interesserSelected;
-      selected.splice(interestIndex, 1);
-      this.setState({
-        interesserSelected: selected,
-      });
-    }
-  };
-
-  removeAllSelectedInterests = () => {
-    this.setState({ interesserSelected: [] });
+    if (key) this.props.appState.toggleUnoId(key);
   };
 
   isInterestSelected = (interests: string[] | undefined) => {
-    const interesserSelected = this.state.interesserSelected;
-    if (
-      !this.state.interesserSelected ||
-      this.state.interesserSelected.length === 0
-    )
-      return true;
+    const interesserSelected = this.props.appState.selected_interests;
+    if (!interesserSelected || interesserSelected.length === 0) return true;
 
     if (!interests) return false;
 
@@ -118,10 +92,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
   render() {
     const { innholdstype } = this.props.match.params;
-    const { selected_uno_id } = this.props.appState;
+    const {
+      selected_interests: interesserSelected,
+      selected_uno_id,
+    } = this.props.appState;
     const {
       data: { interesser, list },
-      interesserSelected: interesserSelected,
       redirectToHomepage,
     } = this.state;
     if (redirectToHomepage) {
@@ -153,8 +129,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             innholdstype={innholdstype}
             interesser={interesser}
             selected={interesserSelected}
-            toggleSelectedInterests={this.toggleSelectedInterests}
-            removeAllSelected={this.removeAllSelectedInterests}
+            toggleSelectedInterests={this.props.appState.toggleInterest}
+            removeAllSelected={this.props.appState.clearInterest}
           />
 
           <ul className={styles.alphabetic}>

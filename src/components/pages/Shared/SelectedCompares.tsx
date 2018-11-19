@@ -14,10 +14,10 @@ type Props = {
 class SelectedCompares extends Component<AppStateProps & Props> {
   handleRemoveClick = (e: React.MouseEvent<HTMLElement>) => {
     const {
-      appState: { toggleSelection },
+      appState: { toggleUnoId },
     } = this.props;
     const key = e.currentTarget.getAttribute("data-uno_id");
-    if (key) toggleSelection(key);
+    if (key) toggleUnoId(key);
   };
 
   render() {
