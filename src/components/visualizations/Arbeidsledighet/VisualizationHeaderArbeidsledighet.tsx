@@ -8,7 +8,7 @@ import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
-  Kjønn: Kjønn[];
+  Kjønn: Kjønn;
   Fullført: Fullført[];
   Visning: Visning;
 };
@@ -27,7 +27,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigArbeidsledighet = {
-      Kjønn: ["A"],
+      Kjønn: "A",
       Fullført: ["A"],
       Visning: "Antall",
     };
@@ -52,12 +52,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
     var value = event.target.id;
     switch (key) {
       case "Kjønn":
-        var index = config.Kjønn.indexOf(value);
-        if (index > -1) {
-          config.Kjønn.splice(index, 1);
-        } else {
-          config.Kjønn.push(value);
-        }
+        config.Kjønn = value;
         break;
       case "Arbeidsledighet":
         var index = config.Fullført.indexOf(value);
@@ -201,84 +196,71 @@ class VisualizationHeaderArbeidsledighet extends Component<
       );
     }
     return (
-      <div className={`${styles.visualizationheader_container}`}>
-        <div className={`${styles.visualizationheader_container_header}`} />
-        <div
-          className={`${styles.visualizationheader_container_header__title}`}
-        >
-          <Translate nb="Arbeidsledighet" nn="nynorsk" />{" "}
-          <span
-            className={`${
-              styles.visualizationheader_container_header__title_filter
-            }`}
+      <div>
+        <div className={`${styles.visualizationheader_container}`}>
+          <div className={`${styles.visualizationheader_container_header}`} />
+          <div
+            className={`${styles.visualizationheader_container_header__title}`}
           >
-            (
-            <ul>
-              <li>
-                {Fullført.map((f: string, i: number) => {
-                  let text = "";
-                  if (i > 0) text = "/";
-                  switch (f) {
-                    case "710":
-                      return (
-                        <span key={f}>
-                          {text} <Translate nb="7-10 år" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "13":
-                      return (
-                        <span key={f}>
-                          {text} <Translate nb="1-3 år" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "A":
-                      return (
-                        <span key={f}>
-                          {text} <Translate nb="Alle" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
-              </li>
-              <li>{", " + Visning}</li>
-              <li>
-                {Kjønn.map((d: string, i: number) => {
-                  let text = "";
-                  if (Fullført.length > 0 && i === 0) text = ",";
-                  if (i > 0) text = "/";
-                  switch (d) {
-                    case "K":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Kvinner" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "M":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Menn" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "A":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Begge" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
-              </li>
-            </ul>
-            )
-          </span>
-          <span
-            className={`${
-              styles.visualizationheader_container_header__title_icon
-            }`}
-            onClick={() => this.onFilterButtonClick(true)}
-          />
+            <Translate nb="Arbeidsledighet" nn="nynorsk" />{" "}
+            <span
+              className={`${
+                styles.visualizationheader_container_header__title_filter
+              }`}
+            >
+              (
+              <ul>
+                <li>
+                  {Fullført.map((f: string, i: number) => {
+                    let text = "";
+                    if (i > 0) text = "/";
+                    switch (f) {
+                      case "710":
+                        return (
+                          <span key={f}>
+                            {text} <Translate nb="7-10 år" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "13":
+                        return (
+                          <span key={f}>
+                            {text} <Translate nb="1-3 år" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "A":
+                        return (
+                          <span key={f}>
+                            {text} <Translate nb="Alle" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                    }
+                  })}
+                </li>
+                <li>{", " + Visning}</li>
+                <li>
+                  {Kjønn === "A" ? (
+                    <span>
+                      {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                    </span>
+                  ) : (
+                    <span>
+                      {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                    </span>
+                  )}
+                </li>
+              </ul>
+              )
+            </span>
+            <span
+              className={`${
+                styles.visualizationheader_container_header__title_icon
+              }`}
+              onClick={() => this.onFilterButtonClick(true)}
+            />
+          </div>
+          {Modal}
         </div>
-        {Modal}
+        {this.props.children}
       </div>
     );
   }

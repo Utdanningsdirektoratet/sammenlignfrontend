@@ -1,41 +1,13 @@
 import React from "react";
 
 import { SammenligningTemplate } from "./index";
-import {
-  MainElement,
-  LonnElement,
-  ArbeidsledighetElement,
-} from "../../data/ApiTypes";
-import VisualizationHeaderLonn, {
-  VisualizationHeaderConfigLonn,
-} from "../visualizations/Lonn/VisualizationHeaderLonn";
+import { MainElement, ArbeidsledighetElement } from "../../data/ApiTypes";
 import VisualizationHeaderArbeidsledighet, {
   VisualizationHeaderConfigArbeidsledighet,
 } from "../visualizations/Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 
 const Utdanning: SammenligningTemplate[] = [
-  {
-    title: "Lønnsstatistikk",
-    widget_id: "lonn",
-    path: "/rest/lonn",
-    HeaderComponent: VisualizationHeaderLonn,
-    //query: { sektor: "A" },
-    render: (data: LonnElement, config: VisualizationHeaderConfigLonn) => (
-      <div>
-        hei
-        {Object.keys(data).map(key => {
-          const lonn = data[key];
-          return (
-            <div>
-              hei
-              {lonn.A.D.sektor}
-            </div>
-          );
-        })}
-      </div>
-    ),
-  },
   {
     title: "Arbeidsledighet",
     widget_id: "arbeidsledighet",

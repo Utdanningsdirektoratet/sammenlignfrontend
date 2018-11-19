@@ -8,12 +8,12 @@ import { ComparisonHeaderProps } from "../Shared/ComparisonHeader";
 import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
 
 export type VisualizationHeaderConfigLonn = {
-  Arbeidstid: Arbeidstid[];
+  Arbeidstid: Arbeidstid;
   Sektor: Sektor[];
   Tidsenhet: Tidsenhet;
   Lønn: Lønn;
   StatistiskMål: StatistiskMål;
-  Kjønn: Kjønn[];
+  Kjønn: Kjønn;
 };
 
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
@@ -32,12 +32,12 @@ class VisualizationHeaderLonn extends Component<
 
   componentDidMount = () => {
     var config: VisualizationHeaderConfigLonn = {
-      Arbeidstid: ["A"],
+      Arbeidstid: "A",
       Sektor: ["A"],
       Tidsenhet: "Årlig",
       Lønn: "Brutto",
       StatistiskMål: "Median",
-      Kjønn: ["A"],
+      Kjønn: "A",
     };
 
     this.props.setConfig(config);
@@ -59,12 +59,7 @@ class VisualizationHeaderLonn extends Component<
     var value = event.target.id;
     switch (key) {
       case "Arbeidstid":
-        var index = config.Arbeidstid.indexOf(value);
-        if (index > -1) {
-          config.Arbeidstid.splice(index, 1);
-        } else {
-          config.Arbeidstid.push(value);
-        }
+        config.Arbeidstid = value;
         break;
       case "Sektor":
         var index = config.Sektor.indexOf(value);
@@ -84,12 +79,7 @@ class VisualizationHeaderLonn extends Component<
         config.StatistiskMål = value;
         break;
       case "Kjønn":
-        var index = config.Kjønn.indexOf(value);
-        if (index > -1) {
-          config.Kjønn.splice(index, 1);
-        } else {
-          config.Kjønn.push(value);
-        }
+        config.Kjønn = value;
         break;
       default:
         return;
@@ -139,46 +129,43 @@ class VisualizationHeaderLonn extends Component<
             className={`${styles.visualizationheader_container_modal_filters}`}
           >
             <ul>
-              <Checkbox
-                text={<Translate nb="Heltid" nn="nynorsk" />}
-                valueKey="H"
-                isSelected={Arbeidstid.some((a: Arbeidstid) => {
-                  return a === "H";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber heltid."
-                    nn="nynorsk"
-                  />
-                }
-                onChange={event => this.onFilterClicked(event, "Arbeidstid")}
-              />
-              <Checkbox
-                text={<Translate nb="Deltid" nn="nynorsk" />}
-                valueKey="D"
-                isSelected={Arbeidstid.some((a: Arbeidstid) => {
-                  return a === "D";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber deltid."
-                    nn="nynorsk"
-                  />
-                }
-                onChange={event => this.onFilterClicked(event, "Arbeidstid")}
-              />
-              <Checkbox
-                text={<Translate nb="Begge" nn="nynorsk" />}
-                valueKey="A"
-                isSelected={Arbeidstid.some((a: Arbeidstid) => {
-                  return a === "A";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
-                    nn="nynorsk"
-                  />
-                }
+              <RadioButtonGroup
+                group={[
+                  {
+                    text: <Translate nb="Heltid" nn="nynorsk" />,
+                    selected: Arbeidstid === "H",
+                    valueKey: "H",
+                    helptext: (
+                      <Translate
+                        nb="Viser tall beregnet på grunnlag av dem som jobber heltid."
+                        nn="nynorsk"
+                      />
+                    ),
+                  },
+                  {
+                    text: <Translate nb="Deltid" nn="nynorsk" />,
+                    selected: Arbeidstid === "D",
+                    valueKey: "D",
+                    helptext: (
+                      <Translate
+                        nb="Viser tall beregnet på grunnlag av dem som jobber deltid."
+                        nn="nynorsk"
+                      />
+                    ),
+                  },
+                  {
+                    text: <Translate nb="Begge" nn="nynorsk" />,
+                    selected: Arbeidstid === "A",
+                    valueKey: "A",
+                    helptext: (
+                      <Translate
+                        nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
+                        nn="nynorsk"
+                      />
+                    ),
+                  },
+                ]}
+                name="arbeidstid"
                 onChange={event => this.onFilterClicked(event, "Arbeidstid")}
               />
             </ul>
@@ -350,122 +337,97 @@ class VisualizationHeaderLonn extends Component<
       );
 
     return (
-      <div className={`${styles.visualizationheader_container}`}>
-        <div className={`${styles.visualizationheader_container_header}`} />
-        <div
-          className={`${styles.visualizationheader_container_header__title}`}
-        >
-          <Translate nb="Lønn" nn="nynorsk" />{" "}
-          <span
-            className={`${
-              styles.visualizationheader_container_header__title_filter
-            }`}
+      <div>
+        <div className={`${styles.visualizationheader_container}`}>
+          <div className={`${styles.visualizationheader_container_header}`} />
+          <div
+            className={`${styles.visualizationheader_container_header__title}`}
           >
-            (
-            <ul>
-              <li>
-                {Arbeidstid.map((d: string, i: number) => {
-                  let text = "";
-                  if (i > 0) text = "/";
-                  switch (d) {
-                    case "A":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Begge" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "D":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Deltid" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "H":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Heltid" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
-              </li>
-              <li>
-                {Sektor.map((d: string, i: number) => {
-                  let text = "";
-                  if (Arbeidstid.length > 0 && i === 0) text = ",";
-                  if (i > 0) text = "/";
-                  switch (d) {
-                    case "A":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Alle" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "K":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Kommunal" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "P":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Privat" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "S":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Statlig" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
-              </li>
-              <li>
-                {(Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : "") +
-                  Tidsenhet}
-              </li>
-              <li>{", " + Lønn}</li>
-              <li>{", " + StatistiskMål}</li>
-              <li>
-                {Kjønn.map((d: string, i: number) => {
-                  let text = "";
-                  if (Arbeidstid.length > 0 && i === 0) text = ",";
-                  if (i > 0) text = "/";
-                  switch (d) {
-                    case "K":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Kvinner" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "M":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Menn" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                    case "A":
-                      return (
-                        <span key={d}>
-                          {text} <Translate nb="Begge" nn="nynorsk" />{" "}
-                        </span>
-                      );
-                  }
-                })}
-              </li>
-            </ul>
-            )
-          </span>
-          <span
-            className={`${
-              styles.visualizationheader_container_header__title_icon
-            }`}
-            onClick={() => this.onFilterButtonClick(true)}
-          />
+            <Translate nb="Lønn" nn="nynorsk" />{" "}
+            <span
+              className={`${
+                styles.visualizationheader_container_header__title_filter
+              }`}
+            >
+              (
+              <ul>
+                <li>
+                  {Arbeidstid === "A" ? (
+                    <span>
+                      {","} <Translate nb="Begge" nn="nynorsk" />{" "}
+                    </span>
+                  ) : Arbeidstid === "D" ? (
+                    <span>
+                      {","} <Translate nb="Deltid" nn="nynorsk" />{" "}
+                    </span>
+                  ) : (
+                    <span key={Arbeidstid}>
+                      {","} <Translate nb="Heltid" nn="nynorsk" />{" "}
+                    </span>
+                  )}
+                </li>
+                <li>
+                  {Sektor.map((d: string, i: number) => {
+                    let text = ",";
+                    if (i > 0) text = "/";
+                    switch (d) {
+                      case "A":
+                        return (
+                          <span key={d}>
+                            {text} <Translate nb="Alle" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "K":
+                        return (
+                          <span key={d}>
+                            {text} <Translate nb="Kommunal" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "P":
+                        return (
+                          <span key={d}>
+                            {text} <Translate nb="Privat" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                      case "S":
+                        return (
+                          <span key={d}>
+                            {text} <Translate nb="Statlig" nn="nynorsk" />{" "}
+                          </span>
+                        );
+                    }
+                  })}
+                </li>
+                <li>
+                  {(Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : "") +
+                    Tidsenhet}
+                </li>
+                <li>{", " + Lønn}</li>
+                <li>{", " + StatistiskMål}</li>
+                <li>
+                  {Kjønn === "A" ? (
+                    <span>
+                      {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                    </span>
+                  ) : (
+                    <span>
+                      {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                    </span>
+                  )}
+                </li>
+              </ul>
+              )
+            </span>
+            <span
+              className={`${
+                styles.visualizationheader_container_header__title_icon
+              }`}
+              onClick={() => this.onFilterButtonClick(true)}
+            />
+          </div>
+          {Modal}
         </div>
-        {Modal}
+        {this.props.children}
       </div>
     );
   }

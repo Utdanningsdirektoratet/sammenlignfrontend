@@ -15,15 +15,13 @@ class ArbeidsledighetWrapper extends React.Component<Props> {
   render() {
     const { data, config } = this.props;
     if (!data || Object.keys(data).length === 0) return null;
-    let kjønnData: Kjønn[] =
-      config.Kjønn.length > 0 ? config.Kjønn : ["A", "K", "M"];
     let fullførtData: Fullført[] =
       config.Fullført.length > 0 ? config.Fullført : ["710", "13", "A"];
 
     return (
       <ArbeidsledighetVisualization
         data={data}
-        kjønn={kjønnData}
+        kjønn={config.Kjønn}
         fullført={fullførtData}
         visning={config.Visning}
       />

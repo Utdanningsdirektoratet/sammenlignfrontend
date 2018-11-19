@@ -1,24 +1,26 @@
 import React from "react";
 
 import { StatistiskMål, Lønn, Tidsenhet } from "./VisualizationHeaderLonn";
-import { LonnObject, Kjønn } from "../../../data/ApiTypes";
+import { Kjønn, IArbeidstid, Arbeidstid } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
 import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
 import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import styles from "./LonnVisualization.module.scss";
 import Translate from "../../app/Translate";
+import Arbeidsledighet from "../Old/Arbeidsledighet";
 
 type Props = {
-  data: LonnObject;
-  kjønn: Kjønn[];
+  data: IArbeidstid;
+  arbeidstid: Arbeidstid;
+  kjønn: Kjønn;
   statistiskMål: StatistiskMål;
   lønn: Lønn;
   tidsenhet: Tidsenhet;
 };
 
 class LonnVisualization extends React.Component<Props> {
-  getDataQuery = (kjønn: Kjønn) => {
+  getDataQuery = (kjønn: string) => {
     let wage = kjønn + "_wage";
 
     switch (this.props.lønn) {
@@ -41,8 +43,11 @@ class LonnVisualization extends React.Component<Props> {
   };
 
   calcWageTimeUnit = (wage: string) => {
-    if (!(this.props.data as any)[wage]) return null;
-    let wageCalc = (this.props.data as any)[wage] as number;
+    if (!(this.props.data as any)[this.props.arbeidstid]) return null;
+    if (!(this.props.data as any)[this.props.arbeidstid][wage]) return null;
+    let wageCalc = (this.props.data as any)[this.props.arbeidstid][
+      wage
+    ] as number;
     switch (this.props.tidsenhet) {
       case "Årlig":
         wageCalc *= 12;
@@ -58,56 +63,53 @@ class LonnVisualization extends React.Component<Props> {
 
   render() {
     const { kjønn } = this.props;
-    let dom: any[] = [];
-    kjønn.map(k => {
-      let key = null;
-      switch (k) {
-        case "K":
-          key = <Female />;
-          break;
-        case "M":
-          key = <Male />;
-          break;
-        case "A":
-          key = (
-            <div>
+    let data = null;
+    if (kjønn === "A") {
+      data = this.calcWageTimeUnit(this.getDataQuery(kjønn));
+      if (data === null) return <NoData />;
+      return (
+        <div className={visualizationstyles.visualization_container}>
+          <div className={styles.lonnVisualization_kjonn}>
+            <div className={styles.lonnVisualization_kjonn_text}>
+              {data + " kr"}
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      let kvinner = this.calcWageTimeUnit(this.getDataQuery("K"));
+      let menn = this.calcWageTimeUnit(this.getDataQuery("M"));
+
+      if (kvinner === null && menn === null) return <NoData />;
+      return (
+        <div className={visualizationstyles.visualization_container}>
+          <div className={styles.lonnVisualization_kjonn}>
+            <div className={styles.lonnVisualization_kjonn_icon}>
               <Female />
+            </div>
+            <div className={styles.lonnVisualization_kjonn_text}>
+              {kvinner === null ? (
+                <Translate nb="Ingen data" nn="nynorsk" />
+              ) : (
+                kvinner + " kr"
+              )}
+            </div>
+          </div>
+          <div className={styles.lonnVisualization_kjonn}>
+            <div className={styles.lonnVisualization_kjonn_icon}>
               <Male />
             </div>
-          );
-          break;
-      }
-      dom.push({
-        key: key,
-        value: this.calcWageTimeUnit(this.getDataQuery(k)),
-      });
-    });
-    if (
-      dom.every(d => {
-        return d.value === null;
-      })
-    )
-      return <NoData />;
-    return (
-      <div className={visualizationstyles.visualization_container}>
-        {dom.map(d => {
-          return (
-            <div className={styles.lonnVisualization_kjonn}>
-              <div className={styles.lonnVisualization_kjonn_icon}>
-                {kjønn.length > 1 ? d.key : ""}
-              </div>
-              <div className={styles.lonnVisualization_kjonn_text}>
-                {d.value === null ? (
-                  <Translate nb="Ingen data" nn="nynorsk" />
-                ) : (
-                  d.value + " kr"
-                )}
-              </div>
+            <div className={styles.lonnVisualization_kjonn_text}>
+              {menn === null ? (
+                <Translate nb="Ingen data" nn="nynorsk" />
+              ) : (
+                menn + " kr"
+              )}
             </div>
-          );
-        })}
-      </div>
-    );
+          </div>
+        </div>
+      );
+    }
   }
 }
 
