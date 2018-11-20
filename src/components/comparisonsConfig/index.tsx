@@ -2,21 +2,20 @@ import Utdanning from "./Utdanning";
 import Yrke from "./Yrke";
 
 import { QueryObject } from "../../util/querystring";
-import { ComparisonHeaderProps } from "../visualizations/Shared/ComparisonHeader";
+
+export type ComparisonComponentProps<Data> = {
+  data: { [uno_id: string]: Data };
+  template: SammenligningTemplate;
+  uno_ids: string[];
+};
 
 export interface SammenligningTemplate {
   title: string;
   widget_id: string;
   path: string;
   query?: QueryObject;
-  HeaderComponent?: React.ComponentClass<ComparisonHeaderProps<any>>;
-  render: (
-    data: any,
-    config?: any,
-    rowIndex?: number,
-    unoId?: string,
-    setConfig?: (config: any) => void
-  ) => JSX.Element;
+  render?: (data: any) => JSX.Element;
+  Component?: React.ComponentClass<ComparisonComponentProps<any>>;
 }
 
 const exported: { [key: string]: SammenligningTemplate[] } = {

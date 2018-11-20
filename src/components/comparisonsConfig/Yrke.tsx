@@ -59,37 +59,14 @@ const Yrke: SammenligningTemplate[] = [
     title: "Lønnsstatistikk",
     widget_id: "lonn",
     path: "/rest/lonn",
-    HeaderComponent: VisualizationHeaderLonn,
-    query: { sektor: "A" },
-    render: (
-      data: LonnElement,
-      config: VisualizationHeaderConfigLonn,
-      rowIndex?: number,
-      unoId?: string,
-      setConfig?: (config: any) => void
-    ) => (
-      <LonnWrapper
-        data={data}
-        config={config}
-        rowIndex={rowIndex}
-        unoId={unoId}
-        setConfig={setConfig}
-      />
-    ),
+    // query: { sektor: "A" },
+    Component: LonnWrapper,
   },
   {
     title: "Arbeidsledighet",
     widget_id: "arbeidsledighet",
     path: "/rest/arbeidsledighet",
-    HeaderComponent: VisualizationHeaderArbeidsledighet,
-    render: (
-      fullData: ArbeidsledighetElement,
-      config: VisualizationHeaderConfigArbeidsledighet
-    ) => {
-      const data = fullData[Object.keys(fullData)[0]];
-
-      return <ArbeidsledighetWrapper data={data} config={config} />;
-    },
+    Component: ArbeidsledighetWrapper,
   },
   {
     title: "Uno id",

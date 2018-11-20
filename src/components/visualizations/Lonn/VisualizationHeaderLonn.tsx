@@ -2,7 +2,6 @@ import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
-import { ComparisonHeaderProps } from "../Shared/ComparisonHeader";
 import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
 import HeaderLonnFilters from "./HeaderLonnFilters";
 
@@ -13,43 +12,24 @@ export type VisualizationHeaderConfigLonn = {
   Lønn: Lønn;
   StatistiskMål: StatistiskMål;
   Kjønn: Kjønn;
-  rows: string[];
-  ssbSektor: { [unoId: string]: string };
+  ssbSektor: { [uno_id: string]: string };
 };
 
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
 export type Lønn = "Brutto" | "Med overtid";
 export type StatistiskMål = "Median" | "Gjennomsnitt";
 
+type Props = {
+  config: VisualizationHeaderConfigLonn;
+  setConfig: (config: VisualizationHeaderConfigLonn) => void;
+};
+
 type State = {
   open: boolean;
 };
 
-class VisualizationHeaderLonn extends Component<
-  ComparisonHeaderProps<VisualizationHeaderConfigLonn>,
-  State
-> {
+class VisualizationHeaderLonn extends Component<Props, State> {
   state = { open: false };
-  componentDidMount = () => {
-    var config: VisualizationHeaderConfigLonn = {
-      Arbeidstid: "A",
-      Sektor: ["A"],
-      Tidsenhet: "Årlig",
-      Lønn: "Brutto",
-      StatistiskMål: "Median",
-      Kjønn: "A",
-      rows: ["", ""],
-      ssbSektor: {},
-    };
-    this.props.setConfig(config);
-  };
-  componentWillReceiveProps(
-    nextProps: ComparisonHeaderProps<VisualizationHeaderConfigLonn>
-  ) {
-    if (nextProps.config !== this.props.config) {
-      this.forceUpdate();
-    }
-  }
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
@@ -85,24 +65,7 @@ class VisualizationHeaderLonn extends Component<
       default:
         return;
     }
-    config.rows =
-      config.Sektor.length <= 1
-        ? ["", ""]
-        : config.Sektor.map(s => {
-            switch (s) {
-              //TODO: Add keys for translation
-              case "A":
-                return "Alle sektorer";
-              case "K":
-                return "Kommunal sektor";
-              case "P":
-                return "Privat sektor";
-              case "S":
-                return "Statlig sektor";
-              default:
-                return "";
-            }
-          }).concat("");
+
     this.props.setConfig(config);
   };
 

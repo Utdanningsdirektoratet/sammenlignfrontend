@@ -7,10 +7,10 @@ import styles from "./LonnSpecificChoice.module.scss";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 
 type Props = {
-  onSelected: (event: any) => void;
+  onChange: (uno_id: string, ssb_sektor: string) => void;
   data: LonnElement;
   selectedChoice: string;
-  unoId?: string;
+  unoId: string;
 };
 
 type State = {
@@ -23,10 +23,16 @@ class LonnSpecificChoice extends Component<Props, State> {
   toggleModal = () => {
     this.setState({ openModal: !this.state.openModal });
   };
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const ssb_sektor = event.currentTarget.id;
+    const uno_id = this.props.unoId;
+
+    this.props.onChange(this.props.unoId, ssb_sektor);
+  };
 
   render() {
     const { data, selectedChoice, unoId } = this.props;
-
+    if (!data) return <div />;
     const OpenIconDom =
       Object.keys(data).length > 1 ? (
         <OpenIcon unoId="" onClick={this.toggleModal} />
@@ -51,7 +57,7 @@ class LonnSpecificChoice extends Component<Props, State> {
                   } as any;
                 })}
                 name={"specificChoice_" + unoId}
-                onChange={event => this.props.onSelected(event)}
+                onChange={this.handleChange}
               />
             </div>
           </div>
