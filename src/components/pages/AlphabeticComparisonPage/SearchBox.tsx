@@ -71,7 +71,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
   };
 
   onClickItem = (unoId: any) => {
-    this.props.appState.toggleSelection(unoId);
+    this.props.appState.toggleUnoId(unoId);
     this.setState({ data: [], searchString: "", listText: "" });
   };
 
