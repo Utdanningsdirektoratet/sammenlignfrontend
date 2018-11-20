@@ -194,6 +194,7 @@ class VisualizationHeaderArbeidsledighet extends Component<
             <HeaderModalKjonn
               kjønn={Kjønn}
               onFilterClicked={this.onFilterClicked}
+              showHelpText={true}
             />
           </div>
         </div>

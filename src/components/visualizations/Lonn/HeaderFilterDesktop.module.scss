@@ -1,0 +1,43 @@
+.container {
+  @media (max-width: 575px) {
+    display: none;
+  }
+
+  background-color: darkgrey;
+  &_head {
+    display: flex;
+    font-weight: 500;
+    font-size: 1.4em;
+    padding: 10px;
+    &_infotext {
+      margin-right: 6px;
+    }
+    &_upper {
+      text-transform: uppercase;
+    }
+
+    &_icon {
+      span {
+        background-color: white;
+        float: none;
+        margin-left: 8px;
+        display: inline-block;
+      }
+    }
+  }
+
+  &_content {
+    background-color: darkgrey;
+    padding: 10px;
+    padding-left: 20px;
+    padding-top: 0;
+
+    & > div:first-child {
+      display: flex;
+      justify-content: center;
+    }
+    ul {
+      width: 16%;
+    }
+  }
+}

@@ -6,6 +6,8 @@ import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import { ComparisonHeaderProps } from "../Shared/ComparisonHeader";
 import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
+import HeaderFilterDesktop from "./HeaderFilterDesktop";
+import HeaderLonnFilters from "./HeaderLonnFilters";
 
 export type VisualizationHeaderConfigLonn = {
   Arbeidstid: Arbeidstid;
@@ -145,214 +147,11 @@ class VisualizationHeaderLonn extends Component<
               />
             </div>
           </div>
-          <div
-            className={`${styles.visualizationheader_container_modal_filters}`}
-          >
-            <ul>
-              <RadioButtonGroup
-                group={[
-                  {
-                    text: <Translate nb="Heltid" nn="nynorsk" />,
-                    selected: Arbeidstid === "H",
-                    valueKey: "H",
-                    helptext: (
-                      <Translate
-                        nb="Viser tall beregnet på grunnlag av dem som jobber heltid."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Deltid" nn="nynorsk" />,
-                    selected: Arbeidstid === "D",
-                    valueKey: "D",
-                    helptext: (
-                      <Translate
-                        nb="Viser tall beregnet på grunnlag av dem som jobber deltid."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Begge" nn="nynorsk" />,
-                    selected: Arbeidstid === "A",
-                    valueKey: "A",
-                    helptext: (
-                      <Translate
-                        nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                ]}
-                name="arbeidstid"
-                onChange={event => this.onFilterClicked(event, "Arbeidstid")}
-              />
-            </ul>
-            <ul>
-              <Checkbox
-                text={<Translate nb="Privat" nn="nynorsk" />}
-                valueKey="P"
-                isSelected={Sektor.some((a: Sektor) => {
-                  return a === "P";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
-                    nn="nynorsk"
-                  />
-                }
-                onChange={event => this.onFilterClicked(event, "Sektor")}
-              />
-              <Checkbox
-                text={<Translate nb="Statlig" nn="nynorsk" />}
-                valueKey="S"
-                isSelected={Sektor.some((a: Sektor) => {
-                  return a === "S";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
-                    nn="nynorsk"
-                  />
-                }
-                onChange={event => this.onFilterClicked(event, "Sektor")}
-              />
-              <Checkbox
-                text={<Translate nb="Kommunal" nn="nynorsk" />}
-                valueKey="K"
-                isSelected={Sektor.some((a: Sektor) => {
-                  return a === "K";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
-                    nn="nynorsk"
-                  />
-                }
-                onChange={event => this.onFilterClicked(event, "Sektor")}
-              />
-              <Checkbox
-                text={<Translate nb="Alle" nn="nynorsk" />}
-                valueKey="A"
-                isSelected={Sektor.some((a: Sektor) => {
-                  return a === "A";
-                })}
-                helpText={
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
-                    nn="nynorsk"
-                  />
-                }
-                onChange={event => this.onFilterClicked(event, "Sektor")}
-              />
-            </ul>
-            <ul>
-              <RadioButtonGroup
-                group={[
-                  {
-                    text: <Translate nb="Per år" nn="nynorsk" />,
-                    selected: Tidsenhet === "Årlig",
-                    valueKey: "Årlig",
-                    helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt i året."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Per måned" nn="nynorsk" />,
-                    selected: Tidsenhet === "Månedlig",
-                    valueKey: "Månedlig",
-                    helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt månedlig."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Per time" nn="nynorsk" />,
-                    selected: Tidsenhet === "Ca. timelønn",
-                    valueKey: "Ca. timelønn",
-                    helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt per time."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                ]}
-                name="tidsenhet"
-                onChange={event => this.onFilterClicked(event, "Tidsenhet")}
-              />
-            </ul>
-            <ul>
-              <RadioButtonGroup
-                group={[
-                  {
-                    text: <Translate nb="Brutto" nn="nynorsk" />,
-                    selected: Lønn === "Brutto",
-                    valueKey: "Brutto",
-                    helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt i brutto, eksklusive overtid."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Inklusiv overtid" nn="nynorsk" />,
-                    selected: Lønn === "Med overtid",
-                    valueKey: "Med overtid",
-                    helptext: (
-                      <Translate
-                        nb="Viser sum lønn utbetalt inklusive overtid."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                ]}
-                name="lønn"
-                onChange={event => this.onFilterClicked(event, "Lønn")}
-              />
-            </ul>
-            <ul>
-              <RadioButtonGroup
-                group={[
-                  {
-                    text: <Translate nb="Median" nn="nynorsk" />,
-                    selected: StatistiskMål === "Median",
-                    valueKey: "Median",
-                    helptext: (
-                      <Translate
-                        nb="Viser utregnet median for lønn utbetalt."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Gjennomsnitt" nn="nynorsk" />,
-                    selected: StatistiskMål === "Gjennomsnitt",
-                    valueKey: "Gjennomsnitt",
-                    helptext: (
-                      <Translate
-                        nb="Viser gjennomsnittlig lønn utbetalt."
-                        nn="nynorsk"
-                      />
-                    ),
-                  },
-                ]}
-                name="statistiskmål"
-                onChange={event => this.onFilterClicked(event, "StatistiskMål")}
-              />
-            </ul>
-            <HeaderModalKjonn
-              kjønn={Kjønn}
-              onFilterClicked={this.onFilterClicked}
-            />
-          </div>
+          <HeaderLonnFilters
+            config={this.props.config}
+            onFilterClicked={this.onFilterClicked}
+            showHelpText={true}
+          />
         </div>
       );
 
@@ -418,12 +217,12 @@ class VisualizationHeaderLonn extends Component<
                     }
                   })}
                 </li>
+                <li>{", " + Lønn}</li>
+                <li>{", " + StatistiskMål}</li>
                 <li>
                   {(Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : "") +
                     Tidsenhet}
                 </li>
-                <li>{", " + Lønn}</li>
-                <li>{", " + StatistiskMål}</li>
                 <li>
                   {Kjønn === "A" ? (
                     <span>
@@ -448,6 +247,10 @@ class VisualizationHeaderLonn extends Component<
           {Modal}
         </div>
         {this.props.children}
+        <HeaderFilterDesktop
+          config={this.props.config}
+          onFilterClicked={this.onFilterClicked}
+        />
       </div>
     );
   }
