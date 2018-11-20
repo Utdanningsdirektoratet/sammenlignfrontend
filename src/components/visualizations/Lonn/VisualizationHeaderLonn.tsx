@@ -14,6 +14,8 @@ export type VisualizationHeaderConfigLonn = {
   Lønn: Lønn;
   StatistiskMål: StatistiskMål;
   Kjønn: Kjønn;
+  rows: string[];
+  ssbSektor: { [unoId: string]: string };
 };
 
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
@@ -29,7 +31,6 @@ class VisualizationHeaderLonn extends Component<
   State
 > {
   state = { open: false };
-
   componentDidMount = () => {
     var config: VisualizationHeaderConfigLonn = {
       Arbeidstid: "A",
@@ -38,8 +39,9 @@ class VisualizationHeaderLonn extends Component<
       Lønn: "Brutto",
       StatistiskMål: "Median",
       Kjønn: "A",
+      rows: ["", ""],
+      ssbSektor: {},
     };
-
     this.props.setConfig(config);
   };
   componentWillReceiveProps(
@@ -84,6 +86,24 @@ class VisualizationHeaderLonn extends Component<
       default:
         return;
     }
+    config.rows =
+      config.Sektor.length <= 1
+        ? ["", ""]
+        : config.Sektor.map(s => {
+            switch (s) {
+              //TODO: Add keys for translation
+              case "A":
+                return "Alle sektorer";
+              case "K":
+                return "Kommunal sektor";
+              case "P":
+                return "Privat sektor";
+              case "S":
+                return "Statlig sektor";
+              default:
+                return "";
+            }
+          }).concat("");
     this.props.setConfig(config);
   };
 
@@ -312,15 +332,15 @@ class VisualizationHeaderLonn extends Component<
                 <li>
                   {Arbeidstid === "A" ? (
                     <span>
-                      {","} <Translate nb="Begge" />{" "}
+                      <Translate nb="Begge" />{" "}
                     </span>
                   ) : Arbeidstid === "D" ? (
                     <span>
-                      {","} <Translate nb="Deltid" />{" "}
+                      <Translate nb="Deltid" />{" "}
                     </span>
                   ) : (
                     <span key={Arbeidstid}>
-                      {","} <Translate nb="Heltid" />{" "}
+                      <Translate nb="Heltid" />{" "}
                     </span>
                   )}
                 </li>

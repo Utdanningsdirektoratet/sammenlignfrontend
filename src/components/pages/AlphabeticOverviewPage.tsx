@@ -21,11 +21,13 @@ import Translate from "../app/Translate";
 import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
+import AlphabetFilter from "../filters/AlphabetFilter";
 
 type State = {
   data: DataList;
   interesserSelected: string[];
   redirectToHomepage: boolean;
+  selectedLetters: string[];
 };
 
 type Props = RouteComponentProps<{
@@ -38,6 +40,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     data: { list: [] as MainElement[], interesser: [] as string[] },
     interesserSelected: [] as string[],
     redirectToHomepage: false,
+    selectedLetters: [],
   };
   componentDidMount() {
     const {
@@ -112,6 +115,21 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     });
   };
 
+  onLetterClicked = (letter?: string, selectAll?: boolean) => {
+    if (selectAll) {
+      this.setState({ selectedLetters: [] });
+      return;
+    }
+    if (letter) {
+      let letters = this.state.selectedLetters as string[];
+      var index = letters.indexOf(letter);
+      if (index === -1) letters.push(letter);
+      else letters.splice(index, 1);
+
+      this.setState({ selectedLetters: letters });
+    }
+  };
+
   render() {
     const { innholdstype } = this.props.match.params;
     const { selected_uno_id } = this.props.appState;
@@ -152,7 +170,11 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             toggleSelectedInterests={this.toggleSelectedInterests}
             removeAllSelected={this.removeAllSelectedInterests}
           />
-
+          <AlphabetFilter
+            list={this.getFilteredList()}
+            onLetterClicked={this.onLetterClicked}
+            selectedLetters={this.state.selectedLetters}
+          />
           <ul className={styles.alphabetic}>
             <AlphabeticList
               list={this.getFilteredList()}
