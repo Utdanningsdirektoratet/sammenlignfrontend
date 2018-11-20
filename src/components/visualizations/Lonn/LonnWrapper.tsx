@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { LonnElement, Sektor } from "../../../data/ApiTypes";
 import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
 import NoData from "../Old/NoData";
@@ -17,7 +17,7 @@ type State = {
   selectedChoice: string;
 };
 
-class LonnWrapper extends React.Component<Props, State> {
+class LonnWrapper extends Component<Props, State> {
   state = {
     selectedChoice: Object.keys(this.props.data)[0],
   };

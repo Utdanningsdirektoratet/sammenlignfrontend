@@ -11,7 +11,7 @@ type Props = {
   showHeaders?: boolean;
 };
 
-class HeaderModalKjønn extends React.Component<Props> {
+class HeaderModalKjønn extends Component<Props> {
   render() {
     const { kjønn, onFilterClicked, showHelpText, showHeaders } = this.props;
     return (
@@ -22,7 +22,7 @@ class HeaderModalKjønn extends React.Component<Props> {
               styles.visualizationheader_container_modal_filters_header
             }
           >
-            Kjønn
+            <Translate nb="Kjønn" />
           </div>
         ) : null}
         <RadioButtonGroup
@@ -38,7 +38,7 @@ class HeaderModalKjønn extends React.Component<Props> {
               ),
             },
             {
-              text: <Translate nb="Kvinner / menn" nn="nynorsk" />,
+              text: <Translate nb="Kvinner / menn" />,
               selected: kjønn === "KM",
               valueKey: "KM",
               helptext: showHelpText ? (

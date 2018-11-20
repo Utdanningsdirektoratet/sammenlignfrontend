@@ -51,7 +51,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 styles.visualizationheader_container_modal_filters_header
               }
             >
-              Arbeidstid
+              <Translate nb="Arbeidstid" />
               {showHeaderHelpText ? (
                 <span
                   className={
@@ -71,8 +71,10 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        Vis tall beregnet på grunnlag av dem som jobber heltid,
-                        deltid, eller alle arbeidstider.
+                        <Translate
+                          nb="Vis tall beregnet på grunnlag av dem som jobber heltid,
+                        deltid, eller alle arbeidstider."
+                        />
                       </div>
                       <div
                         className={
@@ -93,40 +95,31 @@ class HeaderLonnFilters extends Component<Props, State> {
           <RadioButtonGroup
             group={[
               {
-                text: <Translate nb="Heltid" nn="nynorsk" />,
+                text: <Translate nb="Heltid" />,
                 selected: Arbeidstid === "H",
                 valueKey: "H",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber heltid."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber heltid." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Deltid" nn="nynorsk" />,
+                text: <Translate nb="Deltid" />,
                 selected: Arbeidstid === "D",
                 valueKey: "D",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber deltid."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber deltid." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Begge" nn="nynorsk" />,
+                text: <Translate nb="Begge" />,
                 selected: Arbeidstid === "A",
                 valueKey: "A",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid." />
                 ) : (
                   undefined
                 ),
@@ -143,7 +136,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 styles.visualizationheader_container_modal_filters_header
               }
             >
-              Sektor
+              <Translate nb="Sektor" />
               {showHeaderHelpText ? (
                 <span
                   className={
@@ -163,8 +156,10 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        Vis tall beregnet på grunnlag av dem som jobber i
-                        forskjellige sektorer, eller alle sektorer.
+                        <Translate
+                          nb="Vis tall beregnet på grunnlag av dem som jobber i
+                        forskjellige sektorer, eller alle sektorer."
+                        />
                       </div>
                       <div
                         className={
@@ -183,17 +178,14 @@ class HeaderLonnFilters extends Component<Props, State> {
             </div>
           ) : null}
           <Checkbox
-            text={<Translate nb="Alle" nn="nynorsk" />}
+            text={<Translate nb="Alle" />}
             valueKey="A"
             isSelected={Sektor.some((a: Sektor) => {
               return a === "A";
             })}
             helpText={
               showHelpText ? (
-                <Translate
-                  nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor."
-                  nn="nynorsk"
-                />
+                <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor." />
               ) : (
                 undefined
               )
@@ -201,17 +193,14 @@ class HeaderLonnFilters extends Component<Props, State> {
             onChange={event => this.props.onFilterClicked(event, "Sektor")}
           />
           <Checkbox
-            text={<Translate nb="Privat" nn="nynorsk" />}
+            text={<Translate nb="Privat" />}
             valueKey="P"
             isSelected={Sektor.some((a: Sektor) => {
               return a === "P";
             })}
             helpText={
               showHelpText ? (
-                <Translate
-                  nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor."
-                  nn="nynorsk"
-                />
+                <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor." />
               ) : (
                 undefined
               )
@@ -219,7 +208,7 @@ class HeaderLonnFilters extends Component<Props, State> {
             onChange={event => this.props.onFilterClicked(event, "Sektor")}
           />
           <Checkbox
-            text={<Translate nb="Statlig" nn="nynorsk" />}
+            text={<Translate nb="Statlig" />}
             valueKey="S"
             isSelected={Sektor.some((a: Sektor) => {
               return a === "S";
@@ -237,17 +226,14 @@ class HeaderLonnFilters extends Component<Props, State> {
             onChange={event => this.props.onFilterClicked(event, "Sektor")}
           />
           <Checkbox
-            text={<Translate nb="Kommunal" nn="nynorsk" />}
+            text={<Translate nb="Kommunal" />}
             valueKey="K"
             isSelected={Sektor.some((a: Sektor) => {
               return a === "K";
             })}
             helpText={
               showHelpText ? (
-                <Translate
-                  nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor."
-                  nn="nynorsk"
-                />
+                <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor." />
               ) : (
                 undefined
               )
@@ -262,7 +248,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 styles.visualizationheader_container_modal_filters_header
               }
             >
-              Grunnlag
+              <Translate nb="Grunnlag" />
               {showHeaderHelpText ? (
                 <span
                   className={
@@ -282,8 +268,10 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        Vis sum lønn utbetalt på gitt grunnlag, i brutto eller
-                        inklusive overtid.
+                        <Translate
+                          nb="Vis sum lønn utbetalt på gitt grunnlag, i brutto eller
+                        inklusive overtid."
+                        />
                       </div>
                       <div
                         className={
@@ -304,27 +292,21 @@ class HeaderLonnFilters extends Component<Props, State> {
           <RadioButtonGroup
             group={[
               {
-                text: <Translate nb="Brutto" nn="nynorsk" />,
+                text: <Translate nb="Brutto" />,
                 selected: Lønn === "Brutto",
                 valueKey: "Brutto",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser sum lønn utbetalt i brutto, eksklusive overtid."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser sum lønn utbetalt i brutto, eksklusive overtid." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Inklusiv overtid" nn="nynorsk" />,
+                text: <Translate nb="Inklusiv overtid" />,
                 selected: Lønn === "Med overtid",
                 valueKey: "Med overtid",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser sum lønn utbetalt inklusive overtid."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser sum lønn utbetalt inklusive overtid." />
                 ) : (
                   undefined
                 ),
@@ -341,7 +323,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 styles.visualizationheader_container_modal_filters_header
               }
             >
-              Beregning
+              <Translate nb="Beregning" />
               {showHeaderHelpText ? (
                 <span
                   className={
@@ -361,7 +343,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        Vis beregning av tall gitt av median eller gjennomsnitt.
+                        <Translate nb="Vis beregning av tall gitt av median eller gjennomsnitt." />
                       </div>
                       <div
                         className={
@@ -382,27 +364,21 @@ class HeaderLonnFilters extends Component<Props, State> {
           <RadioButtonGroup
             group={[
               {
-                text: <Translate nb="Median" nn="nynorsk" />,
+                text: <Translate nb="Median" />,
                 selected: StatistiskMål === "Median",
                 valueKey: "Median",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser utregnet median for lønn utbetalt."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser utregnet median for lønn utbetalt." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Gjennomsnitt" nn="nynorsk" />,
+                text: <Translate nb="Gjennomsnitt" />,
                 selected: StatistiskMål === "Gjennomsnitt",
                 valueKey: "Gjennomsnitt",
                 helptext: showHelpText ? (
-                  <Translate
-                    nb="Viser gjennomsnittlig lønn utbetalt."
-                    nn="nynorsk"
-                  />
+                  <Translate nb="Viser gjennomsnittlig lønn utbetalt." />
                 ) : (
                   undefined
                 ),
@@ -421,7 +397,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 styles.visualizationheader_container_modal_filters_header
               }
             >
-              Periode
+              <Translate nb="Periode" />
               {showHeaderHelpText ? (
                 <span
                   className={
@@ -441,8 +417,10 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        Vis sum lønn utbetalt enten årlig, månedlig eller per
-                        time.
+                        <Translate
+                          nb="Vis sum lønn utbetalt enten årlig, månedlig eller per
+                        time."
+                        />
                       </div>
                       <div
                         className={
@@ -463,7 +441,7 @@ class HeaderLonnFilters extends Component<Props, State> {
           <RadioButtonGroup
             group={[
               {
-                text: <Translate nb="Per år" nn="nynorsk" />,
+                text: <Translate nb="Per år" />,
                 selected: Tidsenhet === "Årlig",
                 valueKey: "Årlig",
                 helptext: showHelpText ? (
@@ -476,7 +454,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 ),
               },
               {
-                text: <Translate nb="Per måned" nn="nynorsk" />,
+                text: <Translate nb="Per måned" />,
                 selected: Tidsenhet === "Månedlig",
                 valueKey: "Månedlig",
                 helptext: showHelpText ? (
@@ -489,7 +467,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 ),
               },
               {
-                text: <Translate nb="Per time" nn="nynorsk" />,
+                text: <Translate nb="Per time" />,
                 selected: Tidsenhet === "Ca. timelønn",
                 valueKey: "Ca. timelønn",
                 helptext: showHelpText ? (

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
-import styles from "./HeaderFilterDesktop.module.scss";
+import styles from "../Shared/HeaderFilterDesktop.module.scss";
 import OpenIcon from "../Generic/OpenIcon";
 import CloseIcon2 from "../Generic/CloseIcon2";
 import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
@@ -15,7 +15,7 @@ type State = {
   expanded: boolean;
 };
 
-class HeaderFilterDesktop extends Component<Props, State> {
+class LonnHeaderFilterDesktop extends Component<Props, State> {
   state = { expanded: false };
 
   toggleExpansion = () => {
@@ -39,11 +39,11 @@ class HeaderFilterDesktop extends Component<Props, State> {
       <div className={styles.container}>
         <div className={styles.container_head}>
           <div className={styles.container_head_infotext}>
-            <Translate nb="Visningsalternativer" nn="nynorsk" />
+            <Translate nb="Visningsalternativer" />
           </div>
           <div className={styles.container_head_upper}>
             {" - "}
-            <Translate nb="Lønn" nn="nynorsk" />
+            <Translate nb="Lønn" />
           </div>
           <div className={styles.container_head_icon}>
             {this.state.expanded ? (
@@ -59,4 +59,4 @@ class HeaderFilterDesktop extends Component<Props, State> {
   }
 }
 
-export default HeaderFilterDesktop;
+export default LonnHeaderFilterDesktop;

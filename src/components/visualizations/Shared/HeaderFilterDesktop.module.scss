@@ -26,7 +26,8 @@
     }
   }
 
-  &_content {
+  &_content,
+  &_content_arbeidsledighet {
     background-color: darkgrey;
     padding: 10px;
     padding-left: 20px;
@@ -38,6 +39,12 @@
     }
     ul {
       width: 16%;
+    }
+
+    &_arbeidsledighet {
+      ul {
+        width: 30%;
+      }
     }
   }
 }

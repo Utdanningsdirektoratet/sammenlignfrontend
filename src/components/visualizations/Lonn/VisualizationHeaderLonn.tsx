@@ -2,11 +2,8 @@ import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
-import Checkbox from "../../defaultComponents/Checkbox";
-import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import { ComparisonHeaderProps } from "../Shared/ComparisonHeader";
-import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
-import HeaderFilterDesktop from "./HeaderFilterDesktop";
+import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
 import HeaderLonnFilters from "./HeaderLonnFilters";
 
 export type VisualizationHeaderConfigLonn = {
@@ -247,7 +244,7 @@ class VisualizationHeaderLonn extends Component<
           {Modal}
         </div>
         {this.props.children}
-        <HeaderFilterDesktop
+        <LonnHeaderFilterDesktop
           config={this.props.config}
           onFilterClicked={this.onFilterClicked}
         />
