@@ -4,14 +4,11 @@ import styles from "./ComparisonHeader.module.scss";
 
 import { SammenligningTemplate } from "../../comparisonsConfig";
 
-export interface ComparisonHeaderProps<T> {
+export interface Props {
   comparison: SammenligningTemplate;
-  children: any;
-  config: T;
-  setConfig: (config: T) => void;
 }
 
-class ComparisonHeader extends Component<ComparisonHeaderProps<any>> {
+class ComparisonHeader extends Component<Props> {
   render() {
     const { comparison, children } = this.props;
     return (
@@ -19,7 +16,6 @@ class ComparisonHeader extends Component<ComparisonHeaderProps<any>> {
         <h3 className={`${styles.flex_item} ${styles.item_title}`}>
           {comparison.title}
         </h3>
-        {children}
       </div>
     );
   }

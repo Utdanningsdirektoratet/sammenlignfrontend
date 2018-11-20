@@ -2,16 +2,20 @@ import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
-import { ComparisonHeaderProps } from "../Shared/ComparisonHeader";
 import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
 import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
+import { SammenligningTemplate } from "../../comparisonsConfig";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
   Kjønn: Kjønn;
   Fullført: Fullført[];
   Visning: Visning;
-  rows: string[];
+};
+type Props = {
+  config: VisualizationHeaderConfigArbeidsledighet;
+  setConfig: (config: VisualizationHeaderConfigArbeidsledighet) => void;
+  comparison: SammenligningTemplate;
 };
 
 export type Fullført = "710" | "13" | "A";
@@ -20,50 +24,34 @@ type State = {
   open: boolean;
 };
 
-class VisualizationHeaderArbeidsledighet extends Component<
-  ComparisonHeaderProps<VisualizationHeaderConfigArbeidsledighet>,
-  State
-> {
+class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
   state = { open: false };
-
-  componentDidMount = () => {
-    var config: VisualizationHeaderConfigArbeidsledighet = {
-      Kjønn: "A",
-      Fullført: ["A"],
-      Visning: "Antall",
-      rows: [""],
-    };
-
-    this.props.setConfig(config);
-  };
-
-  componentWillReceiveProps(
-    nextProps: ComparisonHeaderProps<VisualizationHeaderConfigArbeidsledighet>
-  ) {
-    if (nextProps.config !== this.props.config) {
-      this.forceUpdate();
-    }
-  }
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
   };
 
   onFilterClicked = (event: any, key: string) => {
-    let config = this.props.config;
+    const { config, setConfig } = this.props;
     var value = event.target.id;
     switch (key) {
       case "Kjønn":
-        config.Kjønn = value;
+        setConfig({ ...config, Kjønn: value });
         break;
       case "Arbeidsledighet":
-        var index = config.Fullført.indexOf(value);
+        const index = config.Fullført.indexOf(value);
         if (index > -1) {
-          config.Fullført.splice(index, 1);
+          setConfig({
+            ...config,
+            Fullført: config.Fullført.filter(f => f === value),
+          });
         } else {
-          config.Fullført.push(value);
+          setConfig({
+            ...config,
+            Fullført: [...config.Fullført, value].sort(),
+          });
         }
-        config.Fullført.sort();
+
         break;
       case "Visning":
         config.Visning = value;
@@ -71,8 +59,6 @@ class VisualizationHeaderArbeidsledighet extends Component<
       default:
         return;
     }
-
-    this.props.setConfig(config);
   };
 
   render() {

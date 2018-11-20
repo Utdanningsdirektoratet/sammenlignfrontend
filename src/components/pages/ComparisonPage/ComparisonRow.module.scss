@@ -1,34 +1,7 @@
-.flex_container_row {
-  width: 100%;
+.row_style {
   display: flex;
-  justify-content: center;
-  &.titlerow {
-    width: 100%;
-    background-color: orange;
-    margin-bottom: 0.2em;
+  align-items: center;
+  > * {
+    flex: 1 0 0px;
   }
-}
-.flex_item {
-  width: 100%;
-  &.title {
-    font-size: 1.3em;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-    max-width: 30%;
-  }
-
-  &.item_title {
-    font-size: 1.3em;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-    background-color: orange;
-  }
-}
-
-.row_headline {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 0;
 }
