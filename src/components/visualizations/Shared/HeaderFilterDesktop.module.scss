@@ -3,7 +3,7 @@
     display: none;
   }
 
-  background-color: darkgrey;
+  background-color: #cecece;
   &_head {
     display: flex;
     font-weight: 500;
@@ -28,7 +28,7 @@
 
   &_content,
   &_content_arbeidsledighet {
-    background-color: darkgrey;
+    background-color: #cecece;
     padding: 10px;
     padding-left: 20px;
     padding-top: 0;
