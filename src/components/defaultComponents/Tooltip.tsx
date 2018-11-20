@@ -47,8 +47,6 @@ class Tooltip extends Component<Props, State> {
     ReplaceOpenTooltip(this.close);
   };
 
-  blurHandler = () => {};
-
   render() {
     const { header, icon, content } = this.props;
     const { open } = this.state;
