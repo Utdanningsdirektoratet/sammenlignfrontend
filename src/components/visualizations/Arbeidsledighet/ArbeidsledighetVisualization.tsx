@@ -75,13 +75,13 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
 
       switch (f) {
         case "710":
-          key = <Translate nb="7-10 år etter endt utdanning" nn="nynorsk" />;
+          key = <Translate nb="7-10 år etter endt utdanning" />;
           break;
         case "13":
-          key = <Translate nb="1-3 år etter endt utdanning" nn="nynorsk" />;
+          key = <Translate nb="1-3 år etter endt utdanning" />;
           break;
         case "A":
-          key = <Translate nb="Alle" nn="nynorsk" />;
+          key = <Translate nb="Alle" />;
           break;
       }
       let data = null;
@@ -121,7 +121,7 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                         }
                       >
                         {d.data === null ? (
-                          <Translate nb="Ingen data" nn="nynorsk" />
+                          <Translate nb="Ingen data" />
                         ) : (
                           d.data
                         )}
@@ -183,7 +183,7 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                               styles.arbeidsledighetvisualization_kjonn_container_text
                             }
                           >
-                            <Translate nb="Ingen data" nn="nynorsk" />
+                            <Translate nb="Ingen data" />
                           </div>
                         ) : (
                           <PercentageBar value={a.data as number} />
@@ -211,7 +211,7 @@ class ArbeidsledighetVisualization extends React.Component<Props> {
                                 styles.arbeidsledighetvisualization_kjonn_container_text
                               }
                             >
-                              <Translate nb="Ingen data" nn="nynorsk" />
+                              <Translate nb="Ingen data" />
                             </div>
                           ) : (
                             <div

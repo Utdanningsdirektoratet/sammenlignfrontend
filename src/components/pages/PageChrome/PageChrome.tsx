@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import Header from "./Header";
 import SecondHeader from "./SecondHeader";
-import TranslateContext from "../../app/TranslateContext";
+import { getLang } from "../../app/Translate";
 
 //import './PageChrome.css'
 
@@ -12,16 +12,12 @@ class PageChrome extends PureComponent {
   };
   render() {
     return (
-      <TranslateContext.Consumer>
-        {transContext => (
-          <div lang={transContext.lang}>
-            <Header />
-            <SecondHeader />
-            {this.props.children}
-            {/* <Footer /> */}
-          </div>
-        )}
-      </TranslateContext.Consumer>
+      <div lang={getLang()}>
+        <Header />
+        <SecondHeader />
+        {this.props.children}
+        {/* <Footer /> */}
+      </div>
     );
   }
 }

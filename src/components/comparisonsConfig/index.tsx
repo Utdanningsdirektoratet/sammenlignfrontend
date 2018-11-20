@@ -1,8 +1,7 @@
 import Utdanning from "./Utdanning";
 import Yrke from "./Yrke";
 
-import { QueryObject } from "../app/Api";
-import { Innholdstype } from "../../data/ApiTypes";
+import { QueryObject } from "../../util/querystring";
 import { ComparisonHeaderProps } from "../visualizations/Shared/ComparisonHeader";
 
 export interface SammenligningTemplate {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Innholdstype, MainElement } from "../../../data/ApiTypes";
 import { API_DOMAIN } from "../../../data/config";
-import { with_lang_props, LanguageProps } from "../../app/TranslateContext";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "../../../fontawesome/solid/search.svg";
@@ -18,10 +17,7 @@ type State = {
   listText: string;
 };
 
-class SearchBox extends Component<
-  Props & LanguageProps & AppStateProps,
-  State
-> {
+class SearchBox extends Component<Props & AppStateProps, State> {
   state = {
     data: [],
     searchString: "",
@@ -42,11 +38,7 @@ class SearchBox extends Component<
     }
     this.setState({ searchString: value });
 
-    fetch(
-      API_DOMAIN +
-        "/rest/suggest?" +
-        objectToQueryString({ sprak: this.props.lang, q: value })
-    )
+    fetch(API_DOMAIN + "/rest/suggest?" + objectToQueryString({ q: value }))
       .then(resp => resp.json())
       .then((data: MainElement[]) => {
         if (this.state.searchString === value) {
@@ -127,4 +119,4 @@ class SearchBox extends Component<
   }
 }
 
-export default with_lang_props<Props>(with_app_state(SearchBox));
+export default with_app_state<Props>(SearchBox);
