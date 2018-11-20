@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Main } from "../../data/ApiTypes";
 import { getMain } from "../../data/main";
-import { with_lang_props, LanguageProps } from "./TranslateContext";
 
 type Props = {
   uno_id: string;
@@ -10,10 +9,10 @@ type State = {
   main: Main;
 };
 
-class UnoId extends Component<Props & LanguageProps, State> {
+class UnoId extends Component<Props, State> {
   state: State = { main: {} as Main };
   componentDidMount() {
-    getMain(this.props.lang, data => {
+    getMain(data => {
       this.setState({ main: data });
     });
   }
@@ -24,4 +23,4 @@ class UnoId extends Component<Props & LanguageProps, State> {
   }
 }
 
-export default with_lang_props<Props>(UnoId);
+export default UnoId;

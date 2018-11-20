@@ -89,7 +89,7 @@ class LonnVisualization extends React.Component<Props> {
             </div>
             <div className={styles.lonnVisualization_kjonn_text}>
               {kvinner === null ? (
-                <Translate nb="Ingen data" nn="nynorsk" />
+                <Translate nb="Ingen data" />
               ) : (
                 kvinner + " kr"
               )}
@@ -100,11 +100,7 @@ class LonnVisualization extends React.Component<Props> {
               <Male />
             </div>
             <div className={styles.lonnVisualization_kjonn_text}>
-              {menn === null ? (
-                <Translate nb="Ingen data" nn="nynorsk" />
-              ) : (
-                menn + " kr"
-              )}
+              {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
             </div>
           </div>
         </div>

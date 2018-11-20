@@ -12,7 +12,6 @@ import { with_app_state, AppStateProps } from "../app/AppContext";
 import comparisonsConfig from "../comparisonsConfig";
 import { API_DOMAIN } from "../../data/config";
 import { objectToQueryString } from "../../util/querystring";
-import { with_lang_props, LanguageProps } from "../app/TranslateContext";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
 import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
@@ -23,8 +22,7 @@ import { ReactComponent as ArrowLeft } from "../../fontawesome/solid/arrow-left.
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
-  AppStateProps &
-  LanguageProps;
+  AppStateProps;
 
 class ComparisonPage extends Component<Props, State> {
   state: State = {};
@@ -36,7 +34,6 @@ class ComparisonPage extends Component<Props, State> {
       match: {
         params: { innholdstype },
       },
-      lang,
       appState: { selected_uno_id },
     } = this.props;
     const comparisons = comparisonsConfig[innholdstype];
@@ -53,7 +50,6 @@ class ComparisonPage extends Component<Props, State> {
         `${API_DOMAIN}${comparison.path}?${objectToQueryString({
           ...comparison.query,
           uno_id: uno_ids_string,
-          spraak: lang,
         })}`
       )
         .then(res => res.json())
@@ -73,15 +69,16 @@ class ComparisonPage extends Component<Props, State> {
     const comparisonTypes = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
-    let breadcrumb = innholdstype;
+    let breadcrumb;
     switch (innholdstype) {
       case "utdanning":
-        breadcrumb += "er";
+        breadcrumb = <Translate nb="Velg andre utdanninger" />;
         break;
       case "yrke":
-        breadcrumb += "r";
+        breadcrumb = <Translate nb="Velg andre yrker" />;
         break;
       default:
+        breadcrumb = <Translate nb="Tilbake" />;
         break;
     }
     return (
@@ -91,7 +88,7 @@ class ComparisonPage extends Component<Props, State> {
           <div className={styles.breadcrumb}>
             <Link to={"/" + innholdstype} className={styles.breadcrumb_link}>
               <ArrowLeft />
-              <Translate nb={"Velg andre " + breadcrumb} nn="nynorsk" />
+              {breadcrumb}
             </Link>
           </div>
           <div className={styles.flex_container}>
@@ -118,4 +115,4 @@ class ComparisonPage extends Component<Props, State> {
   }
 }
 
-export default with_lang_props(with_app_state(ComparisonPage));
+export default with_app_state(ComparisonPage);

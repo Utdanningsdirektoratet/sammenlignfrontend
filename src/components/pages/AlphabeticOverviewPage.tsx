@@ -18,46 +18,43 @@ import SelectedInterests from "./AlphabeticComparisonPage/SelectedInterests";
 
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
-import Api from "../app/Api";
-import { with_lang_props, LanguageProps } from "../app/TranslateContext";
 import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
+import AlphabetFilter from "../filters/AlphabetFilter";
 
 type State = {
   data: DataList;
-  interesserSelected: string[];
   redirectToHomepage: boolean;
+  selectedLetters: string[];
 };
 
 type Props = RouteComponentProps<{
   innholdstype: Innholdstype;
 }> &
-  AppStateProps &
-  LanguageProps;
+  AppStateProps;
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
     data: { list: [] as MainElement[], interesser: [] as string[] },
-    interesserSelected: [] as string[],
     redirectToHomepage: false,
+    selectedLetters: [],
   };
   componentDidMount() {
     const {
       match: {
         params: { innholdstype },
       },
-      lang,
     } = this.props;
     switch (innholdstype) {
       case "utdanning":
-        getUtdanning(lang, data => this.setState({ data }));
+        getUtdanning(data => this.setState({ data }));
         break;
       case "yrke":
-        getYrke(lang, data => this.setState({ data }));
+        getYrke(data => this.setState({ data }));
         break;
       case "studie":
-        getStudium(lang, data => this.setState({ data }));
+        getStudium(data => this.setState({ data }));
         break;
       default:
         this.setState({ redirectToHomepage: true });
@@ -65,7 +62,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 
   getFilteredList = () => {
-    const interesserSelected = this.state.interesserSelected;
+    const interesserSelected = this.props.appState.selected_interests;
     const list = this.state.data.list;
     if (!interesserSelected || interesserSelected.length === 0) return list;
     return list.filter(l => {
@@ -78,36 +75,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   };
   handleItemClick = (e: React.MouseEvent<HTMLElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
-    if (key) this.props.appState.toggleSelection(key);
-  };
-  toggleSelectedInterests = (interest: string) => {
-    const interestIndex = this.state.interesserSelected.indexOf(interest);
-    if (interestIndex === -1) {
-      var selected = this.state.interesserSelected;
-      selected.push(interest);
-      this.setState({
-        interesserSelected: selected,
-      });
-    } else {
-      var selected = this.state.interesserSelected;
-      selected.splice(interestIndex, 1);
-      this.setState({
-        interesserSelected: selected,
-      });
-    }
-  };
-
-  removeAllSelectedInterests = () => {
-    this.setState({ interesserSelected: [] });
+    if (key) this.props.appState.toggleUnoId(key);
   };
 
   isInterestSelected = (interests: string[] | undefined) => {
-    const interesserSelected = this.state.interesserSelected;
-    if (
-      !this.state.interesserSelected ||
-      this.state.interesserSelected.length === 0
-    )
-      return true;
+    const interesserSelected = this.props.appState.selected_interests;
+    if (!interesserSelected || interesserSelected.length === 0) return true;
 
     if (!interests) return false;
 
@@ -116,12 +89,29 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     });
   };
 
+  onLetterClicked = (letter?: string, selectAll?: boolean) => {
+    if (selectAll) {
+      this.setState({ selectedLetters: [] });
+      return;
+    }
+    if (letter) {
+      let letters = this.state.selectedLetters as string[];
+      var index = letters.indexOf(letter);
+      if (index === -1) letters.push(letter);
+      else letters.splice(index, 1);
+
+      this.setState({ selectedLetters: letters });
+    }
+  };
+
   render() {
     const { innholdstype } = this.props.match.params;
-    const { selected_uno_id } = this.props.appState;
+    const {
+      selected_interests: interesserSelected,
+      selected_uno_id,
+    } = this.props.appState;
     const {
       data: { interesser, list },
-      interesserSelected: interesserSelected,
       redirectToHomepage,
     } = this.state;
     if (redirectToHomepage) {
@@ -143,7 +133,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
                   className={`${styles.compare_section_row_item}`}
                 >
                   <BalanceScale />
-                  <Translate nb="Sammenlign" nn="Samanlikna" />
+                  <Translate nb="Sammenlign" />
                 </Link>
               </div>
             ) : null}
@@ -153,10 +143,14 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             innholdstype={innholdstype}
             interesser={interesser}
             selected={interesserSelected}
-            toggleSelectedInterests={this.toggleSelectedInterests}
-            removeAllSelected={this.removeAllSelectedInterests}
+            toggleSelectedInterests={this.props.appState.toggleInterest}
+            removeAllSelected={this.props.appState.clearInterest}
           />
-
+          <AlphabetFilter
+            list={this.getFilteredList()}
+            onLetterClicked={this.onLetterClicked}
+            selectedLetters={this.state.selectedLetters}
+          />
           <ul className={styles.alphabetic}>
             <AlphabeticList
               list={this.getFilteredList()}
@@ -170,4 +164,4 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 }
 
-export default with_lang_props(with_app_state(AlphabeticOverviewPage));
+export default with_app_state(AlphabeticOverviewPage);

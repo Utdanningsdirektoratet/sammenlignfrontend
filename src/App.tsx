@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import styles from "./App.module.css";
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
-import { TranslateRoot } from "./components/app/TranslateContext";
+import { TranslateRoot } from "./components/app/Translate";
 import AppContext, { AppState } from "./components/app/AppContext";
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
@@ -22,8 +22,11 @@ class App extends Component<{}, AppState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      toggleSelection: this.toggleSelection,
+      toggleUnoId: this.toggleSelection,
       selected_uno_id: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
+      selected_interests: [],
+      toggleInterest: this.toggleInterest,
+      clearInterest: this.clearInterest,
     };
     window.addEventListener("hashchange", this.hashChangeListener);
   }
@@ -37,15 +40,29 @@ class App extends Component<{}, AppState> {
       this.setState({ selected_uno_id: urlState });
     }
   };
-  toggleSelection = (typ: string) => {
+  toggleSelection = (uno_id: string) => {
     this.setState(prevState => {
-      const selected = prevState.selected_uno_id.filter(sel => sel !== typ);
+      const selected = prevState.selected_uno_id.filter(sel => sel !== uno_id);
       if (selected.length === prevState.selected_uno_id.length) {
-        selected.push(typ);
+        selected.push(uno_id);
       }
       setUrlState(selected);
       return { selected_uno_id: selected };
     });
+  };
+  toggleInterest = (interest: string) => {
+    this.setState(prevState => {
+      const interests = prevState.selected_interests.filter(
+        sel => sel !== interest
+      );
+      if (interests.length === prevState.selected_interests.length) {
+        interests.push(interest);
+      }
+      return { selected_interests: interests };
+    });
+  };
+  clearInterest = () => {
+    this.setState({ selected_interests: [] });
   };
 
   render() {

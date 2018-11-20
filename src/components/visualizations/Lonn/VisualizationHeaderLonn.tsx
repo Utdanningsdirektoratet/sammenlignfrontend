@@ -131,13 +131,13 @@ class VisualizationHeaderLonn extends Component<
                 styles.visualizationheader_container_modal_header_title
               }`}
             >
-              <Translate nb="Lønn" nn="nynorsk" /> -{" "}
+              <Translate nb="Lønn" /> -{" "}
               <span
                 className={`${
                   styles.visualizationheader_container_modal_header_title__desc
                 }`}
               >
-                <Translate nb="visningsalternativer" nn="nynorsk" />
+                <Translate nb="visningsalternativer" />
               </span>
               <div
                 className={`${
@@ -162,7 +162,7 @@ class VisualizationHeaderLonn extends Component<
           <div
             className={`${styles.visualizationheader_container_header__title}`}
           >
-            <Translate nb="Lønn" nn="nynorsk" />{" "}
+            <Translate nb="Lønn" />{" "}
             <span
               className={`${
                 styles.visualizationheader_container_header__title_filter
@@ -173,15 +173,15 @@ class VisualizationHeaderLonn extends Component<
                 <li>
                   {Arbeidstid === "A" ? (
                     <span>
-                      <Translate nb="Begge" nn="nynorsk" />{" "}
+                      <Translate nb="Begge" />{" "}
                     </span>
                   ) : Arbeidstid === "D" ? (
                     <span>
-                      <Translate nb="Deltid" nn="nynorsk" />{" "}
+                      <Translate nb="Deltid" />{" "}
                     </span>
                   ) : (
                     <span key={Arbeidstid}>
-                      <Translate nb="Heltid" nn="nynorsk" />{" "}
+                      <Translate nb="Heltid" />{" "}
                     </span>
                   )}
                 </li>
@@ -193,25 +193,25 @@ class VisualizationHeaderLonn extends Component<
                       case "A":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Alle" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Alle" />{" "}
                           </span>
                         );
                       case "K":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Kommunal" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Kommunal" />{" "}
                           </span>
                         );
                       case "P":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Privat" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Privat" />{" "}
                           </span>
                         );
                       case "S":
                         return (
                           <span key={d}>
-                            {text} <Translate nb="Statlig" nn="nynorsk" />{" "}
+                            {text} <Translate nb="Statlig" />{" "}
                           </span>
                         );
                     }
@@ -226,11 +226,11 @@ class VisualizationHeaderLonn extends Component<
                 <li>
                   {Kjønn === "A" ? (
                     <span>
-                      {","} <Translate nb="Alle" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Alle" />{" "}
                     </span>
                   ) : (
                     <span>
-                      {","} <Translate nb="Kvinner og menn" nn="nynorsk" />{" "}
+                      {","} <Translate nb="Kvinner og menn" />{" "}
                     </span>
                   )}
                 </li>

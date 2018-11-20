@@ -1,13 +1,12 @@
 import { MainElement, Main, DataList } from "./ApiTypes";
 import main_json from "./main.json";
 import { API_DOMAIN } from "./config";
-import { Lang } from "../components/app/TranslateContext";
 import { objectToQueryString } from "../util/querystring";
 
 let mainFetchStarted: Promise<any> | null = null;
 let mainCache: Main | null = null;
 
-export function getMain(lang: Lang, result: (data: Main) => void) {
+export function getMain(result: (data: Main) => void) {
   if (mainCache) return result(mainCache);
   if (mainFetchStarted)
     return mainFetchStarted.then(data => {
@@ -15,7 +14,11 @@ export function getMain(lang: Lang, result: (data: Main) => void) {
       return data;
     });
   mainFetchStarted = fetch(
-    API_DOMAIN + `/rest/main?sprak=${lang}&felt=tittel,interesser`
+    API_DOMAIN +
+      "/rest/main?" +
+      objectToQueryString({
+        felt: "tittel,interesser",
+      })
   )
     .then(response => response.json())
     .then(data => {
@@ -30,12 +33,8 @@ export function getMain(lang: Lang, result: (data: Main) => void) {
     });
 }
 
-function getGeneric(
-  lang: Lang,
-  result: (data: DataList) => void,
-  prefix: "u" | "y" | "s"
-) {
-  getMain(lang, (main: Main) => {
+function getGeneric(result: (data: DataList) => void, prefix: "u" | "y" | "s") {
+  getMain((main: Main) => {
     const list = Object.keys(main)
       .filter(key => key[0] === prefix)
       .map(key => main[key])
@@ -53,12 +52,12 @@ function getGeneric(
   });
 }
 
-export function getUtdanning(lang: Lang, result: (data: DataList) => void) {
-  getGeneric(lang, result, "u");
+export function getUtdanning(result: (data: DataList) => void) {
+  getGeneric(result, "u");
 }
-export function getYrke(lang: Lang, result: (data: DataList) => void) {
-  getGeneric(lang, result, "y");
+export function getYrke(result: (data: DataList) => void) {
+  getGeneric(result, "y");
 }
-export function getStudium(lang: Lang, result: (data: DataList) => void) {
-  getGeneric(lang, result, "u");
+export function getStudium(result: (data: DataList) => void) {
+  getGeneric(result, "u");
 }

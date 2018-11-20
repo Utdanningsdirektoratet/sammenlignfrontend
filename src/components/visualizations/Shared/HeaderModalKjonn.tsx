@@ -28,14 +28,11 @@ class HeaderModalKjønn extends React.Component<Props> {
         <RadioButtonGroup
           group={[
             {
-              text: <Translate nb="Alle" nn="nynorsk" />,
+              text: <Translate nb="Alle" />,
               selected: kjønn === "A",
               valueKey: "A",
               helptext: showHelpText ? (
-                <Translate
-                  nb="Viser tall beregnet på grunnlag av både kvinner og menn."
-                  nn="nynorsk"
-                />
+                <Translate nb="Viser tall beregnet på grunnlag av både kvinner og menn." />
               ) : (
                 undefined
               ),
@@ -45,10 +42,7 @@ class HeaderModalKjønn extends React.Component<Props> {
               selected: kjønn === "KM",
               valueKey: "KM",
               helptext: showHelpText ? (
-                <Translate
-                  nb="Viser tall beregnet på grunnlag av kvinner og menn hver for seg."
-                  nn="nynorsk"
-                />
+                <Translate nb="Viser tall beregnet på grunnlag av kvinner og menn hver for seg." />
               ) : (
                 undefined
               ),
