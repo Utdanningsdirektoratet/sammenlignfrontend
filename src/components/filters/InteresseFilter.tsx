@@ -23,9 +23,6 @@ class InteresserFilter extends React.Component<Props> {
     } = this.props;
     return (
       <div className={styles.interessefilter_container}>
-        <h2 className={styles.interessefilter_container_header}>
-          Interesser/kategorier
-        </h2>
         <p
           className={styles.interessefilter_container_nullstill}
           onClick={() => removeAllSelected()}

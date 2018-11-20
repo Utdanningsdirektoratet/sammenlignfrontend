@@ -19,6 +19,8 @@ import { Innholdstype } from "../../data/ApiTypes";
 import Translate from "../app/Translate";
 import { Link } from "react-router-dom";
 import { ReactComponent as ArrowLeft } from "../../fontawesome/solid/arrow-left.svg";
+import ComparisonHeader from "../visualizations/Shared/ComparisonHeader";
+import IsolatedComparisonPart from "./ComparisonPage/IsolatedComparisonPart";
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
@@ -54,7 +56,11 @@ class ComparisonPage extends Component<Props, State> {
       )
         .then(res => res.json())
         .then(data => {
-          this.setState({ [dataKey]: data });
+          if (data.error) {
+            this.setState({ [dataKey]: false });
+          } else {
+            this.setState({ [dataKey]: data });
+          }
         })
         .catch(e => {
           this.setState({ [dataKey]: false });
@@ -66,7 +72,7 @@ class ComparisonPage extends Component<Props, State> {
     const { innholdstype } = this.props.match.params;
     const comparisons = comparisonsConfig[innholdstype];
     const { selected_uno_id } = this.props.appState;
-    const comparisonTypes = selected_uno_id.filter(
+    const uno_ids = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
     let breadcrumb;
@@ -98,14 +104,36 @@ class ComparisonPage extends Component<Props, State> {
               const dataKey =
                 comparison.path + JSON.stringify(comparison.query);
               const rowData = this.state[dataKey];
-              if (rowData === false) return null;
+              if (rowData === false)
+                return (
+                  <div key={i}>
+                    Kunne ikke finne data for {comparison.title}
+                  </div>
+                );
+              if (!rowData) return null;
+              if (comparison.Component) {
+                return (
+                  <IsolatedComparisonPart
+                    key={i}
+                    data={rowData}
+                    template={comparison}
+                    uno_ids={uno_ids}
+                  />
+                );
+              }
               return (
-                <ComparisonRow
-                  key={i}
-                  comparison={comparison}
-                  comparisonTypes={comparisonTypes}
-                  rowData={rowData}
-                />
+                <div key={i}>
+                  <ComparisonHeader comparison={comparison} />
+                  <ComparisonRow>
+                    {uno_ids.map(uno_id => (
+                      <IsolatedComparisonPart
+                        key={uno_id}
+                        data={rowData[uno_id]}
+                        template={comparison}
+                      />
+                    ))}
+                  </ComparisonRow>
+                </div>
               );
             })}
           </div>

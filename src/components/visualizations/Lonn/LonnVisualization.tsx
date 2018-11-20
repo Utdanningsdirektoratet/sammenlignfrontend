@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import { StatistiskMål, Lønn, Tidsenhet } from "./VisualizationHeaderLonn";
 import { Kjønn, IArbeidstid, Arbeidstid } from "../../../data/ApiTypes";
@@ -8,7 +8,6 @@ import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg"
 import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import styles from "./LonnVisualization.module.scss";
 import Translate from "../../app/Translate";
-import Arbeidsledighet from "../Old/Arbeidsledighet";
 
 type Props = {
   data: IArbeidstid;
@@ -19,7 +18,7 @@ type Props = {
   tidsenhet: Tidsenhet;
 };
 
-class LonnVisualization extends React.Component<Props> {
+class LonnVisualization extends Component<Props> {
   getDataQuery = (kjønn: string) => {
     let wage = kjønn + "_wage";
 

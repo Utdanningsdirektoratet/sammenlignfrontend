@@ -16,7 +16,7 @@
   "Viser andel arbeidsledige som prosent.": null,
   "Antall": null,
   "Viser tall beregnet på grunnlag av både kvinner og menn.": null,
-  "Kvinner og menn": null,
+  "Kvinner / menn": null,
   "Viser tall beregnet på grunnlag av kvinner og menn hver for seg.": null,
   "Heltid": null,
   "Viser tall beregnet på grunnlag av dem som jobber heltid.": null,
@@ -43,5 +43,16 @@
   "Median": null,
   "Viser utregnet median for lønn utbetalt.": null,
   "Gjennomsnitt": null,
-  "Viser gjennomsnittlig lønn utbetalt.": null
+  "Viser gjennomsnittlig lønn utbetalt.": null,
+  "Arbeidstid": null,
+  "Vis tall beregnet på grunnlag av dem som jobber heltid, deltid, eller alle arbeidstider.": null,
+  "Sektor": null,
+  "Vis tall beregnet på grunnlag av dem som jobber i forskjellige sektorer, eller alle sektorer.": null,
+  "Grunnlag": null,
+  "Vis sum lønn utbetalt på gitt grunnlag, i brutto eller inklusive overtid.": null,
+  "Beregning": null,
+  "Vis beregning av tall gitt av median eller gjennomsnitt.": null,
+  "Periode": null,
+  "Vis sum lønn utbetalt enten årlig, månedlig eller per time.": null,
+  "Kjønn": null
 }

@@ -1,4 +1,4 @@
-import React, { Component, ChangeEventHandler } from "react";
+import React, { Component, ChangeEvent } from "react";
 import RadioButton from "./RadioButton";
 
 type RadioButtonGroupType = {
@@ -11,14 +11,10 @@ type RadioButtonGroupType = {
 type Props = {
   group: RadioButtonGroupType[];
   name: string;
-  onChange: (event: ChangeEventHandler<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 class RadioButtonGroup extends Component<Props> {
-  testOnChange = (event: any) => {
-    this.props.onChange(event);
-  };
-
   render() {
     return this.props.group.map(g => (
       <RadioButton
@@ -27,7 +23,7 @@ class RadioButtonGroup extends Component<Props> {
         isSelected={g.selected}
         name={this.props.name}
         valueKey={g.valueKey}
-        onChange={this.testOnChange}
+        onChange={this.props.onChange}
         helpText={g.helptext}
       />
     ));

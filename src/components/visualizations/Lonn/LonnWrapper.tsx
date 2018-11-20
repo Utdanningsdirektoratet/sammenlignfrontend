@@ -1,77 +1,97 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import { LonnElement, Sektor } from "../../../data/ApiTypes";
-import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
+import VisualizationHeaderLonn, {
+  VisualizationHeaderConfigLonn,
+} from "./VisualizationHeaderLonn";
 import NoData from "../Old/NoData";
 import LonnVisualization from "./LonnVisualization";
 import LonnSpecificChoice from "./LonnSpecificChoice";
+import { ComparisonComponentProps } from "../../comparisonsConfig";
+import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 
-type Props = {
-  data: LonnElement;
-  config: VisualizationHeaderConfigLonn;
-  rowIndex?: number;
-  unoId?: string;
-  setConfig?: (config: any) => void;
-};
-
-type State = {
-  selectedChoice: string;
-};
-
-class LonnWrapper extends React.Component<Props, State> {
-  state = {
-    selectedChoice: Object.keys(this.props.data)[0],
-  };
-
-  componentDidMount = () => {
-    var config = this.props.config;
-    config.ssbSektor[this.props.unoId as string] = Object.keys(
-      this.props.data
-    )[0];
-    if (this.props.setConfig) this.props.setConfig(config);
-  };
-
-  onSelectedChoiceClick = (event: any) => {
-    this.setState({
-      selectedChoice: event.target.id,
+class LonnWrapper extends Component<
+  ComparisonComponentProps<LonnElement>,
+  VisualizationHeaderConfigLonn
+> {
+  constructor(props: ComparisonComponentProps<LonnElement>) {
+    super(props);
+    const ssbSektor: { [uno_id: string]: string } = {};
+    this.props.uno_ids.forEach(uno_id => {
+      ssbSektor[uno_id] = Object.keys(this.props.data[uno_id] || {})[0];
     });
-    var config = {
-      ...this.props.config,
-      ssbSektor: {
-        ...this.props.config.ssbSektor,
-        [this.props.unoId as string]: event.target.id,
-      },
+    this.state = {
+      Arbeidstid: "A",
+      Sektor: ["A"],
+      Tidsenhet: "Månedlig",
+      Lønn: "Brutto",
+      StatistiskMål: "Median",
+      Kjønn: "A",
+      ssbSektor: ssbSektor,
     };
-    if (this.props.setConfig) this.props.setConfig(config);
+  }
+
+  onSelectedChoiceClick = (uno_id: string, ssbSektor: string) => {
+    this.setState(prevState => {
+      return { ssbSektor: { ...prevState.ssbSektor, [uno_id]: ssbSektor } };
+    });
+  };
+  setConfig = (config: VisualizationHeaderConfigLonn) => {
+    this.setState(config);
   };
 
   render() {
-    const { data, config, unoId } = this.props;
-    const ssbSektor =
-      config.ssbSektor[this.props.unoId as string] || Object.keys(data)[0];
-    if (!data || Object.keys(data).length === 0) return <NoData />;
+    const { data, uno_ids, template } = this.props;
+    const { Sektor: sektorArray } = this.state;
 
-    let sektorData: Sektor[] =
-      config.Sektor.length > 0 ? config.Sektor : ["A", "S", "P", "K"];
-    let sektor = sektorData[this.props.rowIndex || 0];
-    if (!sektor)
-      return (
-        <LonnSpecificChoice
-          data={data}
-          onSelected={this.onSelectedChoiceClick}
-          selectedChoice={this.state.selectedChoice}
-          unoId={unoId}
-        />
-      );
-    if (!data[ssbSektor] || !data[ssbSektor][sektor]) return <NoData />;
     return (
-      <LonnVisualization
-        data={data[ssbSektor][sektor]}
-        arbeidstid={config.Arbeidstid}
-        kjønn={config.Kjønn}
-        lønn={config.Lønn}
-        statistiskMål={config.StatistiskMål}
-        tidsenhet={config.Tidsenhet}
-      />
+      <div>
+        <VisualizationHeaderLonn
+          config={this.state}
+          setConfig={this.setConfig}
+        />
+        {sektorArray.map(sektor => {
+          return (
+            <Fragment key={sektor}>
+              {sektorArray.length > 1 ? <h4>{sektor}</h4> : null}
+              <ComparisonRow>
+                {uno_ids.map(uno_id => {
+                  const ssbSektor = this.state.ssbSektor[uno_id];
+                  if (
+                    data[uno_id] &&
+                    data[uno_id][ssbSektor] &&
+                    data[uno_id][ssbSektor][sektor]
+                  )
+                    return (
+                      <LonnVisualization
+                        key={uno_id}
+                        data={data[uno_id][ssbSektor][sektor]}
+                        arbeidstid={this.state.Arbeidstid}
+                        kjønn={this.state.Kjønn}
+                        lønn={this.state.Lønn}
+                        statistiskMål={this.state.StatistiskMål}
+                        tidsenhet={this.state.Tidsenhet}
+                      />
+                    );
+                  return <NoData key={uno_id} />;
+                })}
+              </ComparisonRow>
+            </Fragment>
+          );
+        })}
+        <ComparisonRow>
+          {uno_ids.map(uno_id => {
+            return (
+              <LonnSpecificChoice
+                key={uno_id}
+                data={data[uno_id]}
+                onChange={this.onSelectedChoiceClick}
+                unoId={uno_id}
+                selectedChoice={this.state.ssbSektor[uno_id]}
+              />
+            );
+          })}
+        </ComparisonRow>
+      </div>
     );
   }
 }

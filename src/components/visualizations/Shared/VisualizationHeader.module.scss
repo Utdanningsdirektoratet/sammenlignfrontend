@@ -22,9 +22,9 @@
           }
         }
         &_icon {
-          // @media (min-width: 576px) {
-          //   display: none;
-          // }
+          @media (min-width: 576px) {
+            display: none;
+          }
           cursor: pointer;
           border: 1px solid orange;
           width: 20px;
@@ -57,9 +57,9 @@
       }
     }
     &_modal {
-      // @media (min-width: 576px) {
-      //   display: none;
-      // }
+      @media (min-width: 576px) {
+        display: none;
+      }
 
       position: absolute;
       top: 2em;
@@ -115,6 +115,30 @@
           list-style-type: none;
           input {
             margin-right: 5px;
+          }
+        }
+        &_header {
+          font-weight: 600;
+          margin-bottom: 10px;
+          position: relative;
+          &_icon {
+            margin-left: 6px;
+            cursor: pointer;
+          }
+          &_helptext {
+            position: absolute;
+            background-color: white;
+            display: flex;
+            padding: 10px;
+            border: 1px solid black;
+            font-size: 0.9em;
+            &_content {
+              width: 80%;
+              word-break: break-word;
+            }
+            &_closeIcon {
+              width: 20%;
+            }
           }
         }
       }
