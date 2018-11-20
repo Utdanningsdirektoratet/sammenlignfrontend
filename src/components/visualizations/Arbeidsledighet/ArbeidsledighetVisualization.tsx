@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import {
   Fullført,
@@ -20,7 +20,7 @@ type Props = {
   visning: Visning;
 };
 
-class ArbeidsledighetVisualization extends React.Component<Props> {
+class ArbeidsledighetVisualization extends Component<Props> {
   getDataQuery = (fullført: Fullført, kjønn: string) => {
     let qry = "arbeidsledige";
 

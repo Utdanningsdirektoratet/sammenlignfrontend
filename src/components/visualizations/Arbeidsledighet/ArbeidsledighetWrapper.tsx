@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component} from "react";
 import { ArbeidsledighetElement } from "../../../data/ApiTypes";
 import VisualizationHeaderArbeidsledighet, {
   VisualizationHeaderConfigArbeidsledighet,

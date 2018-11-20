@@ -1,11 +1,10 @@
-import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
+import { Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
-import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
-import Checkbox from "../../defaultComponents/Checkbox";
-import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import { SammenligningTemplate } from "../../comparisonsConfig";
+import ArbeidsledighetHeaderFilterDesktop from "./ArbeidsledighetHeaderFilterDesktop";
+import HeaderArbeidsledighetFilters from "./HeaderArbeidsledighetFilters";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
   Kjønn: Kjønn;
@@ -93,75 +92,11 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
               />
             </div>
           </div>
-          <div
-            className={`${styles.visualizationheader_container_modal_filters}`}
-          >
-            <ul>
-              <Checkbox
-                text={<Translate nb="7-10 år etter endt utdannelse" />}
-                valueKey="710"
-                isSelected={Fullført.some((a: Fullført) => {
-                  return a === "710";
-                })}
-                helpText={
-                  <Translate nb="Viser antall arbeidsledige 7-10 år etter endt utdannelse." />
-                }
-                onChange={event =>
-                  this.onFilterClicked(event, "Arbeidsledighet")
-                }
-              />
-              <Checkbox
-                text={<Translate nb="1-3 år etter endt utdannelse" />}
-                valueKey="13"
-                isSelected={Fullført.some((a: Fullført) => {
-                  return a === "13";
-                })}
-                helpText={
-                  <Translate nb="Viser antall arbeidsledige 1-3 år etter endt utdannelse." />
-                }
-                onChange={event =>
-                  this.onFilterClicked(event, "Arbeidsledighet")
-                }
-              />
-              <Checkbox
-                text={<Translate nb="All" />}
-                valueKey="A"
-                isSelected={Fullført.some((a: Fullført) => {
-                  return a === "A";
-                })}
-                helpText={<Translate nb="Viser antall arbeidsledige." />}
-                onChange={event =>
-                  this.onFilterClicked(event, "Arbeidsledighet")
-                }
-              />
-            </ul>
-            <ul>
-              <RadioButtonGroup
-                group={[
-                  {
-                    text: <Translate nb="Andel" />,
-                    selected: Visning === "Andel",
-                    valueKey: "Andel",
-                    helptext: (
-                      <Translate nb="Viser andel arbeidsledige som prosent." />
-                    ),
-                  },
-                  {
-                    text: <Translate nb="Antall" />,
-                    selected: Visning === "Antall",
-                    valueKey: "Antall",
-                    helptext: <Translate nb="Viser antall arbeidsledige." />,
-                  },
-                ]}
-                name="antall"
-                onChange={event => this.onFilterClicked(event, "Visning")}
-              />
-            </ul>
-            <HeaderModalKjonn
-              kjønn={Kjønn}
-              onFilterClicked={this.onFilterClicked}
-            />
-          </div>
+          <HeaderArbeidsledighetFilters
+            onFilterClicked={this.onFilterClicked}
+            config={this.props.config}
+            showHelpText={true}
+          />
         </div>
       );
     }
@@ -231,6 +166,10 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
           {Modal}
         </div>
         {this.props.children}
+        <ArbeidsledighetHeaderFilterDesktop
+          onFilterClicked={this.onFilterClicked}
+          config={this.props.config}
+        />
       </div>
     );
   }
