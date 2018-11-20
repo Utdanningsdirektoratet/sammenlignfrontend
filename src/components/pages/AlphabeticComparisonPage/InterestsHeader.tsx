@@ -4,7 +4,13 @@ import SelectedInterests from "./SelectedInterests";
 import SearchBox from "./SearchBox";
 import { Innholdstype } from "../../../data/ApiTypes";
 
+import { ReactComponent as ChevronDown } from "../../../fontawesome/solid/chevron-down.svg";
+import { ReactComponent as ChevronUp } from "../../../fontawesome/solid/chevron-up.svg";
+
 import style from "./InterestsHeader.module.scss";
+import InteresserFilter from "../../filters/InteresseFilter";
+
+type State = { showInterestFilter: boolean };
 
 type Props = {
   innholdstype: Innholdstype;
@@ -14,7 +20,15 @@ type Props = {
   toggleSelectedInterests: Function;
 };
 
-class InterestsHeader extends Component<Props> {
+class InterestsHeader extends Component<Props, State> {
+  state: State = { showInterestFilter: false };
+
+  handleToggleInterestFilter = () => {
+    this.setState(prevState => ({
+      showInterestFilter: !prevState.showInterestFilter,
+    }));
+  };
+
   render() {
     const {
       innholdstype,
@@ -27,16 +41,33 @@ class InterestsHeader extends Component<Props> {
     return (
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
-          <InteresseModal
-            interesser={interesser}
-            selected={selected}
-            toggleSelected={toggleSelectedInterests}
-            removeAllSelected={removeAllSelected}
-          />
-          <div className={`${style.selection_search}`}>
-            <SearchBox innholdstype={innholdstype} />
-          </div>
+          <button
+            className={`${style.btn} ${
+              this.state.showInterestFilter ? style.unselected : ""
+            }`}
+          >
+            Nivå <ChevronDown />
+          </button>
+          <button
+            onClick={this.handleToggleInterestFilter}
+            className={`${style.btn}`}
+          >
+            Interesser{" "}
+            {this.state.showInterestFilter ? <ChevronUp /> : <ChevronDown />}
+          </button>
+          {/* <SearchBox innholdstype={innholdstype} /> */}
         </div>
+
+        {this.state.showInterestFilter ? (
+          <div className={`${style.dropdown}`}>
+            <InteresserFilter
+              interesser={interesser}
+              selected={selected}
+              toggleSelected={toggleSelectedInterests}
+              removeAllSelected={removeAllSelected}
+            />
+          </div>
+        ) : null}
         <div>
           <SelectedInterests
             selected={selected}

@@ -9,12 +9,9 @@ import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement, Innholdstype } from "../../data/ApiTypes";
 import SyncUrlState from "../app/SyncUrlState";
-import InteresseModal from "../app/InteresseModal";
 
 import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
-
-import SelectedInterests from "./AlphabeticComparisonPage/SelectedInterests";
 
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
