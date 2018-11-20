@@ -8,11 +8,11 @@
 
   &_row {
     justify-content: center;
-    // display: flex;
-    // flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
     align-content: center;
     &_item {
-      display: flex;
+      display: inline-flex;
       // width: 15%;
       border: solid 2px orange;
       background-color: white;
