@@ -1,5 +1,5 @@
-import React from "react";
-import { ArbeidsledighetObject, Kjønn } from "../../../data/ApiTypes";
+import React, { Component } from "react";
+import { ArbeidsledighetObject } from "../../../data/ApiTypes";
 import {
   VisualizationHeaderConfigArbeidsledighet,
   Fullført,
@@ -12,7 +12,7 @@ type Props = {
   config: VisualizationHeaderConfigArbeidsledighet;
 };
 
-class ArbeidsledighetWrapper extends React.Component<Props> {
+class ArbeidsledighetWrapper extends Component<Props> {
   render() {
     const { data, config } = this.props;
     if (!data || Object.keys(data).length === 0) return <NoData />;
