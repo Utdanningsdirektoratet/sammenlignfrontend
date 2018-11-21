@@ -53,15 +53,14 @@ class Tooltip extends Component<Props, State> {
 
     return (
       <div className={`${styles.tooltip_helptext}`}>
-        <span
+        <button
           onClick={this.handleToogle}
           className={`${styles.tooltip_helptext_icon}`}
-          tabIndex={-1}
-          onFocus={this.handleOpen}
+          tabIndex={0}
           onBlur={ClearOpenTooltip}
         >
           {icon}
-        </span>
+        </button>
         <div
           onClick={this.handleToogle}
           className={

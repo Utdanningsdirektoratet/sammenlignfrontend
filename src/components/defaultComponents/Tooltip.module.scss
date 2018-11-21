@@ -4,10 +4,10 @@
     display: inline;
 
     &_icon {
+      border: none;
+      background-color: inherit;
       color: orange;
       margin-left: 4px;
-      width: 100px;
-      height: 100px;
       position: relative;
       z-index: 5;
       cursor: pointer;
