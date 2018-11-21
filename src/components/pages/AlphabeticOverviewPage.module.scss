@@ -35,13 +35,13 @@
   display: flex;
   flex-flow: row wrap;
   align-content: center;
+  margin-bottom: 10px;
 
   &_container {
     justify-content: center;
   }
 
   &__item {
-    cursor: pointer;
     width: 20%;
     @media only screen and (min-width: 1000px) {
       width: 20%;
@@ -58,6 +58,17 @@
     word-break: break-word;
     margin-right: 1em;
     padding: 0.1em;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+    label,
+    input {
+      cursor: pointer;
+    }
   }
 }
 

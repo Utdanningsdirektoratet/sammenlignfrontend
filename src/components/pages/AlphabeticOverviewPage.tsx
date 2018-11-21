@@ -70,7 +70,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       });
     });
   };
-  handleItemClick = (e: React.MouseEvent<HTMLElement>) => {
+  handleItemClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
     if (key) this.props.appState.toggleUnoId(key);
   };
