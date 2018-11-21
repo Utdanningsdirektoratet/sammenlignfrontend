@@ -7,23 +7,22 @@
   &_row {
     width: 80%;
     margin: auto;
+    padding-bottom: 15px !important;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
 
     &_item {
       display: flex;
-
-      width: 10%;
-      height: 2em;
+      min-height: 2em;
       background-color: black;
       text-align: center;
       margin-left: 2px;
-      margin-right: 2px;
+      margin-right: 10px;
 
       &:first-child {
         margin-left: 0px;
-        margin-right: 2px;
+        margin-right: 10px;
       }
       &:last-child {
         margin-left: 2px;
@@ -38,7 +37,20 @@
         font-size: 1em;
         margin: auto;
         color: lightgray;
+        margin-left: 10px;
       }
+
+      span {
+        margin-top: auto;
+        margin-bottom: auto;
+        background-color: inherit;
+        &:before,
+        &:after {
+          background: white;
+          width: 15px;
+        }
+      }
+
       &_close {
         text-align: center;
         width: 7%;
@@ -53,6 +65,7 @@
     }
     li {
       list-style-type: none;
+      padding-right: 10px;
     }
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import styles from "./SelectedInterests.module.scss";
+import CloseIcon from "../../visualizations/Generic/CloseIcon";
 
 type Props = {
   selected: string[];
@@ -22,15 +23,9 @@ class SelectedInterests extends Component<Props> {
             {selected.map(selected => (
               <li className={`${styles.selection_row_item}`}>
                 <div className={`${styles.selection_row_item_text}`}>
-                  {selected}
+                  {selected.charAt(0).toUpperCase() + selected.slice(1)}
                 </div>
-                <button
-                  className={`${styles.selection_row_item_close}`}
-                  data-uno_id={selected}
-                  onClick={this.handleRemoveClick}
-                >
-                  x
-                </button>
+                <CloseIcon onClick={this.handleRemoveClick} unoId={selected} />
               </li>
             ))}
           </ul>
