@@ -33,6 +33,7 @@ class AlphabetFilter extends Component<Props> {
           {alphabet.split("").map(a => {
             return this.letterIsInList(a) ? (
               <span
+                key={a}
                 className={
                   this.letterIsSelected(a)
                     ? styles.container_alphabet_letter +
@@ -46,6 +47,7 @@ class AlphabetFilter extends Component<Props> {
               </span>
             ) : (
               <span
+                key={a}
                 className={
                   styles.container_alphabet_letter +
                   " " +

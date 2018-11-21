@@ -6,7 +6,7 @@ import styles from "./AlphabeticOverviewPage.module.scss";
 
 type Props = {
   list: MainElement[];
-  handleItemClicked: (e: React.MouseEvent<HTMLElement>) => void;
+  handleItemClicked: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selected_uno_id: string[];
 };
 
@@ -31,17 +31,21 @@ class AlphabeticList extends React.Component<Props> {
                   {c.strings.map(o => (
                     <div
                       key={o.uno_id}
-                      className={
-                        styles.alphabetic_list__item +
-                        (selected_uno_id &&
-                        selected_uno_id.indexOf(o.uno_id) !== -1
-                          ? " " + styles.selected
-                          : "")
-                      }
+                      className={styles.alphabetic_list__item}
                       data-key={o.uno_id}
-                      onClick={handleItemClicked}
                     >
-                      {o.tittel}
+                      <label>
+                        <input
+                          type="checkbox"
+                          data-key={o.uno_id}
+                          checked={
+                            selected_uno_id &&
+                            selected_uno_id.indexOf(o.uno_id) !== -1
+                          }
+                          onChange={handleItemClicked}
+                        />
+                        {o.tittel}
+                      </label>
                     </div>
                   ))}
                 </div>

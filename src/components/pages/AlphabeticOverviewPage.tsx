@@ -70,7 +70,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       });
     });
   };
-  handleItemClick = (e: React.MouseEvent<HTMLElement>) => {
+  handleItemClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
     if (key) this.props.appState.toggleUnoId(key);
   };
@@ -140,7 +140,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             innholdstype={innholdstype}
             interesser={interesser}
             selected={interesserSelected}
-            toggleSelectedInterests={this.props.appState.toggleInterest}
+            toggleSelectedInterest={this.props.appState.toggleInterest}
+            toggleSelectedInterests={this.props.appState.toggleInterests}
             removeAllSelected={this.props.appState.clearInterest}
           />
           <AlphabetFilter

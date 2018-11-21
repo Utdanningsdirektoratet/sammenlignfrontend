@@ -17,6 +17,7 @@ type Props = {
   interesser: string[];
   selected: string[];
   removeAllSelected: Function;
+  toggleSelectedInterest: Function;
   toggleSelectedInterests: Function;
 };
 
@@ -34,6 +35,7 @@ class InterestsHeader extends Component<Props, State> {
       innholdstype,
       interesser,
       selected,
+      toggleSelectedInterest,
       toggleSelectedInterests,
       removeAllSelected,
     } = this.props;
@@ -63,7 +65,8 @@ class InterestsHeader extends Component<Props, State> {
             <InteresserFilter
               interesser={interesser}
               selected={selected}
-              toggleSelected={toggleSelectedInterests}
+              toggleSelected={toggleSelectedInterest}
+              toggleSelectedItems={toggleSelectedInterests}
               removeAllSelected={removeAllSelected}
             />
           </div>
@@ -71,7 +74,7 @@ class InterestsHeader extends Component<Props, State> {
         <div>
           <SelectedInterests
             selected={selected}
-            toggleSelectedInterests={toggleSelectedInterests}
+            toggleSelectedInterests={toggleSelectedInterest}
           />
         </div>
       </div>

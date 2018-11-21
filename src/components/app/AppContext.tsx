@@ -6,6 +6,7 @@ export type AppState = {
   toggleUnoId: (uno_id: string) => void;
   selected_interests: string[];
   toggleInterest: (interest: string) => void;
+  toggleInterests: (interests: string[]) => void;
   clearInterest: () => void;
 };
 

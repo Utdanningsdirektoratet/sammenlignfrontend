@@ -10,6 +10,7 @@ type Props = {
   interesser: string[];
   selected: string[];
   toggleSelected: Function;
+  toggleSelectedItems: Function;
   removeAllSelected: Function;
 };
 
@@ -29,6 +30,7 @@ class Modal extends Component<Props> {
       interesser,
       selected,
       toggleSelected,
+      toggleSelectedItems,
       removeAllSelected,
     } = this.props;
 
@@ -48,6 +50,7 @@ class Modal extends Component<Props> {
             interesser={interesser}
             selected={selected}
             toggleSelected={toggleSelected}
+            toggleSelectedItems={toggleSelectedItems}
             removeAllSelected={removeAllSelected}
           />
         </ReactModal>
