@@ -4,6 +4,8 @@
   &_row {
     width: 80%;
     margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     &_selectors {
       width: 40%;
@@ -20,9 +22,8 @@
 
 .btn {
   cursor: pointer;
-  margin-top: 30px;
-  height: 28px;
-  padding: 4px;
+  height: 34px;
+  padding: 8px;
 
   background-color: white;
 
@@ -31,7 +32,9 @@
   font-size: 1em;
   width: 12em;
   text-align: center;
-
+  &:last-child {
+    margin-left: 20px;
+  }
   svg {
     position: relative;
     height: 1.2em;

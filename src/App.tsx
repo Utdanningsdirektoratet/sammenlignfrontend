@@ -26,6 +26,7 @@ class App extends Component<{}, AppState> {
       selected_uno_id: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
       selected_interests: [],
       toggleInterest: this.toggleInterest,
+      toggleInterests: this.toggleInterests,
       clearInterest: this.clearInterest,
     };
     window.addEventListener("hashchange", this.hashChangeListener);
@@ -59,6 +60,15 @@ class App extends Component<{}, AppState> {
         interests.push(interest);
       }
       return { selected_interests: interests };
+    });
+  };
+  toggleInterests = (interests: string[]) => {
+    this.setState(prevState => {
+      let i: string[] = [];
+      if (prevState.selected_interests.length !== interests.length)
+        i = interests;
+
+      return { selected_interests: i };
     });
   };
   clearInterest = () => {

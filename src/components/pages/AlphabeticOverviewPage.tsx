@@ -140,7 +140,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             innholdstype={innholdstype}
             interesser={interesser}
             selected={interesserSelected}
-            toggleSelectedInterests={this.props.appState.toggleInterest}
+            toggleSelectedInterest={this.props.appState.toggleInterest}
+            toggleSelectedInterests={this.props.appState.toggleInterests}
             removeAllSelected={this.props.appState.clearInterest}
           />
           <AlphabetFilter

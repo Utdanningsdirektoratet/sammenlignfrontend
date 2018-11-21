@@ -1,16 +1,25 @@
 .interessefilter {
   &_container {
-    p {
-      margin: 0px;
-    }
-    &_nullstill {
-      cursor: pointer;
-      text-decoration: underline;
+    &_filters {
+      display: flex;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      &_all {
+      }
+      &_nullstill {
+        margin-left: auto;
+        cursor: pointer;
+        span {
+          background-color: inherit;
+          margin-top: 2px;
+        }
+      }
     }
     &_items {
       display: flex;
       flex-flow: row wrap;
       align-content: center;
+      padding-bottom: 10px;
 
       &__item {
         width: 20%;
