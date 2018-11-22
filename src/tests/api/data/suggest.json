@@ -1,0 +1,18 @@
+{
+  "u_ingenior": {
+    "uno_id": "u_ingenior",
+    "tittel": "Ingeniør"
+  },
+  "y_ingenior": {
+    "uno_id": "y_ingenior",
+    "tittel": "Ingeniør"
+  },
+  "y_hmsingenior": {
+    "uno_id": "y_hmsingenior",
+    "tittel": "HMS-ingeniør"
+  },
+  "y_ingenior_enok": {
+    "uno_id": "y_ingenior_enok",
+    "tittel": "Ingeniør i energi og miljø i bygg"
+  }
+}
