@@ -13,7 +13,7 @@ class PercentageBar extends React.Component<PercentageBarProps> {
         <div className={styles.percentagebar_mainbar} />
         <div
           className={styles.percentagebar_overlaybar}
-          style={{ width: `${value}%` }}
+          style={{ width: `${value < 100 ? value : 100}%` }}
         />
         <div className={styles.percentagebar_percentage}>{value} %</div>
       </div>

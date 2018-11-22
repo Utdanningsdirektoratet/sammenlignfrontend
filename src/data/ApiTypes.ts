@@ -12,6 +12,28 @@ export interface MainElement {
   _version_: number;
 }
 
+export interface EntrepenorElement {
+  [kategori: string]: EntrepenorObject;
+}
+
+export interface EntrepenorObject {
+  funksjon: "entrepenorskap";
+  id: string;
+  nus_kode: string;
+  nus_kortnavn: string;
+  nus_navn: string;
+  path: string;
+  selvstendige_andel: number;
+  selvstendige_andel40: number;
+  selvstendige_andel710: number;
+  selvstendige_andel_kvinner: number;
+  selvstendige_andel_menn: number;
+  selvstendige_antall: number;
+  selvstendige_antall710: number;
+  uno_id: string;
+  _version_: number;
+}
+
 export interface ArbeidsledighetElement {
   [kategori: string]: ArbeidsledighetObject;
 }
