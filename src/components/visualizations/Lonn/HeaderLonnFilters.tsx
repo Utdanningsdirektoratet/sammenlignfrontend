@@ -383,6 +383,16 @@ class HeaderLonnFilters extends Component<Props, State> {
                   undefined
                 ),
               },
+              {
+                text: <Translate nb="Median og kvartiler" />,
+                selected: StatistiskMål === "Median og kvartiler",
+                valueKey: "Median og kvartiler",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser Median og kvartiler for lønn utbetalt." />
+                ) : (
+                  undefined
+                ),
+              },
             ]}
             name="statistiskmål"
             onChange={event =>

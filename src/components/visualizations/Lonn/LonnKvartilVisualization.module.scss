@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  &_data {
+    &_header {
+      font-weight: 500;
+    }
+    &_q3 {
+      margin-bottom: 20px;
+      &_A {
+        margin-bottom: 50px;
+      }
+    }
+    &_median {
+      margin-bottom: 20px;
+      .container_data_header {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      &_A {
+        margin-bottom: 50px;
+      }
+    }
+    &_q1 {
+    }
+
+    &_female {
+      color: #cd99ab;
+      font-weight: 700;
+    }
+    &_male {
+      color: #9fbded;
+      font-weight: 700;
+    }
+  }
+}
