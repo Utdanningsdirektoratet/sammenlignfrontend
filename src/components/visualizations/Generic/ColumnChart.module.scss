@@ -1,0 +1,75 @@
+.columnchart {
+  &_container {
+    height: 230px;
+    display: flex;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+
+    &_A,
+    &_K,
+    &_M {
+      height: 100%;
+      width: 15px;
+      border-radius: 10px;
+      margin-top: auto;
+
+      &_high,
+      &_medium,
+      &_low {
+        width: 9px;
+        border: 3px solid black;
+        height: 9px;
+        border-radius: 50px;
+        display: block;
+        position: absolute;
+      }
+
+      &_high {
+        bottom: 100%;
+        transform: translateY(100%);
+      }
+      &_medium {
+        background-color: black;
+        bottom: 50%;
+        transform: translateY(50%);
+      }
+      &_low {
+        bottom: 0%;
+        transform: translateY(0%);
+      }
+
+      &_icon {
+        position: absolute;
+        top: 100%;
+        transform: translateY(-100%);
+        svg {
+          position: absolute;
+          top: 100%;
+          transform: translateY(-100%);
+        }
+      }
+    }
+
+    &_A {
+      background-color: #aaaaaa;
+    }
+    &_K {
+      background-color: #cd99ab;
+      &_icon {
+        height: 13.5px;
+        width: 13.5px;
+        margin-left: 1px;
+      }
+    }
+    &_M {
+      background-color: #9fbded;
+      margin-right: 10px;
+      &_icon {
+        height: 10px;
+        width: 10px;
+        margin-left: 2px;
+      }
+    }
+  }
+}

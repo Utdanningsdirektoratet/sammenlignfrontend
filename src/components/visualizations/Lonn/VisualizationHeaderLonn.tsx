@@ -17,7 +17,7 @@ export type VisualizationHeaderConfigLonn = {
 
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
 export type Lønn = "Brutto" | "Med overtid";
-export type StatistiskMål = "Median" | "Gjennomsnitt";
+export type StatistiskMål = "Median" | "Gjennomsnitt" | "Median og kvartiler";
 
 type Props = {
   config: VisualizationHeaderConfigLonn;
