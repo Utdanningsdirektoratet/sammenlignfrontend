@@ -24,8 +24,8 @@ class LonnWrapper extends Component<
       Sektor: ["A"],
       Tidsenhet: "Månedlig",
       Lønn: "Brutto",
-      StatistiskMål: "Median",
-      Kjønn: "KM",
+      StatistiskMål: "Median og kvartiler",
+      Kjønn: "A",
       ssbSektor: ssbSektor,
     };
   }
