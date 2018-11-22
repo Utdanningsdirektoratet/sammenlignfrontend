@@ -24,6 +24,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "node src/scripts/widget_generator.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "profile": "cross-env NODE_ENV=production webpack --config node_modules/react-scripts/config/webpack.config.prod.js --profile --json > stats.json"

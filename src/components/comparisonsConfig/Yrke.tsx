@@ -82,7 +82,7 @@ const Yrke: SammenligningTemplate[] = [
   },
   {
     title: "Interesser",
-    widget_id: "",
+    widget_id: "interesser",
     path: "/rest/main",
     render: (data: MainElement) =>
       data.interesser ? (
