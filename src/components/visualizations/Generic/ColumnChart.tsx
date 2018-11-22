@@ -7,9 +7,9 @@ import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 
 type Props = {
   kjønn: Kjønn;
-  q1: KvartilInfo;
-  median: KvartilInfo;
-  q3: KvartilInfo;
+  low?: KvartilInfo;
+  mid?: KvartilInfo;
+  high?: KvartilInfo;
   max: number;
 };
 
@@ -22,11 +22,17 @@ class ColumnChart extends Component<Props> {
 
   getHighestPercentage = (kjønn: string) => {
     let percentages: number[] = [];
-    var q3Percentage = this.getPercentage(this.props.q3[kjønn]);
+    var q3Percentage = this.props.high
+      ? this.getPercentage(this.props.high[kjønn])
+      : null;
     if (q3Percentage) percentages.push(q3Percentage);
-    var medianPercentage = this.getPercentage(this.props.median[kjønn]);
+    var medianPercentage = this.props.mid
+      ? this.getPercentage(this.props.mid[kjønn])
+      : null;
     if (medianPercentage) percentages.push(medianPercentage);
-    var q1Percentage = this.getPercentage(this.props.q1[kjønn]);
+    var q1Percentage = this.props.low
+      ? this.getPercentage(this.props.low[kjønn])
+      : null;
     if (q1Percentage) percentages.push(q1Percentage);
 
     percentages = percentages.sort((a, b) => b - a);
@@ -34,7 +40,7 @@ class ColumnChart extends Component<Props> {
   };
 
   render() {
-    const { kjønn, q1, median, q3 } = this.props;
+    const { kjønn, low, mid, high } = this.props;
     return (
       <div>
         {kjønn === "A" ? (
@@ -48,37 +54,43 @@ class ColumnChart extends Component<Props> {
                 }px`,
               }}
             >
-              <span
-                className={styles.columnchart_container_A_high}
-                style={{
-                  bottom: `${this.getPercentage(q3["A"])}%`,
-                  transform: `translateY(${() => this.getPercentage(q3["A"])})`,
-                  display: `${
-                    this.getPercentage(q3["A"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
-              <span
-                className={styles.columnchart_container_A_medium}
-                style={{
-                  bottom: `${this.getPercentage(median["A"])}%`,
-                  transform: `translateY(${() =>
-                    this.getPercentage(median["A"])})`,
-                  display: `${
-                    this.getPercentage(median["A"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
-              <span
-                className={styles.columnchart_container_A_low}
-                style={{
-                  bottom: `${this.getPercentage(q1["A"])}%`,
-                  transform: `translateY(${() => this.getPercentage(q1["A"])})`,
-                  display: `${
-                    this.getPercentage(q1["A"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
+              {high ? (
+                <span
+                  className={styles.columnchart_container_A_high}
+                  style={{
+                    bottom: `${this.getPercentage(high["A"])}%`,
+                    transform: `translateY(${this.getPercentage(high["A"])}%)`,
+                    display: `${
+                      this.getPercentage(high["A"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+              {mid ? (
+                <span
+                  className={styles.columnchart_container_A_medium}
+                  style={{
+                    bottom: `${this.getPercentage(mid["A"])}%`,
+                    transform: `translateY(${this.getPercentage(mid["A"])}%)`,
+                    display: `${
+                      this.getPercentage(mid["A"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+              {low ? (
+                <span
+                  className={styles.columnchart_container_A_low}
+                  style={{
+                    bottom: `${this.getPercentage(low["A"])}%`,
+                    transform: `translateY(${() =>
+                      this.getPercentage(low["A"])}%)`,
+                    display: `${
+                      this.getPercentage(low["A"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
             </div>
           </div>
         ) : (
@@ -92,36 +104,43 @@ class ColumnChart extends Component<Props> {
                 }px`,
               }}
             >
-              <span
-                className={styles.columnchart_container_M_high}
-                style={{
-                  bottom: `${this.getPercentage(q3["M"])}%`,
-                  transform: `translateY(${this.getPercentage(q3["M"])}%)`,
-                  display: `${
-                    this.getPercentage(q3["M"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
-              <span
-                className={styles.columnchart_container_M_medium}
-                style={{
-                  bottom: `${this.getPercentage(median["M"])}%`,
-                  transform: `translateY(${this.getPercentage(median["M"])}%)`,
-                  display: `${
-                    this.getPercentage(median["M"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
-              <span
-                className={styles.columnchart_container_M_low}
-                style={{
-                  bottom: `${this.getPercentage(q1["M"])}%`,
-                  transform: `translateY(${this.getPercentage(q1["M"])}%)`,
-                  display: `${
-                    this.getPercentage(q1["M"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
+              {high ? (
+                <span
+                  className={styles.columnchart_container_M_high}
+                  style={{
+                    bottom: `${this.getPercentage(high["M"])}%`,
+                    transform: `translateY(${this.getPercentage(high["M"])}%)`,
+                    display: `${
+                      this.getPercentage(high["M"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+              {mid ? (
+                <span
+                  className={styles.columnchart_container_M_medium}
+                  style={{
+                    bottom: `${this.getPercentage(mid["M"])}%`,
+                    transform: `translateY(${this.getPercentage(mid["M"])}%)`,
+                    display: `${
+                      this.getPercentage(mid["M"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+              {low ? (
+                <span
+                  className={styles.columnchart_container_M_low}
+                  style={{
+                    bottom: `${this.getPercentage(low["M"])}%`,
+                    transform: `translateY(${this.getPercentage(low["M"])}%)`,
+                    display: `${
+                      this.getPercentage(low["M"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+
               <span className={styles.columnchart_container_M_icon}>
                 <Male />
               </span>
@@ -135,36 +154,42 @@ class ColumnChart extends Component<Props> {
                 }px`,
               }}
             >
-              <span
-                className={styles.columnchart_container_K_high}
-                style={{
-                  bottom: `${this.getPercentage(q3["K"])}%`,
-                  transform: `translateY(${this.getPercentage(q3["K"])}%)`,
-                  display: `${
-                    this.getPercentage(q3["K"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
-              <span
-                className={styles.columnchart_container_K_medium}
-                style={{
-                  bottom: `${this.getPercentage(median["K"])}%`,
-                  transform: `translateY(${this.getPercentage(median["K"])}%)`,
-                  display: `${
-                    this.getPercentage(median["K"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
-              <span
-                className={styles.columnchart_container_K_low}
-                style={{
-                  bottom: `${this.getPercentage(q1["K"])}%`,
-                  transform: `translateY(${this.getPercentage(q1["K"])}%)`,
-                  display: `${
-                    this.getPercentage(q1["K"]) === null ? "none" : "block"
-                  }`,
-                }}
-              />
+              {high ? (
+                <span
+                  className={styles.columnchart_container_K_high}
+                  style={{
+                    bottom: `${this.getPercentage(high["K"])}%`,
+                    transform: `translateY(${this.getPercentage(high["K"])}%)`,
+                    display: `${
+                      this.getPercentage(high["K"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+              {mid ? (
+                <span
+                  className={styles.columnchart_container_K_medium}
+                  style={{
+                    bottom: `${this.getPercentage(mid["K"])}%`,
+                    transform: `translateY(${this.getPercentage(mid["K"])}%)`,
+                    display: `${
+                      this.getPercentage(mid["K"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
+              {low ? (
+                <span
+                  className={styles.columnchart_container_K_low}
+                  style={{
+                    bottom: `${this.getPercentage(low["K"])}%`,
+                    transform: `translateY(${this.getPercentage(low["K"])}%)`,
+                    display: `${
+                      this.getPercentage(low["K"]) === null ? "none" : "block"
+                    }`,
+                  }}
+                />
+              ) : null}
               <span className={styles.columnchart_container_K_icon}>
                 <Female />
               </span>

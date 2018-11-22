@@ -24,8 +24,8 @@ class LonnWrapper extends Component<
       Sektor: ["A"],
       Tidsenhet: "Månedlig",
       Lønn: "Brutto",
-      StatistiskMål: "Median og kvartiler", //TODO: Change back to median later
-      Kjønn: "KM", //TODO: Change back to A later
+      StatistiskMål: "Median",
+      Kjønn: "KM",
       ssbSektor: ssbSektor,
     };
   }

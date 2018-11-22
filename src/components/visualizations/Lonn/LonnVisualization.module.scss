@@ -1,14 +1,28 @@
 .lonnVisualization {
-  &_kjonn {
+  &_kjonncontainer {
+    height: 230px;
     display: flex;
+    align-items: center;
+  }
+  &_kjonn {
     &_icon {
       svg {
         height: 1.5em;
       }
       margin-right: 5px;
     }
+    &_text_K,
+    &_text_M,
     &_text {
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    &_text_K {
+      color: #cd99ab;
+    }
+
+    &_text_M {
+      color: #9fbded;
     }
   }
 }

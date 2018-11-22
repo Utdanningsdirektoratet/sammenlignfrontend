@@ -7,14 +7,14 @@ import styles from "./LonnKvartilVisualization.module.scss";
 
 type Props = {
   kjønn: Kjønn;
-  q1: KvartilInfo;
-  median: KvartilInfo;
-  q3: KvartilInfo;
+  low: KvartilInfo;
+  mid: KvartilInfo;
+  high: KvartilInfo;
 };
 
 class LonnKvartilVisualization extends Component<Props> {
   render() {
-    const { kjønn, q1, median, q3 } = this.props;
+    const { kjønn, low, mid, high } = this.props;
     return (
       <div className={styles.container_data}>
         <div
@@ -26,14 +26,16 @@ class LonnKvartilVisualization extends Component<Props> {
         >
           <div className={styles.container_data_header}>Høy kvart</div>
           {kjønn === "A" ? (
-            <div>{!q3["A"] ? "(ingen data)" : q3["A"]}</div>
+            <div className={styles.container_data_text}>
+              {!high["A"] ? "(ingen data)" : high["A"]}
+            </div>
           ) : (
             <div>
               <div className={styles.container_data_male}>
-                {!q3["M"] ? "(ingen data)" : q3["M"]}
+                {!high["M"] ? "(ingen data)" : high["M"]}
               </div>
               <div className={styles.container_data_female}>
-                {!q3["K"] ? "(ingen data)" : q3["K"]}
+                {!high["K"] ? "(ingen data)" : high["K"]}
               </div>
             </div>
           )}
@@ -47,14 +49,16 @@ class LonnKvartilVisualization extends Component<Props> {
         >
           <div className={styles.container_data_header}>Median</div>
           {kjønn === "A" ? (
-            <div>{!median["A"] ? "(ingen data)" : median["A"]}</div>
+            <div className={styles.container_data_text}>
+              {!mid["A"] ? "(ingen data)" : mid["A"]}
+            </div>
           ) : (
             <div>
               <div className={styles.container_data_male}>
-                {!median["M"] ? "(ingen data)" : median["M"]}
+                {!mid["M"] ? "(ingen data)" : mid["M"]}
               </div>
               <div className={styles.container_data_female}>
-                {!median["K"] ? "(ingen data)" : median["K"]}
+                {!mid["K"] ? "(ingen data)" : mid["K"]}
               </div>
             </div>
           )}
@@ -62,14 +66,16 @@ class LonnKvartilVisualization extends Component<Props> {
         <div className={styles.container_data_q1}>
           <div className={styles.container_data_header}>Lav kvart</div>
           {kjønn === "A" ? (
-            <div>{!q1["A"] ? "(ingen data)" : q1["A"]}</div>
+            <div className={styles.container_data_text}>
+              {!low["A"] ? "(ingen data)" : low["A"]}
+            </div>
           ) : (
             <div>
               <div className={styles.container_data_male}>
-                {!q1["M"] ? "(ingen data)" : q1["M"]}
+                {!low["M"] ? "(ingen data)" : low["M"]}
               </div>
               <div className={styles.container_data_female}>
-                {!q1["K"] ? "(ingen data)" : q1["K"]}
+                {!low["K"] ? "(ingen data)" : low["K"]}
               </div>
             </div>
           )}

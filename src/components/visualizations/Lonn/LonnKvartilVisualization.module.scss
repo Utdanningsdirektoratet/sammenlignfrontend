@@ -18,6 +18,10 @@
       }
       &_A {
         margin-bottom: 50px;
+        .container_data_header {
+          font-weight: 700;
+          text-transform: uppercase;
+        }
       }
     }
     &_q1 {
@@ -29,6 +33,9 @@
     }
     &_male {
       color: #9fbded;
+      font-weight: 700;
+    }
+    &_text {
       font-weight: 700;
     }
   }
