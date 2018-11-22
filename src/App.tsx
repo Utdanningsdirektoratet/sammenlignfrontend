@@ -3,13 +3,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import styles from "./App.module.css";
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
-import { TranslateRoot } from "./components/app/Translate";
+import { TranslateRoot, getLang } from "./components/app/Translate";
 import AppContext, { AppState } from "./components/app/AppContext";
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
 import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
 import D3TestPage from "./components/pages/D3TestPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
+import Widget from "./components/widget/Widget";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -89,6 +90,17 @@ class App extends Component<{}, AppState> {
               />
               <Route path="/d3test" render={D3TestPage} />
               <Route path="/search" render={SearchBoxPage} />
+              {/* Test route for å utvikle og vise frem widgets, replace before production */}
+              <Route
+                path="/widget/:widget_name/:uno_id"
+                render={props => (
+                  <Widget
+                    lang={getLang()}
+                    widget_name={props.match.params.widget_name}
+                    uno_id={props.match.params.uno_id}
+                  />
+                )}
+              />
               <Route
                 path="/:innholdstype"
                 render={render(AlphabeticOverviewPage)}
