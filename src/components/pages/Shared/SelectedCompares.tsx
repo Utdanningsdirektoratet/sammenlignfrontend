@@ -6,13 +6,18 @@ import { Innholdstype } from "../../../data/ApiTypes";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import CloseIcon from "../../visualizations/Generic/CloseIcon";
 import UnoId from "../../app/UnoId";
-import SearchBox from "../AlphabeticComparisonPage/SearchBox";
+import {
+  num_compare_sizing,
+  ScreenSizeProps,
+} from "../../../util/NumCompareSizing";
 
 type Props = {
   innholdstype: Innholdstype;
 };
 
-class SelectedCompares extends Component<AppStateProps & Props> {
+class SelectedCompares extends Component<
+  AppStateProps & Props & ScreenSizeProps
+> {
   handleRemoveClick = (e: React.MouseEvent<HTMLElement>) => {
     const {
       appState: { toggleUnoId },
@@ -53,4 +58,6 @@ class SelectedCompares extends Component<AppStateProps & Props> {
   }
 }
 
-export default with_app_state<Props>(SelectedCompares);
+export default with_app_state<Props>(
+  num_compare_sizing<Props & AppStateProps>(SelectedCompares)
+);

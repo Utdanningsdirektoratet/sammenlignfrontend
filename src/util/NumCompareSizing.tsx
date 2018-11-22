@@ -1,0 +1,56 @@
+import React, { Component } from "react";
+
+interface State {
+  innerWidth: number;
+  innerHeight: number;
+}
+
+type Device = "Mobile" | "Tablet" | "Desktop";
+
+export type ScreenSizeProps = {
+  innerWidth: number;
+  innerHeight: number;
+  device: Device;
+};
+
+export function num_compare_sizing<P>(
+  WrappedComponent: React.ComponentClass<any>
+) {
+  return (class GetScreenSize extends Component<State> {
+    constructor(props: any) {
+      super(props);
+    }
+
+    state: State = {
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    };
+
+    componentDidMount() {
+      window.addEventListener("resize", this.screenResizeListener);
+      this.screenResizeListener;
+    }
+    componentWillUnmount() {
+      window.removeEventListener("resize", this.screenResizeListener);
+    }
+
+    screenResizeListener = (e: UIEvent) => {
+      console.log(
+        "Inner: " + window.innerWidth + "Outer: " + window.outerWidth
+      );
+      this.setState({
+        innerWidth: window.innerWidth,
+        innerHeight: window.innerHeight,
+      });
+    };
+    render() {
+      return (
+        <WrappedComponent
+          innerWidth={this.state.innerWidth}
+          innerHeight={this.state.innerHeight}
+          {...this.props}
+        />
+      );
+    }
+  } as any) as React.ComponentClass<P>;
+}
