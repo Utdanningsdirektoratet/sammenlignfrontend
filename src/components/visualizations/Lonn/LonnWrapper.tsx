@@ -24,7 +24,7 @@ class LonnWrapper extends Component<
       Sektor: ["A"],
       Tidsenhet: "Månedlig",
       Lønn: "Brutto",
-      StatistiskMål: "Median",
+      StatistiskMål: "Median og kvartiler",
       Kjønn: "A",
       ssbSektor: ssbSektor,
     };
@@ -39,9 +39,68 @@ class LonnWrapper extends Component<
     this.setState(config);
   };
 
+  getMaxValue = (kjønn: string, data: any) => {
+    let wage = kjønn + "_wage";
+
+    switch (this.state.Lønn) {
+      case "Brutto":
+        break;
+      case "Med overtid":
+        wage += "_overtime";
+        break;
+    }
+
+    switch (this.state.StatistiskMål) {
+      case "Median":
+        wage += "_median";
+        break;
+      case "Gjennomsnitt":
+        wage += "_avg";
+        break;
+      case "Median og kvartiler":
+        wage += "_q3";
+        break;
+    }
+
+    if (!data[this.state.Arbeidstid]) return 0;
+    if (!data[this.state.Arbeidstid][wage]) return 0;
+    let wageCalc = data[this.state.Arbeidstid][wage] as number;
+    switch (this.state.Tidsenhet) {
+      case "Årlig":
+        wageCalc *= 12;
+        break;
+      case "Månedlig":
+        break;
+      case "Ca. timelønn":
+        wageCalc = wageCalc / 30 / 7.5;
+    }
+    return Math.round(wageCalc);
+  };
+
   render() {
-    const { data, uno_ids, template } = this.props;
+    const { data, uno_ids } = this.props;
     const { Sektor: sektorArray } = this.state;
+
+    let maxValues: number[] = [];
+    let maxValue: number = 0;
+
+    this.props.uno_ids.forEach(uno_id => {
+      const ssbSektor = this.state.ssbSektor[uno_id];
+      let unoData = data[uno_id][ssbSektor][sektorArray[0]];
+
+      if (this.state.Kjønn === "A") {
+        var wage = this.getMaxValue("A", unoData);
+        maxValues.push(wage);
+      } else {
+        var wageM = this.getMaxValue("M", unoData);
+        maxValues.push(wageM);
+        var wageK = this.getMaxValue("K", unoData);
+        maxValues.push(wageK);
+      }
+    });
+
+    maxValues = maxValues.sort((a, b) => b - a);
+    maxValue = maxValues[0];
 
     return (
       <div>
@@ -70,6 +129,7 @@ class LonnWrapper extends Component<
                         lønn={this.state.Lønn}
                         statistiskMål={this.state.StatistiskMål}
                         tidsenhet={this.state.Tidsenhet}
+                        maxValue={maxValue}
                       />
                     );
                   return <NoData key={uno_id} />;
