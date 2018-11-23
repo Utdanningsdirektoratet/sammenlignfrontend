@@ -17,9 +17,29 @@ type State = {
 
 class LonnHeaderFilterDesktop extends Component<Props, State> {
   state = { expanded: false };
+  containerRef = React.createRef<HTMLDivElement>();
+
+  componentDidMount() {
+    document.addEventListener("click", this.handleOutsideClick, true);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleOutsideClick, true);
+  }
 
   toggleExpansion = () => {
     this.setState({ expanded: !this.state.expanded });
+  };
+
+  handleOutsideClick = (e: any) => {
+    if (!this.state.expanded) return;
+    if (
+      this.containerRef.current &&
+      this.containerRef.current.contains(e.target)
+    ) {
+      return;
+    }
+
+    this.toggleExpansion();
   };
 
   render() {
@@ -36,7 +56,7 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
     );
 
     return (
-      <div className={styles.container}>
+      <div ref={this.containerRef} className={styles.container}>
         <div className={styles.container_head}>
           <div className={styles.container_head_infotext}>
             <Translate nb="Visningsalternativer" />

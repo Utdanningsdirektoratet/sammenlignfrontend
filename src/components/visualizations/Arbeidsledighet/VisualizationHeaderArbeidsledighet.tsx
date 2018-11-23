@@ -25,9 +25,29 @@ type State = {
 
 class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
   state = { open: false };
+  containerRef = React.createRef<HTMLDivElement>();
+
+  componentDidMount() {
+    document.addEventListener("click", this.handleOutsideClick, true);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleOutsideClick, true);
+  }
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
+  };
+
+  handleOutsideClick = (e: any) => {
+    if (!this.state.open) return;
+    if (
+      this.containerRef.current &&
+      this.containerRef.current.contains(e.target)
+    ) {
+      return;
+    }
+
+    this.onFilterButtonClick(false);
   };
 
   render() {
@@ -37,7 +57,10 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
 
     if (this.state.open) {
       Modal = (
-        <div className={`${styles.visualizationheader_container_modal}`}>
+        <div
+          ref={this.containerRef}
+          className={`${styles.visualizationheader_container_modal}`}
+        >
           <div
             className={`${styles.visualizationheader_container_modal_header}`}
           >
@@ -46,13 +69,13 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
                 styles.visualizationheader_container_modal_header_title
               }`}
             >
-              <Translate nb="Arbeidsledighet" /> -{" "}
+              <Translate nb="Arbeidsledighet" />
               <span
                 className={`${
                   styles.visualizationheader_container_modal_header_title__desc
                 }`}
               >
-                <Translate nb="visningsalternativer" />
+                - <Translate nb="visningsalternativer" />
               </span>
               <div
                 className={`${

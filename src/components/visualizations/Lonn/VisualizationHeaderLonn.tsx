@@ -7,7 +7,7 @@ import HeaderLonnFilters from "./HeaderLonnFilters";
 
 export type VisualizationHeaderConfigLonn = {
   Arbeidstid: Arbeidstid;
-  Sektor: Sektor[];
+  Sektor: Sektor;
   Tidsenhet: Tidsenhet;
   Lønn: Lønn;
   StatistiskMål: StatistiskMål;
@@ -31,6 +31,26 @@ type State = {
 
 class VisualizationHeaderLonn extends Component<Props, State> {
   state = { open: false };
+  containerRef = React.createRef<HTMLDivElement>();
+
+  componentDidMount() {
+    document.addEventListener("click", this.handleOutsideClick, true);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleOutsideClick, true);
+  }
+
+  handleOutsideClick = (e: any) => {
+    if (!this.state.open) return;
+    if (
+      this.containerRef.current &&
+      this.containerRef.current.contains(e.target)
+    ) {
+      return;
+    }
+
+    this.onFilterButtonClick(false);
+  };
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
@@ -49,7 +69,10 @@ class VisualizationHeaderLonn extends Component<Props, State> {
     if (!this.props.config.Arbeidstid) return null;
     if (this.state.open)
       Modal = (
-        <div className={`${styles.visualizationheader_container_modal}`}>
+        <div
+          ref={this.containerRef}
+          className={`${styles.visualizationheader_container_modal}`}
+        >
           <div
             className={`${styles.visualizationheader_container_modal_header}`}
           >
@@ -113,36 +136,23 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                   )}
                 </li>
                 <li>
-                  {Sektor.map((d: string, i: number) => {
-                    let text = ",";
-                    if (i > 0) text = "/";
-                    switch (d) {
-                      case "A":
-                        return (
-                          <span key={d}>
-                            {text} <Translate nb="Alle" />{" "}
-                          </span>
-                        );
-                      case "K":
-                        return (
-                          <span key={d}>
-                            {text} <Translate nb="Kommunal" />{" "}
-                          </span>
-                        );
-                      case "P":
-                        return (
-                          <span key={d}>
-                            {text} <Translate nb="Privat" />{" "}
-                          </span>
-                        );
-                      case "S":
-                        return (
-                          <span key={d}>
-                            {text} <Translate nb="Statlig" />{" "}
-                          </span>
-                        );
-                    }
-                  })}
+                  {Sektor === "A" ? (
+                    <span>
+                      {","} <Translate nb="Alle" />{" "}
+                    </span>
+                  ) : Sektor === "K" ? (
+                    <span>
+                      {","} <Translate nb="Kommunal" />{" "}
+                    </span>
+                  ) : Sektor === "P" ? (
+                    <span>
+                      {","} <Translate nb="Privat" />{" "}
+                    </span>
+                  ) : (
+                    <span>
+                      {","} <Translate nb="Statlig" />{" "}
+                    </span>
+                  )}
                 </li>
                 <li>{", " + Lønn}</li>
                 <li>{", " + StatistiskMål}</li>
