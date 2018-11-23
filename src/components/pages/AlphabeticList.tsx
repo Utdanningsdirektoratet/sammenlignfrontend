@@ -22,7 +22,11 @@ class AlphabeticList extends React.Component<Props> {
               <div>
                 <div className={styles.alphabetic_headers}>
                   {c.characters.map(l => (
-                    <h3 className={styles.alphabetic_header} key={l}>
+                    <h3
+                      className={styles.alphabetic_header}
+                      key={l}
+                      data-letter={l}
+                    >
                       <span>{l}</span>
                     </h3>
                   ))}
