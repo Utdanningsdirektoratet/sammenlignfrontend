@@ -86,6 +86,14 @@ class LonnWrapper extends Component<
 
     this.props.uno_ids.forEach(uno_id => {
       const ssbSektor = this.state.ssbSektor[uno_id];
+      if (
+        !ssbSektor ||
+        !data[uno_id] ||
+        !data[uno_id][ssbSektor] ||
+        !data[uno_id][ssbSektor][sektorArray[0]]
+      ) {
+        return;
+      }
       let unoData = data[uno_id][ssbSektor][sektorArray[0]];
 
       if (this.state.Kjønn === "A") {
