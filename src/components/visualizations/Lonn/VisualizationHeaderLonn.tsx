@@ -22,6 +22,7 @@ export type StatistiskMål = "Median" | "Gjennomsnitt" | "Median og kvartiler";
 type Props = {
   config: VisualizationHeaderConfigLonn;
   setConfig: (config: VisualizationHeaderConfigLonn) => void;
+  onFilterClicked: (event: any, key: string) => void;
 };
 
 type State = {
@@ -33,40 +34,6 @@ class VisualizationHeaderLonn extends Component<Props, State> {
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
-  };
-
-  onFilterClicked = (event: any, key: string) => {
-    let config = this.props.config;
-    var value = event.target.id;
-    switch (key) {
-      case "Arbeidstid":
-        config.Arbeidstid = value;
-        break;
-      case "Sektor":
-        var index = config.Sektor.indexOf(value);
-        if (index > -1) {
-          config.Sektor.splice(index, 1);
-        } else {
-          config.Sektor.push(value);
-        }
-        break;
-      case "Tidsenhet":
-        config.Tidsenhet = value;
-        break;
-      case "Lønn":
-        config.Lønn = value;
-        break;
-      case "StatistiskMål":
-        config.StatistiskMål = value;
-        break;
-      case "Kjønn":
-        config.Kjønn = value;
-        break;
-      default:
-        return;
-    }
-
-    this.props.setConfig(config);
   };
 
   render() {
@@ -109,7 +76,7 @@ class VisualizationHeaderLonn extends Component<Props, State> {
           </div>
           <HeaderLonnFilters
             config={this.props.config}
-            onFilterClicked={this.onFilterClicked}
+            onFilterClicked={this.props.onFilterClicked}
             showHelpText={true}
           />
         </div>
@@ -207,10 +174,6 @@ class VisualizationHeaderLonn extends Component<Props, State> {
           {Modal}
         </div>
         {this.props.children}
-        <LonnHeaderFilterDesktop
-          config={this.props.config}
-          onFilterClicked={this.onFilterClicked}
-        />
       </div>
     );
   }

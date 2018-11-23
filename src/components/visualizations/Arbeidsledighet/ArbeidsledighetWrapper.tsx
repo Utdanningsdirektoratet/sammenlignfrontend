@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import { ArbeidsledighetElement } from "../../../data/ApiTypes";
 import VisualizationHeaderArbeidsledighet, {
   VisualizationHeaderConfigArbeidsledighet,
@@ -7,6 +7,7 @@ import ArbeidsledighetVisualization from "./ArbeidsledighetVisualization";
 import NoData from "../Old/NoData";
 import { ComparisonComponentProps } from "../../comparisonsConfig";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
+import ArbeidsledighetHeaderFilterDesktop from "./ArbeidsledighetHeaderFilterDesktop";
 
 class ArbeidsledighetWrapper extends React.Component<
   ComparisonComponentProps<ArbeidsledighetElement>,
@@ -20,6 +21,38 @@ class ArbeidsledighetWrapper extends React.Component<
     Fullført: ["A"],
     Visning: "Andel",
   };
+
+  onFilterClicked = (event: any, key: string) => {
+    var value = event.target.id;
+    switch (key) {
+      case "Kjønn":
+        this.setConfig({ ...this.state, Kjønn: value });
+        break;
+      case "Arbeidsledighet":
+        const index = this.state.Fullført.indexOf(value);
+        if (index > -1) {
+          this.setConfig({
+            ...this.state,
+            Fullført: this.state.Fullført.filter(f => f !== value),
+          });
+        } else {
+          this.setConfig({
+            ...this.state,
+            Fullført: [...this.state.Fullført, value].sort(),
+          });
+        }
+
+        break;
+      case "Visning":
+        let config = { ...this.state };
+        config.Visning = value;
+        this.setState(config);
+        break;
+      default:
+        return;
+    }
+  };
+
   render() {
     const { data, uno_ids, template } = this.props;
     const config = this.state;
@@ -31,6 +64,7 @@ class ArbeidsledighetWrapper extends React.Component<
           setConfig={this.setConfig}
           config={this.state}
           comparison={this.props.template}
+          onFilterClicked={this.onFilterClicked}
         />
         <ComparisonRow>
           {uno_ids.map(uno_id => {
@@ -50,6 +84,10 @@ class ArbeidsledighetWrapper extends React.Component<
             );
           })}
         </ComparisonRow>
+        <ArbeidsledighetHeaderFilterDesktop
+          onFilterClicked={this.onFilterClicked}
+          config={this.state}
+        />
       </div>
     );
   }

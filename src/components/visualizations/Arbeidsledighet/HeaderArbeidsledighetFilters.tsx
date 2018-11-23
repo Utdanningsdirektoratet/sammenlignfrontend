@@ -204,7 +204,6 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
                 ),
               },
             ]}
-            name="antall"
             onChange={event => onFilterClicked(event, "Visning")}
           />
         </ul>

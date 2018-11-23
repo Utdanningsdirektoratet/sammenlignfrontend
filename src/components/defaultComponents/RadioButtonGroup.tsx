@@ -1,5 +1,6 @@
 import React, { Component, ChangeEvent } from "react";
 import RadioButton from "./RadioButton";
+import { randId } from "../../util/Rand";
 
 type RadioButtonGroupType = {
   text: JSX.Element;
@@ -10,18 +11,18 @@ type RadioButtonGroupType = {
 
 type Props = {
   group: RadioButtonGroupType[];
-  name: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 class RadioButtonGroup extends Component<Props> {
+  name: string = randId(15);
   render() {
     return this.props.group.map(g => (
       <RadioButton
         key={g.valueKey}
         text={g.text}
         isSelected={g.selected}
-        name={this.props.name}
+        name={this.name}
         valueKey={g.valueKey}
         onChange={this.props.onChange}
         helpText={g.helptext}

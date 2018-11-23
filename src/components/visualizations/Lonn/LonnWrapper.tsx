@@ -8,6 +8,7 @@ import LonnVisualization from "./LonnVisualization";
 import LonnSpecificChoice from "./LonnSpecificChoice";
 import { ComparisonComponentProps } from "../../comparisonsConfig";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
+import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
 
 class LonnWrapper extends Component<
   ComparisonComponentProps<LonnElement>,
@@ -77,6 +78,39 @@ class LonnWrapper extends Component<
     return Math.round(wageCalc);
   };
 
+  onFilterClicked = (event: any, key: string) => {
+    let config = { ...this.state };
+    var value = event.target.id;
+    switch (key) {
+      case "Arbeidstid":
+        config.Arbeidstid = value;
+        break;
+      case "Sektor":
+        var index = config.Sektor.indexOf(value);
+        if (index > -1) {
+          config.Sektor.splice(index, 1);
+        } else {
+          config.Sektor.push(value);
+        }
+        break;
+      case "Tidsenhet":
+        config.Tidsenhet = value;
+        break;
+      case "Lønn":
+        config.Lønn = value;
+        break;
+      case "StatistiskMål":
+        config.StatistiskMål = value;
+        break;
+      case "Kjønn":
+        config.Kjønn = value;
+        break;
+      default:
+        return;
+    }
+    this.setState(config);
+  };
+
   render() {
     const { data, uno_ids } = this.props;
     const { Sektor: sektorArray } = this.state;
@@ -115,6 +149,7 @@ class LonnWrapper extends Component<
         <VisualizationHeaderLonn
           config={this.state}
           setConfig={this.setConfig}
+          onFilterClicked={this.onFilterClicked}
         />
         {sektorArray.map(sektor => {
           return (
@@ -159,6 +194,10 @@ class LonnWrapper extends Component<
             );
           })}
         </ComparisonRow>
+        <LonnHeaderFilterDesktop
+          config={this.state}
+          onFilterClicked={this.onFilterClicked}
+        />
       </div>
     );
   }
