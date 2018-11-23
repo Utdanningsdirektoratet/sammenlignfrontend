@@ -115,7 +115,6 @@ class LonnWrapper extends Component<
     const { data, uno_ids } = this.props;
     const { Sektor: sektorArray } = this.state;
 
-    let maxValues: number[] = [];
     let maxValue: number = 0;
 
     this.props.uno_ids.forEach(uno_id => {
@@ -132,17 +131,14 @@ class LonnWrapper extends Component<
 
       if (this.state.Kjønn === "A") {
         var wage = this.getMaxValue("A", unoData);
-        maxValues.push(wage);
+        if (maxValue < wage) maxValue = wage;
       } else {
         var wageM = this.getMaxValue("M", unoData);
-        maxValues.push(wageM);
+        if (maxValue < wageM) maxValue = wageM;
         var wageK = this.getMaxValue("K", unoData);
-        maxValues.push(wageK);
+        if (maxValue < wageK) maxValue = wageK;
       }
     });
-
-    maxValues = maxValues.sort((a, b) => b - a);
-    maxValue = maxValues[0];
 
     return (
       <div>
