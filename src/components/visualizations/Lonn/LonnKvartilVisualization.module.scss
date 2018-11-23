@@ -30,10 +30,20 @@
     &_female {
       color: #cd99ab;
       font-weight: 700;
+
+      svg {
+        height: 15px;
+        width: 15px;
+      }
     }
     &_male {
       color: #9fbded;
       font-weight: 700;
+
+      svg {
+        height: 15px;
+        width: 15px;
+      }
     }
     &_text {
       font-weight: 700;

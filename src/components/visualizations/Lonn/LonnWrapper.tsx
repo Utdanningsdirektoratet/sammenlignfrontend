@@ -31,6 +31,10 @@ class LonnWrapper extends Component<
     };
   }
 
+  //TODO: This must be set when embedding widget!!
+  //Not true when embedding multiple widgets for different UNO_IDs, and true if embedding one with multiple UNO_IDs.
+  showGraphics = true;
+
   onSelectedChoiceClick = (uno_id: string, ssbSektor: string) => {
     this.setState(prevState => {
       return { ssbSektor: { ...prevState.ssbSektor, [uno_id]: ssbSektor } };
@@ -168,6 +172,7 @@ class LonnWrapper extends Component<
                           statistiskMål={this.state.StatistiskMål}
                           tidsenhet={this.state.Tidsenhet}
                           maxValue={maxValue}
+                          showGraphics={this.showGraphics}
                         />
                       );
                     }

@@ -4,13 +4,12 @@ import { StatistiskMål, Lønn, Tidsenhet } from "./VisualizationHeaderLonn";
 import { Kjønn, IArbeidstid, Arbeidstid } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
-import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
-import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import styles from "./LonnVisualization.module.scss";
 import Translate from "../../app/Translate";
 import LonnKvartilVisualization from "./LonnKvartilVisualization";
 import ColumnChart from "../Generic/ColumnChart";
-import { keys } from "d3";
+import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
+import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 
 type Props = {
   data: IArbeidstid;
@@ -20,6 +19,7 @@ type Props = {
   lønn: Lønn;
   tidsenhet: Tidsenhet;
   maxValue: number;
+  showGraphics: boolean;
 };
 
 export type KvartilInfo = { [key: string]: string | number | null };
@@ -74,7 +74,7 @@ class LonnVisualization extends Component<Props> {
   };
 
   render() {
-    const { kjønn, statistiskMål, maxValue } = this.props;
+    const { kjønn, statistiskMål, maxValue, showGraphics } = this.props;
     let data = null;
 
     if (statistiskMål === "Median og kvartiler") {
@@ -117,13 +117,15 @@ class LonnVisualization extends Component<Props> {
 
       return (
         <div className={visualizationstyles.visualization_container}>
-          <ColumnChart
-            kjønn={kjønn}
-            low={q1}
-            mid={median}
-            high={q3}
-            max={maxValue}
-          />
+          {showGraphics ? (
+            <ColumnChart
+              kjønn={kjønn}
+              low={q1}
+              mid={median}
+              high={q3}
+              max={maxValue}
+            />
+          ) : null}
           <LonnKvartilVisualization
             kjønn={kjønn}
             low={q1}
@@ -139,12 +141,21 @@ class LonnVisualization extends Component<Props> {
       if (data === null) return <NoData />;
       return (
         <div className={visualizationstyles.visualization_container}>
-          <ColumnChart
-            kjønn={kjønn}
-            mid={{ A: this.calcWageTimeUnit(this.getDataQuery(kjønn), true) }}
-            max={maxValue}
-          />
-          <div className={styles.lonnVisualization_kjonncontainer}>
+          {showGraphics ? (
+            <ColumnChart
+              kjønn={kjønn}
+              mid={{ A: this.calcWageTimeUnit(this.getDataQuery(kjønn), true) }}
+              max={maxValue}
+            />
+          ) : null}
+
+          <div
+            className={
+              showGraphics
+                ? styles.lonnVisualization_kjonncontainer
+                : styles.lonnVisualization_kjonncontainer_nographics
+            }
+          >
             <div className={styles.lonnVisualization_kjonn}>
               <div className={styles.lonnVisualization_kjonn_text}>
                 {data + " kr"}
@@ -160,20 +171,31 @@ class LonnVisualization extends Component<Props> {
       if (kvinner === null && menn === null) return <NoData />;
       return (
         <div className={visualizationstyles.visualization_container}>
-          <ColumnChart
-            kjønn={kjønn}
-            mid={{
-              K: this.calcWageTimeUnit(this.getDataQuery("K"), true),
-              M: this.calcWageTimeUnit(this.getDataQuery("M"), true),
-            }}
-            max={maxValue}
-          />
-          <div className={styles.lonnVisualization_kjonncontainer}>
+          {showGraphics ? (
+            <ColumnChart
+              kjønn={kjønn}
+              mid={{
+                K: this.calcWageTimeUnit(this.getDataQuery("K"), true),
+                M: this.calcWageTimeUnit(this.getDataQuery("M"), true),
+              }}
+              max={maxValue}
+            />
+          ) : null}
+
+          <div
+            className={
+              showGraphics
+                ? styles.lonnVisualization_kjonncontainer
+                : styles.lonnVisualization_kjonncontainer_nographics
+            }
+          >
             <div className={styles.lonnVisualization_kjonn}>
               <div className={styles.lonnVisualization_kjonn_text_M}>
+                <Male />{" "}
                 {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
               </div>
               <div className={styles.lonnVisualization_kjonn_text_K}>
+                <Female />{" "}
                 {kvinner === null ? (
                   <Translate nb="Ingen data" />
                 ) : (

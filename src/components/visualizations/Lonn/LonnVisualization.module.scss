@@ -3,6 +3,12 @@
     height: 230px;
     display: flex;
     align-items: center;
+    &_nographics {
+      display: grid;
+      text-align: center;
+      align-items: center;
+      height: 230px;
+    }
   }
   &_kjonn {
     &_icon {
@@ -15,6 +21,11 @@
     &_text_M,
     &_text {
       font-weight: 700;
+
+      svg {
+        height: 15px;
+        width: 15px;
+      }
     }
 
     &_text_K {
