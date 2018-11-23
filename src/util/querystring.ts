@@ -1,6 +1,6 @@
 import { getLang } from "../components/app/Translate";
 
-export type QueryObject = { [a: string]: string };
+export type QueryObject = { [a: string]: string | undefined };
 
 export function objectToQueryString(obj?: QueryObject) {
   const params: QueryObject = {
@@ -10,7 +10,10 @@ export function objectToQueryString(obj?: QueryObject) {
   };
 
   return Object.keys(params)
-    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+    .filter(k => params[k]) // filter out undefined, null, "" values
+    .map(
+      k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`
+    )
     .join("&");
 }
 // Due to strange cors config on the server, we need a site unique urls per host

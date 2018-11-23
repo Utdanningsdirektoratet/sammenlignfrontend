@@ -6,6 +6,7 @@ import { Innholdstype } from "../../../data/ApiTypes";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import CloseIcon from "../../visualizations/Generic/CloseIcon";
 import UnoId from "../../app/UnoId";
+import SearchBox from "../AlphabeticComparisonPage/SearchBox";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -46,6 +47,7 @@ class SelectedCompares extends Component<AppStateProps & Props> {
               </li>
             ))}
           </ul>
+          <SearchBox innholdstype={innholdstype} />
         </div>
       </>
     );

@@ -10,7 +10,7 @@ class Frontpage extends React.Component {
     return (
       <PageChrome>
         <main>
-          <CompareSelection innholdstype={"..."} />
+          <CompareSelection />
         </main>
       </PageChrome>
     );
