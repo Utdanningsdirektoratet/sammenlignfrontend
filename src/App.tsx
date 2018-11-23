@@ -11,6 +11,7 @@ import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
 import D3TestPage from "./components/pages/D3TestPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 import Widget from "./components/widget/Widget";
+import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./data/config";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -29,6 +30,7 @@ class App extends Component<{}, AppState> {
       toggleInterest: this.toggleInterest,
       toggleInterests: this.toggleInterests,
       clearInterest: this.clearInterest,
+      allowMoreCompares: this.allowMoreCompares,
     };
     window.addEventListener("hashchange", this.hashChangeListener);
   }
@@ -42,10 +44,35 @@ class App extends Component<{}, AppState> {
       this.setState({ selected_uno_id: urlState });
     }
   };
+
+  allowMoreCompares = (length: number) => {
+    const innerWidth = window.innerWidth;
+    // const {
+    //   selected_uno_id: { length },
+    // } = this.state;
+
+    if (innerWidth < 768) {
+      return length < NUM_COMPARES_MOBILE;
+    } else if (innerWidth < 992) {
+      return length < NUM_COMPARES_DESKTOP;
+    } else if (innerWidth < 1200) {
+      return length < NUM_COMPARES_DESKTOP;
+    } else {
+      return length < NUM_COMPARES_DESKTOP;
+    }
+  };
+
   toggleSelection = (uno_id: string) => {
     this.setState(prevState => {
       const selected = prevState.selected_uno_id.filter(sel => sel !== uno_id);
-      if (selected.length === prevState.selected_uno_id.length) {
+      const selectedInnholdstype = selected.filter(
+        sel => sel[0].toLowerCase() === uno_id[0].toLowerCase()
+      );
+
+      if (
+        selected.length === prevState.selected_uno_id.length &&
+        this.allowMoreCompares(selectedInnholdstype.length)
+      ) {
         selected.push(uno_id);
       }
       setUrlState(selected);

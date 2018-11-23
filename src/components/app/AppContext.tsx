@@ -8,6 +8,7 @@ export type AppState = {
   toggleInterest: (interest: string) => void;
   toggleInterests: (interests: string[]) => void;
   clearInterest: () => void;
+  allowMoreCompares: (length: number) => boolean;
 };
 
 export interface AppStateProps {

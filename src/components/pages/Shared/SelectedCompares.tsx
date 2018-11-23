@@ -31,6 +31,7 @@ class SelectedCompares extends Component<
       appState: { selected_uno_id },
       innholdstype,
     } = this.props;
+
     const filtered_uno_id = selected_uno_id.filter(
       uno_id => uno_id[0].toLowerCase() === innholdstype[0].toLowerCase()
     );

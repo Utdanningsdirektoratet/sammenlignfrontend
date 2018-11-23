@@ -5,7 +5,7 @@ interface State {
   innerHeight: number;
 }
 
-type Device = "Mobile" | "Tablet" | "Desktop";
+type Device = "Mobile" | "Tablet" | "Desktop" | "DesktopXL";
 
 export type ScreenSizeProps = {
   innerWidth: number;
@@ -35,9 +35,6 @@ export function num_compare_sizing<P>(
     }
 
     screenResizeListener = (e: UIEvent) => {
-      console.log(
-        "Inner: " + window.innerWidth + "Outer: " + window.outerWidth
-      );
       this.setState({
         innerWidth: window.innerWidth,
         innerHeight: window.innerHeight,
