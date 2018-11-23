@@ -23,7 +23,6 @@ import AlphabetFilter from "../filters/AlphabetFilter";
 type State = {
   data: DataList;
   redirectToHomepage: boolean;
-  selectedLetters: string[];
 };
 
 type Props = RouteComponentProps<{
@@ -35,8 +34,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
     data: { list: [] as MainElement[], interesser: [] as string[] },
     redirectToHomepage: false,
-    selectedLetters: [],
   };
+
   componentDidMount() {
     const {
       match: {
@@ -86,19 +85,15 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     });
   };
 
-  onLetterClicked = (letter?: string, selectAll?: boolean) => {
-    if (selectAll) {
-      this.setState({ selectedLetters: [] });
-      return;
-    }
-    if (letter) {
-      let letters = this.state.selectedLetters as string[];
-      var index = letters.indexOf(letter);
-      if (index === -1) letters.push(letter);
-      else letters.splice(index, 1);
-
-      this.setState({ selectedLetters: letters });
-    }
+  onLetterClicked = (letter: string) => {
+    var domElement = document.querySelector(
+      "[data-letter=" + letter + "]"
+    ) as any;
+    if (domElement && domElement.offsetTop)
+      window.scrollTo({
+        top: domElement.offsetTop,
+        behavior: "smooth",
+      });
   };
 
   render() {
@@ -147,7 +142,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
           <AlphabetFilter
             list={this.getFilteredList()}
             onLetterClicked={this.onLetterClicked}
-            selectedLetters={this.state.selectedLetters}
           />
           <ul className={styles.alphabetic}>
             <AlphabeticList
