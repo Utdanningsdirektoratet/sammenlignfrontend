@@ -117,6 +117,14 @@ export interface LonnElement {
 export interface Main {
   [id: string]: MainElement;
 }
+
+export interface Suggest {
+  response: {
+    numFound: number;
+    docs: Array<{ uno_id: string; tittel: string }>;
+  };
+}
+
 export type DataList = {
   list: MainElement[];
   interesser: string[];

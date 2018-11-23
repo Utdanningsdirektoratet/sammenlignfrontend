@@ -9,6 +9,7 @@ import {
   EntrepenorElement,
   LonnElement,
   ArbeidsledighetElement,
+  Suggest,
 } from "../../data/ApiTypes.js";
 
 interface Data<T> {
@@ -21,7 +22,7 @@ describe("verify apiTypes", () => {
     const m = main as Data<MainElement>;
   });
   it("suggest", () => {
-    const m = suggest as Data<MainElement>;
+    const m = suggest as Suggest;
   });
   it("entrepenorskap", () => {
     const m = entrepenorskap as Data<EntrepenorElement>;
