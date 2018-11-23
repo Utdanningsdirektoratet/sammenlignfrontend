@@ -32,10 +32,12 @@ class LonnKvartilVisualization extends Component<Props> {
           ) : (
             <div>
               <div className={styles.container_data_male}>
-                <Male /> {!high["M"] ? "(ingen data)" : high["M"]}
+                {!high["M"] ? "(ingen data)" : high["M"]}
+                <Male />
               </div>
               <div className={styles.container_data_female}>
-                <Female /> {!high["K"] ? "(ingen data)" : high["K"]}
+                {!high["K"] ? "(ingen data)" : high["K"]}
+                <Female />
               </div>
             </div>
           )}
@@ -55,10 +57,12 @@ class LonnKvartilVisualization extends Component<Props> {
           ) : (
             <div>
               <div className={styles.container_data_male}>
-                <Male /> {!mid["M"] ? "(ingen data)" : mid["M"]}
+                {!mid["M"] ? "(ingen data)" : mid["M"]}
+                <Male />
               </div>
               <div className={styles.container_data_female}>
-                <Female /> {!mid["K"] ? "(ingen data)" : mid["K"]}
+                {!mid["K"] ? "(ingen data)" : mid["K"]}
+                <Female />
               </div>
             </div>
           )}
@@ -72,10 +76,12 @@ class LonnKvartilVisualization extends Component<Props> {
           ) : (
             <div>
               <div className={styles.container_data_male}>
-                <Male /> {!low["M"] ? "(ingen data)" : low["M"]}
+                {!low["M"] ? "(ingen data)" : low["M"]}
+                <Male />
               </div>
               <div className={styles.container_data_female}>
-                <Female /> {!low["K"] ? "(ingen data)" : low["K"]}
+                {!low["K"] ? "(ingen data)" : low["K"]}
+                <Female />
               </div>
             </div>
           )}

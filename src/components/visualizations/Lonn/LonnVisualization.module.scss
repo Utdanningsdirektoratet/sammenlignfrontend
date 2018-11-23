@@ -4,13 +4,27 @@
     display: flex;
     align-items: center;
     &_nographics {
-      display: grid;
+      display: block;
       text-align: center;
       align-items: center;
       height: 230px;
     }
   }
   &_kjonn {
+    &_nographics {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .lonnVisualization_kjonn_text_kjønn {
+        margin: auto;
+      }
+      .lonnVisualization_kjonn_text_K,
+      .lonnVisualization_kjonn_text_M,
+      .lonnVisualization_kjonn_text {
+        margin: auto;
+      }
+    }
+
     &_icon {
       svg {
         height: 1.5em;
@@ -20,20 +34,30 @@
     &_text_K,
     &_text_M,
     &_text {
-      font-weight: 700;
+      font-weight: 600;
 
       svg {
         height: 15px;
         width: 15px;
+        margin-left: 5px;
       }
     }
 
     &_text_K {
-      color: #cd99ab;
+      color: #84012e;
+
+      svg {
+        background-color: #84012e;
+        border-radius: 50%;
+
+        path {
+          fill: white;
+        }
+      }
     }
 
     &_text_M {
-      color: #9fbded;
+      color: #9bbad3;
     }
   }
 }

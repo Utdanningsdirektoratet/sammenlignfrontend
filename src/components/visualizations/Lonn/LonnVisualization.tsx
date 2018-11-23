@@ -156,7 +156,13 @@ class LonnVisualization extends Component<Props> {
                 : styles.lonnVisualization_kjonncontainer_nographics
             }
           >
-            <div className={styles.lonnVisualization_kjonn}>
+            <div
+              className={
+                showGraphics
+                  ? styles.lonnVisualization_kjonn
+                  : styles.lonnVisualization_kjonn_nographics
+              }
+            >
               <div className={styles.lonnVisualization_kjonn_text}>
                 {data + " kr"}
               </div>
@@ -189,18 +195,26 @@ class LonnVisualization extends Component<Props> {
                 : styles.lonnVisualization_kjonncontainer_nographics
             }
           >
-            <div className={styles.lonnVisualization_kjonn}>
-              <div className={styles.lonnVisualization_kjonn_text_M}>
-                <Male />{" "}
-                {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
-              </div>
-              <div className={styles.lonnVisualization_kjonn_text_K}>
-                <Female />{" "}
-                {kvinner === null ? (
-                  <Translate nb="Ingen data" />
-                ) : (
-                  kvinner + " kr"
-                )}
+            <div
+              className={
+                showGraphics
+                  ? styles.lonnVisualization_kjonn
+                  : styles.lonnVisualization_kjonn_nographics
+              }
+            >
+              <div className={styles.lonnVisualization_kjonn_text_kjønn}>
+                <div className={styles.lonnVisualization_kjonn_text_M}>
+                  {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
+                  <Male />
+                </div>
+                <div className={styles.lonnVisualization_kjonn_text_K}>
+                  {kvinner === null ? (
+                    <Translate nb="Ingen data" />
+                  ) : (
+                    kvinner + " kr"
+                  )}
+                  <Female />
+                </div>
               </div>
             </div>
           </div>
