@@ -1,0 +1,23 @@
+{
+  "response": {
+    "numFound": 4,
+    "docs": [
+      {
+        "uno_id": "u_ingenior",
+        "tittel": "Ingeniør"
+      },
+      {
+        "uno_id": "y_ingenior",
+        "tittel": "Ingeniør"
+      },
+      {
+        "uno_id": "y_hmsingenior",
+        "tittel": "HMS-ingeniør"
+      },
+      {
+        "uno_id": "y_ingenior_enok",
+        "tittel": "Ingeniør i energi og miljø i bygg"
+      }
+    ]
+  }
+}

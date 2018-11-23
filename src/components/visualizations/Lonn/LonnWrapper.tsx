@@ -146,23 +146,24 @@ class LonnWrapper extends Component<
           <ComparisonRow>
             {uno_ids.map(uno_id => {
               const ssbSektor = this.state.ssbSektor[uno_id];
-              if (
-                data[uno_id] &&
-                data[uno_id][ssbSektor] &&
-                data[uno_id][ssbSektor][Sektor]
-              )
-                return (
-                  <LonnVisualization
-                    key={uno_id}
-                    data={data[uno_id][ssbSektor][Sektor]}
-                    arbeidstid={this.state.Arbeidstid}
-                    kjønn={this.state.Kjønn}
-                    lønn={this.state.Lønn}
-                    statistiskMål={this.state.StatistiskMål}
-                    tidsenhet={this.state.Tidsenhet}
-                    maxValue={maxValue}
-                  />
-                );
+
+              if (data[uno_id] && data[uno_id][ssbSektor]) {
+                const arbeidstid_data = data[uno_id][ssbSektor][Sektor]; // Typescript needs a temporary
+                if (arbeidstid_data) {
+                  return (
+                    <LonnVisualization
+                      key={uno_id}
+                      data={arbeidstid_data}
+                      arbeidstid={this.state.Arbeidstid}
+                      kjønn={this.state.Kjønn}
+                      lønn={this.state.Lønn}
+                      statistiskMål={this.state.StatistiskMål}
+                      tidsenhet={this.state.Tidsenhet}
+                      maxValue={maxValue}
+                    />
+                  );
+                }
+              }
               return <NoData key={uno_id} />;
             })}
           </ComparisonRow>
