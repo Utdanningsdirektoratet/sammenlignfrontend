@@ -106,7 +106,10 @@ class ArbeidsledighetVisualization extends Component<Props> {
                 )}
                 {visning === "Andel" ? (
                   <div>
-                    <PercentageBar value={d.data} />
+                    <PercentageBar
+                      value={d.data}
+                      maxPercentageEqualsTen={true}
+                    />
                   </div>
                 ) : (
                   <div className={styles.arbeidsledighetvisualization_kjonn}>
@@ -186,7 +189,10 @@ class ArbeidsledighetVisualization extends Component<Props> {
                             <Translate nb="Ingen data" />
                           </div>
                         ) : (
-                          <PercentageBar value={a.data as number} />
+                          <PercentageBar
+                            value={a.data as number}
+                            maxPercentageEqualsTen={true}
+                          />
                         )}
                       </div>
                     ) : (

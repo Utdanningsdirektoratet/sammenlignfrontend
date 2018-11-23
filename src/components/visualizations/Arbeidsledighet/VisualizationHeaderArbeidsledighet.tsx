@@ -46,7 +46,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
                 styles.visualizationheader_container_modal_header_title
               }`}
             >
-              <Translate nb="Arbeidsledighet" /> -{" "}
+              <Translate nb="Ledighet" /> -{" "}
               <span
                 className={`${
                   styles.visualizationheader_container_modal_header_title__desc
@@ -77,7 +77,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
           <div
             className={`${styles.visualizationheader_container_header__title}`}
           >
-            <Translate nb="Arbeidsledighet" />{" "}
+            <Translate nb="Ledighet" />{" "}
             <span
               className={`${
                 styles.visualizationheader_container_header__title_filter
