@@ -48,7 +48,6 @@ class HeaderModalKjønn extends Component<Props> {
               ),
             },
           ]}
-          name="Kjønn"
           onChange={event => onFilterClicked(event, "Kjønn")}
         />
       </ul>

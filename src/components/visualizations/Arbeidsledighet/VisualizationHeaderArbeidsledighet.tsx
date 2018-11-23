@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
 import { SammenligningTemplate } from "../../comparisonsConfig";
-import ArbeidsledighetHeaderFilterDesktop from "./ArbeidsledighetHeaderFilterDesktop";
 import HeaderArbeidsledighetFilters from "./HeaderArbeidsledighetFilters";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
@@ -15,6 +14,7 @@ type Props = {
   config: VisualizationHeaderConfigArbeidsledighet;
   setConfig: (config: VisualizationHeaderConfigArbeidsledighet) => void;
   comparison: SammenligningTemplate;
+  onFilterClicked: (event: any, key: string) => void;
 };
 
 export type Fullført = "710" | "13" | "A";
@@ -28,36 +28,6 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
-  };
-
-  onFilterClicked = (event: any, key: string) => {
-    const { config, setConfig } = this.props;
-    var value = event.target.id;
-    switch (key) {
-      case "Kjønn":
-        setConfig({ ...config, Kjønn: value });
-        break;
-      case "Arbeidsledighet":
-        const index = config.Fullført.indexOf(value);
-        if (index > -1) {
-          setConfig({
-            ...config,
-            Fullført: config.Fullført.filter(f => f === value),
-          });
-        } else {
-          setConfig({
-            ...config,
-            Fullført: [...config.Fullført, value].sort(),
-          });
-        }
-
-        break;
-      case "Visning":
-        config.Visning = value;
-        break;
-      default:
-        return;
-    }
   };
 
   render() {
@@ -93,7 +63,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
             </div>
           </div>
           <HeaderArbeidsledighetFilters
-            onFilterClicked={this.onFilterClicked}
+            onFilterClicked={this.props.onFilterClicked}
             config={this.props.config}
             showHelpText={true}
           />
@@ -166,10 +136,6 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
           {Modal}
         </div>
         {this.props.children}
-        <ArbeidsledighetHeaderFilterDesktop
-          onFilterClicked={this.onFilterClicked}
-          config={this.props.config}
-        />
       </div>
     );
   }

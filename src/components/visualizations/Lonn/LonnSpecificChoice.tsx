@@ -56,7 +56,6 @@ class LonnSpecificChoice extends Component<Props, State> {
                     valueKey: k,
                   } as any;
                 })}
-                name={"specificChoice_" + unoId}
                 onChange={this.handleChange}
               />
             </div>

@@ -125,7 +125,6 @@ class HeaderLonnFilters extends Component<Props, State> {
                 ),
               },
             ]}
-            name="arbeidstid"
             onChange={event => this.props.onFilterClicked(event, "Arbeidstid")}
           />
         </ul>
@@ -312,7 +311,6 @@ class HeaderLonnFilters extends Component<Props, State> {
                 ),
               },
             ]}
-            name="lønn"
             onChange={event => this.props.onFilterClicked(event, "Lønn")}
           />
         </ul>
@@ -394,7 +392,6 @@ class HeaderLonnFilters extends Component<Props, State> {
                 ),
               },
             ]}
-            name="statistiskmål"
             onChange={event =>
               this.props.onFilterClicked(event, "StatistiskMål")
             }
@@ -490,7 +487,6 @@ class HeaderLonnFilters extends Component<Props, State> {
                 ),
               },
             ]}
-            name="tidsenhet"
             onChange={event => this.props.onFilterClicked(event, "Tidsenhet")}
           />
         </ul>

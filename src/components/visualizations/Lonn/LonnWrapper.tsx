@@ -8,6 +8,7 @@ import LonnVisualization from "./LonnVisualization";
 import LonnSpecificChoice from "./LonnSpecificChoice";
 import { ComparisonComponentProps } from "../../comparisonsConfig";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
+import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
 
 class LonnWrapper extends Component<
   ComparisonComponentProps<LonnElement>,
@@ -77,11 +78,43 @@ class LonnWrapper extends Component<
     return Math.round(wageCalc);
   };
 
+  onFilterClicked = (event: any, key: string) => {
+    let config = { ...this.state };
+    var value = event.target.id;
+    switch (key) {
+      case "Arbeidstid":
+        config.Arbeidstid = value;
+        break;
+      case "Sektor":
+        var index = config.Sektor.indexOf(value);
+        if (index > -1) {
+          config.Sektor.splice(index, 1);
+        } else {
+          config.Sektor.push(value);
+        }
+        break;
+      case "Tidsenhet":
+        config.Tidsenhet = value;
+        break;
+      case "Lønn":
+        config.Lønn = value;
+        break;
+      case "StatistiskMål":
+        config.StatistiskMål = value;
+        break;
+      case "Kjønn":
+        config.Kjønn = value;
+        break;
+      default:
+        return;
+    }
+    this.setState(config);
+  };
+
   render() {
     const { data, uno_ids } = this.props;
     const { Sektor: sektorArray } = this.state;
 
-    let maxValues: number[] = [];
     let maxValue: number = 0;
 
     this.props.uno_ids.forEach(uno_id => {
@@ -98,23 +131,21 @@ class LonnWrapper extends Component<
 
       if (this.state.Kjønn === "A") {
         var wage = this.getMaxValue("A", unoData);
-        maxValues.push(wage);
+        if (maxValue < wage) maxValue = wage;
       } else {
         var wageM = this.getMaxValue("M", unoData);
-        maxValues.push(wageM);
+        if (maxValue < wageM) maxValue = wageM;
         var wageK = this.getMaxValue("K", unoData);
-        maxValues.push(wageK);
+        if (maxValue < wageK) maxValue = wageK;
       }
     });
-
-    maxValues = maxValues.sort((a, b) => b - a);
-    maxValue = maxValues[0];
 
     return (
       <div>
         <VisualizationHeaderLonn
           config={this.state}
           setConfig={this.setConfig}
+          onFilterClicked={this.onFilterClicked}
         />
         {sektorArray.map(sektor => {
           return (
@@ -160,6 +191,10 @@ class LonnWrapper extends Component<
             );
           })}
         </ComparisonRow>
+        <LonnHeaderFilterDesktop
+          config={this.state}
+          onFilterClicked={this.onFilterClicked}
+        />
       </div>
     );
   }
