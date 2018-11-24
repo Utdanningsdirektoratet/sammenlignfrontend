@@ -4,6 +4,7 @@ import PageChrome from "./PageChrome/PageChrome";
 import CompareSelection from "./Shared/CompareSelection";
 
 import styles from "./Frontpage.module.scss";
+import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 
 class Frontpage extends React.Component {
   public render() {
@@ -11,6 +12,7 @@ class Frontpage extends React.Component {
       <PageChrome>
         <main>
           <CompareSelection />
+          <SearchBox />
         </main>
       </PageChrome>
     );
