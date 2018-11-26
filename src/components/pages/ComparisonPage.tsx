@@ -18,9 +18,9 @@ import SelectedCompares from "./Shared/SelectedCompares";
 import { Innholdstype } from "../../data/ApiTypes";
 import Translate from "../app/Translate";
 import { Link } from "react-router-dom";
-import { ReactComponent as ArrowLeft } from "../../fontawesome/solid/arrow-left.svg";
 import ComparisonHeader from "../visualizations/Shared/ComparisonHeader";
 import IsolatedComparisonPart from "./ComparisonPage/IsolatedComparisonPart";
+import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
@@ -75,30 +75,67 @@ class ComparisonPage extends Component<Props, State> {
     const uno_ids = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
-    let breadcrumb;
-    switch (innholdstype) {
-      case "utdanning":
-        breadcrumb = <Translate nb="Velg andre utdanninger" />;
-        break;
-      case "yrke":
-        breadcrumb = <Translate nb="Velg andre yrker" />;
-        break;
-      default:
-        breadcrumb = <Translate nb="Tilbake" />;
-        break;
-    }
     return (
       <PageChrome>
         <SyncUrlState />
         <div className={`${styles.ComparisonPage}`}>
+          <h1 className={styles.header}>
+            <Translate nb="Jeg vil sammenligne" />{" "}
+            {innholdstype === "utdanning" ? (
+              <Translate nb="utdanninger" />
+            ) : innholdstype === "yrke" ? (
+              <Translate nb="yrker" />
+            ) : (
+              "..."
+            )}
+          </h1>
           <div className={`${styles.breadcrumb}`}>
-            <Link
-              to={"/" + innholdstype}
-              className={`${styles.breadcrumb_link}`}
-            >
-              <ArrowLeft />
-              {breadcrumb}
-            </Link>
+            {/* <SearchBox innholdstype={innholdstype} /> */}
+
+            {innholdstype === "yrke" ? (
+              <div>
+                <Link to={"/yrke"} className={`${styles.breadcrumb_button}`}>
+                  <Translate nb="Se oversikt over alle yrker" />
+                </Link>
+                <Link
+                  to={"/sammenligne/utdanning"}
+                  className={`${styles.breadcrumb_button +
+                    " " +
+                    styles.breadcrumb_button_nonselected}`}
+                >
+                  <Translate nb="Bytt til å se på utdanninger" />
+                </Link>
+              </div>
+            ) : innholdstype === "utdanning" ? (
+              <div>
+                <Link
+                  to={"/utdanning"}
+                  className={`${styles.breadcrumb_button}`}
+                >
+                  <Translate nb="Se oversikt over alle utdanninger" />
+                </Link>
+                <Link
+                  to={"/sammenligne/yrke"}
+                  className={`${styles.breadcrumb_button +
+                    " " +
+                    styles.breadcrumb_button_nonselected}`}
+                >
+                  <Translate nb="Bytt til å se på yrker" />
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <Link
+                  to={"/utdanning"}
+                  className={`${styles.breadcrumb_button}`}
+                >
+                  <Translate nb="Se oversikt over alle utdanninger" />
+                </Link>
+                <Link to={"/yrke"} className={`${styles.breadcrumb_button}`}>
+                  <Translate nb="Se oversikt over alle yrker" />
+                </Link>
+              </div>
+            )}
           </div>
           <div className={`${styles.flex_container}`}>
             <SelectedCompares innholdstype={innholdstype} />

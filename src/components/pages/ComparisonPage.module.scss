@@ -1,19 +1,30 @@
 .ComparisonPage {
+  .header {
+    display: flex;
+    justify-content: center;
+    color: grey;
+  }
   .breadcrumb {
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     font-size: 1.4em;
-    &_link {
-      flex-flow: row wrap;
-      display: flex;
+    &_button {
+      border: 2px solid orange;
+      border-radius: 5em;
+      padding: 0.4em;
+      padding-left: 0.6em;
+      padding-right: 0.6em;
+      font-size: 0.8em;
       text-decoration: none;
       color: black;
-      svg {
-        height: 1em;
+      &:first-child {
         margin-right: 10px;
-        margin-top: 6px;
+      }
+      &_nonselected {
+        border-color: #ffe1aa;
+        background-color: #ffe1aa;
       }
     }
   }
