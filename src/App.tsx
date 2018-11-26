@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ReactModal from "react-modal";
 
 import styles from "./App.module.css";
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
-import { TranslateRoot, getLang } from "./components/app/Translate";
+import Translate, { TranslateRoot, getLang } from "./components/app/Translate";
 import AppContext, { AppState } from "./components/app/AppContext";
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
@@ -31,6 +32,8 @@ class App extends Component<{}, AppState> {
       toggleInterests: this.toggleInterests,
       clearInterest: this.clearInterest,
       allowMoreCompares: this.allowMoreCompares,
+      errorModalContent: undefined,
+      errorModalClear: this.errorModalClear,
     };
     window.addEventListener("hashchange", this.hashChangeListener);
   }
@@ -47,9 +50,6 @@ class App extends Component<{}, AppState> {
 
   allowMoreCompares = (length: number) => {
     const innerWidth = window.innerWidth;
-    // const {
-    //   selected_uno_id: { length },
-    // } = this.state;
 
     if (innerWidth < 768) {
       return length < NUM_COMPARES_MOBILE;
@@ -61,7 +61,9 @@ class App extends Component<{}, AppState> {
       return length < NUM_COMPARES_DESKTOP;
     }
   };
-
+  errorModalClear = () => {
+    this.setState({ errorModalContent: undefined });
+  };
   toggleSelection = (uno_id: string) => {
     this.setState(prevState => {
       const selected = prevState.selected_uno_id.filter(sel => sel !== uno_id);
@@ -74,6 +76,18 @@ class App extends Component<{}, AppState> {
         this.allowMoreCompares(selectedInnholdstype.length)
       ) {
         selected.push(uno_id);
+      } else if (
+        selected.length === prevState.selected_uno_id.length &&
+        !this.allowMoreCompares(selectedInnholdstype.length)
+      ) {
+        return {
+          selected_uno_id: prevState.selected_uno_id,
+          errorModalContent: (
+            <div>
+              <Translate nb="Du kan kun velge max 5 stk" />
+            </div>
+          ),
+        };
       }
       setUrlState(selected);
       return { selected_uno_id: selected };
