@@ -157,7 +157,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                       >
                         <Translate
                           nb="Vis tall beregnet på grunnlag av dem som jobber i
-                        forskjellige sektorer, eller alle sektorer."
+                        privat / statlig / kommunal sektor, eller alle sektorer."
                         />
                       </div>
                       <div
@@ -176,67 +176,49 @@ class HeaderLonnFilters extends Component<Props, State> {
               ) : null}
             </div>
           ) : null}
-          <Checkbox
-            text={<Translate nb="Alle" />}
-            valueKey="A"
-            isSelected={Sektor.some((a: Sektor) => {
-              return a === "A";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor." />
-              ) : (
-                undefined
-              )
-            }
-            onChange={event => this.props.onFilterClicked(event, "Sektor")}
-          />
-          <Checkbox
-            text={<Translate nb="Privat" />}
-            valueKey="P"
-            isSelected={Sektor.some((a: Sektor) => {
-              return a === "P";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor." />
-              ) : (
-                undefined
-              )
-            }
-            onChange={event => this.props.onFilterClicked(event, "Sektor")}
-          />
-          <Checkbox
-            text={<Translate nb="Statlig" />}
-            valueKey="S"
-            isSelected={Sektor.some((a: Sektor) => {
-              return a === "S";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate
-                  nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor."
-                  nn="nynorsk"
-                />
-              ) : (
-                undefined
-              )
-            }
-            onChange={event => this.props.onFilterClicked(event, "Sektor")}
-          />
-          <Checkbox
-            text={<Translate nb="Kommunal" />}
-            valueKey="K"
-            isSelected={Sektor.some((a: Sektor) => {
-              return a === "K";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor." />
-              ) : (
-                undefined
-              )
-            }
+          <RadioButtonGroup
+            group={[
+              {
+                text: <Translate nb="Alle" />,
+                selected: Sektor === "A",
+                valueKey: "A",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor." />
+                ) : (
+                  undefined
+                ),
+              },
+              {
+                text: <Translate nb="Privat" />,
+                selected: Sektor === "P",
+                valueKey: "P",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor." />
+                ) : (
+                  undefined
+                ),
+              },
+              {
+                text: <Translate nb="Statlig" />,
+                selected: Sektor === "S",
+                valueKey: "S",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor." />
+                ) : (
+                  undefined
+                ),
+              },
+              {
+                text: <Translate nb="Kommunal" />,
+                selected: Sektor === "K",
+                valueKey: "K",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor." />
+                ) : (
+                  undefined
+                ),
+              },
+            ]}
             onChange={event => this.props.onFilterClicked(event, "Sektor")}
           />
         </ul>
@@ -341,7 +323,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate nb="Vis beregning av tall gitt av median eller gjennomsnitt." />
+                        <Translate nb="Vis beregning av tall gitt av median / gjennomsnitt / median og kvartiler." />
                       </div>
                       <div
                         className={
