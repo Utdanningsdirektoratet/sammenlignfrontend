@@ -4,7 +4,6 @@
   width: 100%;
 
   &_mainbar {
-    position: relative;
     border-radius: 1em;
     height: 1.5em;
     background-color: white;
@@ -13,7 +12,6 @@
   }
 
   &_overlaybar {
-    position: absolute;
     height: 100%;
     background-color: orange;
   }
