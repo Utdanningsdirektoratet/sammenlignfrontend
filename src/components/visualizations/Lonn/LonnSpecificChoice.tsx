@@ -5,6 +5,7 @@ import CloseIcon2 from "../Generic/CloseIcon2";
 import Translate from "../../app/Translate";
 import styles from "./LonnSpecificChoice.module.scss";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
+import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 type Props = {
   onChange: (uno_id: string, ssb_sektor: string) => void;
@@ -22,6 +23,10 @@ class LonnSpecificChoice extends Component<Props, State> {
 
   toggleModal = () => {
     this.setState({ openModal: !this.state.openModal });
+  };
+
+  closeModal = () => {
+    this.setState({ openModal: false });
   };
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const ssb_sektor = event.currentTarget.id;
@@ -45,7 +50,7 @@ class LonnSpecificChoice extends Component<Props, State> {
           </div>
           <div className={`${styles.modal_header_text}`}>
             <div className={`${styles.modal_header_text_header}`}>
-              <Translate nb="Viser tall for: " nn="nynorsk" />
+              <Translate nb="Viser tall for:" />
             </div>
             <div className={`${styles.modal_header_text_content}`}>
               <RadioButtonGroup
@@ -64,18 +69,20 @@ class LonnSpecificChoice extends Component<Props, State> {
       </div>
     ) : null;
     return (
-      <div className={`${styles.container}`}>
-        <div className={`${styles.box}`}>
-          <div className={`${styles.box_icon}`}>{OpenIconDom}</div>
-          <div className={`${styles.box_text}`}>
-            <div className={`${styles.box_text_header}`}>
-              <Translate nb="Viser tall for: " nn="nynorsk" />
+      <ClickOutsideListener onOutsideClick={this.closeModal}>
+        <div className={`${styles.container}`}>
+          <div className={`${styles.box}`}>
+            <div className={`${styles.box_icon}`}>{OpenIconDom}</div>
+            <div className={`${styles.box_text}`}>
+              <div className={`${styles.box_text_header}`}>
+                <Translate nb="Viser tall for:" />
+              </div>
+              <div>{selectedChoice}</div>
             </div>
-            <div>{selectedChoice}</div>
           </div>
+          {Modal}
         </div>
-        {Modal}
-      </div>
+      </ClickOutsideListener>
     );
   }
 }

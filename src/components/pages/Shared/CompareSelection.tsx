@@ -15,12 +15,14 @@ class CompareSelection extends Component<Props> {
     return (
       <>
         <h1 className={`${styles.compare_title}`}>
-          <Translate nb="Jeg vil sammenligne" nn="Eg vil sammenligna" />{" "}
-          {innholdstype === "utdanning"
-            ? "utdanninger"
-            : innholdstype === "yrke"
-            ? "yrker"
-            : innholdstype}
+          <Translate nb="Jeg vil sammenligne" />{" "}
+          {innholdstype === "utdanning" ? (
+            <Translate nb="utdanninger" />
+          ) : innholdstype === "yrke" ? (
+            <Translate nb="yrker" />
+          ) : (
+            innholdstype
+          )}
         </h1>
         <div className={`${styles.button_row}`}>
           <div className={`${styles.button_row_content}`}>
@@ -30,7 +32,7 @@ class CompareSelection extends Component<Props> {
                 innholdstype == "utdanning" ? styles.btn_selected : ""
               }`}
             >
-              <Translate nb="Utdanninger" nn="Utdanningar" />
+              <Translate nb="Utdanninger" />
             </Link>
             <Link
               to="/yrke"
@@ -38,7 +40,7 @@ class CompareSelection extends Component<Props> {
                 innholdstype == "yrke" ? styles.btn_selected : ""
               }`}
             >
-              Yrker
+              <Translate nb="Yrker" />
             </Link>
           </div>
         </div>

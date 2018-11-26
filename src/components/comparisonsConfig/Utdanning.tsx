@@ -46,7 +46,7 @@ const Utdanning: SammenligningTemplate[] = [
           {data.selvstendige_andel ? (
             <>
               <h4>
-                <Translate nb="Andel Selvstendig næringstrivende" />
+                <Translate nb="Andel selvstendig næringsdrivende" />
               </h4>
               <PercentageBar value={data.selvstendige_andel * 100} />
             </>
@@ -54,7 +54,7 @@ const Utdanning: SammenligningTemplate[] = [
           {data.selvstendige_andel_menn ? (
             <>
               <h4>
-                <Translate nb="Andel Selvstendig næringstrivende menn" />
+                <Translate nb="Andel selvstendig næringsdrivende menn" />
               </h4>
               <PercentageBar value={data.selvstendige_andel_menn * 100} />
             </>
@@ -62,7 +62,7 @@ const Utdanning: SammenligningTemplate[] = [
           {data.selvstendige_andel_kvinner ? (
             <>
               <h4>
-                <Translate nb="Andel Selvstendig næringstrivende kvinner" />
+                <Translate nb="Andel selvstendig næringsdrivende kvinner" />
               </h4>
               <PercentageBar value={data.selvstendige_andel_kvinner * 100} />
             </>
@@ -71,7 +71,7 @@ const Utdanning: SammenligningTemplate[] = [
           {data.selvstendige_andel710 ? (
             <>
               <h4>
-                <Translate nb="Andel Selvstendig næringstrivende blant de som fullførte utdanning for 7-10 år siden" />
+                <Translate nb="Andel selvstendig næringsdrivende blant de som fullførte utdanning for 7-10 år siden" />
               </h4>
               <PercentageBar value={data.selvstendige_andel710 * 100} />
             </>

@@ -118,7 +118,10 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
                     }
                   })}
                 </li>
-                <li>{", " + Visning}</li>
+                <li>
+                  {", "}
+                  <Translate nb={Visning} />
+                </li>
                 <li>
                   {Kjønn === "A" ? (
                     <span>

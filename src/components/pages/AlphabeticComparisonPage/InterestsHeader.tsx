@@ -9,6 +9,7 @@ import { ReactComponent as ChevronUp } from "../../../fontawesome/solid/chevron-
 
 import style from "./InterestsHeader.module.scss";
 import InteresserFilter from "../../filters/InteresseFilter";
+import Translate from "../../app/Translate";
 
 type State = { showInterestFilter: boolean };
 
@@ -52,13 +53,14 @@ class InterestsHeader extends Component<Props, State> {
                 this.state.showInterestFilter ? style.unselected : ""
               }`}
             >
-              Nivå <ChevronDown />
+              <Translate nb="Nivå" />
+              <ChevronDown />
             </button>
             <button
               onClick={this.handleToggleInterestFilter}
               className={`${style.btn}`}
             >
-              Interesser{" "}
+              <Translate nb="Interesser" />{" "}
               {this.state.showInterestFilter ? <ChevronUp /> : <ChevronDown />}
             </button>
           </div>
