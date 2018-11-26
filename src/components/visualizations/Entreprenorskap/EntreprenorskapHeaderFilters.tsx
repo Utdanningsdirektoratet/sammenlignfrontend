@@ -1,17 +1,24 @@
 import React, { Component } from "react";
-import Checkbox from "../../defaultComponents/Checkbox";
-import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
+import { Kjønn } from "../../../data/ApiTypes";
+import {
+  Fullført,
+  Visning,
+} from "../Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
-import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
-import {
-  VisualizationHeaderConfigArbeidsledighet,
-  Fullført,
-} from "./VisualizationHeaderArbeidsledighet";
+import Checkbox from "../../defaultComponents/Checkbox";
+import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import CloseIcon from "../Generic/CloseIcon";
+import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
+
+export type EntreprenorskapHeaderConfig = {
+  Kjønn: Kjønn;
+  Fullført: Fullført;
+  Visning: Visning;
+};
 
 type Props = {
-  config: VisualizationHeaderConfigArbeidsledighet;
+  config: EntreprenorskapHeaderConfig;
   onFilterClicked: (event: any, key: string) => void;
   showHeaders?: boolean;
   showHelpText?: boolean;
@@ -22,7 +29,7 @@ type State = {
   shownHelpText: string;
 };
 
-class HeaderArbeidsledighetFilters extends Component<Props, State> {
+class EntreprenorskapHeaderFilters extends Component<Props, State> {
   state = { shownHelpText: "" };
 
   onClickHelpText = (type: string) => {
@@ -72,7 +79,7 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate nb="Vis tall på antall arbeidsledige basert på antall år etter endt utdannelse, eller alle arbeidsledige." />
+                        <Translate nb="Vis tall på antall som har staret egen virksomhet basert på antall år etter endt utdannelse, eller alle som har staret egen virksomhet." />
                       </div>
                       <div
                         className={
@@ -90,50 +97,40 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
               ) : null}
             </div>
           ) : null}
-          <Checkbox
-            text={<Translate nb="7-10 år etter endt utdannelse" />}
-            valueKey="710"
-            isSelected={Fullført.some((a: Fullført) => {
-              return a === "710";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate nb="Viser antall arbeidsledige 7-10 år etter endt utdannelse." />
-              ) : (
-                undefined
-              )
-            }
-            onChange={event => onFilterClicked(event, "Arbeidsledighet")}
-          />
-          <Checkbox
-            text={<Translate nb="1-3 år etter endt utdannelse" />}
-            valueKey="13"
-            isSelected={Fullført.some((a: Fullført) => {
-              return a === "13";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate nb="Viser antall arbeidsledige 1-3 år etter endt utdannelse." />
-              ) : (
-                undefined
-              )
-            }
-            onChange={event => onFilterClicked(event, "Arbeidsledighet")}
-          />
-          <Checkbox
-            text={<Translate nb="Alle" />}
-            valueKey="A"
-            isSelected={Fullført.some((a: Fullført) => {
-              return a === "A";
-            })}
-            helpText={
-              showHelpText ? (
-                <Translate nb="Viser alle arbeidsledige." />
-              ) : (
-                undefined
-              )
-            }
-            onChange={event => onFilterClicked(event, "Arbeidsledighet")}
+          <RadioButtonGroup
+            group={[
+              {
+                text: <Translate nb="7-10 år etter endt utdannelse" />,
+                selected: Fullført === "710",
+                valueKey: "710",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser antall som har staret egen virksomhet 7-10 år etter endt utdannelse." />
+                ) : (
+                  undefined
+                ),
+              },
+              {
+                text: <Translate nb="1-3 år etter endt utdannelse" />,
+                selected: Fullført === "13",
+                valueKey: "13",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser antall som har staret egen virksomhet 1-3 år etter endt utdannelse." />
+                ) : (
+                  undefined
+                ),
+              },
+              {
+                text: <Translate nb="Alle" />,
+                selected: Fullført === "A",
+                valueKey: "A",
+                helptext: showHelpText ? (
+                  <Translate nb="Viser alle som har staret egen virksomhet." />
+                ) : (
+                  undefined
+                ),
+              },
+            ]}
+            onChange={event => onFilterClicked(event, "Fullført")}
           />
         </ul>
         <ul>
@@ -163,7 +160,7 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate nb="Vis tall på antall arbeidsledige som prosent for andel, eller som tall for antall." />
+                        <Translate nb="Vis tall på antall som har staret egen virksomhet som prosent for andel, eller som tall for antall." />
                       </div>
                       <div
                         className={
@@ -188,7 +185,7 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
                 selected: Visning === "Andel",
                 valueKey: "Andel",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser andel arbeidsledige som prosent." />
+                  <Translate nb="Viser andel som har staret egen virksomhet som prosent." />
                 ) : (
                   undefined
                 ),
@@ -198,7 +195,7 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
                 selected: Visning === "Antall",
                 valueKey: "Antall",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser antall arbeidsledige." />
+                  <Translate nb="Viser antall som har staret egen virksomhet." />
                 ) : (
                   undefined
                 ),
@@ -218,4 +215,4 @@ class HeaderArbeidsledighetFilters extends Component<Props, State> {
   }
 }
 
-export default HeaderArbeidsledighetFilters;
+export default EntreprenorskapHeaderFilters;

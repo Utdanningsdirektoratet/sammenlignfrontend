@@ -10,8 +10,8 @@
   "Viser antall arbeidsledige 7-10 år etter endt utdannelse.": null,
   "1-3 år etter endt utdannelse": null,
   "Viser antall arbeidsledige 1-3 år etter endt utdannelse.": null,
-  "All": null,
   "Viser antall arbeidsledige.": null,
+  "Viser alle arbeidsledige.": null,
   "Andel": null,
   "Viser andel arbeidsledige som prosent.": null,
   "Antall": null,
@@ -61,5 +61,13 @@
   "Andel Selvstendig næringstrivende": null,
   "Andel Selvstendig næringstrivende menn": null,
   "Andel Selvstendig næringstrivende kvinner": null,
-  "Andel Selvstendig næringstrivende blant de som fullførte utdanning for 7-10 år siden": null
+  "Andel Selvstendig næringstrivende blant de som fullførte utdanning for 7-10 år siden": null,
+  "Entreprenørskap": null,
+  "Vis tall på antall som har staret egen virksomhet basert på antall år etter endt utdannelse, eller alle som har staret egen virksomhet.": null,
+  "Viser antall som har staret egen virksomhet 7-10 år etter endt utdannelse.": null,
+  "Viser antall som har staret egen virksomhet 1-3 år etter endt utdannelse.": null,
+  "Viser antall som har staret egen virksomhet.": null,
+  "Vis tall på antall som har staret egen virksomhet som prosent for andel, eller som tall for antall.": null,
+  "Viser andel som har staret egen virksomhet som prosent.": null,
+  "Viser alle som har staret egen virksomhet.": null
 }

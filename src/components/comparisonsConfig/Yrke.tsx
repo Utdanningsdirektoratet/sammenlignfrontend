@@ -18,6 +18,7 @@ import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/Arbeidsled
 import NoData from "../visualizations/Old/NoData";
 import PercentageBar from "../visualizations/Generic/PercentageBar";
 import Translate from "../app/Translate";
+import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/EntreprenorskapWrapper";
 
 const Yrke: SammenligningTemplate[] = [
   {
@@ -37,54 +38,7 @@ const Yrke: SammenligningTemplate[] = [
     title: "Entrepenørskap",
     widget_id: "entrepenorskap",
     path: "/rest/entrepenorskap",
-    render: (element: EntrepenorElement) => {
-      const keys = Object.keys(element);
-      if (keys.length === 0) return <NoData />;
-      const data = element[(keys[0] as any) as number];
-      return (
-        <div>
-          <span>
-            <Translate
-              nb="Viser tall for %nus_navn%"
-              replacements={{ "%nus_navn%": data.nus_navn }}
-            />
-          </span>
-          {data.selvstendige_andel ? (
-            <>
-              <h4>
-                <Translate nb="Andel Selvstendig næringstrivende" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel * 100} />
-            </>
-          ) : null}
-          {data.selvstendige_andel_menn ? (
-            <>
-              <h4>
-                <Translate nb="Andel Selvstendig næringstrivende Menn" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel_menn * 100} />
-            </>
-          ) : null}
-          {data.selvstendige_andel_kvinner ? (
-            <>
-              <h4>
-                <Translate nb="Andel Selvstendig næringstrivende Kvinner" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel_kvinner * 100} />
-            </>
-          ) : null}
-
-          {data.selvstendige_andel710 ? (
-            <>
-              <h4>
-                <Translate nb="Andel Selvstendig næringstrivende blant de som fullførte utdanning for 7-10 år siden" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel710 * 100} />
-            </>
-          ) : null}
-        </div>
-      );
-    },
+    Component: EntreprenorskapWrapper,
   },
   {
     title: "Uno id",
