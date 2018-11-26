@@ -5,6 +5,7 @@ import OpenIcon from "../Generic/OpenIcon";
 import CloseIcon2 from "../Generic/CloseIcon2";
 import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
 import HeaderLonnFilters from "./HeaderLonnFilters";
+import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 type Props = {
   config: VisualizationHeaderConfigLonn;
@@ -17,29 +18,12 @@ type State = {
 
 class LonnHeaderFilterDesktop extends Component<Props, State> {
   state = { expanded: false };
-  containerRef = React.createRef<HTMLDivElement>();
-
-  componentDidMount() {
-    document.addEventListener("click", this.handleOutsideClick, true);
-  }
-  componentWillUnmount() {
-    document.removeEventListener("click", this.handleOutsideClick, true);
-  }
 
   toggleExpansion = () => {
     this.setState({ expanded: !this.state.expanded });
   };
-
-  handleOutsideClick = (e: any) => {
-    if (!this.state.expanded) return;
-    if (
-      this.containerRef.current &&
-      this.containerRef.current.contains(e.target)
-    ) {
-      return;
-    }
-
-    this.toggleExpansion();
+  closeExpansion = () => {
+    this.setState({ expanded: false });
   };
 
   render() {
@@ -56,7 +40,10 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
     );
 
     return (
-      <div ref={this.containerRef} className={styles.container}>
+      <ClickOutsideListener
+        onOutsideClick={this.closeExpansion}
+        className={styles.container}
+      >
         <div className={styles.container_head}>
           <div className={styles.container_head_infotext}>
             <Translate nb="Visningsalternativer" />
@@ -74,7 +61,7 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
           </div>
         </div>
         {this.state.expanded ? containerContent : null}
-      </div>
+      </ClickOutsideListener>
     );
   }
 }

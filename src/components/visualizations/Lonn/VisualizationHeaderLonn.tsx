@@ -4,6 +4,7 @@ import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
 import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
 import HeaderLonnFilters from "./HeaderLonnFilters";
+import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 export type VisualizationHeaderConfigLonn = {
   Arbeidstid: Arbeidstid;
@@ -31,29 +32,12 @@ type State = {
 
 class VisualizationHeaderLonn extends Component<Props, State> {
   state = { open: false };
-  containerRef = React.createRef<HTMLDivElement>();
-
-  componentDidMount() {
-    document.addEventListener("click", this.handleOutsideClick, true);
-  }
-  componentWillUnmount() {
-    document.removeEventListener("click", this.handleOutsideClick, true);
-  }
-
-  handleOutsideClick = (e: any) => {
-    if (!this.state.open) return;
-    if (
-      this.containerRef.current &&
-      this.containerRef.current.contains(e.target)
-    ) {
-      return;
-    }
-
-    this.onFilterButtonClick(false);
-  };
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
+  };
+  closeFilter = () => {
+    this.setState({ open: false });
   };
 
   render() {
@@ -69,8 +53,8 @@ class VisualizationHeaderLonn extends Component<Props, State> {
     if (!this.props.config.Arbeidstid) return null;
     if (this.state.open)
       Modal = (
-        <div
-          ref={this.containerRef}
+        <ClickOutsideListener
+          onOutsideClick={this.closeFilter}
           className={`${styles.visualizationheader_container_modal}`}
         >
           <div
@@ -102,7 +86,7 @@ class VisualizationHeaderLonn extends Component<Props, State> {
             onFilterClicked={this.props.onFilterClicked}
             showHelpText={true}
           />
-        </div>
+        </ClickOutsideListener>
       );
 
     return (
