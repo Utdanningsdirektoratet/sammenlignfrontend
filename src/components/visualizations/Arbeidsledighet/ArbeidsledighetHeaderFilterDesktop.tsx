@@ -5,6 +5,7 @@ import CloseIcon2 from "../Generic/CloseIcon2";
 import Translate from "../../app/Translate";
 import styles from "../Shared/HeaderFilterDesktop.module.scss";
 import HeaderArbeidsledighetFilters from "./HeaderArbeidsledighetFilters";
+import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 type Props = {
   config: VisualizationHeaderConfigArbeidsledighet;
@@ -21,6 +22,9 @@ class ArbeidsledighetHeaderFilterDesktop extends Component<Props, State> {
   toggleExpansion = () => {
     this.setState({ expanded: !this.state.expanded });
   };
+  closeExpansion = () => {
+    this.setState({ expanded: false });
+  };
 
   render() {
     const { config, onFilterClicked } = this.props;
@@ -36,7 +40,10 @@ class ArbeidsledighetHeaderFilterDesktop extends Component<Props, State> {
     );
 
     return (
-      <div className={styles.container}>
+      <ClickOutsideListener
+        className={styles.container}
+        onOutsideClick={this.closeExpansion}
+      >
         <div className={styles.container_head}>
           <div className={styles.container_head_infotext}>
             <Translate nb="Visningsalternativer" />
@@ -54,7 +61,7 @@ class ArbeidsledighetHeaderFilterDesktop extends Component<Props, State> {
           </div>
         </div>
         {this.state.expanded ? containerContent : null}
-      </div>
+      </ClickOutsideListener>
     );
   }
 }

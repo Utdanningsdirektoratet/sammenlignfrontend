@@ -4,6 +4,7 @@ import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
 import { SammenligningTemplate } from "../../comparisonsConfig";
 import HeaderArbeidsledighetFilters from "./HeaderArbeidsledighetFilters";
+import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
   Kjønn: Kjønn;
@@ -29,6 +30,9 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
   };
+  closeFilter = () => {
+    this.setState({ open: false });
+  };
 
   render() {
     const { Kjønn, Fullført, Visning } = this.props.config;
@@ -37,7 +41,10 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
 
     if (this.state.open) {
       Modal = (
-        <div className={`${styles.visualizationheader_container_modal}`}>
+        <ClickOutsideListener
+          className={`${styles.visualizationheader_container_modal}`}
+          onOutsideClick={this.closeFilter}
+        >
           <div
             className={`${styles.visualizationheader_container_modal_header}`}
           >
@@ -52,7 +59,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
                   styles.visualizationheader_container_modal_header_title__desc
                 }`}
               >
-                <Translate nb="visningsalternativer" />
+                - <Translate nb="visningsalternativer" />
               </span>
               <div
                 className={`${
@@ -67,7 +74,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
             config={this.props.config}
             showHelpText={true}
           />
-        </div>
+        </ClickOutsideListener>
       );
     }
     return (
