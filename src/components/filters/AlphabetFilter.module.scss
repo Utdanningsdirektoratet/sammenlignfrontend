@@ -3,8 +3,13 @@
   font-size: 1.6em;
   background-color: darkgray;
   padding: 10px;
-  display: flex;
-  justify-content: center;
+  display: block;
+  word-wrap: break-word;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
   &_showAll {
     margin-right: 20px;
     font-weight: 700;
