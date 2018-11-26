@@ -25,7 +25,7 @@ class ClickOutsideListener extends Component<
     }
   };
   render() {
-    const { children, ...props } = this.props;
+    const { children, onOutsideClick, ...props } = this.props;
     return (
       <div ref={this.insideRef} {...props}>
         {this.props.children}

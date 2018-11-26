@@ -61,6 +61,7 @@ class EntreprenorskapWrapper extends Component<
 
             return (
               <EntreprenorskapVisualization
+                key={uno_id}
                 data={d[code]}
                 kjønn={config.Kjønn}
                 fullført={config.Fullført}
