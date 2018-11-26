@@ -8,21 +8,12 @@
     height: 1.5em;
     background-color: white;
     border: 2px solid #b1b1b1;
+    overflow: hidden;
   }
 
   &_overlaybar {
-    position: relative;
-    &:before {
-      content: "";
-      position: absolute;
-      height: 100%;
-      width: 99%;
-      top: -1.62em;
-      left: 0.1em;
-      border-radius: 1em;
-      background-color: orange;
-      height: 1.5em;
-    }
+    height: 100%;
+    background-color: orange;
   }
 
   &_percentage {

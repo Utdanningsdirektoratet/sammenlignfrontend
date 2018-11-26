@@ -29,11 +29,12 @@ class PercentageBar extends React.Component<PercentageBarProps> {
           </span>
           %
         </div>
-        <div className={`${styles.percentagebar_mainbar}`} />
-        <div
-          className={`${styles.percentagebar_overlaybar}`}
-          style={{ width: `${width < 100 ? width : 100}%` }}
-        />
+        <div className={`${styles.percentagebar_mainbar}`}>
+          <div
+            className={`${styles.percentagebar_overlaybar}`}
+            style={{ width: `${width < 100 ? width : 100}%` }}
+          />
+        </div>
       </div>
     );
   }
