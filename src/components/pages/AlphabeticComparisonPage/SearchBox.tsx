@@ -77,12 +77,12 @@ class SearchBox extends Component<Props & AppStateProps, State> {
 
   render() {
     return (
-      <div className={styles.searchbox}>
-        <div className={styles.searchbox_container}>
+      <div className={`${styles.searchbox}`}>
+        <div className={`${styles.searchbox_container}`}>
           <input
             value={this.state.searchString}
             onChange={this.handleChange}
-            className={styles.searchbox_container_input}
+            className={`${styles.searchbox_container_input}`}
             placeholder={"Søk etter " + this.props.innholdstype}
           />
           <Search />
@@ -99,7 +99,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             <ul>
               {this.state.data.map((d: MainElement) => (
                 <li
-                  className={styles.searchbox_dropdown_selectable}
+                  className={`${styles.searchbox_dropdown_selectable}`}
                   key={d.uno_id}
                   onClick={() => this.onClickItem(d.uno_id)}
                 >

@@ -7,8 +7,8 @@ import styles from "./Header.module.scss";
 class Header extends PureComponent {
   render() {
     return (
-      <div className={styles.header}>
-        <div className={styles.header_content}>
+      <div className={`${styles.header}`}>
+        <div className={`${styles.header_content}`}>
           <span>
             <Translate
               nb="Offentlig og kvalitetssikret"

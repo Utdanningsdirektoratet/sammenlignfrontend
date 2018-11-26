@@ -10,7 +10,7 @@ class CloseIcon2 extends Component<Props> {
   render() {
     return (
       <span
-        className={styles.icon_close2}
+        className={`${styles.icon_close2}`}
         data-uno_id={this.props.unoId}
         onClick={this.props.onClick}
       />

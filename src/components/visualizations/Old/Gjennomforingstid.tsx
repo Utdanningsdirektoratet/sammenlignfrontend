@@ -21,16 +21,16 @@ class Gjennomforingstid extends React.Component<Props> {
         : months + " måneder";
     //   icon: https://linearicons.com/free
     return (
-      <div className={visualizationstyles.visualization_container}>
-        <div className={styles.gjennomforingstid_container}>
-          <div className={styles.gjennomforingstid_container_icon}>
+      <div className={`${visualizationstyles.visualization_container}`}>
+        <div className={`${styles.gjennomforingstid_container}`}>
+          <div className={`${styles.gjennomforingstid_container_icon}`}>
             <GjennomforingstidSvg />
           </div>
-          <div className={styles.gjennomforingstid_container_years}>
+          <div className={`${styles.gjennomforingstid_container_years}`}>
             {years} år
             {separator}
           </div>
-          <div className={styles.gjennomforingstid_container_months}>
+          <div className={`${styles.gjennomforingstid_container_months}`}>
             {monthText}
           </div>
         </div>

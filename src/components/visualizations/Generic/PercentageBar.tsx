@@ -19,19 +19,19 @@ class PercentageBar extends React.Component<PercentageBarProps> {
       secondNumber = svalue[0] + svalue[1];
     }
     return (
-      <div className={styles.percentagebar}>
-        <div className={styles.percentagebar_percentage}>
-          <span className={styles.percentagebar_percentage_main}>
+      <div className={`${styles.percentagebar}`}>
+        <div className={`${styles.percentagebar_percentage}`}>
+          <span className={`${styles.percentagebar_percentage_main}`}>
             {mainNumber}
           </span>
-          <span className={styles.percentagebar_percentage_second}>
+          <span className={`${styles.percentagebar_percentage_second}`}>
             ,{secondNumber}
           </span>
           %
         </div>
-        <div className={styles.percentagebar_mainbar} />
+        <div className={`${styles.percentagebar_mainbar}`} />
         <div
-          className={styles.percentagebar_overlaybar}
+          className={`${styles.percentagebar_overlaybar}`}
           style={{ width: `${width < 100 ? width : 100}%` }}
         />
       </div>

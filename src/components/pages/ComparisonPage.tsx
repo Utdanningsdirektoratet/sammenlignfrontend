@@ -90,14 +90,17 @@ class ComparisonPage extends Component<Props, State> {
     return (
       <PageChrome>
         <SyncUrlState />
-        <div className={styles.ComparisonPage}>
-          <div className={styles.breadcrumb}>
-            <Link to={"/" + innholdstype} className={styles.breadcrumb_link}>
+        <div className={`${styles.ComparisonPage}`}>
+          <div className={`${styles.breadcrumb}`}>
+            <Link
+              to={"/" + innholdstype}
+              className={`${styles.breadcrumb_link}`}
+            >
               <ArrowLeft />
               {breadcrumb}
             </Link>
           </div>
-          <div className={styles.flex_container}>
+          <div className={`${styles.flex_container}`}>
             <SelectedCompares innholdstype={innholdstype} />
 
             {comparisons.map((comparison, i) => {

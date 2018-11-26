@@ -114,8 +114,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       <PageChrome>
         <SyncUrlState />
         <CompareSelection innholdstype={innholdstype} />
-        <div className={styles.container}>
-          <div className={styles.compare_section}>
+        <div>
+          <div>
             <SelectedCompares innholdstype={innholdstype} />
 
             {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
@@ -143,7 +143,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             list={this.getFilteredList()}
             onLetterClicked={this.onLetterClicked}
           />
-          <ul className={styles.alphabetic}>
+          <ul className={`${styles.alphabetic}`}>
             <AlphabeticList
               list={this.getFilteredList()}
               handleItemClicked={this.handleItemClick}
