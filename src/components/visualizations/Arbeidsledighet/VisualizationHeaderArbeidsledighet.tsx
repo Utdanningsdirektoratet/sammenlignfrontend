@@ -4,6 +4,7 @@ import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationHeader.module.scss";
 import { SammenligningTemplate } from "../../comparisonsConfig";
 import HeaderArbeidsledighetFilters from "./HeaderArbeidsledighetFilters";
+import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
   Kjønn: Kjønn;
@@ -25,29 +26,12 @@ type State = {
 
 class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
   state = { open: false };
-  containerRef = React.createRef<HTMLDivElement>();
-
-  componentDidMount() {
-    document.addEventListener("click", this.handleOutsideClick, true);
-  }
-  componentWillUnmount() {
-    document.removeEventListener("click", this.handleOutsideClick, true);
-  }
 
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
   };
-
-  handleOutsideClick = (e: any) => {
-    if (!this.state.open) return;
-    if (
-      this.containerRef.current &&
-      this.containerRef.current.contains(e.target)
-    ) {
-      return;
-    }
-
-    this.onFilterButtonClick(false);
+  closeFilter = () => {
+    this.setState({ open: false });
   };
 
   render() {
@@ -57,9 +41,9 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
 
     if (this.state.open) {
       Modal = (
-        <div
-          ref={this.containerRef}
+        <ClickOutsideListener
           className={`${styles.visualizationheader_container_modal}`}
+          onOutsideClick={this.closeFilter}
         >
           <div
             className={`${styles.visualizationheader_container_modal_header}`}
@@ -90,7 +74,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
             config={this.props.config}
             showHelpText={true}
           />
-        </div>
+        </ClickOutsideListener>
       );
     }
     return (
