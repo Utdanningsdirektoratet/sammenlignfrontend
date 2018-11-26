@@ -37,7 +37,7 @@ class App extends Component<{}, AppState> {
     const reactState = this.state.selected_uno_id;
     if (
       urlState.length !== reactState.length ||
-      urlState.every((_, i) => urlState[i] === reactState[i])
+      !urlState.every((_, i) => urlState[i] === reactState[i])
     ) {
       this.setState({ selected_uno_id: urlState });
     }

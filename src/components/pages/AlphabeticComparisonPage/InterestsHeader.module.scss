@@ -2,6 +2,8 @@
   width: 100%;
   background-color: #e4e4e4;
   &_row {
+    display: flex;
+    justify-content: space-between;
     width: 80%;
     margin: auto;
     padding-top: 20px;

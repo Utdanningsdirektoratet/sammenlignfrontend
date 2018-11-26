@@ -31,6 +31,25 @@ class ComparisonPage extends Component<Props, State> {
   componentDidMount() {
     this.fetchData();
   }
+  static getDerivedStateFromProps(props: any, state: State) {
+    const oldSelected: string[] = state.selected_uno_id as any;
+    const newSelected: string[] = props.appState.selected_uno_id;
+    if (!oldSelected) return { selected_uno_id: newSelected };
+    if (newSelected !== oldSelected) {
+      if (newSelected.some(s => oldSelected.indexOf(s) === -1))
+        return {
+          selected_uno_id: newSelected,
+          uno_ids_changed: true,
+        };
+    }
+    return null;
+  }
+  componentDidUpdate() {
+    if (this.state.uno_ids_changed) {
+      this.setState({ uno_ids_changed: false });
+      this.fetchData();
+    }
+  }
   fetchData() {
     const {
       match: {

@@ -16,10 +16,6 @@ class LonnWrapper extends Component<
 > {
   constructor(props: ComparisonComponentProps<LonnElement>) {
     super(props);
-    const ssbSektor: { [uno_id: string]: string } = {};
-    this.props.uno_ids.forEach(uno_id => {
-      ssbSektor[uno_id] = Object.keys(this.props.data[uno_id] || {})[0];
-    });
     this.state = {
       Arbeidstid: "A",
       Sektor: "A",
@@ -27,7 +23,7 @@ class LonnWrapper extends Component<
       Lønn: "Brutto",
       StatistiskMål: "Median og kvartiler",
       Kjønn: "A",
-      ssbSektor: ssbSektor,
+      ssbSektor: {},
     };
   }
 
@@ -110,6 +106,11 @@ class LonnWrapper extends Component<
     this.setState(config);
   };
 
+  getSsbSektor = (uno_id: string) => {
+    const { data } = this.props;
+    return this.state.ssbSektor[uno_id] || Object.keys(data[uno_id] || {})[0];
+  };
+
   render() {
     const { data, uno_ids } = this.props;
     const { Sektor } = this.state;
@@ -117,7 +118,7 @@ class LonnWrapper extends Component<
     let maxValue: number = 0;
 
     this.props.uno_ids.forEach(uno_id => {
-      const ssbSektor = this.state.ssbSektor[uno_id];
+      const ssbSektor = this.getSsbSektor(uno_id);
       if (
         !ssbSektor ||
         !data[uno_id] ||
@@ -149,7 +150,7 @@ class LonnWrapper extends Component<
         <Fragment key={Sektor}>
           <ComparisonRow>
             {uno_ids.map(uno_id => {
-              const ssbSektor = this.state.ssbSektor[uno_id];
+              const ssbSektor = this.getSsbSektor(uno_id);
 
               if (data[uno_id] && data[uno_id][ssbSektor]) {
                 const arbeidstid_data = data[uno_id][ssbSektor][Sektor]; // Typescript needs a temporary
@@ -181,7 +182,7 @@ class LonnWrapper extends Component<
                 data={data[uno_id]}
                 onChange={this.onSelectedChoiceClick}
                 unoId={uno_id}
-                selectedChoice={this.state.ssbSektor[uno_id]}
+                selectedChoice={this.getSsbSektor(uno_id)}
               />
             );
           })}

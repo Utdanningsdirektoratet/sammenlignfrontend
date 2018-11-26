@@ -118,10 +118,15 @@ export interface Main {
   [id: string]: MainElement;
 }
 
+export interface SuggestElement {
+  uno_id: string;
+  tittel: string;
+}
+
 export interface Suggest {
   response: {
     numFound: number;
-    docs: Array<{ uno_id: string; tittel: string }>;
+    docs: SuggestElement[];
   };
 }
 

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 import Translate from "../../app/Translate";
 import styles from "./CompareSelection.module.scss";
+import { Innholdstype } from "../../../data/ApiTypes";
 
 type Props = {
-  innholdstype: string;
+  innholdstype?: Innholdstype;
 };
 
 class CompareSelection extends Component<Props> {

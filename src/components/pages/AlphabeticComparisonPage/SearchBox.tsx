@@ -1,122 +1,251 @@
-import React, { Component } from "react";
-import { Innholdstype, MainElement } from "../../../data/ApiTypes";
+import React, { Component, Fragment } from "react";
+import { Innholdstype, Suggest, SuggestElement } from "../../../data/ApiTypes";
 import { API_DOMAIN } from "../../../data/config";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "../../../fontawesome/solid/search.svg";
 import { objectToQueryString } from "../../../util/querystring";
+import Translate from "../../app/Translate";
+import { Redirect } from "react-router";
 
 type Props = {
-  innholdstype: Innholdstype;
+  innholdstype?: Innholdstype;
 };
 
 type State = {
-  data: MainElement[];
+  suggestions: { [type: string]: SuggestElement[] };
+  numSuggestions: number;
   searchString: string;
+  activeSuggestion: number;
   error: boolean;
-  listText: string;
+  redirect: boolean;
+};
+
+const Innholdstyper: { [type: string]: JSX.Element } = {
+  u: <Translate nb="Utdanninger" />,
+  y: <Translate nb="Yrker" />,
 };
 
 class SearchBox extends Component<Props & AppStateProps, State> {
-  state = {
-    data: [],
+  state: State = {
+    suggestions: {},
+    numSuggestions: 0,
     searchString: "",
+    activeSuggestion: -1,
     error: false,
-    listText: "",
+    redirect: false,
   };
 
   handleChange = (event: any) => {
+    const { innholdstype } = this.props;
     const value = event.target.value;
 
+    this.setState({
+      suggestions: {},
+      numSuggestions: 0,
+      searchString: value,
+      activeSuggestion: -1,
+    });
     if (value.length < 3) {
-      this.setState({
-        data: [],
-        searchString: value,
-        listText: "Skriv inn minst tre tegn for å søke...",
-      });
       return;
     }
-    this.setState({ searchString: value });
 
-    fetch(API_DOMAIN + "/rest/suggest?" + objectToQueryString({ q: value }))
+    fetch(
+      API_DOMAIN +
+        "/rest/suggest?" +
+        objectToQueryString({
+          q: value,
+          innholdstype:
+            innholdstype == "utdanning"
+              ? "utdanningsbeskrivelse"
+              : innholdstype,
+        })
+    )
       .then(resp => resp.json())
-      .then((data: MainElement[]) => {
+      .then((data: Suggest) => {
+        // Ensure searchString has not changed since the request was sent
         if (this.state.searchString === value) {
-          if (data && (data as any).numfound === 0) {
-            this.setState({ data: [], listText: "Ingen resultater..." });
-            return;
-          }
-
-          const filterData: MainElement[] = [];
-          Object.keys(data).filter((d: any, i: any, n: any) => {
-            if (data[d].uno_id[0] === this.props.innholdstype[0])
-              filterData.push(data[d]);
-          });
-
           this.setState({
-            data: filterData,
+            suggestions: group_by_innholdstype(data.response.docs),
+            numSuggestions: data.response.docs.length,
+            activeSuggestion: -1,
             error: false,
-            listText: filterData.length > 0 ? "" : "Ingen resultater...",
           });
         }
       })
       .catch(e => {
         if (this.state.searchString === value)
           this.setState({
-            data: [],
+            suggestions: {},
+            numSuggestions: 0,
+            activeSuggestion: -1,
             error: true,
-            listText: "Noe gikk galt...",
           });
       });
   };
-
-  onClickItem = (unoId: any) => {
-    this.props.appState.toggleUnoId(unoId);
-    this.setState({ data: [], searchString: "", listText: "" });
+  handleArrowClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key == "ArrowUp") {
+      this.setState(prevState => {
+        if (
+          prevState.activeSuggestion < 0 ||
+          prevState.activeSuggestion >= prevState.numSuggestions
+        )
+          return { activeSuggestion: -1 };
+        return {
+          activeSuggestion: prevState.activeSuggestion - 1,
+        };
+      });
+      e.preventDefault();
+    } else if (e.key == "ArrowDown") {
+      // DOWN
+      this.setState(prevState => {
+        if (prevState.activeSuggestion >= prevState.numSuggestions - 1)
+          return { activeSuggestion: prevState.numSuggestions - 1 };
+        return { activeSuggestion: prevState.activeSuggestion + 1 };
+      });
+      e.preventDefault();
+    } else if (
+      (e.key == "Enter" || e.key == " ") &&
+      this.state.activeSuggestion !== -1
+    ) {
+      const allSuggestions = Object.keys(this.state.suggestions)
+        .map(innholdstype => this.state.suggestions[innholdstype])
+        .reduce(
+          (previousValue, currentValue) => previousValue.concat(currentValue),
+          []
+        );
+      const suggestion = allSuggestions[this.state.activeSuggestion];
+      if (suggestion) {
+        this.props.appState.toggleUnoId(suggestion.uno_id);
+        if (!this.props.innholdstype) {
+          this.setState({ redirect: true });
+        }
+      }
+    } else {
+      return;
+    }
+    e.preventDefault();
   };
-
+  handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const uno_id = e.currentTarget.getAttribute("data-uno-id");
+    if (uno_id) {
+      this.props.appState.toggleUnoId(uno_id);
+    }
+    if (!this.props.innholdstype) {
+      this.setState({ redirect: true });
+    }
+  };
+  renderSuggestion = (suggestion: SuggestElement, i: number) => {
+    const {
+      appState: { selected_uno_id },
+    } = this.props;
+    const { activeSuggestion } = this.state;
+    const activeClass = i == activeSuggestion ? `${styles.active}` : "";
+    const selectedClass =
+      selected_uno_id.indexOf(suggestion.uno_id) !== -1
+        ? `${styles.selected}`
+        : "";
+    return (
+      <li key={i}>
+        <button
+          onClick={this.handleClick}
+          data-uno-id={suggestion.uno_id}
+          className={activeClass + " " + selectedClass}
+        >
+          {suggestion.tittel}
+        </button>
+      </li>
+    );
+  };
   render() {
+    const {
+      suggestions,
+      searchString,
+      error,
+      activeSuggestion,
+      redirect,
+    } = this.state;
+    const {
+      appState: { selected_uno_id },
+      innholdstype,
+    } = this.props;
+    if (redirect) {
+      return (
+        <Redirect
+          push={true}
+          to={
+            selected_uno_id[selected_uno_id.length - 1][0] == "u"
+              ? "/utdanning"
+              : "/yrke"
+          }
+        />
+      );
+    }
+    const innholdstyper = Object.keys(suggestions);
+    let suggestionsDom;
+    if (innholdstyper.length > 0) {
+      let suggestionNumber = 0;
+      suggestionsDom = (
+        <div className={`${styles.searchbox_dropdown}`}>
+          <div className={`${styles.searchbox_dropdown_help}`}>
+            <Translate
+              nb="KLIKK PÅ NAVN FOR Å LEGGE TIL %innholdstype%"
+              replacements={{
+                "%innholdstype%": (innholdstype || "") as string,
+              }}
+            />
+          </div>
+          {innholdstyper.map(type => (
+            <Fragment key={type}>
+              {!innholdstype ? (
+                <h4 className={`${styles.searchbox_dropdown_header}`}>
+                  {Innholdstyper[type]}
+                </h4>
+              ) : null}
+              <ul>
+                {suggestions[type].map(suggestion =>
+                  this.renderSuggestion(suggestion, suggestionNumber++)
+                )}
+              </ul>
+            </Fragment>
+          ))}
+        </div>
+      );
+    }
     return (
       <div className={`${styles.searchbox}`}>
         <div className={`${styles.searchbox_container}`}>
           <input
             value={this.state.searchString}
             onChange={this.handleChange}
+            onKeyDown={this.handleArrowClick}
             className={`${styles.searchbox_container_input}`}
-            placeholder={"Søk etter " + this.props.innholdstype}
+            placeholder={
+              this.props.innholdstype
+                ? "Søk etter " + this.props.innholdstype
+                : "Søk"
+            }
           />
           <Search />
         </div>
-        <div
-          className={
-            this.state.data.length > 0 ||
-            (this.state.listText !== "" && this.state.searchString.length > 0)
-              ? styles.searchbox_dropdown
-              : styles.searchbox_dropdown_hidden
-          }
-        >
-          {this.state.data.length > 0 ? (
-            <ul>
-              {this.state.data.map((d: MainElement) => (
-                <li
-                  className={`${styles.searchbox_dropdown_selectable}`}
-                  key={d.uno_id}
-                  onClick={() => this.onClickItem(d.uno_id)}
-                >
-                  {d.tittel}
-                </li>
-              ))}
-            </ul>
-          ) : this.state.listText !== "" &&
-            this.state.searchString.length > 0 ? (
-            <ul>
-              <li>{this.state.listText}</li>
-            </ul>
-          ) : null}
-        </div>
+        {suggestionsDom}
       </div>
     );
   }
+}
+
+function group_by_innholdstype(suggestions: SuggestElement[]) {
+  // In reality group by first character of uno_id
+  const groups: { [type: string]: SuggestElement[] } = {};
+  suggestions.forEach(suggestion => {
+    const type = suggestion.uno_id[0]; // First character of uno_id (u, y or s)
+    if (groups[type]) {
+      groups[type].push(suggestion);
+    } else {
+      groups[type] = [suggestion];
+    }
+  });
+  return groups;
 }
 
 export default with_app_state<Props>(SearchBox);

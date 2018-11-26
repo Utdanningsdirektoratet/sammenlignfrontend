@@ -1,13 +1,11 @@
 .searchbox {
-  margin: 30px;
+  position: relative;
   &_container {
-    position: absolute;
     &_input {
       height: 24px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid #dedede;
-      padding: 4px;
-      position: absolute;
+      padding: 4px 15px;
       width: 200px;
       &:focus {
         outline: none;
@@ -15,58 +13,62 @@
       }
     }
     svg {
-      position: relative;
+      position: absolute;
       height: 1.2em;
       top: 7px;
-      left: 180px;
+      left: 200px;
     }
   }
   &_dropdown {
-    &_hidden {
-      position: initial;
-      height: 200px;
-      width: 400px;
-    }
-    position: relative;
-    height: 200px;
+    // &_hidden {
+    //   position: initial;
+    //   height: 200px;
+    //   width: 400px;
+    // }
+    position: absolute;
+    z-index: 1000; // Bootstrap standard dropdown
     width: 400px;
     top: 35px;
 
+    background-color: white;
+    padding: 0.1em 1em 1em 1em;
+    border: 1px solid black;
+    &_help {
+      color: gray;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       li {
-        border: 1px solid #dedede;
-        background-color: white;
-        border-top: 0;
-        padding-left: 1.5em;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-
-        &:first-child {
-          border-top: 1px solid #dedede;
-          border-top-right-radius: 10px;
-          border-top-left-radius: 10px;
-        }
-        &:last-child {
-          border-bottom-right-radius: 10px;
-          border-bottom-left-radius: 10px;
-        }
+        margin: 0;
+        padding: 0;
       }
     }
-
-    &_selectable {
-      cursor: pointer;
+    &_header {
+      text-transform: uppercase;
+      background-color: lightgrey;
+      margin: 0;
+      padding: 0;
+    }
+    button {
+      border: none;
+      margin: 0;
+      padding: 0.2em;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: inherit;
+      font: inherit;
       &:hover {
+        background-color: antiquewhite;
+      }
+      &.active {
+        color: yellow;
+      }
+      &.selected {
         background-color: #ffda95;
       }
     }
