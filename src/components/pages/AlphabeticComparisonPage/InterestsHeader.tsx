@@ -43,21 +43,25 @@ class InterestsHeader extends Component<Props, State> {
     return (
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
-          <button
-            className={`${style.btn} ${
-              this.state.showInterestFilter ? style.unselected : ""
-            }`}
-          >
-            Nivå <ChevronDown />
-          </button>
-          <button
-            onClick={this.handleToggleInterestFilter}
-            className={`${style.btn}`}
-          >
-            Interesser{" "}
-            {this.state.showInterestFilter ? <ChevronUp /> : <ChevronDown />}
-          </button>
-          {/* <SearchBox innholdstype={innholdstype} /> */}
+          <div>
+            <SearchBox innholdstype={innholdstype} />
+          </div>
+          <div>
+            <button
+              className={`${style.btn} ${
+                this.state.showInterestFilter ? style.unselected : ""
+              }`}
+            >
+              Nivå <ChevronDown />
+            </button>
+            <button
+              onClick={this.handleToggleInterestFilter}
+              className={`${style.btn}`}
+            >
+              Interesser{" "}
+              {this.state.showInterestFilter ? <ChevronUp /> : <ChevronDown />}
+            </button>
+          </div>
         </div>
 
         {this.state.showInterestFilter ? (

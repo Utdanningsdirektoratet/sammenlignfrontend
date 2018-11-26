@@ -104,7 +104,10 @@ class SearchBox extends Component<Props & AppStateProps, State> {
         return { activeSuggestion: prevState.activeSuggestion + 1 };
       });
       e.preventDefault();
-    } else if (e.key == "Enter" && this.state.activeSuggestion !== -1) {
+    } else if (
+      (e.key == "Enter" || e.key == " ") &&
+      this.state.activeSuggestion !== -1
+    ) {
       const allSuggestions = Object.keys(this.state.suggestions)
         .map(innholdstype => this.state.suggestions[innholdstype])
         .reduce(
@@ -118,7 +121,10 @@ class SearchBox extends Component<Props & AppStateProps, State> {
           this.setState({ redirect: true });
         }
       }
+    } else {
+      return;
     }
+    e.preventDefault();
   };
   handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const uno_id = e.currentTarget.getAttribute("data-uno-id");
@@ -134,7 +140,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       appState: { selected_uno_id },
     } = this.props;
     const { activeSuggestion } = this.state;
-    const activeClass = i == activeSuggestion ? `${styles.active} ` : "";
+    const activeClass = i == activeSuggestion ? `${styles.active}` : "";
     const selectedClass =
       selected_uno_id.indexOf(suggestion.uno_id) !== -1
         ? `${styles.selected}`
@@ -161,6 +167,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     } = this.state;
     const {
       appState: { selected_uno_id },
+      innholdstype,
     } = this.props;
     if (redirect) {
       return (
@@ -179,11 +186,21 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     if (innholdstyper.length > 0) {
       let suggestionNumber = 0;
       suggestionsDom = (
-        <div>
+        <div className={`${styles.searchbox_dropdown}`}>
+          <div className={`${styles.searchbox_dropdown_help}`}>
+            <Translate
+              nb="KLIKK PÅ NAVN FOR Å LEGGE TIL %innholdstype%"
+              replacements={{
+                "%innholdstype%": (innholdstype || "") as string,
+              }}
+            />
+          </div>
           {innholdstyper.map(type => (
             <Fragment key={type}>
-              {innholdstyper.length !== 1 ? (
-                <h4>{Innholdstyper[type]}</h4>
+              {!innholdstype ? (
+                <h4 className={`${styles.searchbox_dropdown_header}`}>
+                  {Innholdstyper[type]}
+                </h4>
               ) : null}
               <ul>
                 {suggestions[type].map(suggestion =>
@@ -202,8 +219,12 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             value={this.state.searchString}
             onChange={this.handleChange}
             onKeyDown={this.handleArrowClick}
-            className={styles.searchbox_container_input}
-            placeholder={"Søk etter " + this.props.innholdstype}
+            className={`${styles.searchbox_container_input}`}
+            placeholder={
+              this.props.innholdstype
+                ? "Søk etter " + this.props.innholdstype
+                : "Søk"
+            }
           />
           <Search />
         </div>

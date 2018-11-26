@@ -47,7 +47,6 @@ class SelectedCompares extends Component<AppStateProps & Props> {
               </li>
             ))}
           </ul>
-          <SearchBox innholdstype={innholdstype} />
         </div>
       </>
     );
