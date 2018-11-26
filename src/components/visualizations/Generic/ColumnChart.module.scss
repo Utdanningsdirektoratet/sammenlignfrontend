@@ -55,15 +55,21 @@
       background-color: #aaaaaa;
     }
     &_K {
-      background-color: #cd99ab;
+      background-color: #84012e;
       &_icon {
         height: 13.5px;
         width: 13.5px;
         margin-left: 1px;
+
+        svg {
+          path {
+            fill: white;
+          }
+        }
       }
     }
     &_M {
-      background-color: #9fbded;
+      background-color: #9bbad3;
       margin-right: 10px;
       &_icon {
         height: 10px;

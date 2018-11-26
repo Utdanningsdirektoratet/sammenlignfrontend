@@ -163,6 +163,7 @@ class ColumnChart extends Component<Props> {
                     display: `${
                       this.getPercentage(high["K"]) === null ? "none" : "block"
                     }`,
+                    borderColor: `white`,
                   }}
                 />
               ) : null}
@@ -175,6 +176,8 @@ class ColumnChart extends Component<Props> {
                     display: `${
                       this.getPercentage(mid["K"]) === null ? "none" : "block"
                     }`,
+                    backgroundColor: `white`,
+                    borderColor: `white`,
                   }}
                 />
               ) : null}
@@ -187,6 +190,7 @@ class ColumnChart extends Component<Props> {
                     display: `${
                       this.getPercentage(low["K"]) === null ? "none" : "block"
                     }`,
+                    borderColor: `white`,
                   }}
                 />
               ) : null}

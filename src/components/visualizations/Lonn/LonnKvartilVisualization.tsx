@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Kjønn } from "../../../data/ApiTypes";
 import { KvartilInfo } from "./LonnVisualization";
-
-import ColumnChart from "../Generic/ColumnChart";
 import styles from "./LonnKvartilVisualization.module.scss";
+import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
+import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 
 type Props = {
   kjønn: Kjønn;
@@ -33,9 +33,11 @@ class LonnKvartilVisualization extends Component<Props> {
             <div>
               <div className={styles.container_data_male}>
                 {!high["M"] ? "(ingen data)" : high["M"]}
+                <Male />
               </div>
               <div className={styles.container_data_female}>
                 {!high["K"] ? "(ingen data)" : high["K"]}
+                <Female />
               </div>
             </div>
           )}
@@ -56,9 +58,11 @@ class LonnKvartilVisualization extends Component<Props> {
             <div>
               <div className={styles.container_data_male}>
                 {!mid["M"] ? "(ingen data)" : mid["M"]}
+                <Male />
               </div>
               <div className={styles.container_data_female}>
                 {!mid["K"] ? "(ingen data)" : mid["K"]}
+                <Female />
               </div>
             </div>
           )}
@@ -73,9 +77,11 @@ class LonnKvartilVisualization extends Component<Props> {
             <div>
               <div className={styles.container_data_male}>
                 {!low["M"] ? "(ingen data)" : low["M"]}
+                <Male />
               </div>
               <div className={styles.container_data_female}>
                 {!low["K"] ? "(ingen data)" : low["K"]}
+                <Female />
               </div>
             </div>
           )}
