@@ -5,20 +5,9 @@ import { setLang } from "./Translate";
 
 function LanguagePicker() {
   return (
-    <div className={styles.languagepicker}>
-      <span
-        className={styles.languagepicker_language}
-        onClick={e => setLang("nb")}
-      >
-        Bokmål
-      </span>
-      /
-      <span
-        className={styles.languagepicker_language}
-        onClick={e => setLang("nn")}
-      >
-        Nynorsk
-      </span>
+    <div className={`${styles.languagepicker}`}>
+      <span onClick={e => setLang("nb")}>Bokmål</span>/
+      <span onClick={e => setLang("nn")}>Nynorsk</span>
       <span>FontSize</span>
     </div>
   );

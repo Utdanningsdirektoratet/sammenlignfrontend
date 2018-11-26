@@ -44,9 +44,9 @@ class ColumnChart extends Component<Props> {
     return (
       <div>
         {kjønn === "A" ? (
-          <div className={styles.columnchart_container}>
+          <div className={`${styles.columnchart_container}`}>
             <div
-              className={styles.columnchart_container_A}
+              className={`${styles.columnchart_container_A}`}
               style={{
                 height: `${this.getHighestPercentage("A")}%`,
                 paddingTop: `${
@@ -56,7 +56,7 @@ class ColumnChart extends Component<Props> {
             >
               {high ? (
                 <span
-                  className={styles.columnchart_container_A_high}
+                  className={`${styles.columnchart_container_A_high}`}
                   style={{
                     bottom: `${this.getPercentage(high["A"])}%`,
                     transform: `translateY(${this.getPercentage(high["A"])}%)`,
@@ -68,7 +68,7 @@ class ColumnChart extends Component<Props> {
               ) : null}
               {mid ? (
                 <span
-                  className={styles.columnchart_container_A_medium}
+                  className={`${styles.columnchart_container_A_medium}`}
                   style={{
                     bottom: `${this.getPercentage(mid["A"])}%`,
                     transform: `translateY(${this.getPercentage(mid["A"])}%)`,
@@ -80,7 +80,7 @@ class ColumnChart extends Component<Props> {
               ) : null}
               {low ? (
                 <span
-                  className={styles.columnchart_container_A_low}
+                  className={`${styles.columnchart_container_A_low}`}
                   style={{
                     bottom: `${this.getPercentage(low["A"])}%`,
                     transform: `translateY(${() =>
@@ -94,9 +94,9 @@ class ColumnChart extends Component<Props> {
             </div>
           </div>
         ) : (
-          <div className={styles.columnchart_container}>
+          <div className={`${styles.columnchart_container}`}>
             <div
-              className={styles.columnchart_container_M}
+              className={`${styles.columnchart_container_M}`}
               style={{
                 height: `${this.getHighestPercentage("M")}%`,
                 paddingTop: `${
@@ -106,7 +106,7 @@ class ColumnChart extends Component<Props> {
             >
               {high ? (
                 <span
-                  className={styles.columnchart_container_M_high}
+                  className={`${styles.columnchart_container_M_high}`}
                   style={{
                     bottom: `${this.getPercentage(high["M"])}%`,
                     transform: `translateY(${this.getPercentage(high["M"])}%)`,
@@ -118,7 +118,7 @@ class ColumnChart extends Component<Props> {
               ) : null}
               {mid ? (
                 <span
-                  className={styles.columnchart_container_M_medium}
+                  className={`${styles.columnchart_container_M_medium}`}
                   style={{
                     bottom: `${this.getPercentage(mid["M"])}%`,
                     transform: `translateY(${this.getPercentage(mid["M"])}%)`,
@@ -130,7 +130,7 @@ class ColumnChart extends Component<Props> {
               ) : null}
               {low ? (
                 <span
-                  className={styles.columnchart_container_M_low}
+                  className={`${styles.columnchart_container_M_low}`}
                   style={{
                     bottom: `${this.getPercentage(low["M"])}%`,
                     transform: `translateY(${this.getPercentage(low["M"])}%)`,
@@ -141,12 +141,12 @@ class ColumnChart extends Component<Props> {
                 />
               ) : null}
 
-              <span className={styles.columnchart_container_M_icon}>
+              <span className={`${styles.columnchart_container_M_icon}`}>
                 <Male />
               </span>
             </div>
             <div
-              className={styles.columnchart_container_K}
+              className={`${styles.columnchart_container_K}`}
               style={{
                 height: `${this.getHighestPercentage("K")}%`,
                 paddingTop: `${
@@ -156,41 +156,45 @@ class ColumnChart extends Component<Props> {
             >
               {high ? (
                 <span
-                  className={styles.columnchart_container_K_high}
+                  className={`${styles.columnchart_container_K_high}`}
                   style={{
                     bottom: `${this.getPercentage(high["K"])}%`,
                     transform: `translateY(${this.getPercentage(high["K"])}%)`,
                     display: `${
                       this.getPercentage(high["K"]) === null ? "none" : "block"
                     }`,
+                    borderColor: `white`,
                   }}
                 />
               ) : null}
               {mid ? (
                 <span
-                  className={styles.columnchart_container_K_medium}
+                  className={`${styles.columnchart_container_K_medium}`}
                   style={{
                     bottom: `${this.getPercentage(mid["K"])}%`,
                     transform: `translateY(${this.getPercentage(mid["K"])}%)`,
                     display: `${
                       this.getPercentage(mid["K"]) === null ? "none" : "block"
                     }`,
+                    backgroundColor: `white`,
+                    borderColor: `white`,
                   }}
                 />
               ) : null}
               {low ? (
                 <span
-                  className={styles.columnchart_container_K_low}
+                  className={`${styles.columnchart_container_K_low}`}
                   style={{
                     bottom: `${this.getPercentage(low["K"])}%`,
                     transform: `translateY(${this.getPercentage(low["K"])}%)`,
                     display: `${
                       this.getPercentage(low["K"]) === null ? "none" : "block"
                     }`,
+                    borderColor: `white`,
                   }}
                 />
               ) : null}
-              <span className={styles.columnchart_container_K_icon}>
+              <span className={`${styles.columnchart_container_K_icon}`}>
                 <Female />
               </span>
             </div>

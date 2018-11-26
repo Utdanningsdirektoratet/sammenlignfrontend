@@ -22,7 +22,7 @@ class LonnWrapper extends Component<
     });
     this.state = {
       Arbeidstid: "A",
-      Sektor: ["A"],
+      Sektor: "A",
       Tidsenhet: "Månedlig",
       Lønn: "Brutto",
       StatistiskMål: "Median og kvartiler",
@@ -30,6 +30,10 @@ class LonnWrapper extends Component<
       ssbSektor: ssbSektor,
     };
   }
+
+  //TODO: This must be set when embedding widget!!
+  //Not true when embedding multiple widgets for different UNO_IDs, and true if embedding one with multiple UNO_IDs.
+  showGraphics = true;
 
   onSelectedChoiceClick = (uno_id: string, ssbSektor: string) => {
     this.setState(prevState => {
@@ -86,12 +90,7 @@ class LonnWrapper extends Component<
         config.Arbeidstid = value;
         break;
       case "Sektor":
-        var index = config.Sektor.indexOf(value);
-        if (index > -1) {
-          config.Sektor.splice(index, 1);
-        } else {
-          config.Sektor.push(value);
-        }
+        config.Sektor = value;
         break;
       case "Tidsenhet":
         config.Tidsenhet = value;
@@ -113,7 +112,7 @@ class LonnWrapper extends Component<
 
   render() {
     const { data, uno_ids } = this.props;
-    const { Sektor: sektorArray } = this.state;
+    const { Sektor } = this.state;
 
     let maxValue: number = 0;
 
@@ -123,11 +122,11 @@ class LonnWrapper extends Component<
         !ssbSektor ||
         !data[uno_id] ||
         !data[uno_id][ssbSektor] ||
-        !data[uno_id][ssbSektor][sektorArray[0]]
+        !data[uno_id][ssbSektor][Sektor]
       ) {
         return;
       }
-      let unoData = data[uno_id][ssbSektor][sektorArray[0]];
+      let unoData = data[uno_id][ssbSektor][Sektor];
 
       if (this.state.Kjønn === "A") {
         var wage = this.getMaxValue("A", unoData);
@@ -147,37 +146,33 @@ class LonnWrapper extends Component<
           setConfig={this.setConfig}
           onFilterClicked={this.onFilterClicked}
         />
-        {sektorArray.map(sektor => {
-          return (
-            <Fragment key={sektor}>
-              {sektorArray.length > 1 ? <h4>{sektor}</h4> : null}
-              <ComparisonRow>
-                {uno_ids.map(uno_id => {
-                  const ssbSektor = this.state.ssbSektor[uno_id];
+        <Fragment key={Sektor}>
+          <ComparisonRow>
+            {uno_ids.map(uno_id => {
+              const ssbSektor = this.state.ssbSektor[uno_id];
 
-                  if (data[uno_id] && data[uno_id][ssbSektor]) {
-                    const arbeidstid_data = data[uno_id][ssbSektor][sektor]; // Typescript needs a temporary
-                    if (arbeidstid_data) {
-                      return (
-                        <LonnVisualization
-                          key={uno_id}
-                          data={arbeidstid_data}
-                          arbeidstid={this.state.Arbeidstid}
-                          kjønn={this.state.Kjønn}
-                          lønn={this.state.Lønn}
-                          statistiskMål={this.state.StatistiskMål}
-                          tidsenhet={this.state.Tidsenhet}
-                          maxValue={maxValue}
-                        />
-                      );
-                    }
-                  }
-                  return <NoData key={uno_id} />;
-                })}
-              </ComparisonRow>
-            </Fragment>
-          );
-        })}
+              if (data[uno_id] && data[uno_id][ssbSektor]) {
+                const arbeidstid_data = data[uno_id][ssbSektor][Sektor]; // Typescript needs a temporary
+                if (arbeidstid_data) {
+                  return (
+                    <LonnVisualization
+                      key={uno_id}
+                      data={arbeidstid_data}
+                      arbeidstid={this.state.Arbeidstid}
+                      kjønn={this.state.Kjønn}
+                      lønn={this.state.Lønn}
+                      statistiskMål={this.state.StatistiskMål}
+                      tidsenhet={this.state.Tidsenhet}
+                      maxValue={maxValue}
+                      showGraphics={this.showGraphics}
+                    />
+                  );
+                }
+              }
+              return <NoData key={uno_id} />;
+            })}
+          </ComparisonRow>
+        </Fragment>
         <ComparisonRow>
           {uno_ids.map(uno_id => {
             return (

@@ -1,30 +1,21 @@
-import { Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
-import Translate from "../../app/Translate";
+import EntreprenorskapHeaderFilters, {
+  EntreprenorskapHeaderConfig,
+} from "./EntreprenorskapHeaderFilters";
 import styles from "../Shared/VisualizationHeader.module.scss";
-import { SammenligningTemplate } from "../../comparisonsConfig";
-import HeaderArbeidsledighetFilters from "./HeaderArbeidsledighetFilters";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
+import Translate from "../../app/Translate";
 
-export type VisualizationHeaderConfigArbeidsledighet = {
-  Kjønn: Kjønn;
-  Fullført: Fullført[];
-  Visning: Visning;
-};
 type Props = {
-  config: VisualizationHeaderConfigArbeidsledighet;
-  setConfig: (config: VisualizationHeaderConfigArbeidsledighet) => void;
-  comparison: SammenligningTemplate;
+  config: EntreprenorskapHeaderConfig;
   onFilterClicked: (event: any, key: string) => void;
 };
 
-export type Fullført = "710" | "13" | "A";
-export type Visning = "Andel" | "Antall";
 type State = {
   open: boolean;
 };
 
-class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
+class VisualizationHeaderEntreprenorskap extends Component<Props, State> {
   state = { open: false };
 
   onFilterButtonClick = (open: boolean) => {
@@ -53,7 +44,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
                 styles.visualizationheader_container_modal_header_title
               }`}
             >
-              <Translate nb="Ledighet" /> -{" "}
+              <Translate nb="Entreprenørskap" /> -{" "}
               <span
                 className={`${
                   styles.visualizationheader_container_modal_header_title__desc
@@ -69,7 +60,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
               />
             </div>
           </div>
-          <HeaderArbeidsledighetFilters
+          <EntreprenorskapHeaderFilters
             onFilterClicked={this.props.onFilterClicked}
             config={this.props.config}
             showHelpText={true}
@@ -84,7 +75,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
           <div
             className={`${styles.visualizationheader_container_header__title}`}
           >
-            <Translate nb="Ledighet" />{" "}
+            <Translate nb="Entreprenørskap" />{" "}
             <span
               className={`${
                 styles.visualizationheader_container_header__title_filter
@@ -93,30 +84,19 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
               (
               <ul>
                 <li>
-                  {Fullført.map((f: string, i: number) => {
-                    let text = "";
-                    if (i > 0) text = "/";
-                    switch (f) {
-                      case "710":
-                        return (
-                          <span key={f}>
-                            {text} <Translate nb="7-10 år" />{" "}
-                          </span>
-                        );
-                      case "13":
-                        return (
-                          <span key={f}>
-                            {text} <Translate nb="1-3 år" />{" "}
-                          </span>
-                        );
-                      case "A":
-                        return (
-                          <span key={f}>
-                            {text} <Translate nb="Alle" />{" "}
-                          </span>
-                        );
-                    }
-                  })}
+                  {Fullført === "A" ? (
+                    <span>
+                      <Translate nb="Alle" />{" "}
+                    </span>
+                  ) : Fullført === "13" ? (
+                    <span>
+                      <Translate nb="1-3 år" />{" "}
+                    </span>
+                  ) : (
+                    <span>
+                      <Translate nb="7-10 år" />{" "}
+                    </span>
+                  )}
                 </li>
                 <li>{", " + Visning}</li>
                 <li>
@@ -148,4 +128,4 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
   }
 }
 
-export default VisualizationHeaderArbeidsledighet;
+export default VisualizationHeaderEntreprenorskap;

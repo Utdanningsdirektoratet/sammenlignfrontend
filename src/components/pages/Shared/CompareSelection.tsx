@@ -14,7 +14,7 @@ class CompareSelection extends Component<Props> {
     const { innholdstype } = this.props;
     return (
       <>
-        <h1 className={styles.compare_title}>
+        <h1 className={`${styles.compare_title}`}>
           <Translate nb="Jeg vil sammenligne" nn="Eg vil sammenligna" />{" "}
           {innholdstype === "utdanning"
             ? "utdanninger"
@@ -22,8 +22,8 @@ class CompareSelection extends Component<Props> {
             ? "yrker"
             : innholdstype}
         </h1>
-        <div className={styles.button_row}>
-          <div className={styles.button_row_content}>
+        <div className={`${styles.button_row}`}>
+          <div className={`${styles.button_row_content}`}>
             <Link
               to="/utdanning"
               className={`${styles.btn} ${styles.btn_primary} ${

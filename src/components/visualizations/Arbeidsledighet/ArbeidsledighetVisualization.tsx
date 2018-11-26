@@ -93,12 +93,14 @@ class ArbeidsledighetVisualization extends Component<Props> {
 
     if (kjønn === "A") {
       return (
-        <div className={visualizationstyles.visualization_container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
           {dom.map(d => {
             return (
               <div key={d.key}>
                 {fullført.length > 1 ? (
-                  <div className={styles.arbeidsledighetvisualization_text}>
+                  <div
+                    className={`${styles.arbeidsledighetvisualization_text}`}
+                  >
                     {d.value}
                   </div>
                 ) : (
@@ -106,10 +108,15 @@ class ArbeidsledighetVisualization extends Component<Props> {
                 )}
                 {visning === "Andel" ? (
                   <div>
-                    <PercentageBar value={d.data} />
+                    <PercentageBar
+                      value={d.data}
+                      maxPercentageEqualsTen={true}
+                    />
                   </div>
                 ) : (
-                  <div className={styles.arbeidsledighetvisualization_kjonn}>
+                  <div
+                    className={`${styles.arbeidsledighetvisualization_kjonn}`}
+                  >
                     <div
                       className={
                         styles.arbeidsledighetvisualization_kjonn_container
@@ -143,7 +150,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
 
       if (arr.every(a => a === null)) return <NoData />;
       return (
-        <div className={visualizationstyles.visualization_container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
           {dom.map(d => {
             let kvinner = this.getDataQuery(d.key, "K");
             let menn = this.getDataQuery(d.key, "M");
@@ -154,7 +161,9 @@ class ArbeidsledighetVisualization extends Component<Props> {
             return (
               <div key={d.key}>
                 {fullført.length > 1 ? (
-                  <div className={styles.arbeidsledighetvisualization_text}>
+                  <div
+                    className={`${styles.arbeidsledighetvisualization_text}`}
+                  >
                     {d.value}
                   </div>
                 ) : (
@@ -166,7 +175,9 @@ class ArbeidsledighetVisualization extends Component<Props> {
                     return visning === "Andel" ? (
                       <div
                         key={a.key}
-                        className={styles.arbeidsledighetvisualization_kjonn}
+                        className={`${
+                          styles.arbeidsledighetvisualization_kjonn
+                        }`}
                       >
                         <div
                           className={
@@ -186,12 +197,17 @@ class ArbeidsledighetVisualization extends Component<Props> {
                             <Translate nb="Ingen data" />
                           </div>
                         ) : (
-                          <PercentageBar value={a.data as number} />
+                          <PercentageBar
+                            value={a.data as number}
+                            maxPercentageEqualsTen={true}
+                          />
                         )}
                       </div>
                     ) : (
                       <div
-                        className={styles.arbeidsledighetvisualization_kjonn}
+                        className={`${
+                          styles.arbeidsledighetvisualization_kjonn
+                        }`}
                       >
                         <div
                           className={

@@ -26,9 +26,9 @@ class InteresserFilter extends React.Component<Props> {
       removeAllSelected,
     } = this.props;
     return (
-      <div className={styles.interessefilter_container}>
-        <div className={styles.interessefilter_container_filters}>
-          <div className={styles.interessefilter_container_filters_all}>
+      <div>
+        <div className={`${styles.interessefilter_container_filters}`}>
+          <div>
             <label>
               <input
                 type="checkbox"
@@ -41,17 +41,17 @@ class InteresserFilter extends React.Component<Props> {
             </label>
           </div>
           <div
-            className={styles.interessefilter_container_filters_nullstill}
+            className={`${styles.interessefilter_container_filters_nullstill}`}
             onClick={() => removeAllSelected()}
           >
             <Translate nb="Nullstill" />
             <CloseIcon onClick={() => {}} unoId="" />
           </div>
         </div>
-        <div className={styles.interessefilter_container_items}>
+        <div className={`${styles.interessefilter_container_items}`}>
           {interesser.map((itrest: string, i: number) => (
             <div
-              className={styles.interessefilter_container_items__item}
+              className={`${styles.interessefilter_container_items__item}`}
               key={i}
             >
               <label>

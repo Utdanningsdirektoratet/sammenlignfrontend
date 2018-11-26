@@ -16,13 +16,13 @@ class AlphabetFilter extends Component<Props> {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
 
     return (
-      <div className={styles.container}>
-        <div className={styles.container_alphabet}>
+      <div className={`${styles.container}`}>
+        <div>
           {alphabet.split("").map(a => {
             return this.letterIsInList(a) ? (
               <span
                 key={a}
-                className={styles.container_alphabet_letter}
+                className={`${styles.container_alphabet_letter}`}
                 onClick={() => this.props.onLetterClicked(a)}
               >
                 {a.toUpperCase()}

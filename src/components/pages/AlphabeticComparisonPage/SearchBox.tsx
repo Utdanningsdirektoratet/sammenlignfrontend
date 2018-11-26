@@ -196,8 +196,8 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       );
     }
     return (
-      <div className={styles.searchbox}>
-        <div className={styles.searchbox_container}>
+      <div className={`${styles.searchbox}`}>
+        <div className={`${styles.searchbox_container}`}>
           <input
             value={this.state.searchString}
             onChange={this.handleChange}

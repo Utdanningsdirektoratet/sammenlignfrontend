@@ -24,19 +24,34 @@
         }
       }
     }
-    &_q1 {
-    }
 
     &_female {
-      color: #cd99ab;
-      font-weight: 700;
+      color: #84012e;
+      font-weight: 600;
+
+      svg {
+        height: 15px;
+        width: 15px;
+        margin-left: 5px;
+        background-color: #84012e;
+        border-radius: 50%;
+        path {
+          fill: white;
+        }
+      }
     }
     &_male {
-      color: #9fbded;
-      font-weight: 700;
+      color: #9bbad3;
+      font-weight: 600;
+
+      svg {
+        height: 15px;
+        width: 15px;
+        margin-left: 5px;
+      }
     }
     &_text {
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 }
