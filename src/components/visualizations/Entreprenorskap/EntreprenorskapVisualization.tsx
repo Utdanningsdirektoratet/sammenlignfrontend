@@ -90,26 +90,26 @@ class EntreprenorskapVisualization extends Component<Props> {
 
       if (dataM === null && dataK === null) return <NoData />;
       return (
-        <div className={visualizationstyles.visualization_container}>
-          <div className={styles.container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
+          <div>
             {visning === "Antall" ? (
-              <div className={styles.container_antall}>
+              <div className={`${styles.container_antall}`}>
                 <Male /> {dataM}
               </div>
             ) : (
-              <div className={styles.container_andel}>
+              <div className={`${styles.container_andel}`}>
                 <Male />
                 <PercentageBar value={dataM} maxPercentageEqualsTen={true} />
               </div>
             )}
           </div>
-          <div className={styles.container}>
+          <div>
             {visning === "Antall" ? (
-              <div className={styles.container_antall}>
+              <div className={`${styles.container_antall}`}>
                 <Female /> {dataK}
               </div>
             ) : (
-              <div className={styles.container_andel}>
+              <div className={`${styles.container_andel}`}>
                 <Female />
                 <PercentageBar value={dataK} maxPercentageEqualsTen={true} />
               </div>
