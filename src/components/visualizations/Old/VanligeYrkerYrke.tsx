@@ -35,7 +35,7 @@ class VanligeYrkerYrke extends React.Component<Props, MyState> {
     const { yrker } = this.props;
 
     return (
-      <div className={visualizationstyles.visualization_container}>
+      <div className={`${visualizationstyles.visualization_container}`}>
         <Vanligeyrker
           yrker={yrker}
           yrkerShown={this.state.yrkerShown}

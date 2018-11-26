@@ -116,7 +116,7 @@ class LonnVisualization extends Component<Props> {
       }
 
       return (
-        <div className={visualizationstyles.visualization_container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
           {showGraphics ? (
             <ColumnChart
               kjønn={kjønn}
@@ -140,7 +140,7 @@ class LonnVisualization extends Component<Props> {
       data = this.calcWageTimeUnit(this.getDataQuery(kjønn));
       if (data === null) return <NoData />;
       return (
-        <div className={visualizationstyles.visualization_container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
           {showGraphics ? (
             <ColumnChart
               kjønn={kjønn}
@@ -163,7 +163,7 @@ class LonnVisualization extends Component<Props> {
                   : styles.lonnVisualization_kjonn_nographics
               }
             >
-              <div className={styles.lonnVisualization_kjonn_text}>
+              <div className={`${styles.lonnVisualization_kjonn_text}`}>
                 {data + " kr"}
               </div>
             </div>
@@ -176,7 +176,7 @@ class LonnVisualization extends Component<Props> {
 
       if (kvinner === null && menn === null) return <NoData />;
       return (
-        <div className={visualizationstyles.visualization_container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
           {showGraphics ? (
             <ColumnChart
               kjønn={kjønn}
@@ -203,11 +203,11 @@ class LonnVisualization extends Component<Props> {
               }
             >
               <div className={styles.lonnVisualization_kjonn_text_kjønn}>
-                <div className={styles.lonnVisualization_kjonn_text_M}>
+                <div className={`${styles.lonnVisualization_kjonn_text_M}`}>
                   {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
                   <Male />
                 </div>
-                <div className={styles.lonnVisualization_kjonn_text_K}>
+                <div className={`${styles.lonnVisualization_kjonn_text_K}`}>
                   {kvinner === null ? (
                     <Translate nb="Ingen data" />
                   ) : (

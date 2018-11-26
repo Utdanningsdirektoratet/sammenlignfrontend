@@ -22,31 +22,41 @@ class Jobbtilfredshet extends React.Component<Props> {
     const allIcons = negIcons.concat(posIcons);
 
     return (
-      <div className={visualizationstyles.visualization_container}>
-        <div className={styles.jobbtilfredshet_container}>
-          <div className={styles.jobbtilfredshet_container_icons}>
-            <div className={styles.jobbtilfredshet_container_icons__firstline}>
+      <div className={`${visualizationstyles.visualization_container}`}>
+        <div className={`${styles.jobbtilfredshet_container}`}>
+          <div className={`${styles.jobbtilfredshet_container_icons}`}>
+            <div
+              className={`${styles.jobbtilfredshet_container_icons__firstline}`}
+            >
               {allIcons.slice(0, 5).map((I, i: number) => {
                 return (
                   <I
-                    className={styles.jobbtilfredshet_container_icons__icon}
+                    className={`${
+                      styles.jobbtilfredshet_container_icons__icon
+                    }`}
                     key={i}
                   />
                 );
               })}
             </div>
-            <div className={styles.jobbtilfredshet_container_icons__secondline}>
+            <div
+              className={`${
+                styles.jobbtilfredshet_container_icons__secondline
+              }`}
+            >
               {allIcons.slice(5, 10).map((I, i: number) => {
                 return (
                   <I
-                    className={styles.jobbtilfredshet_container_icons__icon}
+                    className={`${
+                      styles.jobbtilfredshet_container_icons__icon
+                    }`}
                     key={i}
                   />
                 );
               })}
             </div>
           </div>
-          <div className={styles.jobbtilfredshet_container_percentage}>
+          <div className={`${styles.jobbtilfredshet_container_percentage}`}>
             {value} %
           </div>
         </div>

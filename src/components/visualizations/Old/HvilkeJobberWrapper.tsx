@@ -51,7 +51,7 @@ class HvilkeJobberWrapper extends React.Component<myProps, MyState> {
     if (this.state.data) {
       const { selectedUtdanning } = this.state;
       return (
-        <div className={visualizationstyles.visualization_container}>
+        <div className={`${visualizationstyles.visualization_container}`}>
           <div className="hvilkejobber">
             <HvilkeJobberSelektor
               utdanninger={this.props.utdanninger}

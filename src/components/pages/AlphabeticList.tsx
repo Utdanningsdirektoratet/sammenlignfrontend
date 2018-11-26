@@ -15,15 +15,15 @@ class AlphabeticList extends React.Component<Props> {
     const { list, handleItemClicked, selected_uno_id } = this.props;
     const alphabetizedList = alphabetize(list, 5);
     return (
-      <div className={styles.alphabeticlist_container}>
+      <div className={`${styles.alphabetic_list_container}`}>
         {alphabetizedList.map((c, i) => {
           return (
             <li key={i}>
               <div>
-                <div className={styles.alphabetic_headers}>
+                <div className={`${styles.alphabetic_headers}`}>
                   {c.characters.map(l => (
                     <h3
-                      className={styles.alphabetic_header}
+                      className={`${styles.alphabetic_header}`}
                       key={l}
                       data-letter={l}
                     >
@@ -31,11 +31,11 @@ class AlphabeticList extends React.Component<Props> {
                     </h3>
                   ))}
                 </div>
-                <div className={styles.alphabetic_list}>
+                <div className={`${styles.alphabetic_list}`}>
                   {c.strings.map(o => (
                     <div
                       key={o.uno_id}
-                      className={styles.alphabetic_list__item}
+                      className={`${styles.alphabetic_list__item}`}
                       data-key={o.uno_id}
                     >
                       <label>

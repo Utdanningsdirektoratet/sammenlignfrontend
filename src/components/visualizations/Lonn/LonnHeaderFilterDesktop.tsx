@@ -29,7 +29,7 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
   render() {
     const { config, onFilterClicked } = this.props;
     const containerContent = (
-      <div className={styles.container_content}>
+      <div className={`${styles.container_content}`}>
         <HeaderLonnFilters
           config={config}
           onFilterClicked={onFilterClicked}
@@ -42,17 +42,17 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
     return (
       <ClickOutsideListener
         onOutsideClick={this.closeExpansion}
-        className={styles.container}
+        className={`${styles.container}`}
       >
-        <div className={styles.container_head}>
-          <div className={styles.container_head_infotext}>
+        <div className={`${styles.container_head}`}>
+          <div className={`${styles.container_head_infotext}`}>
             <Translate nb="Visningsalternativer" />
           </div>
-          <div className={styles.container_head_upper}>
+          <div className={`${styles.container_head_upper}`}>
             {" - "}
             <Translate nb="Lønn" />
           </div>
-          <div className={styles.container_head_icon}>
+          <div className={`${styles.container_head_icon}`}>
             {this.state.expanded ? (
               <CloseIcon2 onClick={this.toggleExpansion} unoId="" />
             ) : (

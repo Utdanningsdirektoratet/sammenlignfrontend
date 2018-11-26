@@ -10,7 +10,7 @@ class OpenIcon extends Component<Props> {
   render() {
     return (
       <span
-        className={styles.icon_open}
+        className={`${styles.icon_open}`}
         data-uno_id={this.props.unoId}
         onClick={this.props.onClick}
       />
