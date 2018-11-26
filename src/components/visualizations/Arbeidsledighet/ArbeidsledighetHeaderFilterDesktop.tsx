@@ -50,7 +50,7 @@ class ArbeidsledighetHeaderFilterDesktop extends Component<Props, State> {
           </div>
           <div className={styles.container_head_upper}>
             {" - "}
-            <Translate nb="Arbeidsledighet" />
+            <Translate nb="Ledighet" />
           </div>
           <div className={styles.container_head_icon}>
             {this.state.expanded ? (
