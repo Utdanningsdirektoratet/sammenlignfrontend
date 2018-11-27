@@ -92,7 +92,8 @@ class App extends Component<{}, AppState> {
           errorModalContent: (
             <div>
               <Translate
-                nb={`Du kan sammenligne maks ${maxCompare} stk samtidig`}
+                nb="Du kan sammenligne maks %max_compare% stk samtidig"
+                replacements={{ "%max_compare%": maxCompare.toString() }}
               />
             </div>
           ),
