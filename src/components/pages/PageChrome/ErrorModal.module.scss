@@ -1,0 +1,48 @@
+.Modal {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  right: 25%;
+  height: 400px;
+  background-color: white;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: black, $alpha: 0.3);
+}
+
+.text_container {
+  height: 100%;
+  text-align: center;
+  &_header {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 2.2em;
+  }
+  &_text {
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
+  svg {
+    height: 5.5em;
+    margin-top: 1.5em;
+    fill: rgb(219, 117, 117);
+  }
+}
+
+.close_btn {
+  cursor: pointer;
+  width: 60px;
+  height: 40px;
+  border: none;
+  color: white;
+  margin-top: 40px;
+  font-size: 1.3em;
+  border-radius: 25%;
+  background-color: rgb(57, 73, 84);
+}

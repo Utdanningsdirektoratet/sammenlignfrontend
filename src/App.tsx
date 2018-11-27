@@ -84,7 +84,7 @@ class App extends Component<{}, AppState> {
           selected_uno_id: prevState.selected_uno_id,
           errorModalContent: (
             <div>
-              <Translate nb="Du kan kun velge max 5 stk" />
+              <Translate nb="Du kan sammenligne max 5 stk samtidig" />
             </div>
           ),
         };
