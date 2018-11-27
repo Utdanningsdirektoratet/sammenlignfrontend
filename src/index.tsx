@@ -6,13 +6,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import ReactModal from "react-modal";
 
 import "./util/NoUndefinedClass";
 import Widget from "./components/widget/Widget";
 import { Lang } from "./components/app/Translate";
 
 const root = document.getElementById("root");
-if (root) ReactDOM.render(<App />, root);
+if (root) {
+  ReactModal.setAppElement("#root");
+  ReactDOM.render(<App />, root);
+}
 
 const widgets = document.getElementsByClassName("sammenligning-widget");
 for (let i = 0; i < widgets.length; i++) {
