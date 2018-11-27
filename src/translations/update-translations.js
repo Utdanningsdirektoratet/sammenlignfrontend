@@ -10,13 +10,17 @@ const getAllFiles = dir =>
   }, []);
 const componentFiles = getAllFiles(componentsDir);
 
-const regex = /<Translate\s+nb="([^"]+)"/gm;
+const regexComp = /<Translate\s+nb="([^"]+)"/gm;
+const regexString = /TranslateString\("([^"]+)"\)/gm;
 
 const currentStrings = new Set();
 componentFiles.forEach(file => {
   const content = fs.readFileSync(file).toString();
   let res;
-  while ((res = regex.exec(content)) !== null) {
+  while ((res = regexComp.exec(content)) !== null) {
+    currentStrings.add(res[1]);
+  }
+  while ((res = regexString.exec(content)) !== null) {
     currentStrings.add(res[1]);
   }
 });
