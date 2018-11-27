@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Kjønn } from "../../../data/ApiTypes";
 import { KvartilInfo } from "./LonnVisualization";
 import styles from "./LonnKvartilVisualization.module.scss";
-import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
-import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import Translate from "../../app/Translate";
+import { ReactComponent as Woman } from "../Generic/Woman.svg";
+import { ReactComponent as Man } from "../Generic/Man.svg";
 
 type Props = {
   kjønn: Kjønn;
@@ -36,11 +36,13 @@ class LonnKvartilVisualization extends Component<Props> {
             <div>
               <div className={`${styles.container_data_male}`}>
                 {!high["M"] ? <Translate nb="(ingen data)" /> : high["M"]}
-                <Male />
+                <Man />
               </div>
               <div className={`${styles.container_data_female}`}>
                 {!high["K"] ? <Translate nb="(ingen data)" /> : high["K"]}
-                <Female />
+                <div className={`${styles.container_data_female_icon}`}>
+                  <Woman />
+                </div>
               </div>
             </div>
           )}
@@ -63,11 +65,13 @@ class LonnKvartilVisualization extends Component<Props> {
             <div>
               <div className={`${styles.container_data_male}`}>
                 {!mid["M"] ? <Translate nb="(ingen data)" /> : mid["M"]}
-                <Male />
+                <Man />
               </div>
               <div className={`${styles.container_data_female}`}>
                 {!mid["K"] ? <Translate nb="(ingen data)" /> : mid["K"]}
-                <Female />
+                <div className={`${styles.container_data_female_icon}`}>
+                  <Woman />
+                </div>
               </div>
             </div>
           )}
@@ -84,11 +88,13 @@ class LonnKvartilVisualization extends Component<Props> {
             <div>
               <div className={`${styles.container_data_male}`}>
                 {!low["M"] ? <Translate nb="(ingen data)" /> : low["M"]}
-                <Male />
+                <Man />
               </div>
               <div className={`${styles.container_data_female}`}>
                 {!low["K"] ? <Translate nb="(ingen data)" /> : low["K"]}
-                <Female />
+                <div className={`${styles.container_data_female_icon}`}>
+                  <Woman />
+                </div>
               </div>
             </div>
           )}
