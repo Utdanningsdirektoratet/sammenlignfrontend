@@ -27,7 +27,7 @@ class CompareSelection extends Component<Props> {
         <div className={`${styles.button_row}`}>
           <div className={`${styles.button_row_content}`}>
             <Link
-              to="/utdanning"
+              to="/sammenligne/utdanning"
               className={`${styles.btn} ${styles.btn_primary} ${
                 innholdstype == "utdanning" ? styles.btn_selected : ""
               }`}
@@ -35,7 +35,7 @@ class CompareSelection extends Component<Props> {
               <Translate nb="Utdanninger" />
             </Link>
             <Link
-              to="/yrke"
+              to="/sammenligne/yrke"
               className={`${styles.btn} ${styles.btn_primary} ${
                 innholdstype == "yrke" ? styles.btn_selected : ""
               }`}

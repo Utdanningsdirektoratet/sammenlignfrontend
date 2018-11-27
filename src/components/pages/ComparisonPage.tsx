@@ -112,7 +112,7 @@ class ComparisonPage extends Component<Props, State> {
         <div className={`${styles.ComparisonPage}`}>
           <div className={`${styles.breadcrumb}`}>
             <Link
-              to={"/" + innholdstype}
+              to={"/liste/" + innholdstype}
               className={`${styles.breadcrumb_link}`}
             >
               <ArrowLeft />

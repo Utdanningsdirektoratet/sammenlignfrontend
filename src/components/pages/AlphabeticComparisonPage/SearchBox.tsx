@@ -181,8 +181,8 @@ class SearchBox extends Component<Props & AppStateProps, State> {
           push={true}
           to={
             selected_uno_id[selected_uno_id.length - 1][0] == "u"
-              ? "/utdanning"
-              : "/yrke"
+              ? "sammenligne/utdanning"
+              : "sammenligne/yrke"
           }
         />
       );
