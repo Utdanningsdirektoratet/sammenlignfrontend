@@ -5,12 +5,9 @@ interface State {
   innerHeight: number;
 }
 
-type Device = "Mobile" | "Tablet" | "Desktop" | "DesktopXL";
-
 export type ScreenSizeProps = {
   innerWidth: number;
   innerHeight: number;
-  device: Device;
 };
 
 export function num_compare_sizing<P>(
