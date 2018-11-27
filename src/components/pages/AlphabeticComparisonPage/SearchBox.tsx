@@ -37,11 +37,11 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     redirect: false,
   };
 
-  onClose = () => {
+  resetState = (value: string) => {
     this.setState({
       suggestions: {},
       numSuggestions: 0,
-      searchString: "",
+      searchString: value,
       activeSuggestion: -1,
     });
   };
@@ -50,12 +50,8 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     const { innholdstype } = this.props;
     const value = event.target.value;
 
-    this.setState({
-      suggestions: {},
-      numSuggestions: 0,
-      searchString: value,
-      activeSuggestion: -1,
-    });
+    this.resetState(value);
+
     if (value.length < 3) {
       return;
     }
@@ -237,7 +233,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             }
           />
           {this.state.searchString !== "" ? (
-            <Times onClick={this.onClose} />
+            <Times onClick={() => this.resetState("")} />
           ) : (
             <Search />
           )}
