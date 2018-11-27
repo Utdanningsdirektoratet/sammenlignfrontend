@@ -71,6 +71,13 @@ class App extends Component<{}, AppState> {
         sel => sel[0].toLowerCase() === uno_id[0].toLowerCase()
       );
 
+      let maxCompare = null;
+      if (innerWidth < 768) {
+        maxCompare = NUM_COMPARES_MOBILE;
+      } else {
+        maxCompare = NUM_COMPARES_DESKTOP;
+      }
+
       if (
         selected.length === prevState.selected_uno_id.length &&
         this.allowMoreCompares(selectedInnholdstype.length)
@@ -84,7 +91,9 @@ class App extends Component<{}, AppState> {
           selected_uno_id: prevState.selected_uno_id,
           errorModalContent: (
             <div>
-              <Translate nb="Du kan sammenligne max 5 stk samtidig" />
+              <Translate
+                nb={`Du kan sammenligne maks ${maxCompare} stk samtidig`}
+              />
             </div>
           ),
         };

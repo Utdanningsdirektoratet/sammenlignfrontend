@@ -5,6 +5,7 @@ import { AppStateProps, with_app_state } from "../../app/AppContext";
 import { ReactComponent as ExclamationCircle } from "../../../fontawesome/solid/exclamation-circle.svg";
 
 import styles from "./ErrorModal.module.scss";
+import Translate from "../../app/Translate";
 
 type Props = {};
 class ErrorModal extends Component<Props & AppStateProps> {
@@ -13,7 +14,7 @@ class ErrorModal extends Component<Props & AppStateProps> {
     return (
       <ReactModal
         isOpen={true}
-        contentLabel="Max antall sammenligninger"
+        contentLabel="Maks antall sammenligninger valgt" //{`${<Translate nb="Maks antall sammenligninger valgt" />}`}
         onRequestClose={this.props.appState.errorModalClear}
         className={`${styles.Modal}`}
         overlayClassName={`${styles.Overlay}`}
@@ -21,7 +22,7 @@ class ErrorModal extends Component<Props & AppStateProps> {
         <div className={`${styles.text_container}`}>
           <ExclamationCircle />
           <h2 className={`${styles.text_container_header}`}>
-            Max antall sammenligninger valgt
+            <Translate nb="Maks antall sammenligninger valgt" />
           </h2>
           <div className={`${styles.text_container_text}`}>
             {this.props.appState.errorModalContent}
