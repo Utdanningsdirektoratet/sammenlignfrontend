@@ -98,7 +98,10 @@ class VisualizationHeaderEntreprenorskap extends Component<Props, State> {
                     </span>
                   )}
                 </li>
-                <li>{", " + Visning}</li>
+                <li>
+                  {", "}
+                  <Translate nb={Visning} />
+                </li>
                 <li>
                   {Kjønn === "A" ? (
                     <span>

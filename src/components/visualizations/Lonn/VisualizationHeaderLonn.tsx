@@ -138,11 +138,16 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                     </span>
                   )}
                 </li>
-                <li>{", " + Lønn}</li>
-                <li>{", " + StatistiskMål}</li>
                 <li>
-                  {(Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : "") +
-                    Tidsenhet}
+                  {", "} <Translate nb={Lønn} />
+                </li>
+                <li>
+                  {", "}
+                  <Translate nb={StatistiskMål} />
+                </li>
+                <li>
+                  {Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : ""}
+                  <Translate nb={Tidsenhet} />
                 </li>
                 <li>
                   {Kjønn === "A" ? (

@@ -72,7 +72,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                         }
                       >
                         <Translate
-                          nb="Vis tall beregnet på grunnlag av dem som jobber heltid,
+                          nb="Vis tall beregnet på grunnlag av de som jobber heltid,
                         deltid, eller alle arbeidstider."
                         />
                       </div>
@@ -99,7 +99,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Arbeidstid === "H",
                 valueKey: "H",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber heltid." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber heltid." />
                 ) : (
                   undefined
                 ),
@@ -109,7 +109,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Arbeidstid === "D",
                 valueKey: "D",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber deltid." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber deltid." />
                 ) : (
                   undefined
                 ),
@@ -119,7 +119,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Arbeidstid === "A",
                 valueKey: "A",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber heltid og deltid." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber heltid og deltid." />
                 ) : (
                   undefined
                 ),
@@ -156,7 +156,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                         }
                       >
                         <Translate
-                          nb="Vis tall beregnet på grunnlag av dem som jobber i
+                          nb="Vis tall beregnet på grunnlag av de som jobber i
                         privat / statlig / kommunal sektor, eller alle sektorer."
                         />
                       </div>
@@ -183,7 +183,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Sektor === "A",
                 valueKey: "A",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i både privat, statlig og kommunal sektor." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i både privat, statlig og kommunal sektor." />
                 ) : (
                   undefined
                 ),
@@ -193,7 +193,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Sektor === "P",
                 valueKey: "P",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i privat sektor." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i privat sektor." />
                 ) : (
                   undefined
                 ),
@@ -203,7 +203,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Sektor === "S",
                 valueKey: "S",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i statlig sektor." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i statlig sektor." />
                 ) : (
                   undefined
                 ),
@@ -213,7 +213,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                 selected: Sektor === "K",
                 valueKey: "K",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av dem som jobber i kommunal sektor." />
+                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i kommunal sektor." />
                 ) : (
                   undefined
                 ),
