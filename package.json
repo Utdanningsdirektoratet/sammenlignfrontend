@@ -28,7 +28,8 @@
     "postbuild": "node src/scripts/widget_generator.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "profile": "cross-env NODE_ENV=production webpack --config node_modules/react-scripts/config/webpack.config.prod.js --profile --json > stats.json"
+    "profile": "cross-env NODE_ENV=production webpack --config node_modules/react-scripts/config/webpack.config.prod.js --profile --json > stats.json",
+    "translate": "node src/translations/update-translations.js"
   },
   "prettier": {
     "trailingComma": "es5"
