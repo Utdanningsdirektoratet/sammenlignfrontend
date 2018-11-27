@@ -45,19 +45,33 @@
 
     &_text_K {
       color: #84012e;
-
-      svg {
+      display: flex;
+      &_iconContainer {
         background-color: #84012e;
         border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        margin-top: 3px;
+        margin-left: 5px;
 
-        path {
-          fill: white;
+        svg {
+          height: 15px;
+          margin-left: 3px;
+          margin-bottom: 2px;
+          path {
+            fill: white;
+          }
         }
       }
     }
 
     &_text_M {
       color: #9bbad3;
+      display: flex;
+      svg {
+        margin-left: 2px !important;
+        margin-top: 3px;
+      }
     }
   }
 }

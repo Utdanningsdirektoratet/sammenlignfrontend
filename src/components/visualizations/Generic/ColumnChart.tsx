@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import styles from "./ColumnChart.module.scss";
 import { Kjønn } from "../../../data/ApiTypes";
 import { KvartilInfo } from "../Lonn/LonnVisualization";
-import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
-import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
+import { ReactComponent as Woman } from "../Generic/Woman.svg";
+import { ReactComponent as Man } from "../Generic/Man.svg";
 
 type Props = {
   kjønn: Kjønn;
@@ -142,7 +142,7 @@ class ColumnChart extends Component<Props> {
               ) : null}
 
               <span className={`${styles.columnchart_container_M_icon}`}>
-                <Male />
+                <Man />
               </span>
             </div>
             <div
@@ -195,7 +195,7 @@ class ColumnChart extends Component<Props> {
                 />
               ) : null}
               <span className={`${styles.columnchart_container_K_icon}`}>
-                <Female />
+                <Woman />
               </span>
             </div>
           </div>

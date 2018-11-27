@@ -8,8 +8,8 @@ import styles from "./LonnVisualization.module.scss";
 import Translate from "../../app/Translate";
 import LonnKvartilVisualization from "./LonnKvartilVisualization";
 import ColumnChart from "../Generic/ColumnChart";
-import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
-import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
+import { ReactComponent as Woman } from "../Generic/Woman.svg";
+import { ReactComponent as Man } from "../Generic/Man.svg";
 
 type Props = {
   data: IArbeidstid;
@@ -205,7 +205,9 @@ class LonnVisualization extends Component<Props> {
               <div className={styles.lonnVisualization_kjonn_text_kjønn}>
                 <div className={`${styles.lonnVisualization_kjonn_text_M}`}>
                   {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
-                  <Male />
+                  <div>
+                    <Man />
+                  </div>
                 </div>
                 <div className={`${styles.lonnVisualization_kjonn_text_K}`}>
                   {kvinner === null ? (
@@ -213,7 +215,13 @@ class LonnVisualization extends Component<Props> {
                   ) : (
                     kvinner + " kr"
                   )}
-                  <Female />
+                  <div
+                    className={`${
+                      styles.lonnVisualization_kjonn_text_K_iconContainer
+                    }`}
+                  >
+                    <Woman />
+                  </div>
                 </div>
               </div>
             </div>

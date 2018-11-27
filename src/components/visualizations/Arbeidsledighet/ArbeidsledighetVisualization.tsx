@@ -7,11 +7,11 @@ import {
 import { ArbeidsledighetObject, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
-import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
-import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import PercentageBar from "../Generic/PercentageBar";
 import styles from "./ArbeidsledighetVisualization.module.scss";
 import Translate from "../../app/Translate";
+import { ReactComponent as Woman } from "../Generic/Woman.svg";
+import { ReactComponent as Man } from "../Generic/Man.svg";
 
 type Props = {
   data: ArbeidsledighetObject;
@@ -188,7 +188,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
                             styles.arbeidsledighetvisualization_kjonn_icon_percentage
                           }
                         >
-                          {a.key === "K" ? <Female /> : <Male />}
+                          {a.key === "K" ? <Woman /> : <Man />}
                         </div>
                         {a.data === null ? (
                           <div
@@ -216,7 +216,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
                             styles.arbeidsledighetvisualization_kjonn_icon
                           }
                         >
-                          {a.key === "K" ? <Female /> : <Male />}
+                          {a.key === "K" ? <Woman /> : <Man />}
                         </div>
                         <div
                           className={
