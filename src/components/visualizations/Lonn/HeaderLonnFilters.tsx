@@ -71,10 +71,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate
-                          nb="Vis tall beregnet på grunnlag av de som jobber heltid,
-                        deltid, eller alle arbeidstider."
-                        />
+                        <Translate nb="Vis tall beregnet på grunnlag av de som jobber heltid, deltid, eller alle arbeidstider." />
                       </div>
                       <div
                         className={
@@ -155,10 +152,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate
-                          nb="Vis tall beregnet på grunnlag av de som jobber i
-                        privat / statlig / kommunal sektor, eller alle sektorer."
-                        />
+                        <Translate nb="Vis tall beregnet på grunnlag av de som jobber i privat / statlig / kommunal sektor, eller alle sektorer." />
                       </div>
                       <div
                         className={
@@ -249,10 +243,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate
-                          nb="Vis sum lønn utbetalt på gitt grunnlag, i brutto eller
-                        inklusive overtid."
-                        />
+                        <Translate nb="Vis sum lønn utbetalt på gitt grunnlag, i brutto eller inklusive overtid." />
                       </div>
                       <div
                         className={
@@ -406,10 +397,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate
-                          nb="Vis sum lønn utbetalt enten årlig, månedlig eller per
-                        time."
-                        />
+                        <Translate nb="Vis sum lønn utbetalt enten årlig, månedlig eller per time." />
                       </div>
                       <div
                         className={

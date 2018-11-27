@@ -29,6 +29,21 @@ type Props = {
 type State = {
   open: boolean;
 };
+const LonnTranslations = {
+  Brutto: <Translate nb="Brutto" />,
+  "Med overtid": <Translate nb="Med overtid" />,
+};
+const StatistiskMålTranslations = {
+  Median: <Translate nb="Median" />,
+  Gjennomsnitt: <Translate nb="Gjennomsnitt" />,
+  "Median og kvartiler": <Translate nb="Median og kvartiler" />,
+};
+
+const TidsenhetTranslations = {
+  Årlig: <Translate nb="Årlig" />,
+  Månedlig: <Translate nb="Månedlig" />,
+  "Ca. timelønn": <Translate nb="Ca. timelønn" />,
+};
 
 class VisualizationHeaderLonn extends Component<Props, State> {
   state = { open: false };
@@ -139,15 +154,15 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                   )}
                 </li>
                 <li>
-                  {", "} <Translate nb={Lønn} />
+                  {", "} {LonnTranslations[Lønn]}
                 </li>
                 <li>
                   {", "}
-                  <Translate nb={StatistiskMål} />
+                  {StatistiskMålTranslations[StatistiskMål]}
                 </li>
                 <li>
                   {Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : ""}
-                  <Translate nb={Tidsenhet} />
+                  {TidsenhetTranslations[Tidsenhet]}
                 </li>
                 <li>
                   {Kjønn === "A" ? (
