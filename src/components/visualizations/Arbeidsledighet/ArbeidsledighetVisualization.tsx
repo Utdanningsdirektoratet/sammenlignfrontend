@@ -109,12 +109,18 @@ class ArbeidsledighetVisualization extends Component<Props> {
                   ""
                 )}
                 {visning === "Andel" ? (
-                  <div>
-                    <PercentageBar
-                      value={d.data}
-                      maxPercentageEqualsTen={true}
-                    />
-                  </div>
+                  !d.data ? (
+                    <div>
+                      <Translate nb="Ingen data" />
+                    </div>
+                  ) : (
+                    <div>
+                      <PercentageBar
+                        value={d.data}
+                        maxPercentageEqualsTen={true}
+                      />
+                    </div>
+                  )
                 ) : (
                   <div
                     className={`${styles.arbeidsledighetvisualization_kjonn}`}
@@ -190,7 +196,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
                         >
                           {a.key === "K" ? <Woman /> : <Man />}
                         </div>
-                        {a.data === null ? (
+                        {!a.data ? (
                           <div
                             className={
                               styles.arbeidsledighetvisualization_kjonn_container_text
