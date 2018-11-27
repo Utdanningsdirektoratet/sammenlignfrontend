@@ -20,6 +20,11 @@ type Props = {
 
 export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
+export const VisningTranslations = {
+  Andel: <Translate nb="Andel" />,
+  Antall: <Translate nb="Antall" />,
+};
+
 type State = {
   open: boolean;
 };
@@ -120,7 +125,7 @@ class VisualizationHeaderArbeidsledighet extends Component<Props, State> {
                 </li>
                 <li>
                   {", "}
-                  <Translate nb={Visning} />
+                  {VisningTranslations[Visning]}
                 </li>
                 <li>
                   {Kjønn === "A" ? (
