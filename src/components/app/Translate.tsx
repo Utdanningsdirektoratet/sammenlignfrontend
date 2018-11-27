@@ -6,16 +6,17 @@ import NNTranslations from "../../translations/nn.json";
 
 export type Lang = "nb" | "nn";
 
+type Replacements = { [k: string]: string };
+
 type Props = {
   nn?: string;
   nb: string;
-  replacements?: { [k: string]: string };
+  replacements?: Replacements;
 };
 
 // Simple global state for language
 let GLOBAL_LANGUAGE_STATE: Lang = "nb";
 let GLOBAL_LANGUAGE_CHANGE_LISTENERS: Array<() => void> = [];
-const MISSING_TRANSLATIONS: string[] = [];
 
 export function getLang() {
   return GLOBAL_LANGUAGE_STATE;
@@ -26,42 +27,29 @@ export function setLang(lang: Lang) {
   GLOBAL_LANGUAGE_CHANGE_LISTENERS.forEach(f => f());
 }
 
-let logMissingTimeout: NodeJS.Timeout;
-function logMissing() {
-  if (logMissingTimeout) {
-    clearTimeout(logMissingTimeout);
-  }
-  logMissingTimeout = setTimeout(() => {
-    console.log("Missing translations: ", MISSING_TRANSLATIONS);
-  }, 2000);
+function Translate({ nb, nn, replacements }: Props): JSX.Element {
+  return (TranslateString(nb, nn, replacements) as any) as JSX.Element;
 }
 
-class Translate extends Component<Props> {
-  render() {
-    const { replacements, nb, nn } = this.props;
-    const lang = getLang();
-    let text: string;
-    if (process.env.NODE_ENV !== "production") {
-      if (!nn && typeof (NNTranslations as Lookup)[nb] === undefined) {
-        if (MISSING_TRANSLATIONS.indexOf(nb) === -1) {
-          MISSING_TRANSLATIONS.push(nb);
-          logMissing();
-        }
-      }
-    }
+export function TranslateString(
+  nb: string,
+  nn?: string,
+  replacements?: Replacements
+): string {
+  const lang = getLang();
+  let text: string;
 
-    if (lang === "nb") {
-      text = nb;
-    } else {
-      text = nn || (NNTranslations as Lookup)[nb] || "[missing]";
-    }
-    if (replacements) {
-      Object.keys(replacements).forEach(rep => {
-        text = text.replace(rep, replacements[rep]);
-      });
-    }
-    return text;
+  if (lang === "nb") {
+    text = nb;
+  } else {
+    text = nn || (NNTranslations as Lookup)[nb] || "[missing]";
   }
+  if (replacements) {
+    Object.keys(replacements).forEach(rep => {
+      text = text.replace(rep, replacements[rep]);
+    });
+  }
+  return text;
 }
 
 // Simple wrapper component that forces a rerender of
