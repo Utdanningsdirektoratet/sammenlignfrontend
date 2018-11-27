@@ -7,9 +7,9 @@ import {
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
 import PercentageBar from "../Generic/PercentageBar";
-import { ReactComponent as Female } from "../../../fontawesome/solid/female.svg";
-import { ReactComponent as Male } from "../../../fontawesome/solid/male.svg";
 import styles from "./EntreprenorskapVisualization.module.scss";
+import { ReactComponent as Woman } from "../Generic/Woman.svg";
+import { ReactComponent as Man } from "../Generic/Man.svg";
 
 type Props = {
   data: EntrepenorObject;
@@ -94,11 +94,11 @@ class EntreprenorskapVisualization extends Component<Props> {
           <div>
             {visning === "Antall" ? (
               <div className={`${styles.container_antall}`}>
-                <Male /> {dataM}
+                <Man /> {dataM}
               </div>
             ) : (
               <div className={`${styles.container_andel}`}>
-                <Male />
+                <Man />
                 <PercentageBar value={dataM} maxPercentageEqualsTen={true} />
               </div>
             )}
@@ -106,11 +106,11 @@ class EntreprenorskapVisualization extends Component<Props> {
           <div>
             {visning === "Antall" ? (
               <div className={`${styles.container_antall}`}>
-                <Female /> {dataK}
+                <Woman /> {dataK}
               </div>
             ) : (
               <div className={`${styles.container_andel}`}>
-                <Female />
+                <Woman />
                 <PercentageBar value={dataK} maxPercentageEqualsTen={true} />
               </div>
             )}

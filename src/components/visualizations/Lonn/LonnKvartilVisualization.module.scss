@@ -28,15 +28,23 @@
     &_female {
       color: #84012e;
       font-weight: 600;
-
-      svg {
+      display: flex;
+      &_icon {
+        background-color: #84012e;
+        border-radius: 50%;
         height: 15px;
         width: 15px;
         margin-left: 5px;
-        background-color: #84012e;
-        border-radius: 50%;
-        path {
-          fill: white;
+        margin-top: 3px;
+        svg {
+          height: 15px;
+          width: 15px;
+          margin-left: 3px;
+          margin-bottom: 2px;
+
+          path {
+            fill: white;
+          }
         }
       }
     }
@@ -47,7 +55,8 @@
       svg {
         height: 15px;
         width: 15px;
-        margin-left: 5px;
+        margin-left: 3px !important;
+        margin-top: 3px;
       }
     }
     &_text {
