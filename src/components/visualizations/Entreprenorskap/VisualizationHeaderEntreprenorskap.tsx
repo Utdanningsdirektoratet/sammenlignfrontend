@@ -5,6 +5,7 @@ import EntreprenorskapHeaderFilters, {
 import styles from "../Shared/VisualizationHeader.module.scss";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
 import Translate from "../../app/Translate";
+import { VisningTranslations } from "../Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 
 type Props = {
   config: EntreprenorskapHeaderConfig;
@@ -100,7 +101,7 @@ class VisualizationHeaderEntreprenorskap extends Component<Props, State> {
                 </li>
                 <li>
                   {", "}
-                  <Translate nb={Visning} />
+                  {VisningTranslations[Visning]}
                 </li>
                 <li>
                   {Kjønn === "A" ? (

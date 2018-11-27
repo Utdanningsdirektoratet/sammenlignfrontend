@@ -61,6 +61,8 @@ class ArbeidsledighetVisualization extends Component<Props> {
     if (!num) return null;
 
     if (this.props.visning === "Andel") {
+      if (this.props.kjønn !== "KM") num = num * 100;
+
       num = num.toFixed(2);
     }
 
