@@ -4,6 +4,7 @@ import { API_DOMAIN } from "../../../data/config";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "../../../fontawesome/solid/search.svg";
+import { ReactComponent as Times } from "../../../fontawesome/solid/times.svg";
 import { objectToQueryString } from "../../../util/querystring";
 import Translate from "../../app/Translate";
 import { Redirect } from "react-router";
@@ -34,6 +35,15 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     activeSuggestion: -1,
     error: false,
     redirect: false,
+  };
+
+  onClose = () => {
+    this.setState({
+      suggestions: {},
+      numSuggestions: 0,
+      searchString: "",
+      activeSuggestion: -1,
+    });
   };
 
   handleChange = (event: any) => {
@@ -226,7 +236,11 @@ class SearchBox extends Component<Props & AppStateProps, State> {
                 : "Søk"
             }
           />
-          <Search />
+          {this.state.searchString !== "" ? (
+            <Times onClick={this.onClose} />
+          ) : (
+            <Search />
+          )}
         </div>
         {suggestionsDom}
       </div>
