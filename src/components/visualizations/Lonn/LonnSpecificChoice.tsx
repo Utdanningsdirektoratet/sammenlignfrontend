@@ -22,6 +22,7 @@ class LonnSpecificChoice extends Component<Props, State> {
   state = { openModal: false };
 
   toggleModal = () => {
+    if (Object.keys(this.props.data).length <= 1) return;
     this.setState({ openModal: !this.state.openModal });
   };
 
@@ -40,7 +41,7 @@ class LonnSpecificChoice extends Component<Props, State> {
     if (!data) return <div />;
     const OpenIconDom =
       Object.keys(data).length > 1 ? (
-        <OpenIcon unoId="" onClick={this.toggleModal} />
+        <OpenIcon unoId="" onClick={() => {}} />
       ) : null;
     const Modal = this.state.openModal ? (
       <div className={`${styles.modal}`}>
@@ -71,7 +72,13 @@ class LonnSpecificChoice extends Component<Props, State> {
     return (
       <ClickOutsideListener onOutsideClick={this.closeModal}>
         <div className={`${styles.container}`}>
-          <div className={`${styles.box}`}>
+          <div
+            className={`${styles.box}`}
+            onClick={this.toggleModal}
+            style={{
+              cursor: `${Object.keys(data).length > 1 ? "pointer" : "auto"}`,
+            }}
+          >
             <div className={`${styles.box_icon}`}>{OpenIconDom}</div>
             <div className={`${styles.box_text}`}>
               <div className={`${styles.box_text_header}`}>
