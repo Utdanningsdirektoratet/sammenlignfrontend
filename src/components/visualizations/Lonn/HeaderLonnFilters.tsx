@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Checkbox from "../../defaultComponents/Checkbox";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import Translate from "../../app/Translate";
-import styles from "../Shared/VisualizationHeader.module.scss";
-import { Sektor } from "../../../data/ApiTypes";
+import styles from "../Shared/VisualizationFilterHeader.module.scss";
 import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
 import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
 import CloseIcon from "../Generic/CloseIcon";

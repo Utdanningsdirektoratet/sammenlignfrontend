@@ -1,7 +1,14 @@
 .arbeidsledighetvisualization {
+  height: 360px;
   &_text {
-    margin-bottom: 10px;
-    font-weight: 700;
+    font-weight: 600;
+  }
+  &_percentage {
+    margin-bottom: 20px;
+  }
+  &_noData {
+    margin-bottom: 55px;
+    margin-top: 20px;
   }
   &_kjonn {
     display: flex;

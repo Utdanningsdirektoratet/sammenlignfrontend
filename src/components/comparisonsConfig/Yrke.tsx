@@ -11,9 +11,6 @@ import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
 } from "../visualizations/Lonn/VisualizationHeaderLonn";
 import LonnWrapper from "../visualizations/Lonn/LonnWrapper";
-import VisualizationHeaderArbeidsledighet, {
-  VisualizationHeaderConfigArbeidsledighet,
-} from "../visualizations/Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 import NoData from "../visualizations/Old/NoData";
 import PercentageBar from "../visualizations/Generic/PercentageBar";

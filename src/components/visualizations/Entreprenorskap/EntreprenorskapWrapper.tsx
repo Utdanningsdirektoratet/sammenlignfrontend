@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { ComparisonComponentProps } from "../../comparisonsConfig";
-import { EntrepenorElement } from "../../../data/ApiTypes";
-import { EntreprenorskapHeaderConfig } from "./EntreprenorskapHeaderFilters";
+import { EntrepenorElement, Kjønn } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 import EntreprenorskapVisualization from "./EntreprenorskapVisualization";
-import VisualizationHeaderEntreprenorskap from "./VisualizationHeaderEntreprenorskap";
-import EntreprenorskapHeaderDesktop from "./EntreprenorskapHeaderDekstop";
+import { Fullført, Visning } from "../Arbeidsledighet/ArbeidsledighetWrapper";
+import Header from "../Shared/HeaderVisualizations";
+import Translate from "../../app/Translate";
+
+export type EntreprenorskapHeaderConfig = {
+  Fullført: Fullført[];
+  Visning: Visning;
+};
 
 class EntreprenorskapWrapper extends Component<
   ComparisonComponentProps<EntrepenorElement>,
@@ -15,8 +20,7 @@ class EntreprenorskapWrapper extends Component<
   constructor(props: ComparisonComponentProps<EntrepenorElement>) {
     super(props);
     this.state = {
-      Kjønn: "A",
-      Fullført: "A",
+      Fullført: ["13", "710", "A"],
       Visning: "Andel",
     };
   }
@@ -28,9 +32,6 @@ class EntreprenorskapWrapper extends Component<
   onFilterClicked = (event: any, key: string) => {
     var value = event.target.id;
     switch (key) {
-      case "Kjønn":
-        this.setConfig({ ...this.state, Kjønn: value });
-        break;
       case "Fullført":
         this.setConfig({ ...this.state, Fullført: value });
         break;
@@ -48,9 +49,11 @@ class EntreprenorskapWrapper extends Component<
     if (!data || Object.keys(data).length === 0) return <NoData />;
     return (
       <div>
-        <VisualizationHeaderEntreprenorskap
-          config={this.state}
-          onFilterClicked={this.onFilterClicked}
+        <Header
+          mainHeader={<Translate nb="Entreprenørskap" />}
+          secondHeader={
+            <Translate nb="Andel som har startet egen virksomhet" />
+          }
         />
         <ComparisonRow>
           {uno_ids.map(uno_id => {
@@ -63,17 +66,12 @@ class EntreprenorskapWrapper extends Component<
               <EntreprenorskapVisualization
                 key={uno_id}
                 data={d[code]}
-                kjønn={config.Kjønn}
                 fullført={config.Fullført}
                 visning={config.Visning}
               />
             );
           })}
         </ComparisonRow>
-        <EntreprenorskapHeaderDesktop
-          config={this.state}
-          onFilterClicked={this.onFilterClicked}
-        />
       </div>
     );
   }

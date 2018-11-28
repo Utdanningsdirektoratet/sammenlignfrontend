@@ -1,10 +1,10 @@
 .container {
+  height: 360px;
+  &_header {
+    font-weight: 600;
+  }
   &_andel {
-    display: flex;
-    width: 100%;
-    svg {
-      height: 1.5em;
-    }
+    margin-bottom: 20px;
   }
   &_antall {
     display: flex;
@@ -13,5 +13,9 @@
       height: 1.5em;
       margin-right: 10px;
     }
+  }
+  &_noData {
+    margin-top: 20px;
+    margin-bottom: 45px;
   }
 }
