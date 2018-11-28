@@ -1,8 +1,7 @@
 import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
 import Translate from "../../app/Translate";
-import styles from "../Shared/VisualizationHeader.module.scss";
-import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
+import styles from "../Shared/VisualizationFilterHeader.module.scss";
 import HeaderLonnFilters from "./HeaderLonnFilters";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
@@ -111,7 +110,10 @@ class VisualizationHeaderLonn extends Component<Props, State> {
           <div
             className={`${styles.visualizationheader_container_header__title}`}
           >
-            <Translate nb="Lønn" />{" "}
+            <h2>
+              <Translate nb="Lønn" />{" "}
+            </h2>
+
             <span
               className={`${
                 styles.visualizationheader_container_header__title_filter

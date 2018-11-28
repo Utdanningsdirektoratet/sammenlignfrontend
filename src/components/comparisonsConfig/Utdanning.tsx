@@ -6,9 +6,6 @@ import {
   ArbeidsledighetElement,
   EntrepenorElement,
 } from "../../data/ApiTypes";
-import VisualizationHeaderArbeidsledighet, {
-  VisualizationHeaderConfigArbeidsledighet,
-} from "../visualizations/Arbeidsledighet/VisualizationHeaderArbeidsledighet";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 import NoData from "../visualizations/Old/NoData";
 import PercentageBar from "../visualizations/Generic/PercentageBar";

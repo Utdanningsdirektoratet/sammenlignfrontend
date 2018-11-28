@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Translate from "../../app/Translate";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import { Kjønn } from "../../../data/ApiTypes";
-import styles from "../Shared/VisualizationHeader.module.scss";
+import styles from "../Shared/VisualizationFilterHeader.module.scss";
 
 type Props = {
   kjønn: Kjønn;
