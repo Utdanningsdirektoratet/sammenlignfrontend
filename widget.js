@@ -4,17 +4,17 @@
 (function(){
     // Include required scripts for the widget
     var script0 = document.createElement('script');
-    script0.src = "/static/js/main.fee64423.chunk.js";
+    script0.src = "/static/js/main.02450f3e.chunk.js";
     document.body.append(script0);
 
     var script1 = document.createElement('script');
-    script1.src = "/static/js/1.9a4e55a4.chunk.js";
+    script1.src = "/static/js/1.baf049ff.chunk.js";
     document.body.append(script1);
 
     // Include styles
     var style0 = document.createElement('link');
     style0.rel = "stylesheet";
-    style0.href = "/static/css/main.32f665c3.chunk.css";
+    style0.href = "/static/css/main.75da8953.chunk.css";
     document.head.appendChild(style0);
 
 })()
