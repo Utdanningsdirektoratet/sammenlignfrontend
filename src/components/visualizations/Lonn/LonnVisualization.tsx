@@ -54,9 +54,9 @@ class LonnVisualization extends Component<Props> {
     return wage;
   };
 
-  calcWageTimeUnit = (wage: string, notLocale?: boolean) => {
-    if (!(this.props.data as any)[this.props.arbeidstid]) return null;
+  getTimeUnit = (wage: string) => {
     if (!(this.props.data as any)[this.props.arbeidstid][wage]) return null;
+
     let wageCalc = (this.props.data as any)[this.props.arbeidstid][
       wage
     ] as number;
@@ -69,12 +69,33 @@ class LonnVisualization extends Component<Props> {
       case "Ca. timelønn":
         wageCalc = wageCalc / 30 / 7.5;
     }
+    return wageCalc;
+  };
+
+  calcWageTimeUnit = (wage: string, notLocale?: boolean) => {
+    if (!(this.props.data as any)[this.props.arbeidstid]) return null;
+    if (!(this.props.data as any)[this.props.arbeidstid][wage]) return null;
+    let wageCalc = this.getTimeUnit(wage) as number;
+
+    if (this.props.lønn === "Med overtid") {
+      let brutto = wage.replace("_overtime", "");
+      let bruttoCalc = this.getTimeUnit(brutto);
+      if (bruttoCalc === null) return null;
+      wageCalc += bruttoCalc;
+    }
+
     if (notLocale) return Math.round(wageCalc);
     return Math.round(wageCalc).toLocaleString();
   };
 
   render() {
-    const { kjønn, statistiskMål, maxValue, showGraphics } = this.props;
+    const {
+      kjønn,
+      statistiskMål,
+      maxValue,
+      showGraphics,
+      tidsenhet,
+    } = this.props;
     let data = null;
 
     if (statistiskMål === "Median og kvartiler") {
@@ -131,6 +152,7 @@ class LonnVisualization extends Component<Props> {
             low={q1}
             mid={median}
             high={q3}
+            tidsenhet={tidsenhet}
           />
         </div>
       );
@@ -164,6 +186,7 @@ class LonnVisualization extends Component<Props> {
               }
             >
               <div className={`${styles.lonnVisualization_kjonn_text}`}>
+                {tidsenhet === "Ca. timelønn" ? "ca " : null}
                 {data + " kr"}
               </div>
             </div>
@@ -204,7 +227,13 @@ class LonnVisualization extends Component<Props> {
             >
               <div className={styles.lonnVisualization_kjonn_text_kjønn}>
                 <div className={`${styles.lonnVisualization_kjonn_text_M}`}>
-                  {menn === null ? <Translate nb="Ingen data" /> : menn + " kr"}
+                  {menn === null ? (
+                    <Translate nb="Ingen data" />
+                  ) : tidsenhet === "Ca. timelønn" ? (
+                    "ca " + menn + " kr"
+                  ) : (
+                    menn + " kr"
+                  )}
                   <div>
                     <Man />
                   </div>
@@ -212,6 +241,8 @@ class LonnVisualization extends Component<Props> {
                 <div className={`${styles.lonnVisualization_kjonn_text_K}`}>
                   {kvinner === null ? (
                     <Translate nb="Ingen data" />
+                  ) : tidsenhet === "Ca. timelønn" ? (
+                    "ca " + kvinner + " kr"
                   ) : (
                     kvinner + " kr"
                   )}

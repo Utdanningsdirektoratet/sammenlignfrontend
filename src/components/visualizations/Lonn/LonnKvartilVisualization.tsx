@@ -5,19 +5,21 @@ import styles from "./LonnKvartilVisualization.module.scss";
 import Translate from "../../app/Translate";
 import { ReactComponent as Woman } from "../Generic/Woman.svg";
 import { ReactComponent as Man } from "../Generic/Man.svg";
+import { Tidsenhet } from "./VisualizationHeaderLonn";
 
 type Props = {
   kjønn: Kjønn;
   low: KvartilInfo;
   mid: KvartilInfo;
   high: KvartilInfo;
+  tidsenhet: Tidsenhet;
 };
 
 class LonnKvartilVisualization extends Component<Props> {
   render() {
-    const { kjønn, low, mid, high } = this.props;
+    const { kjønn, tidsenhet, low, mid, high } = this.props;
     return (
-      <div>
+      <div className={`${styles.container}`}>
         <div
           className={
             kjønn === "A"
@@ -30,16 +32,34 @@ class LonnKvartilVisualization extends Component<Props> {
           </div>
           {kjønn === "A" ? (
             <div className={`${styles.container_data_text}`}>
-              {!high["A"] ? <Translate nb="(ingen data)" /> : high["A"]}
+              {!high["A"] ? (
+                <Translate nb="ingen data" />
+              ) : tidsenhet === "Ca. timelønn" ? (
+                "ca " + (high["A"] as any).toLocaleString() + " kr"
+              ) : (
+                (high["A"] as any).toLocaleString() + " kr"
+              )}
             </div>
           ) : (
             <div>
               <div className={`${styles.container_data_male}`}>
-                {!high["M"] ? <Translate nb="(ingen data)" /> : high["M"]}
+                {!high["M"] ? (
+                  <Translate nb="ingen data" />
+                ) : tidsenhet === "Ca. timelønn" ? (
+                  "ca " + (high["M"] as any).toLocaleString() + " kr"
+                ) : (
+                  (high["M"] as any).toLocaleString() + " kr"
+                )}
                 <Man />
               </div>
               <div className={`${styles.container_data_female}`}>
-                {!high["K"] ? <Translate nb="(ingen data)" /> : high["K"]}
+                {!high["K"] ? (
+                  <Translate nb="ingen data" />
+                ) : tidsenhet === "Ca. timelønn" ? (
+                  "ca " + (high["K"] as any).toLocaleString() + " kr"
+                ) : (
+                  (high["K"] as any).toLocaleString() + " kr"
+                )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
                 </div>
@@ -59,16 +79,34 @@ class LonnKvartilVisualization extends Component<Props> {
           </div>
           {kjønn === "A" ? (
             <div className={`${styles.container_data_text}`}>
-              {!mid["A"] ? <Translate nb="(ingen data)" /> : mid["A"]}
+              {!mid["A"] ? (
+                <Translate nb="ingen data" />
+              ) : tidsenhet === "Ca. timelønn" ? (
+                "ca " + (mid["A"] as any).toLocaleString() + " kr"
+              ) : (
+                (mid["A"] as any).toLocaleString() + " kr"
+              )}
             </div>
           ) : (
             <div>
               <div className={`${styles.container_data_male}`}>
-                {!mid["M"] ? <Translate nb="(ingen data)" /> : mid["M"]}
+                {!mid["M"] ? (
+                  <Translate nb="ingen data" />
+                ) : tidsenhet === "Ca. timelønn" ? (
+                  "ca " + (mid["M"] as any).toLocaleString() + " kr"
+                ) : (
+                  (mid["M"] as any).toLocaleString() + " kr"
+                )}
                 <Man />
               </div>
               <div className={`${styles.container_data_female}`}>
-                {!mid["K"] ? <Translate nb="(ingen data)" /> : mid["K"]}
+                {!mid["K"] ? (
+                  <Translate nb="ingen data" />
+                ) : tidsenhet === "Ca. timelønn" ? (
+                  "ca " + (mid["K"] as any).toLocaleString() + " kr"
+                ) : (
+                  (mid["K"] as any).toLocaleString() + " kr"
+                )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
                 </div>
@@ -82,16 +120,34 @@ class LonnKvartilVisualization extends Component<Props> {
           </div>
           {kjønn === "A" ? (
             <div className={`${styles.container_data_text}`}>
-              {!low["A"] ? <Translate nb="(ingen data)" /> : low["A"]}
+              {!low["A"] ? (
+                <Translate nb="ingen data" />
+              ) : tidsenhet === "Ca. timelønn" ? (
+                "ca " + (low["A"] as any).toLocaleString() + " kr"
+              ) : (
+                (low["A"] as any).toLocaleString() + " kr"
+              )}
             </div>
           ) : (
             <div>
               <div className={`${styles.container_data_male}`}>
-                {!low["M"] ? <Translate nb="(ingen data)" /> : low["M"]}
+                {!low["M"] ? (
+                  <Translate nb="ingen data" />
+                ) : tidsenhet === "Ca. timelønn" ? (
+                  "ca " + (low["M"] as any).toLocaleString() + " kr"
+                ) : (
+                  (low["M"] as any).toLocaleString() + " kr"
+                )}
                 <Man />
               </div>
               <div className={`${styles.container_data_female}`}>
-                {!low["K"] ? <Translate nb="(ingen data)" /> : low["K"]}
+                {!low["K"] ? (
+                  <Translate nb="ingen data" />
+                ) : tidsenhet === "Ca. timelønn" ? (
+                  "ca " + (low["K"] as any).toLocaleString() + " kr"
+                ) : (
+                  (low["K"] as any).toLocaleString() + " kr"
+                )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
                 </div>

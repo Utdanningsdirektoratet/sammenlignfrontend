@@ -1,5 +1,5 @@
 .container {
-  display: flex;
+  margin-left: 60px;
   &_data {
     &_header {
       font-weight: 500;
@@ -29,6 +29,7 @@
       color: #84012e;
       font-weight: 600;
       display: flex;
+      word-break: break-all;
       &_icon {
         background-color: #84012e;
         border-radius: 50%;
@@ -51,6 +52,7 @@
     &_male {
       color: #9bbad3;
       font-weight: 600;
+      word-break: break-all;
 
       svg {
         height: 15px;

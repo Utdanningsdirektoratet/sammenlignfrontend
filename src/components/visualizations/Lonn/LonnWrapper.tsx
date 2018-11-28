@@ -40,6 +40,19 @@ class LonnWrapper extends Component<
     this.setState(config);
   };
 
+  getTimeUnit = (wageCalc: number) => {
+    switch (this.state.Tidsenhet) {
+      case "Årlig":
+        wageCalc *= 12;
+        break;
+      case "Månedlig":
+        break;
+      case "Ca. timelønn":
+        wageCalc = wageCalc / 30 / 7.5;
+    }
+    return wageCalc;
+  };
+
   getMaxValue = (kjønn: string, data: any) => {
     let wage = kjønn + "_wage";
 
@@ -66,15 +79,18 @@ class LonnWrapper extends Component<
     if (!data[this.state.Arbeidstid]) return 0;
     if (!data[this.state.Arbeidstid][wage]) return 0;
     let wageCalc = data[this.state.Arbeidstid][wage] as number;
-    switch (this.state.Tidsenhet) {
-      case "Årlig":
-        wageCalc *= 12;
-        break;
-      case "Månedlig":
-        break;
-      case "Ca. timelønn":
-        wageCalc = wageCalc / 30 / 7.5;
+    wageCalc = this.getTimeUnit(wageCalc);
+
+    if (this.state.Lønn === "Med overtid") {
+      let brutto = wage.replace("_overtime", "");
+      let bruttoCalc = 0;
+      if (data[this.state.Arbeidstid][brutto])
+        bruttoCalc = data[this.state.Arbeidstid][brutto] as number;
+      bruttoCalc = this.getTimeUnit(bruttoCalc);
+
+      wageCalc += bruttoCalc;
     }
+
     return Math.round(wageCalc);
   };
 
