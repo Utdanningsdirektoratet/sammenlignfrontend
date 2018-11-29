@@ -153,7 +153,7 @@ class App extends Component<{}, AppState> {
                 )}
               />
               <Route
-                path="/:innholdstype"
+                path="/liste/:innholdstype"
                 render={render(AlphabeticOverviewPage)}
               />
             </Switch>

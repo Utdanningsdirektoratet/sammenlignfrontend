@@ -25,7 +25,9 @@ class SelectedInterests extends Component<Props> {
                 <div className={`${styles.selection_row_item_text}`}>
                   {selected.charAt(0).toUpperCase() + selected.slice(1)}
                 </div>
-                <CloseIcon onClick={this.handleRemoveClick} unoId={selected} />
+                <span onClick={this.handleRemoveClick} data-unoId={selected}>
+                  <CloseIcon />
+                </span>
               </li>
             ))}
           </ul>

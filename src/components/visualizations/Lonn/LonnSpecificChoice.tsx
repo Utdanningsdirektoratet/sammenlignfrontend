@@ -39,15 +39,15 @@ class LonnSpecificChoice extends Component<Props, State> {
   render() {
     const { data, selectedChoice, unoId } = this.props;
     if (!data) return <div />;
-    const OpenIconDom =
-      Object.keys(data).length > 1 ? (
-        <OpenIcon unoId="" onClick={() => {}} />
-      ) : null;
+    const OpenIconDom = Object.keys(data).length > 1 ? <OpenIcon /> : null;
     const Modal = this.state.openModal ? (
       <div className={`${styles.modal}`}>
         <div className={`${styles.modal_header}`}>
-          <div className={`${styles.modal_header_icon}`}>
-            <CloseIcon2 unoId="" onClick={this.toggleModal} />
+          <div
+            className={`${styles.modal_header_icon}`}
+            onClick={this.toggleModal}
+          >
+            <CloseIcon2 />
           </div>
           <div className={`${styles.modal_header_text}`}>
             <div className={`${styles.modal_header_text_header}`}>
