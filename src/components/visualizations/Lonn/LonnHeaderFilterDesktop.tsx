@@ -52,12 +52,11 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
             {" - "}
             <Translate nb="Lønn" />
           </div>
-          <div className={`${styles.container_head_icon}`}>
-            {this.state.expanded ? (
-              <CloseIcon2 onClick={this.toggleExpansion} unoId="" />
-            ) : (
-              <OpenIcon onClick={this.toggleExpansion} unoId="" />
-            )}
+          <div
+            className={`${styles.container_head_icon}`}
+            onClick={this.toggleExpansion}
+          >
+            {this.state.expanded ? <CloseIcon2 /> : <OpenIcon />}
           </div>
         </div>
         {this.state.expanded ? containerContent : null}

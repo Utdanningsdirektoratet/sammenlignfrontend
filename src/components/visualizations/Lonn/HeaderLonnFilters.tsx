@@ -75,11 +75,9 @@ class HeaderLonnFilters extends Component<Props, State> {
                         className={
                           styles.visualizationheader_container_modal_filters_header_helptext_closeIcon
                         }
+                        onClick={() => this.onClickHelpText("")}
                       >
-                        <CloseIcon
-                          unoId=""
-                          onClick={() => this.onClickHelpText("")}
-                        />
+                        <CloseIcon />
                       </div>
                     </div>
                   ) : null}
@@ -156,11 +154,9 @@ class HeaderLonnFilters extends Component<Props, State> {
                         className={
                           styles.visualizationheader_container_modal_filters_header_helptext_closeIcon
                         }
+                        onClick={() => this.onClickHelpText("")}
                       >
-                        <CloseIcon
-                          unoId=""
-                          onClick={() => this.onClickHelpText("")}
-                        />
+                        <CloseIcon />
                       </div>
                     </div>
                   ) : null}
@@ -247,11 +243,9 @@ class HeaderLonnFilters extends Component<Props, State> {
                         className={
                           styles.visualizationheader_container_modal_filters_header_helptext_closeIcon
                         }
+                        onClick={() => this.onClickHelpText("")}
                       >
-                        <CloseIcon
-                          unoId=""
-                          onClick={() => this.onClickHelpText("")}
-                        />
+                        <CloseIcon />
                       </div>
                     </div>
                   ) : null}
@@ -318,11 +312,9 @@ class HeaderLonnFilters extends Component<Props, State> {
                         className={
                           styles.visualizationheader_container_modal_filters_header_helptext_closeIcon
                         }
+                        onClick={() => this.onClickHelpText("")}
                       >
-                        <CloseIcon
-                          unoId=""
-                          onClick={() => this.onClickHelpText("")}
-                        />
+                        <CloseIcon />
                       </div>
                     </div>
                   ) : null}
@@ -401,11 +393,9 @@ class HeaderLonnFilters extends Component<Props, State> {
                         className={
                           styles.visualizationheader_container_modal_filters_header_helptext_closeIcon
                         }
+                        onClick={() => this.onClickHelpText("")}
                       >
-                        <CloseIcon
-                          unoId=""
-                          onClick={() => this.onClickHelpText("")}
-                        />
+                        <CloseIcon />
                       </div>
                     </div>
                   ) : null}

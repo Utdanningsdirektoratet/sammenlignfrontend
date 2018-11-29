@@ -45,7 +45,7 @@ class InteresserFilter extends React.Component<Props> {
             onClick={() => removeAllSelected()}
           >
             <Translate nb="Nullstill" />
-            <CloseIcon onClick={() => {}} unoId="" />
+            <CloseIcon />
           </div>
         </div>
         <div className={`${styles.interessefilter_container_items}`}>
