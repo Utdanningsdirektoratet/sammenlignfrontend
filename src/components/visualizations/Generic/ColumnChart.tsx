@@ -29,31 +29,6 @@ function numberOrZero(kjønn: KvartilKjønn, kvartInfo?: KvartilInfo) {
 }
 
 class ColumnChart extends Component<Props> {
-  getPercentage = (num: any) => {
-    if (!num || num === null) return null;
-    let part = (num as number) / this.props.max;
-    return part * 100;
-  };
-
-  getHighestPercentage = (kjønn: string) => {
-    let percentages: number[] = [];
-    var q3Percentage = this.props.high
-      ? this.getPercentage(this.props.high[kjønn])
-      : null;
-    if (q3Percentage) percentages.push(q3Percentage);
-    var medianPercentage = this.props.mid
-      ? this.getPercentage(this.props.mid[kjønn])
-      : null;
-    if (medianPercentage) percentages.push(medianPercentage);
-    var q1Percentage = this.props.low
-      ? this.getPercentage(this.props.low[kjønn])
-      : null;
-    if (q1Percentage) percentages.push(q1Percentage);
-
-    percentages = percentages.sort((a, b) => b - a);
-    return percentages[0] || 100;
-  };
-
   render() {
     const { kjønn, low, mid, high, max } = this.props;
     return (
