@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import style from "./ScrollToTop.module.scss";
-import { ReactComponent as Up } from "../../../fontawesome/solid/angle-double-up.svg";
+import { ReactComponent as Up } from "../../../fontawesome/solid/chevron-up.svg";
+import Translate from "../../app/Translate";
 
 type State = {
   yOffset: number;
@@ -44,6 +45,9 @@ class ScrollToTop extends Component<Props, State> {
         className={`${style.container} ${hiddenStyle}`}
         onClick={this.scrollToTop}
       >
+        <div className={`${style.container_text}`}>
+          <Translate nb="Til toppen" />
+        </div>
         <Up />
       </div>
     );

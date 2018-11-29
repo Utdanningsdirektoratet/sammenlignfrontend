@@ -72,13 +72,6 @@
   "Yrker": "Yrke",
   "utdanninger": "utdanningar",
   "yrker": "yrke",
-  "Antall personer": null,
-  "Antall arbeidsledige": null,
-  "Antall ikke i arbeid": null,
-  "Antall i utdanning": null,
-  "Antall offentlig sektor": null,
-  "Antall privat sektor": null,
-  "Antall selvstendig næringsdrivende": null,
   "KLIKK PÅ NAVN FOR Å LEGGE TIL %innholdstype%": null,
   "Offentlig og kvalitetssikret": null,
   "visningsalternativer": null,
@@ -90,5 +83,8 @@
   "utdannet 7-10 år siden": null,
   "Andel som er registrert som arbeidsledige": null,
   "Andel som har startet egen virksomhet": null,
-  "ingen data": null
+  "ingen data": null,
+  "privat": null,
+  "offentlig": null,
+  "Til toppen": null
 }
