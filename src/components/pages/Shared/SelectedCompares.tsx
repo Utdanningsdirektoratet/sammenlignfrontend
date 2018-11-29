@@ -49,7 +49,9 @@ class SelectedCompares extends Component<
                 <div className={`${styles.selection_row_item_text}`}>
                   <UnoId uno_id={uno_id} />
                 </div>
-                <CloseIcon unoId={uno_id} onClick={this.handleRemoveClick} />
+                <span onClick={this.handleRemoveClick}>
+                  <CloseIcon />
+                </span>
               </li>
             ))}
           </ul>
