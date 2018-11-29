@@ -14,7 +14,10 @@ type State = { error: boolean };
 
 class IsolatedComparisonPart extends Component<Props, State> {
   state: State = { error: false };
-  componentDidCatch() {
+  componentDidCatch(e: any) {
+    if (process.env.NODE_ENV !== "production") {
+      console.log(e);
+    }
     this.setState({ error: true });
   }
 
