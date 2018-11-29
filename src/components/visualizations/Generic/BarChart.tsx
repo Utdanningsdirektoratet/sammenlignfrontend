@@ -7,38 +7,24 @@ type Props = {
   values: { label: string; value: string }[];
 };
 
-class PieChart extends Component<Props> {
+class BarChart extends Component<Props> {
   render() {
     const { element, values } = this.props;
     return (
       <Plotly
         data={[
           {
-            values: values.map(v => {
+            y: values.map(v => {
               return (element as any)[v.value] || 0;
             }),
-            labels: values.map(v => {
+            x: values.map(v => {
               return v.label;
             }),
-            type: "pie",
+            type: "bar",
           },
         ]}
         layout={{
           autosize: true,
-          showlegend: true,
-          margin: {
-            b: 0,
-            t: 0,
-          },
-          legend: {
-            yanchor: "top",
-            traceorder: "normal",
-            xanchor: "left",
-            orientation: "v",
-            y: 0,
-            x: 0,
-            style: { width: "100%", height: "100%" },
-          },
         }}
         useResizeHandler
         style={{ width: "100%", height: "100%" }}
@@ -48,4 +34,4 @@ class PieChart extends Component<Props> {
   }
 }
 
-export default PieChart;
+export default BarChart;

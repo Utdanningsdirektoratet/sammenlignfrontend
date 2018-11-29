@@ -18,6 +18,7 @@ import Translate, { TranslateString } from "../app/Translate";
 import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/EntreprenorskapWrapper";
 import PieChart from "../visualizations/Generic/PieChart";
 import visualizationstyles from "../visualizations/Visualization.module.scss";
+import BarChart from "../visualizations/Generic/BarChart";
 
 const Yrke: SammenligningTemplate[] = [
   {
@@ -68,6 +69,7 @@ const Yrke: SammenligningTemplate[] = [
             value: "sektor_antall_selvstendig",
           },
         ],
+        chartType: "bar",
       };
 
       let data = SektorConfig.values.map(s => {
@@ -76,30 +78,12 @@ const Yrke: SammenligningTemplate[] = [
       if (data.every(d => !d)) return <NoData />;
       return (
         <div className={`${visualizationstyles.visualization_container}`}>
-          <PieChart values={SektorConfig.values} element={element} />
+          {SektorConfig.chartType === "pie" ? (
+            <PieChart values={SektorConfig.values} element={element} />
+          ) : (
+            <BarChart values={SektorConfig.values} element={element} />
+          )}
         </div>
-        // <Plotly
-        //   data={[
-        //     {
-        //       values: [
-        //         element.sektor_antall_privat || 0,
-        //         element.sektor_antall_offentlig || 0,
-        //       ],
-        //       labels: [TranslateString("privat"), TranslateString("offentlig")],
-        //       type: "pie",
-        //     },
-        //   ]}
-        //   layout={{
-        //     autosize: true,
-        //     title: "Sektor",
-        //     margin: {
-        //       l: 10,
-        //       r: 10,
-        //       b: 10,
-        //     },
-        //   }}
-        //   config={{ responsive: true }}
-        // />
       );
     },
   },

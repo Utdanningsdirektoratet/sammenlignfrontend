@@ -1,15 +1,15 @@
 import React from "react";
 
 import { SammenligningTemplate } from "./index";
-import {
-  MainElement,
-  ArbeidsledighetElement,
-  EntrepenorElement,
-} from "../../data/ApiTypes";
+import { MainElement } from "../../data/ApiTypes";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 import NoData from "../visualizations/Old/NoData";
-import PercentageBar from "../visualizations/Generic/PercentageBar";
-import Translate from "../app/Translate";
+import Translate, { TranslateString } from "../app/Translate";
+import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/EntreprenorskapWrapper";
+import PieChart from "../visualizations/Generic/PieChart";
+import visualizationstyles from "../visualizations/Visualization.module.scss";
+import { SektorConfig } from "../visualizations/Sektor/SektorConfig";
+import BarChart from "../visualizations/Generic/BarChart";
 
 const Utdanning: SammenligningTemplate[] = [
   {
@@ -19,63 +19,63 @@ const Utdanning: SammenligningTemplate[] = [
     Component: ArbeidsledighetWrapper,
   },
   {
+    title: "Entrepenørskap",
+    widget_id: "entrepenorskap",
+    path: "/rest/entrepenorskap",
+    Component: EntreprenorskapWrapper,
+  },
+  {
+    title: "Sektorer",
+    widget_id: "sektor",
+    path: "/rest/main",
+    render: (element: MainElement) => {
+      const SektorConfig: SektorConfig = {
+        values: [
+          {
+            label: TranslateString("Ikke i arbeid"),
+            value: "sektor_antall_ikkearbeid",
+          },
+          { label: TranslateString("Privat"), value: "sektor_antall_privat" },
+          {
+            label: TranslateString("Offentlig"),
+            value: "sektor_antall_offentlig",
+          },
+          {
+            label: TranslateString("Arbeidsledig"),
+            value: "sektor_antall_arbeidsledig",
+          },
+          {
+            label: TranslateString("I utdanning"),
+            value: "sektor_antall_iutdanning",
+          },
+          {
+            label: TranslateString("Selvstendig næringsdriver"),
+            value: "sektor_antall_selvstendig",
+          },
+        ],
+        chartType: "pie",
+      };
+
+      let data = SektorConfig.values.map(s => {
+        return (element as any)[s.value];
+      });
+      if (data.every(d => !d)) return <NoData />;
+      return (
+        <div className={`${visualizationstyles.visualization_container}`}>
+          {SektorConfig.chartType === "pie" ? (
+            <PieChart values={SektorConfig.values} element={element} />
+          ) : (
+            <BarChart values={SektorConfig.values} element={element} />
+          )}
+        </div>
+      );
+    },
+  },
+  {
     title: "Uno id",
     widget_id: "",
     path: "/rest/main",
     render: (data: MainElement) => <span>{data.uno_id}</span>,
-  },
-  {
-    title: "Entrepenørskap",
-    widget_id: "entrepenorskap",
-    path: "/rest/entrepenorskap",
-    render: (element: EntrepenorElement) => {
-      const keys = Object.keys(element);
-      if (keys.length === 0) return <NoData />;
-      const data = element[(keys[0] as any) as number];
-      return (
-        <div>
-          <span>
-            <Translate
-              nb="Viser tall for %nus_navn%"
-              replacements={{ "%nus_navn%": data.nus_navn }}
-            />
-          </span>
-          {data.selvstendige_andel ? (
-            <>
-              <h4>
-                <Translate nb="Andel selvstendig næringsdrivende" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel * 100} />
-            </>
-          ) : null}
-          {data.selvstendige_andel_menn ? (
-            <>
-              <h4>
-                <Translate nb="Andel selvstendig næringsdrivende menn" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel_menn * 100} />
-            </>
-          ) : null}
-          {data.selvstendige_andel_kvinner ? (
-            <>
-              <h4>
-                <Translate nb="Andel selvstendig næringsdrivende kvinner" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel_kvinner * 100} />
-            </>
-          ) : null}
-
-          {data.selvstendige_andel710 ? (
-            <>
-              <h4>
-                <Translate nb="Andel selvstendig næringsdrivende blant de som fullførte utdanning for 7-10 år siden" />
-              </h4>
-              <PercentageBar value={data.selvstendige_andel710 * 100} />
-            </>
-          ) : null}
-        </div>
-      );
-    },
   },
   {
     title: "Interesser",
