@@ -25,6 +25,10 @@ class BarChart extends Component<Props> {
         ]}
         layout={{
           autosize: true,
+          margin: {
+            l: 30,
+            r: 20,
+          },
         }}
         useResizeHandler
         style={{ width: "100%", height: "100%" }}

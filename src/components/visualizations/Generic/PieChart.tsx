@@ -27,8 +27,9 @@ class PieChart extends Component<Props> {
           autosize: true,
           showlegend: true,
           margin: {
-            b: 0,
-            t: 0,
+            l: 10,
+            r: 10,
+            b: 10,
           },
           legend: {
             yanchor: "top",
