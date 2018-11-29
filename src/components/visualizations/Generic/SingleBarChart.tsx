@@ -24,10 +24,10 @@ function Circle({ y, fill }: CircleProps) {
       className={`${styles.circle} ${
         fill ? styles.circle_filled : styles.circle_unfilled
       }`}
-      strokeWidth="3.5"
+      strokeWidth="2"
       cx={20}
       cy={100 - y + 5}
-      r="3.25"
+      r="4"
     />
   );
 }
