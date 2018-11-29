@@ -13,9 +13,9 @@ class ComparisonHeader extends Component<Props> {
     const { comparison, children } = this.props;
     return (
       <div>
-        <h3 className={`${styles.flex_item} ${styles.item_title}`}>
+        <h2 className={`${styles.flex_item} ${styles.item_title}`}>
           {comparison.title}
-        </h3>
+        </h2>
       </div>
     );
   }

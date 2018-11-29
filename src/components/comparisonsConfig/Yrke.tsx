@@ -16,7 +16,8 @@ import NoData from "../visualizations/Old/NoData";
 import PercentageBar from "../visualizations/Generic/PercentageBar";
 import Translate, { TranslateString } from "../app/Translate";
 import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/EntreprenorskapWrapper";
-import Plotly from "../visualizations/Generic/Plotly";
+import PieChart from "../visualizations/Generic/PieChart";
+import visualizationstyles from "../visualizations/Visualization.module.scss";
 
 const Yrke: SammenligningTemplate[] = [
   {
@@ -37,6 +38,70 @@ const Yrke: SammenligningTemplate[] = [
     widget_id: "entrepenorskap",
     path: "/rest/entrepenorskap",
     Component: EntreprenorskapWrapper,
+  },
+  {
+    title: "Sektorer",
+    widget_id: "sektor",
+    path: "/rest/main",
+    render: (element: MainElement) => {
+      const SektorConfig = {
+        values: [
+          {
+            label: TranslateString("Ikke i arbeid"),
+            value: "sektor_antall_ikkearbeid",
+          },
+          { label: TranslateString("Privat"), value: "sektor_antall_privat" },
+          {
+            label: TranslateString("Offentlig"),
+            value: "sektor_antall_offentlig",
+          },
+          {
+            label: TranslateString("Arbeidsledig"),
+            value: "sektor_antall_arbeidsledig",
+          },
+          {
+            label: TranslateString("I utdanning"),
+            value: "sektor_antall_iutdanning",
+          },
+          {
+            label: TranslateString("Selvstendig næringsdriver"),
+            value: "sektor_antall_selvstendig",
+          },
+        ],
+      };
+
+      let data = SektorConfig.values.map(s => {
+        return (element as any)[s.value];
+      });
+      if (data.every(d => !d)) return <NoData />;
+      return (
+        <div className={`${visualizationstyles.visualization_container}`}>
+          <PieChart values={SektorConfig.values} element={element} />
+        </div>
+        // <Plotly
+        //   data={[
+        //     {
+        //       values: [
+        //         element.sektor_antall_privat || 0,
+        //         element.sektor_antall_offentlig || 0,
+        //       ],
+        //       labels: [TranslateString("privat"), TranslateString("offentlig")],
+        //       type: "pie",
+        //     },
+        //   ]}
+        //   layout={{
+        //     autosize: true,
+        //     title: "Sektor",
+        //     margin: {
+        //       l: 10,
+        //       r: 10,
+        //       b: 10,
+        //     },
+        //   }}
+        //   config={{ responsive: true }}
+        // />
+      );
+    },
   },
   {
     title: "Uno id",
@@ -64,37 +129,6 @@ const Yrke: SammenligningTemplate[] = [
       ) : (
         <span>Ingen interresser</span>
       ),
-  },
-  {
-    title: "Sektorer",
-    widget_id: "sektor",
-    path: "/rest/main",
-    render: (element: MainElement) => {
-      return (
-        <Plotly
-          data={[
-            {
-              values: [
-                element.sektor_antall_privat || 0,
-                element.sektor_antall_offentlig || 0,
-              ],
-              labels: [TranslateString("privat"), TranslateString("offentlig")],
-              type: "pie",
-            },
-          ]}
-          layout={{
-            autosize: true,
-            title: "Sektor",
-            margin: {
-              l: 10,
-              r: 10,
-              b: 10,
-            },
-          }}
-          config={{ responsive: true }}
-        />
-      );
-    },
   },
 ];
 export default Yrke;
