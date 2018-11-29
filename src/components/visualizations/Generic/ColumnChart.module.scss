@@ -1,6 +1,9 @@
 .columnchart {
   &_container {
     height: 230px;
+    svg {
+      width: 60px;
+    }
     display: flex;
     float: left;
     margin-right: 20px;

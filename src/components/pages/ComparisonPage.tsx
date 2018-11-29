@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Plot from "react-plotly.js";
 import { RouteComponentProps } from "react-router";
 
 import styles from "./ComparisonPage.module.scss";

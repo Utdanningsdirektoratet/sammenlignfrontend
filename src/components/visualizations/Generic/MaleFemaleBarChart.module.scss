@@ -1,0 +1,28 @@
+.circle {
+  stroke: #00204c;
+  &_filled {
+    fill: #fff;
+  }
+  &_unfilled {
+    fill: none;
+  }
+}
+
+.female_bar {
+  fill: #942d31;
+  opacity: 0.44;
+}
+
+.male_bar {
+  fill: #095795;
+  opacity: 0.341;
+}
+
+.data_bar {
+  fill: gray;
+  opacity: 0.341;
+}
+
+.icon {
+  stroke: #fff;
+}
