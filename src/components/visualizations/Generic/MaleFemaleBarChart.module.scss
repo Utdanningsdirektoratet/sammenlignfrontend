@@ -1,21 +1,25 @@
 .circle {
-  stroke: #00204c;
+  stroke: black;
   &_filled {
     fill: #fff;
+    &_male {
+      fill: black;
+    }
   }
   &_unfilled {
     fill: none;
   }
+  &_female {
+    stroke: #fff;
+  }
 }
 
 .female_bar {
-  fill: #942d31;
-  opacity: 0.44;
+  fill: #84012e;
 }
 
 .male_bar {
-  fill: #095795;
-  opacity: 0.341;
+  fill: #9bbad3;
 }
 
 .data_bar {
@@ -25,4 +29,9 @@
 
 .icon {
   stroke: #fff;
+  &_woman {
+    path {
+      fill: #fff;
+    }
+  }
 }

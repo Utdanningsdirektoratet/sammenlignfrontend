@@ -24,12 +24,16 @@ function Circle({ x, y, fill }: CircleProps) {
   return (
     <circle
       className={`${styles.circle} ${
-        fill ? styles.circle_filled : styles.circle_unfilled
-      }`}
-      strokeWidth="3.5"
+        fill
+          ? x === "male"
+            ? styles.circle_filled_male
+            : styles.circle_filled
+          : styles.circle_unfilled
+      } ${x === "female" ? styles.circle_female : ""}`}
+      strokeWidth="2"
       cx={x === "male" ? 10 : 30}
       cy={100 - y + 5}
-      r="3.25"
+      r="4"
     />
   );
 }
@@ -79,7 +83,7 @@ class MaleFemaleBarChart extends Component<Props> {
           />
 
           <g
-            className={`${styles.icon}`}
+            className={`${styles.icon + " " + styles.icon_woman}`}
             transform={`translate(26.5 83) scale(0.6)`}
           >
             <path
