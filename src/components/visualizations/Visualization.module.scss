@@ -2,8 +2,10 @@
   &_container {
     //Scalable font size
     font-size: 1em;
-
-    border: 0.2em solid orange;
+    border-right: 1px dotted gray;
     padding: 1.5em;
+    &:last-child {
+      border-right: none;
+    }
   }
 }

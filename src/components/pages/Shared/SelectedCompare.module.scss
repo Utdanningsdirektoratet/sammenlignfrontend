@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
   display: flex;
+  position: sticky;
+  top: 0px;
+  z-index: 1020;
   background-color: #fbe5d0;
   &_cell {
     background-color: #fbe5d0;
@@ -20,7 +23,7 @@
   }
   &_item {
     display: flex;
-    border: solid 2px orange;
+    border: solid 2px $color-primary;
     background-color: white;
 
     &_text {
