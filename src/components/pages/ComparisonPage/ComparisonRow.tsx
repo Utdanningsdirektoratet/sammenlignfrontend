@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import styles from "./ComparisonRow.module.scss";
+import Translate from "../../app/Translate";
 
 type Props = {
   children: JSX.Element[];
@@ -9,7 +10,9 @@ type Props = {
 
 function ComparisonRow({ children }: Props) {
   const rowLength = children.length;
-  const emptyCellsText = "Legg til yrke for å sammenligne tallene";
+  const emptyCellsText = (
+    <Translate nb="Du kan søke for å legge til flere kolonner" />
+  );
   return (
     <div className={`${styles.row_style}`}>
       {children}
