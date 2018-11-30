@@ -38,7 +38,16 @@ class AlphabeticList extends React.Component<Props> {
                       className={`${styles.alphabetic_list__item}`}
                       data-key={o.uno_id}
                     >
-                      <label>
+                      <label
+                        className={`${
+                          selected_uno_id &&
+                          selected_uno_id.indexOf(o.uno_id) !== -1
+                            ? styles.alphabetic_list__item_label +
+                              " " +
+                              styles.alphabetic_list__item_label_selected
+                            : styles.alphabetic_list__item_label
+                        }`}
+                      >
                         <input
                           type="checkbox"
                           data-key={o.uno_id}
