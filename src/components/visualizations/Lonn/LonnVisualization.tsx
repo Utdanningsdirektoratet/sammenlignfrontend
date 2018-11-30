@@ -74,8 +74,14 @@ class LonnVisualization extends Component<Props> {
 
   calcWageTimeUnit = (wage: string, notLocale?: boolean) => {
     if (!(this.props.data as any)[this.props.arbeidstid]) return null;
-    if (!(this.props.data as any)[this.props.arbeidstid][wage]) return null;
-    let wageCalc = this.getTimeUnit(wage) as number;
+    if (
+      !(this.props.data as any)[this.props.arbeidstid][wage] &&
+      this.props.lønn !== "Med overtid"
+    )
+      return null;
+    let wageCalc = (this.props.data as any)[this.props.arbeidstid][wage]
+      ? (this.getTimeUnit(wage) as number)
+      : 0;
 
     if (this.props.lønn === "Med overtid") {
       let brutto = wage.replace("_overtime", "");

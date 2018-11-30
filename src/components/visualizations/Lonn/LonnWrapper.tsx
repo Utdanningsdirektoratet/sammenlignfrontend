@@ -77,8 +77,9 @@ class LonnWrapper extends Component<
     }
 
     if (!data[this.state.Arbeidstid]) return 0;
-    if (!data[this.state.Arbeidstid][wage]) return 0;
-    let wageCalc = data[this.state.Arbeidstid][wage] as number;
+    if (!data[this.state.Arbeidstid][wage] && this.state.Lønn !== "Med overtid")
+      return 0;
+    let wageCalc = (data[this.state.Arbeidstid][wage] as number) || 0;
     wageCalc = this.getTimeUnit(wageCalc);
 
     if (this.state.Lønn === "Med overtid") {
