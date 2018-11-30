@@ -72,22 +72,24 @@ $orange: #f89330;
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-
-    @media (max-width: 575px) {
-      background-color: lightgrey;
-      border-radius: 20px;
-      margin-bottom: 4px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      cursor: pointer;
-
-      input {
-        visibility: hidden;
-      }
-    }
-    &_selected {
+    &_label {
       @media (max-width: 575px) {
-        background-color: $orange;
+        display: block;
+        background-color: lightgrey;
+        border-radius: 20px;
+        margin-bottom: 4px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        cursor: pointer;
+
+        input {
+          visibility: hidden;
+        }
+      }
+      &_selected {
+        @media (max-width: 575px) {
+          background-color: $orange;
+        }
       }
     }
 
