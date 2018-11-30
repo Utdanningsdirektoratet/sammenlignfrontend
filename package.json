@@ -49,6 +49,7 @@
   "homepage": "http://udir.ivarne.com/",
   "devDependencies": {
     "cross-env": "^5.2.0",
+    "gh-pages": "^2.0.1",
     "webpack-cli": "^3.1.2"
   }
 }
