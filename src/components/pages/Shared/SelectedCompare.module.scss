@@ -29,6 +29,8 @@
       font-size: 1em;
       margin: 10px;
       overflow-wrap: break-word;
+      -webkit-touch-callout: none; /* iOS Safari */
+      user-select: none;
     }
     button {
       position: absolute;
