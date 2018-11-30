@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .btn {
   text-decoration: none;
   display: inline-block;
@@ -33,6 +34,6 @@
   margin-top: 40px;
 }
 .btn_selected {
-  background-color: orange;
+  background-color: $color-primary;
   color: black;
 }

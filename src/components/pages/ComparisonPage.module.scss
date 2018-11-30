@@ -41,7 +41,7 @@
       font-weight: bold;
       text-align: center;
       vertical-align: middle;
-      background-color: orange;
+      background-color: $color-primary;
     }
 
     &.item {
@@ -55,7 +55,7 @@
     justify-content: center;
     &.titlerow {
       width: 100%;
-      background-color: orange;
+      background-color: $color-primary;
       margin-bottom: 0.2em;
     }
   }

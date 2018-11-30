@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .icon {
   &_close {
     float: right;
@@ -33,7 +34,7 @@
   &_close2 {
     float: right;
     cursor: pointer;
-    border: 1px solid orange;
+    border: 1px solid $color-primary;
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -49,7 +50,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: orange;
+      background: $color-primary;
       margin: auto 2px;
       height: 2px;
     }
@@ -57,7 +58,7 @@
 
   &_open {
     cursor: pointer;
-    border: 1px solid orange;
+    border: 1px solid $color-primary;
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -75,7 +76,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: orange;
+      background: $color-primary;
     }
     &:before {
       width: 2px;

@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .percentagebar {
   //Scalable font size
   font-size: 1em;
@@ -13,7 +14,7 @@
 
   &_overlaybar {
     height: 100%;
-    background-color: orange;
+    background-color: $color-primary;
   }
 
   &_percentage {
