@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .secondheader {
   flex-flow: row;
   width: 100%;
@@ -22,7 +23,7 @@
     }
 
     &_item {
-      color: orange;
+      color: $color-primary;
     }
   }
 }

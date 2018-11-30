@@ -1,4 +1,4 @@
-$orange: #f89330;
+@import "src/styles/_constants.scss";
 
 .alphabetic {
   list-style: none;
@@ -26,7 +26,7 @@ $orange: #f89330;
   margin-left: 0.2em;
   margin-right: 0.2em;
   span {
-    background-color: $orange;
+    background-color: $color-primary;
 
     border-radius: 50%;
     display: block;
@@ -87,7 +87,7 @@ $orange: #f89330;
       }
       &_selected {
         @media (max-width: 575px) {
-          background-color: $orange;
+          background-color: $color-primary;
         }
       }
     }
@@ -106,7 +106,7 @@ $orange: #f89330;
     display: flex;
     padding-bottom: 20px;
     &_item {
-      background-color: $orange;
+      background-color: $color-primary;
       color: black;
       text-decoration: none;
       padding: 12px;
