@@ -6,11 +6,12 @@ import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "../../../fontawesome/solid/search.svg";
 import { ReactComponent as Times } from "../../../fontawesome/solid/times.svg";
 import { objectToQueryString } from "../../../util/querystring";
-import Translate from "../../app/Translate";
+import Translate, { TranslateString } from "../../app/Translate";
 import { Redirect } from "react-router";
 
 type Props = {
   innholdstype?: Innholdstype;
+  className?: string;
 };
 
 type State = {
@@ -174,6 +175,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     const {
       appState: { selected_uno_id },
       innholdstype,
+      className,
     } = this.props;
     if (redirect) {
       return (
@@ -219,7 +221,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       );
     }
     return (
-      <div className={`${styles.searchbox}`}>
+      <div className={`${styles.searchbox} ${className || ""}`}>
         <div className={`${styles.searchbox_container}`}>
           <input
             value={this.state.searchString}
@@ -228,8 +230,10 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             className={`${styles.searchbox_container_input}`}
             placeholder={
               this.props.innholdstype
-                ? "Søk etter " + this.props.innholdstype
-                : "Søk"
+                ? TranslateString("Søk etter %hva%", {
+                    "%hva%": this.props.innholdstype as string,
+                  })
+                : TranslateString("Søk etter utdanning eller yrke")
             }
           />
           {this.state.searchString !== "" ? (

@@ -60,14 +60,10 @@ const Utdanning: SammenligningTemplate[] = [
         return (element as any)[s.value];
       });
       if (data.every(d => !d)) return <NoData />;
-      return (
-        <div className={`${visualizationstyles.visualization_container}`}>
-          {SektorConfig.chartType === "pie" ? (
-            <PieChart values={SektorConfig.values} element={element} />
-          ) : (
-            <BarChart values={SektorConfig.values} element={element} />
-          )}
-        </div>
+      return SektorConfig.chartType === "pie" ? (
+        <PieChart values={SektorConfig.values} element={element} />
+      ) : (
+        <BarChart values={SektorConfig.values} element={element} />
       );
     },
   },

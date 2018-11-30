@@ -1,12 +1,14 @@
 .searchbox {
   position: relative;
+  font-size: 1.2em;
   &_container {
     &_input {
-      height: 24px;
+      height: 1.9em;
       border-radius: 12px;
       border: 1px solid #dedede;
       padding: 4px 15px;
-      width: 200px;
+      width: 100%;
+      font-size: inherit;
       &:focus {
         outline: none;
         border-color: orange;
@@ -14,9 +16,9 @@
     }
     svg {
       position: absolute;
-      height: 1.2em;
+      height: 1em;
       top: 7px;
-      left: 200px;
+      right: 15px;
     }
   }
   &_dropdown {

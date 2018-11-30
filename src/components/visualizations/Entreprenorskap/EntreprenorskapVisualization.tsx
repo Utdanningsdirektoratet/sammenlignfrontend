@@ -69,7 +69,7 @@ class EntreprenorskapVisualization extends Component<Props> {
           {fullfortArray.map(f => {
             let data = this.getDataQuery(f);
             return (
-              <div>
+              <div key={f}>
                 <div className={styles.container_header}>
                   {f === "A" ? (
                     <Translate nb="totalt" />

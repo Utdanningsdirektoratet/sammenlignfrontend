@@ -1,0 +1,20 @@
+@import "src/styles/_constants.scss";
+
+.button {
+  display: block;
+  border-radius: 200px;
+  padding: 0.4em 0.9em;
+  font-size: 0.8em;
+  text-decoration: none;
+  &_dark {
+    border: 2px solid $color-primary;
+    color: black;
+  }
+  &_light {
+    border: 2px solid $color-primary;
+    color: black;
+  }
+  &_selected {
+    background-color: $color-primary-light;
+  }
+}

@@ -9,7 +9,7 @@ import UnoId from "../../app/UnoId";
 import {
   num_compare_sizing,
   ScreenSizeProps,
-} from "../../../util/NumCompareSizing";
+} from "../../utils/NumCompareSizing";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -41,22 +41,20 @@ class SelectedCompares extends Component<
     }
 
     return (
-      <>
-        <div className={`${styles.selection}`}>
-          <ul className={`${styles.selection_row}`}>
-            {filtered_uno_id.map(uno_id => (
-              <li key={uno_id} className={`${styles.selection_row_item}`}>
-                <div className={`${styles.selection_row_item_text}`}>
-                  <UnoId uno_id={uno_id} />
-                </div>
-                <span onClick={this.handleRemoveClick}>
-                  <CloseIcon />
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </>
+      <div className={`${styles.selection}`}>
+        {filtered_uno_id.map(uno_id => (
+          <div key={uno_id} className={`${styles.selection_cell}`}>
+            <div className={`${styles.selection_item}`}>
+              <div className={`${styles.selection_item_text}`}>
+                <UnoId uno_id={uno_id} />
+              </div>
+              <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
+                <CloseIcon />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     );
   }
 }
