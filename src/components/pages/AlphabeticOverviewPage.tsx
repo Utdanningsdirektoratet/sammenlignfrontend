@@ -19,6 +19,7 @@ import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
 import AlphabetFilter from "../filters/AlphabetFilter";
+import ScrollToTop from "./AlphabeticComparisonPage/ScrollToTop";
 
 type State = {
   data: DataList;
@@ -150,6 +151,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               selected_uno_id={selected_uno_id}
             />
           </ul>
+          <ScrollToTop />
         </div>
       </PageChrome>
     );
