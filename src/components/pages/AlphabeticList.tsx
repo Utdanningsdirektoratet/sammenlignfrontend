@@ -11,6 +11,13 @@ type Props = {
 };
 
 class AlphabeticList extends React.Component<Props> {
+  handleOuterItemClicked = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event && event.currentTarget && window.innerWidth <= 575) {
+      let input = event.currentTarget.querySelector("input");
+      if (input) input.click();
+    }
+  };
+
   public render() {
     const { list, handleItemClicked, selected_uno_id } = this.props;
     const alphabetizedList = alphabetize(list, 5);
@@ -35,8 +42,16 @@ class AlphabeticList extends React.Component<Props> {
                   {c.strings.map(o => (
                     <div
                       key={o.uno_id}
-                      className={`${styles.alphabetic_list__item}`}
+                      className={`${
+                        selected_uno_id &&
+                        selected_uno_id.indexOf(o.uno_id) !== -1
+                          ? styles.alphabetic_list__item +
+                            " " +
+                            styles.alphabetic_list__item_selected
+                          : styles.alphabetic_list__item
+                      }`}
                       data-key={o.uno_id}
+                      onMouseUp={this.handleOuterItemClicked}
                     >
                       <label>
                         <input
