@@ -106,12 +106,6 @@ class ComparisonPage extends Component<Props, State> {
               const dataKey =
                 comparison.path + JSON.stringify(comparison.query);
               const rowData = this.state[dataKey];
-              if (rowData === false)
-                return (
-                  <div key={i}>
-                    Kunne ikke finne data for {comparison.title}
-                  </div>
-                );
               if (!rowData) return null;
               if (comparison.Component) {
                 return (

@@ -191,7 +191,7 @@ class LonnWrapper extends Component<
             })}
           </ComparisonRow>
         </Fragment>
-        <ComparisonRow>
+        <ComparisonRow hideEmptyCells>
           {uno_ids.map(uno_id => {
             return (
               <LonnSpecificChoice
