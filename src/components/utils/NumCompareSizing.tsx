@@ -11,7 +11,7 @@ export type ScreenSizeProps = {
 };
 
 export function num_compare_sizing<P>(
-  WrappedComponent: React.ComponentClass<any>
+  WrappedComponent: React.ComponentClass<any> | any
 ) {
   return (class GetScreenSize extends Component<State> {
     constructor(props: any) {

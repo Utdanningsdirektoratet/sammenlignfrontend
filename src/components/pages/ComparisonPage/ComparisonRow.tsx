@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import styles from "./ComparisonRow.module.scss";
 import Translate from "../../app/Translate";
@@ -6,30 +6,41 @@ import {
   NUM_COMPARES_MOBILE,
   NUM_COMPARES_DESKTOP,
 } from "../../../data/config";
+import {
+  num_compare_sizing,
+  ScreenSizeProps,
+} from "../../utils/NumCompareSizing";
 
 type Props = {
   children: JSX.Element[];
   emptyCellsText?: JSX.Element;
+  hideEmptyCells?: boolean;
 };
 
-function ComparisonRow({ children }: Props) {
+function ComparisonRow({
+  children,
+  innerWidth,
+  hideEmptyCells,
+}: Props & ScreenSizeProps) {
   const rowLength = children.length;
   const emptyCellsText = (
     <Translate nb="Du kan søke for å legge til flere kolonner" />
   );
 
   const emptyCellsLength =
-    window.innerWidth < 768
+    innerWidth < 768
       ? NUM_COMPARES_MOBILE - rowLength
       : NUM_COMPARES_DESKTOP - rowLength;
 
   let emptyCells = [];
-  for (var i = 0; i < emptyCellsLength; i++) {
-    emptyCells.push(
-      <div className={`${styles.empty_cells_placeholder}`} key={i}>
-        <div>{emptyCellsText}</div>
-      </div>
-    );
+  if (!hideEmptyCells) {
+    for (var i = 0; i < emptyCellsLength; i++) {
+      emptyCells.push(
+        <div className={`${styles.empty_cells_placeholder}`} key={i}>
+          <div>{emptyCellsText}</div>
+        </div>
+      );
+    }
   }
 
   return (
@@ -40,4 +51,4 @@ function ComparisonRow({ children }: Props) {
   );
 }
 
-export default ComparisonRow;
+export default num_compare_sizing<Props>(ComparisonRow);

@@ -1,0 +1,11 @@
+@import "src/styles/_constants.scss";
+.footer {
+  flex-flow: row;
+  width: 100%;
+  border-top: solid #d8d8d8 1px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  margin-top: 20px;
+  color: $color-primary;
+}
