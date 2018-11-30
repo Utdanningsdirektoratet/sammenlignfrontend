@@ -1,46 +1,46 @@
+@import "src/styles/constants.scss";
 .selection {
+  margin: 0;
+  padding: 0;
+  display: flex;
   background-color: #fbe5d0;
-  padding: 10px;
-
-  ul {
-    padding: 0;
-  }
-
-  &_row {
-    justify-content: center;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-    &_item {
-      display: flex;
-      width: 15%;
-      border: solid 2px orange;
-      background-color: white;
-      text-align: center;
-      margin-right: 20px;
-      &:last-child {
-        margin-right: 0;
-      }
-      &_text {
-        width: 75%;
-        font-weight: bold;
-        font-size: 1em;
-        margin: 10px;
-        overflow-wrap: break-word;
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-      }
-      span {
-        align-self: center;
+  &_cell {
+    background-color: #fbe5d0;
+    // width: $column-width;
+    padding: 0.5em;
+    flex: 0 0 $column-width;
+    position: relative;
+    @for $i from 1 to 10 {
+      @media (max-width: $i*$column-width) {
+        &:nth-child(#{$i}) {
+          display: none;
+        }
       }
     }
-    li {
-      list-style-type: none;
+  }
+  &_item {
+    display: flex;
+    border: solid 2px orange;
+    background-color: white;
+
+    &_text {
+      width: 75%;
+      font-weight: bold;
+      font-size: 1em;
+      margin: 10px;
+      overflow-wrap: break-word;
+      -webkit-touch-callout: none; /* iOS Safari */
+      user-select: none;
+    }
+    button {
+      position: absolute;
+      top: -0.4em;
+      right: -0.4em;
+      display: inline;
+      background-color: transparent;
+      border: none;
+      margin: 0;
+      padding: 0;
     }
   }
 }

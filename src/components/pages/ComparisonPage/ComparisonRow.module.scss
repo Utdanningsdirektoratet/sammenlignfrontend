@@ -1,7 +1,29 @@
+@import "src/styles/_constants.scss";
+
 .row_style {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+
+  .empty_cells_placeholder {
+    border-right: 1px dotted gray;
+    &:last-child {
+      border: none;
+    }
+    padding: 1.5em;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
   > * {
-    flex: 1 0 0px;
+    flex: 0 0 $column-width;
+    @for $i from 1 to 10 {
+      @media (max-width: $i*$column-width) {
+        &:nth-child(#{$i}) {
+          display: none;
+        }
+      }
+    }
   }
 }

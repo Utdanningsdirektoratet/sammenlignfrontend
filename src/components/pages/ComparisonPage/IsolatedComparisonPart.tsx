@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { SammenligningTemplate } from "../../comparisonsConfig";
 
+import visualizationStyles from "../../visualizations/Visualization.module.scss";
+
 // import styles from "./IsolatedComparisonPart.module.scss";
 import NoData from "../../visualizations/Old/NoData";
 
@@ -34,8 +36,15 @@ class IsolatedComparisonPart extends Component<Props, State> {
     if (!template.render) {
       return <div>missing method render() on {template.title}</div>;
     }
+    if (!data) {
+      return <NoData />;
+    }
     try {
-      return <div>{data ? template.render(data) : <NoData />}</div>;
+      return (
+        <div className={`${visualizationStyles.visualization_container}`}>
+          {template.render(data)}
+        </div>
+      );
     } catch (error) {
       this.setState({ error: true });
     }

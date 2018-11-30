@@ -10,10 +10,7 @@ class Header extends PureComponent {
       <div className={`${styles.header}`}>
         <div className={`${styles.header_content}`}>
           <span>
-            <Translate
-              nb="Offentlig og kvalitetssikret"
-              nn="Offentleg og kvalitetssikra"
-            />
+            <Translate nb="Offentlig og kvalitetssikret" />
           </span>
           <LanguagePicker />
         </div>

@@ -12,7 +12,6 @@ import comparisonsConfig from "../comparisonsConfig";
 import { API_DOMAIN } from "../../data/config";
 import { objectToQueryString } from "../../util/querystring";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
-import CompareSelection from "./Shared/CompareSelection";
 import SelectedCompares from "./Shared/SelectedCompares";
 import { Innholdstype } from "../../data/ApiTypes";
 import Translate from "../app/Translate";
@@ -20,6 +19,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as ArrowLeft } from "../../fontawesome/solid/arrow-left.svg";
 import ComparisonHeader from "../visualizations/Shared/ComparisonHeader";
 import IsolatedComparisonPart from "./ComparisonPage/IsolatedComparisonPart";
+import Breadcrumb from "./ComparisonPage/Breadcrumb";
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
@@ -93,31 +93,12 @@ class ComparisonPage extends Component<Props, State> {
     const uno_ids = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
-    let breadcrumb;
-    switch (innholdstype) {
-      case "utdanning":
-        breadcrumb = <Translate nb="Velg andre utdanninger" />;
-        break;
-      case "yrke":
-        breadcrumb = <Translate nb="Velg andre yrker" />;
-        break;
-      default:
-        breadcrumb = <Translate nb="Tilbake" />;
-        break;
-    }
+
     return (
       <PageChrome>
         <SyncUrlState />
         <div className={`${styles.ComparisonPage}`}>
-          <div className={`${styles.breadcrumb}`}>
-            <Link
-              to={"/liste/" + innholdstype}
-              className={`${styles.breadcrumb_link}`}
-            >
-              <ArrowLeft />
-              {breadcrumb}
-            </Link>
-          </div>
+          <Breadcrumb innholdstype={innholdstype} />
           <div className={`${styles.flex_container}`}>
             <SelectedCompares innholdstype={innholdstype} />
 

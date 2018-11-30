@@ -9,6 +9,7 @@ type PercentageBarProps = {
 class PercentageBar extends React.Component<PercentageBarProps> {
   public render() {
     const { value, maxPercentageEqualsTen } = this.props;
+    if (!value) return null;
     let width = value as number;
     if (maxPercentageEqualsTen) width = width * 10;
     let values = value.toString().split(".");

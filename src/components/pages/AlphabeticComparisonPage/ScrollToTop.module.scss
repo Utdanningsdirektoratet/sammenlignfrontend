@@ -1,7 +1,9 @@
+@import "src/styles/_constants.scss";
+
 .container {
   position: fixed;
   border-radius: 50%;
-  background-color: #f89330;
+  background-color: $color-primary;
   text-align: center;
   vertical-align: middle;
   display: flex;

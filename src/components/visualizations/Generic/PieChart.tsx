@@ -42,7 +42,7 @@ class PieChart extends Component<Props> {
           },
         }}
         useResizeHandler
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "400px" }}
         config={{ responsive: true }}
       />
     );

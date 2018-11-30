@@ -24,11 +24,9 @@
       background: #000;
     }
     &:before {
-      -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
     }
     &:after {
-      -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
   }

@@ -1,3 +1,5 @@
+@import "src/styles/_constants.scss";
+
 .ComparisonPage {
   .breadcrumb {
     margin-top: 30px;
@@ -18,9 +20,10 @@
     }
   }
   .flex_container {
-    height: 800px;
-    width: 80%;
-    margin: auto;
+    @media (min-width: $min-with-separate-search-box) {
+      width: 80%;
+      margin: auto;
+    }
   }
 
   .flex_item {

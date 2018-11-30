@@ -28,13 +28,13 @@ export function setLang(lang: Lang) {
 }
 
 function Translate({ nb, nn, replacements }: Props): JSX.Element {
-  return (TranslateString(nb, nn, replacements) as any) as JSX.Element;
+  return (TranslateString(nb, replacements, nn) as any) as JSX.Element;
 }
 
 export function TranslateString(
   nb: string,
-  nn?: string,
-  replacements?: Replacements
+  replacements?: Replacements,
+  nn?: string
 ): string {
   const lang = getLang();
   let text: string;
