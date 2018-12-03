@@ -17,6 +17,13 @@
       }
     }
 
+    svg {
+      position: absolute;
+      height: 1em;
+      top: 7px;
+      right: 15px;
+    }
+
     &_icon {
       position: absolute;
       background-color: black;
@@ -27,8 +34,8 @@
       margin-top: 5px;
       svg {
         height: 1em;
-        margin-left: 4px;
-        margin-top: 4px;
+        right: 5px;
+        top: 5px;
 
         path {
           fill: white;
