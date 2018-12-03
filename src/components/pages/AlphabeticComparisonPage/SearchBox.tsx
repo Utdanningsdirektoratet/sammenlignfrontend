@@ -270,7 +270,9 @@ class SearchBox extends Component<Props & AppStateProps, State> {
           {searchString !== "" ? (
             <Times onClick={() => this.resetState("")} />
           ) : (
-            <Search />
+            <div className={`${styles.searchbox_container_icon}`}>
+              <Search />
+            </div>
           )}
         </div>
         {suggestionsDom}

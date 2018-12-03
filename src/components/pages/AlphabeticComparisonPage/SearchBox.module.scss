@@ -3,6 +3,7 @@
   position: relative;
   font-size: 1.2em;
   &_container {
+    display: flex;
     &_input {
       height: 1.9em;
       border-radius: 22px;
@@ -15,11 +16,24 @@
         border-color: $color-primary;
       }
     }
-    svg {
+
+    &_icon {
       position: absolute;
-      height: 1em;
-      top: 7px;
-      right: 15px;
+      background-color: black;
+      border-radius: 50%;
+      height: 27px;
+      width: 27px;
+      right: 2%;
+      margin-top: 5px;
+      svg {
+        height: 1em;
+        margin-left: 4px;
+        margin-top: 4px;
+
+        path {
+          fill: white;
+        }
+      }
     }
   }
   &_dropdown {
