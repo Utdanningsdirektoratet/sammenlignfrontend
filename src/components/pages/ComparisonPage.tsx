@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { RouteComponentProps } from "react-router";
+import { RouteComponentProps, Redirect } from "react-router";
 
 import styles from "./ComparisonPage.module.scss";
 
@@ -93,6 +93,10 @@ class ComparisonPage extends Component<Props, State> {
     const uno_ids = selected_uno_id.filter(
       s => s[0] === innholdstype[0].toLowerCase()
     );
+
+    if (selected_uno_id.length === 0) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <PageChrome>

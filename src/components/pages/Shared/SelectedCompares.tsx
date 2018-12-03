@@ -23,15 +23,7 @@ class SelectedCompares extends Component<
       appState: { toggleUnoId },
     } = this.props;
     const key = e.currentTarget.getAttribute("data-uno_id");
-    if (key) {
-      let selected = toggleUnoId(key);
-      if (
-        selected.length === 0 &&
-        window.location.href.includes("sammenligne")
-      ) {
-        window.location.href = "/";
-      }
-    }
+    if (key) toggleUnoId(key);
   };
 
   render() {

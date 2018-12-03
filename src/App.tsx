@@ -13,7 +13,6 @@ import D3TestPage from "./components/pages/D3TestPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 import Widget from "./components/widget/Widget";
 import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./data/config";
-import SelectedCompares from "./components/pages/Shared/SelectedCompares";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -66,11 +65,8 @@ class App extends Component<{}, AppState> {
     this.setState({ errorModalContent: undefined });
   };
   toggleSelection = (uno_id: string) => {
-    let selected: string[] = this.state.selected_uno_id.filter(
-      sel => sel !== uno_id
-    );
     this.setState(prevState => {
-      selected = prevState.selected_uno_id.filter(sel => sel !== uno_id);
+      const selected = prevState.selected_uno_id.filter(sel => sel !== uno_id);
       const selectedInnholdstype = selected.filter(
         sel => sel[0].toLowerCase() === uno_id[0].toLowerCase()
       );
@@ -106,7 +102,6 @@ class App extends Component<{}, AppState> {
       setUrlState(selected);
       return { selected_uno_id: selected };
     });
-    return selected;
   };
   toggleInterest = (interest: string) => {
     this.setState(prevState => {
