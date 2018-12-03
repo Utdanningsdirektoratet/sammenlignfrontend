@@ -16,5 +16,7 @@
   }
   &_selected {
     background-color: $color-primary-light;
+    border: none;
+    line-height: 21px;
   }
 }
