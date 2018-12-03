@@ -10,6 +10,10 @@
         span {
           background-color: inherit;
           margin-top: 2px;
+          &:before,
+          &:after {
+            background: black;
+          }
         }
       }
     }

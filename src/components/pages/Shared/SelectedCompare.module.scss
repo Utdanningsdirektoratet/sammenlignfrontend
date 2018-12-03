@@ -7,9 +7,6 @@
   top: 0px;
   z-index: 1020;
   background-color: #fbe5d0;
-  @media (max-width: 575px) {
-    justify-content: center;
-  }
 
   &_cell {
     background-color: #fbe5d0;
@@ -22,6 +19,19 @@
         &:nth-child(#{$i}) {
           display: none;
         }
+      }
+    }
+
+    @media (max-width: 575px) {
+      width: 100%;
+      input {
+        border: solid 2px $color-primary;
+        border-radius: 0;
+        text-transform: uppercase;
+        height: 2.3em;
+      }
+      svg {
+        display: none;
       }
     }
   }

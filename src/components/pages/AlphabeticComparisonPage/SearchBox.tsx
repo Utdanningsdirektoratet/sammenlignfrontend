@@ -13,6 +13,7 @@ import ClickOutsideListener from "../../utils/ClickOutsideListner";
 type Props = {
   innholdstype?: Innholdstype;
   className?: string;
+  placeholder?: string;
 };
 
 type State = {
@@ -190,6 +191,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       appState: { selected_uno_id },
       innholdstype,
       className,
+      placeholder,
     } = this.props;
     if (redirect) {
       return (
@@ -253,7 +255,9 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             className={`${styles.searchbox_container_input}`}
             ref={this.inputRef}
             placeholder={
-              this.props.innholdstype
+              placeholder
+                ? placeholder
+                : this.props.innholdstype
                 ? TranslateString("Søk etter %hva%", {
                     "%hva%": this.props.innholdstype as string,
                   })

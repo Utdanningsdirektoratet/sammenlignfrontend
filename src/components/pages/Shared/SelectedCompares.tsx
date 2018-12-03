@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import styles from "./SelectedCompare.module.scss";
 import { Innholdstype } from "../../../data/ApiTypes";
@@ -10,6 +9,9 @@ import {
   num_compare_sizing,
   ScreenSizeProps,
 } from "../../utils/NumCompareSizing";
+import { NUM_COMPARES_MOBILE } from "../../../data/config";
+import SearchBox from "../AlphabeticComparisonPage/SearchBox";
+import Translate, { TranslateString } from "../../app/Translate";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -21,6 +23,7 @@ class SelectedCompares extends Component<
   handleRemoveClick = (e: React.MouseEvent<HTMLElement>) => {
     const {
       appState: { toggleUnoId },
+      innerWidth,
     } = this.props;
     const key = e.currentTarget.getAttribute("data-uno_id");
     if (key) toggleUnoId(key);
@@ -40,22 +43,55 @@ class SelectedCompares extends Component<
       return null;
     }
 
-    return (
-      <div className={`${styles.selection}`}>
-        {filtered_uno_id.map(uno_id => (
-          <div key={uno_id} className={`${styles.selection_cell}`}>
-            <div className={`${styles.selection_item}`}>
-              <div className={`${styles.selection_item_text}`}>
-                <UnoId uno_id={uno_id} />
-              </div>
-              <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
-                <CloseIcon />
-              </button>
-            </div>
+    let dom = filtered_uno_id.map(uno_id => (
+      <div key={uno_id} className={`${styles.selection_cell}`}>
+        <div className={`${styles.selection_item}`}>
+          <div className={`${styles.selection_item_text}`}>
+            <UnoId uno_id={uno_id} />
           </div>
-        ))}
+          <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
+            <CloseIcon />
+          </button>
+        </div>
       </div>
-    );
+    ));
+
+    if (innerWidth < 576) {
+      let boxes = [];
+      for (var i = 0; i < NUM_COMPARES_MOBILE; i++) {
+        boxes.push(
+          <div key={i} className={`${styles.selection_cell}`}>
+            {filtered_uno_id[i] ? (
+              <div className={`${styles.selection_item}`}>
+                <div
+                  className={`${
+                    filtered_uno_id[i]
+                      ? styles.selection_item_text
+                      : styles.selection_item_text +
+                        " " +
+                        styles.selection_item_text_search
+                  }`}
+                >
+                  <UnoId uno_id={filtered_uno_id[i]} />
+                </div>
+                {/* <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
+              <CloseIcon />
+            </button> */}
+              </div>
+            ) : (
+              <SearchBox
+                innholdstype={innholdstype}
+                placeholder={TranslateString("Finn " + innholdstype)}
+              />
+            )}
+          </div>
+        );
+      }
+
+      dom = boxes;
+    }
+
+    return <div className={`${styles.selection}`}>{dom}</div>;
   }
 }
 
