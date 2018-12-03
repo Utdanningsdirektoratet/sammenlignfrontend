@@ -7,6 +7,10 @@
   top: 0px;
   z-index: 1020;
   background-color: #fbe5d0;
+  @media (max-width: 575px) {
+    justify-content: center;
+  }
+
   &_cell {
     background-color: #fbe5d0;
     // width: $column-width;

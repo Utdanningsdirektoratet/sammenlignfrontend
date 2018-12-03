@@ -8,7 +8,15 @@
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-
+    @media (max-width: 575px) {
+      justify-content: center;
+      width: 100%;
+    }
+    .searchbox {
+      @media (max-width: 575px) {
+        display: none;
+      }
+    }
     &_selectors {
       width: 40%;
     }
