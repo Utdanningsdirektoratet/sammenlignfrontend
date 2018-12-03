@@ -6,17 +6,17 @@
   padding: 0.4em 0.9em;
   font-size: 0.8em;
   text-decoration: none;
+  border: 2px solid transparent;
   &_dark {
-    border: 2px solid $color-primary;
+    border-color: $color-primary;
     color: black;
   }
   &_light {
-    border: 2px solid $color-primary;
+    border-color: $color-primary;
     color: black;
   }
   &_selected {
     background-color: $color-primary-light;
-    border: none;
-    line-height: 21px;
+    border-color: $color-primary-light;
   }
 }
