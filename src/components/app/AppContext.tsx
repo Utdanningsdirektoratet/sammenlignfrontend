@@ -3,7 +3,7 @@ import { Main } from "../../data/ApiTypes";
 
 export type AppState = {
   selected_uno_id: string[];
-  toggleUnoId: (uno_id: string) => void;
+  toggleUnoId: (uno_id: string) => string[];
   selected_interests: string[];
   toggleInterest: (interest: string) => void;
   toggleInterests: (interests: string[]) => void;
