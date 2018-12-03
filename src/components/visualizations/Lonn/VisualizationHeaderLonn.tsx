@@ -119,66 +119,74 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                 styles.visualizationheader_container_header__title_filter
               }`}
             >
-              (
               <ul>
+                (
                 <li>
                   {Arbeidstid === "A" ? (
                     <span>
-                      <Translate nb="Begge" />{" "}
+                      <Translate nb="Begge" />
+                      {","}
                     </span>
                   ) : Arbeidstid === "D" ? (
                     <span>
-                      <Translate nb="Deltid" />{" "}
+                      <Translate nb="Deltid" />
+                      {","}
                     </span>
                   ) : (
                     <span key={Arbeidstid}>
-                      <Translate nb="Heltid" />{" "}
+                      <Translate nb="Heltid" />
+                      {","}
                     </span>
                   )}
                 </li>
                 <li>
                   {Sektor === "A" ? (
                     <span>
-                      {","} <Translate nb="Alle" />{" "}
+                      <Translate nb="Alle" />
+                      {","}
                     </span>
                   ) : Sektor === "K" ? (
                     <span>
-                      {","} <Translate nb="Kommunal" />{" "}
+                      <Translate nb="Kommunal" />
+                      {","}
                     </span>
                   ) : Sektor === "P" ? (
                     <span>
-                      {","} <Translate nb="Privat" />{" "}
+                      <Translate nb="Privat" />
+                      {","}
                     </span>
                   ) : (
                     <span>
-                      {","} <Translate nb="Statlig" />{" "}
+                      <Translate nb="Statlig" />
+                      {","}
                     </span>
                   )}
                 </li>
                 <li>
-                  {", "} {LonnTranslations[Lønn]}
+                  {LonnTranslations[Lønn]}
+                  {","}
                 </li>
                 <li>
-                  {", "}
                   {StatistiskMålTranslations[StatistiskMål]}
+                  {","}
                 </li>
                 <li>
-                  {Arbeidstid.length > 0 || Sektor.length > 0 ? ", " : ""}
                   {TidsenhetTranslations[Tidsenhet]}
+                  {","}
                 </li>
                 <li>
                   {Kjønn === "A" ? (
                     <span>
-                      {","} <Translate nb="Alle" />{" "}
+                      <Translate nb="Alle" />
                     </span>
                   ) : (
                     <span>
-                      {","} <Translate nb="Kvinner og menn" />{" "}
+                      <Translate nb="Kvinner og menn" />
                     </span>
                   )}
                 </li>
+                )
               </ul>
-              )
             </span>
             <span
               className={`${
