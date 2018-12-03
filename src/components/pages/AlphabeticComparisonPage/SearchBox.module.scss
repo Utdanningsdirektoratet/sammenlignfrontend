@@ -41,10 +41,11 @@
       font-weight: bold;
       text-transform: uppercase;
     }
-    transition: opacity 0.5s ease-in-out; /*This transition is vital for click event to be processed correctly when clicking on the dropdown*/
+    transition: opacity 0.5s ease-in-out;
     &_hide {
       // z-index: -1000;
       opacity: 0;
+      pointer-events: none;
     }
     ul {
       list-style: none;
