@@ -21,11 +21,11 @@ class SelectedInterests extends Component<Props> {
         <div className={`${styles.selection}`}>
           <ul className={`${styles.selection_row}`}>
             {selected.map(selected => (
-              <li className={`${styles.selection_row_item}`}>
+              <li key={selected} className={`${styles.selection_row_item}`}>
                 <div className={`${styles.selection_row_item_text}`}>
                   {selected.charAt(0).toUpperCase() + selected.slice(1)}
                 </div>
-                <span onClick={this.handleRemoveClick} data-unoId={selected}>
+                <span onClick={this.handleRemoveClick} data-uno_id={selected}>
                   <CloseIcon />
                 </span>
               </li>
