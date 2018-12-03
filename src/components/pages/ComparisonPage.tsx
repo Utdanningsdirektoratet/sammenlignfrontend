@@ -94,7 +94,7 @@ class ComparisonPage extends Component<Props, State> {
       s => s[0] === innholdstype[0].toLowerCase()
     );
 
-    if (selected_uno_id.length === 0) {
+    if (uno_ids.length === 0) {
       return <Redirect to="/" />;
     }
 

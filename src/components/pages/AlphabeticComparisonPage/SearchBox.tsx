@@ -158,10 +158,12 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     });
   };
   handleBlur = () => {
-    this.setState({
-      isFocused: false,
-      searchString: "", // TODO: remove after user testing
-    });
+    setTimeout(() => {
+      this.setState({
+        isFocused: false,
+        searchString: "", // TODO: remove after user testing
+      });
+    }, 100);
   };
   renderSuggestion = (suggestion: SuggestElement, i: number) => {
     const {
@@ -206,40 +208,45 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       );
     }
     const innholdstyper = Object.keys(suggestions);
-    let suggestionsDom;
-    if (innholdstyper.length > 0) {
-      let suggestionNumber = 0;
-      suggestionsDom = (
-        <div
-          className={`${styles.searchbox_dropdown} ${
-            isFocused ? "" : styles.searchbox_dropdown_hide
-          }`}
-        >
-          <div className={`${styles.searchbox_dropdown_help}`}>
+
+    let suggestionNumber = 0;
+    const suggestionsDom = (
+      <div
+        className={`${styles.searchbox_dropdown} ${
+          isFocused && searchString.length > 2
+            ? ""
+            : styles.searchbox_dropdown_hide
+        }`}
+      >
+        <div className={`${styles.searchbox_dropdown_help}`}>
+          {innholdstyper.length > 0 ? (
             <Translate
               nb="KLIKK PÅ NAVN FOR Å LEGGE TIL %innholdstype%"
               replacements={{
                 "%innholdstype%": (innholdstype || "") as string,
               }}
             />
-          </div>
-          {innholdstyper.map(type => (
-            <Fragment key={type}>
-              {!innholdstype ? (
-                <h4 className={`${styles.searchbox_dropdown_header}`}>
-                  {Innholdstyper[type]}
-                </h4>
-              ) : null}
-              <ul>
-                {suggestions[type].map(suggestion =>
-                  this.renderSuggestion(suggestion, suggestionNumber++)
-                )}
-              </ul>
-            </Fragment>
-          ))}
+          ) : (
+            <Translate nb="Ingen resultater" />
+          )}
         </div>
-      );
-    }
+        {innholdstyper.map(type => (
+          <Fragment key={type}>
+            {!innholdstype ? (
+              <h4 className={`${styles.searchbox_dropdown_header}`}>
+                {Innholdstyper[type]}
+              </h4>
+            ) : null}
+            <ul>
+              {suggestions[type].map(suggestion =>
+                this.renderSuggestion(suggestion, suggestionNumber++)
+              )}
+            </ul>
+          </Fragment>
+        ))}
+      </div>
+    );
+
     return (
       <ClickOutsideListener
         className={`${styles.searchbox} ${className || ""}`}

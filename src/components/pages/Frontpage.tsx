@@ -9,21 +9,31 @@ import Translate from "../app/Translate";
 import { Link } from "react-router-dom";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
 import Button from "../ui/Button";
+import { num_compare_sizing, ScreenSizeProps } from "../utils/NumCompareSizing";
 
-class Frontpage extends React.Component {
+class Frontpage extends React.Component<ScreenSizeProps> {
   public render() {
+    const { innerWidth } = this.props;
     return (
       <PageChrome>
         <h1 className={`${styles.frontpage_header}`}>
           <Translate nb="Jeg vil sammenligne..." />
         </h1>
         <div className={`${styles.frontpage_options}`}>
-          <SearchBox />
+          <SearchBox className={`${styles.frontpage_options_searchbox}`} />
           <Button to="/liste/yrke" type="light">
-            <Translate nb="Se oversikt over alle yrker" />
+            {innerWidth < 576 ? (
+              <Translate nb="Yrker" />
+            ) : (
+              <Translate nb="Se oversikt over alle yrker" />
+            )}
           </Button>
           <Button to="/liste/utdanning" type="light">
-            <Translate nb="Se oversikt over alle utdanninger" />
+            {innerWidth < 576 ? (
+              <Translate nb="Utdanninger" />
+            ) : (
+              <Translate nb="Se oversikt over alle utdanninger" />
+            )}
           </Button>
         </div>
       </PageChrome>
@@ -31,4 +41,4 @@ class Frontpage extends React.Component {
   }
 }
 
-export default Frontpage;
+export default num_compare_sizing(Frontpage);

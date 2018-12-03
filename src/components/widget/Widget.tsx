@@ -58,7 +58,7 @@ class Widget extends Component<Props, State> {
     if (template && data) {
       return (
         <IsolatedComparisonPart
-          data={data[uno_id]}
+          data={template.render ? data[uno_id] : data}
           template={template}
           uno_ids={[uno_id]}
         />
