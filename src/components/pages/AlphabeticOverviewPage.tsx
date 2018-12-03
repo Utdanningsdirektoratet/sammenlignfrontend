@@ -117,6 +117,24 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         <CompareSelection innholdstype={innholdstype} />
         <div>
           <div>
+            <div className={`${styles.mobile_row}`}>
+              <Link to={"/"} className={`${styles.mobile_back_btn}`}>
+                <Translate nb="< Start på nytt" />
+              </Link>
+              {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
+                <Link
+                  to={"/sammenligne/" + innholdstype}
+                  className={`${styles.mobile_sammenlign_btn}`}
+                >
+                  <BalanceScale />
+                  <Translate nb="Sammenlign" />
+                </Link>
+              ) : null}
+            </div>
+            <div className={`${styles.mobile_search}`}>
+              <SearchBox innholdstype={innholdstype} />
+            </div>
+
             <SelectedCompares innholdstype={innholdstype} />
 
             {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (

@@ -44,7 +44,7 @@ class InterestsHeader extends Component<Props, State> {
     return (
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
-          <div>
+          <div className={`${style.searchbox}`}>
             <SearchBox innholdstype={innholdstype} />
           </div>
           <div>
