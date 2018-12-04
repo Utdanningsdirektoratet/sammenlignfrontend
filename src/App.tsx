@@ -26,6 +26,7 @@ class App extends Component<{}, AppState> {
     super(props);
     this.state = {
       toggleUnoId: this.toggleSelection,
+      replaceUnoId: this.replaceUnoId,
       selected_uno_id: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
       selected_interests: [],
       toggleInterest: this.toggleInterest,
@@ -99,6 +100,18 @@ class App extends Component<{}, AppState> {
           ),
         };
       }
+      setUrlState(selected);
+      return { selected_uno_id: selected };
+    });
+  };
+  replaceUnoId = (old_uno_id: string, new_uno_id: string) => {
+    this.setState(prevState => {
+      let selected = prevState.selected_uno_id;
+      let thisIndex = prevState.selected_uno_id.indexOf(old_uno_id);
+      if (thisIndex !== -1) {
+        selected[thisIndex] = new_uno_id;
+      }
+
       setUrlState(selected);
       return { selected_uno_id: selected };
     });

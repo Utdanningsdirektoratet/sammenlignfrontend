@@ -20,7 +20,10 @@ class Frontpage extends React.Component<ScreenSizeProps> {
           <Translate nb="Jeg vil sammenligne..." />
         </h1>
         <div className={`${styles.frontpage_options}`}>
-          <SearchBox className={`${styles.frontpage_options_searchbox}`} />
+          <SearchBox
+            className={`${styles.frontpage_options_searchbox}`}
+            clearOnBlur={true}
+          />
           <Button to="/liste/yrke" type="light">
             {innerWidth < 576 ? (
               <Translate nb="Yrker" />

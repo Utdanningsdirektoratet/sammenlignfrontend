@@ -13,6 +13,10 @@ import ClickOutsideListener from "../../utils/ClickOutsideListner";
 type Props = {
   innholdstype?: Innholdstype;
   className?: string;
+  placeholder?: string;
+  onUnoIdClick?: (uno_id: string) => void;
+  clearOnBlur: boolean;
+  inlineSuggestions?: boolean;
 };
 
 type State = {
@@ -127,12 +131,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
         );
       const suggestion = allSuggestions[this.state.activeSuggestion];
       if (suggestion) {
-        this.props.appState.toggleUnoId(suggestion.uno_id);
-        this.setState({
-          searchString: "",
-          suggestions: {},
-          redirect: !this.props.innholdstype,
-        });
+        this.handleUnoIdClick(suggestion.uno_id);
       }
     } else if (e.key === "Escape") {
       this.setState({ suggestions: {}, searchString: "" });
@@ -144,6 +143,10 @@ class SearchBox extends Component<Props & AppStateProps, State> {
   };
   handleUnoIdClick = (uno_id: string) => {
     if (uno_id) {
+      if (this.props.onUnoIdClick) {
+        this.props.onUnoIdClick(uno_id);
+        return;
+      }
       this.props.appState.toggleUnoId(uno_id);
     }
     this.setState({
@@ -156,13 +159,22 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       suggestions: {},
     });
   };
+
+  unMounted = false;
+  componentWillUnmount = () => {
+    this.unMounted = true;
+  };
+
   handleBlur = () => {
-    setTimeout(() => {
-      this.setState({
-        isFocused: false,
-        searchString: "", // TODO: remove after user testing
-      });
-    }, 100);
+    if (this.props.clearOnBlur) {
+      setTimeout(() => {
+        if (!this.unMounted)
+          this.setState({
+            isFocused: false,
+            searchString: "", // TODO: remove after user testing
+          });
+      }, 100);
+    }
   };
   renderSuggestion = (suggestion: SuggestElement, i: number) => {
     const {
@@ -192,6 +204,8 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       appState: { selected_uno_id },
       innholdstype,
       className,
+      placeholder,
+      inlineSuggestions,
     } = this.props;
     if (redirect) {
       return (
@@ -214,7 +228,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
           isFocused && searchString.length > 2
             ? ""
             : styles.searchbox_dropdown_hide
-        }`}
+        } ${inlineSuggestions ? styles.searchbox_dropdown_inline : ""}`}
       >
         <div className={`${styles.searchbox_dropdown_help}`}>
           {innholdstyper.length > 0 ? (
@@ -260,7 +274,9 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             className={`${styles.searchbox_container_input}`}
             ref={this.inputRef}
             placeholder={
-              this.props.innholdstype
+              placeholder
+                ? placeholder
+                : this.props.innholdstype
                 ? TranslateString("Søk etter %hva%", {
                     "%hva%": this.props.innholdstype as string,
                   })

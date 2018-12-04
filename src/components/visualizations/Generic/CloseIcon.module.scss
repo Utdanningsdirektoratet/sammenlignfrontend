@@ -3,7 +3,7 @@
   &_close {
     float: right;
     cursor: pointer;
-    background-color: #fbe3b7;
+    background-color: black;
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -22,7 +22,7 @@
       left: 0;
       margin-top: -1px;
       margin-left: 2px;
-      background: #000;
+      background: white;
     }
     &:before {
       transform: rotate(45deg);

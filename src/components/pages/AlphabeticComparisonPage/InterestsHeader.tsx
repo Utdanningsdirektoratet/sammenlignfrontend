@@ -45,7 +45,7 @@ class InterestsHeader extends Component<Props, State> {
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
           <div className={`${style.searchbox}`}>
-            <SearchBox innholdstype={innholdstype} />
+            <SearchBox innholdstype={innholdstype} clearOnBlur={true} />
           </div>
           <div>
             <button
