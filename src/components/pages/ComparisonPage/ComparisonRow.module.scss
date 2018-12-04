@@ -18,7 +18,7 @@
   }
   > * {
     flex: 0 0 $column-width;
-    @media (max-width: 575px) {
+    @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
       @for $i from 1 to 10 {
         @media (max-width: $i*$column-width-mobile) {

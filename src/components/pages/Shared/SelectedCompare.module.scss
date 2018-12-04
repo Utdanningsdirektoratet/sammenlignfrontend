@@ -7,7 +7,7 @@
   top: 0px;
   z-index: 1020;
   background-color: #fbe5d0;
-  @media (max-width: 575px) {
+  @media (max-width: $max-mobile) {
     justify-content: center;
   }
 
@@ -16,7 +16,7 @@
     padding: 0.5em;
     position: relative;
     flex: 0 0 $column-width;
-    @media (max-width: 575px) {
+    @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
     }
     @media (min-width: 576px) {
