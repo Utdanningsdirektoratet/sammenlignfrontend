@@ -14,7 +14,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba($color: black, $alpha: 0.3);
-  z-index: 1010;
+  z-index: 1040;
 }
 
 .container {
@@ -24,13 +24,18 @@
     text-align: right;
     margin-bottom: 20px;
     margin-right: 10px;
-    cursor: pointer;
-    svg {
-      height: 20px;
-      width: 20px;
-      margin-bottom: -4px;
-      margin-left: 5px;
+
+    &_content {
+      display: inline;
       cursor: pointer;
+
+      svg {
+        height: 20px;
+        width: 20px;
+        margin-bottom: -4px;
+        margin-left: 5px;
+        cursor: pointer;
+      }
     }
   }
   &_searchbox {

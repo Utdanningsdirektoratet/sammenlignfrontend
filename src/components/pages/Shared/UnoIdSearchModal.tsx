@@ -37,15 +37,21 @@ class UnoIdSearchModal extends Component<Props & AppStateProps> {
         overlayClassName={`${styles.Overlay}`}
       >
         <div className={`${styles.container}`}>
-          <div className={`${styles.container_close}`} onClick={onClose}>
-            <Translate nb="Lukk" />
-            <Times />
+          <div className={`${styles.container_close}`}>
+            <div
+              className={`${styles.container_close_content}`}
+              onClick={onClose}
+            >
+              <Translate nb="Lukk" />
+              <Times />
+            </div>
           </div>
           <SearchBox
             className={`${styles.container_searchbox}`}
             innholdstype={innholdsType}
             onUnoIdClick={this.handleOnUnoIdClicked}
             clearOnBlur={false}
+            inlineSuggestions
           />
         </div>
       </ReactModal>

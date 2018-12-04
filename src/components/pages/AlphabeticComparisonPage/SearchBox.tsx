@@ -16,6 +16,7 @@ type Props = {
   placeholder?: string;
   onUnoIdClick?: (uno_id: string) => void;
   clearOnBlur: boolean;
+  inlineSuggestions?: boolean;
 };
 
 type State = {
@@ -204,6 +205,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       innholdstype,
       className,
       placeholder,
+      inlineSuggestions,
     } = this.props;
     if (redirect) {
       return (
@@ -226,7 +228,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
           isFocused && searchString.length > 2
             ? ""
             : styles.searchbox_dropdown_hide
-        }`}
+        } ${inlineSuggestions ? styles.searchbox_dropdown_inline : ""}`}
       >
         <div className={`${styles.searchbox_dropdown_help}`}>
           {innholdstyper.length > 0 ? (

@@ -2,6 +2,7 @@
 .searchbox {
   position: relative;
   font-size: 1.2em;
+
   &_container {
     &_input {
       height: 1.9em;
@@ -18,8 +19,9 @@
     svg {
       position: absolute;
       height: 1.3em;
-      top: 7px;
-      right: 15px;
+      top: 5px;
+      right: 8px;
+      cursor: pointer;
     }
   }
   &_dropdown {
@@ -80,6 +82,13 @@
       &.selected {
         background-color: #ffda95;
       }
+    }
+
+    &_inline {
+      position: static;
+      z-index: 1050;
+      border: none;
+      margin-top: 20px;
     }
   }
 }

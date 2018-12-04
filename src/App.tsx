@@ -110,7 +110,7 @@ class App extends Component<{}, AppState> {
       let thisIndex = prevState.selected_uno_id.indexOf(old_uno_id);
       if (thisIndex !== -1) {
         selected[thisIndex] = new_uno_id;
-      } else selected.push(new_uno_id);
+      }
 
       setUrlState(selected);
       return { selected_uno_id: selected };

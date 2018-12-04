@@ -56,18 +56,7 @@ class SelectedCompares extends Component<
       return null;
     }
 
-    let dom = filtered_uno_id.map(uno_id => (
-      <div key={uno_id} className={`${styles.selection_cell}`}>
-        <div className={`${styles.selection_item}`}>
-          <div className={`${styles.selection_item_text}`}>
-            <UnoId uno_id={uno_id} />
-          </div>
-          <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
-            <CloseIcon />
-          </button>
-        </div>
-      </div>
-    ));
+    let dom: any = [];
 
     if (innerWidth < 576) {
       let boxes = [];
@@ -120,6 +109,19 @@ class SelectedCompares extends Component<
           ) : null}
         </div>,
       ];
+    } else {
+      dom = filtered_uno_id.map(uno_id => (
+        <div key={uno_id} className={`${styles.selection_cell}`}>
+          <div className={`${styles.selection_item}`}>
+            <div className={`${styles.selection_item_text}`}>
+              <UnoId uno_id={uno_id} />
+            </div>
+            <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
+              <CloseIcon />
+            </button>
+          </div>
+        </div>
+      ));
     }
 
     return <div className={`${styles.selection}`}>{dom}</div>;
