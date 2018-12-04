@@ -27,7 +27,7 @@
           }
         }
         &_icon {
-          @media (min-width: 576px) {
+          @media (min-width: $min-not-mobile) {
             display: none;
           }
           cursor: pointer;
@@ -64,7 +64,7 @@
       }
     }
     &_modal {
-      @media (min-width: 576px) {
+      @media (min-width: $min-not-mobile) {
         display: none;
       }
 

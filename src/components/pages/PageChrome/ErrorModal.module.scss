@@ -1,3 +1,4 @@
+@import "src/styles/constants.scss";
 .Modal {
   position: absolute;
   top: 20%;
@@ -5,6 +6,13 @@
   right: 25%;
   height: 400px;
   background-color: white;
+
+  @media (max-width: $max-mobile) {
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    height: 70%;
+  }
 }
 
 .Overlay {
