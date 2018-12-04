@@ -20,6 +20,7 @@ import { ReactComponent as ArrowLeft } from "../../fontawesome/solid/arrow-left.
 import ComparisonHeader from "../visualizations/Shared/ComparisonHeader";
 import IsolatedComparisonPart from "./ComparisonPage/IsolatedComparisonPart";
 import Breadcrumb from "./ComparisonPage/Breadcrumb";
+import Frontpage from "./Frontpage";
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
@@ -95,7 +96,7 @@ class ComparisonPage extends Component<Props, State> {
     );
 
     if (uno_ids.length === 0) {
-      return <Redirect to="/" />;
+      return <Frontpage innholdstype={innholdstype} />;
     }
 
     return (
