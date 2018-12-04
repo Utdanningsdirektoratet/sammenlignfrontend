@@ -14,6 +14,7 @@ type Props = {
   innholdstype?: Innholdstype;
   className?: string;
   placeholder?: string;
+  onUnoIdClick?: (uno_id: string) => void;
 };
 
 type State = {
@@ -128,12 +129,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
         );
       const suggestion = allSuggestions[this.state.activeSuggestion];
       if (suggestion) {
-        this.props.appState.toggleUnoId(suggestion.uno_id);
-        this.setState({
-          searchString: "",
-          suggestions: {},
-          redirect: !this.props.innholdstype,
-        });
+        this.handleUnoIdClick(suggestion.uno_id);
       }
     } else if (e.key === "Escape") {
       this.setState({ suggestions: {}, searchString: "" });
@@ -144,7 +140,12 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     e.preventDefault();
   };
   handleUnoIdClick = (uno_id: string) => {
+    console.log("clicked");
     if (uno_id) {
+      if (this.props.onUnoIdClick) {
+        this.props.onUnoIdClick(uno_id);
+        return;
+      }
       this.props.appState.toggleUnoId(uno_id);
     }
     this.setState({
@@ -157,12 +158,19 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       suggestions: {},
     });
   };
+
+  unMounted = false;
+  componentWillUnmount = () => {
+    this.unMounted = true;
+  };
+
   handleBlur = () => {
     setTimeout(() => {
-      this.setState({
-        isFocused: false,
-        searchString: "", // TODO: remove after user testing
-      });
+      if (!this.unMounted)
+        this.setState({
+          isFocused: false,
+          searchString: "", // TODO: remove after user testing
+        });
     }, 100);
   };
   renderSuggestion = (suggestion: SuggestElement, i: number) => {

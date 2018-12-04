@@ -5,7 +5,7 @@
   display: flex;
   position: sticky;
   top: 0px;
-  z-index: 1020;
+  z-index: 1010;
   background-color: #fbe5d0;
 
   &_cell {
@@ -24,21 +24,28 @@
 
     @media (max-width: 575px) {
       width: 100%;
-      input {
-        border: solid 2px $color-primary;
-        border-radius: 0;
-        text-transform: uppercase;
-        height: 2.3em;
-      }
-      svg {
-        display: none;
-      }
     }
   }
   &_item {
     display: flex;
     border: solid 2px $color-primary;
     background-color: white;
+
+    @media (max-width: 575px) {
+      cursor: pointer;
+      button {
+        &:focus {
+          outline: none;
+        }
+        svg {
+          height: 20px;
+          width: 20px;
+          margin-top: 25px;
+          margin-right: 20px;
+          cursor: pointer;
+        }
+      }
+    }
 
     &_text {
       width: 75%;
@@ -48,6 +55,11 @@
       overflow-wrap: break-word;
       -webkit-touch-callout: none; /* iOS Safari */
       user-select: none;
+
+      &_search {
+        text-transform: uppercase;
+        color: grey;
+      }
     }
     button {
       position: absolute;
