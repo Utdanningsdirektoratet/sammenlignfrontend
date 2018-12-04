@@ -85,7 +85,7 @@
     }
 
     &_inline {
-      position: static;
+      position: unset;
       z-index: 1050;
       border: none;
       margin-top: 20px;
