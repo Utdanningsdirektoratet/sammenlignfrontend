@@ -22,6 +22,7 @@
     flex: 0 0 $column-width;
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
+      overflow: hidden;
     }
     @media (min-width: $min-not-mobile) {
       @for $i from 1 to 10 {
