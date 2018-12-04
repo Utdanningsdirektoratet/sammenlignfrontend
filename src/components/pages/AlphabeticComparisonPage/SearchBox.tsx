@@ -15,6 +15,7 @@ type Props = {
   className?: string;
   placeholder?: string;
   onUnoIdClick?: (uno_id: string) => void;
+  clearOnBlur: boolean;
 };
 
 type State = {
@@ -140,7 +141,6 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     e.preventDefault();
   };
   handleUnoIdClick = (uno_id: string) => {
-    console.log("clicked");
     if (uno_id) {
       if (this.props.onUnoIdClick) {
         this.props.onUnoIdClick(uno_id);
@@ -165,13 +165,15 @@ class SearchBox extends Component<Props & AppStateProps, State> {
   };
 
   handleBlur = () => {
-    setTimeout(() => {
-      if (!this.unMounted)
-        this.setState({
-          isFocused: false,
-          searchString: "", // TODO: remove after user testing
-        });
-    }, 100);
+    if (this.props.clearOnBlur) {
+      setTimeout(() => {
+        if (!this.unMounted)
+          this.setState({
+            isFocused: false,
+            searchString: "", // TODO: remove after user testing
+          });
+      }, 100);
+    }
   };
   renderSuggestion = (suggestion: SuggestElement, i: number) => {
     const {

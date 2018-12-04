@@ -105,7 +105,7 @@ class SelectedCompares extends Component<
       }
 
       dom = [
-        <div style={{ display: "flex" }} key="box">
+        <div className={`${styles.container}`} key="box">
           {boxes}
           {this.state.showSearchModal ? (
             <UnoIdSearchModal

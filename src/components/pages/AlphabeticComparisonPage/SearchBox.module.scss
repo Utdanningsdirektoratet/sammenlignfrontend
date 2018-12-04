@@ -75,7 +75,7 @@
         background-color: antiquewhite;
       }
       &.active {
-        color: yellow;
+        color: $color-primary;
       }
       &.selected {
         background-color: #ffda95;

@@ -132,7 +132,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               ) : null}
             </div>
             <div className={`${styles.mobile_search}`}>
-              <SearchBox innholdstype={innholdstype} />
+              <SearchBox innholdstype={innholdstype} clearOnBlur={true} />
             </div>
 
             <SelectedCompares innholdstype={innholdstype} />

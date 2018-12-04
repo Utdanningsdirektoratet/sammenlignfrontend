@@ -22,6 +22,7 @@ class Breadcrumb extends Component<Props> {
             <SearchBox
               innholdstype={innholdstype}
               className={`${styles.SearchBox}`}
+              clearOnBlur={true}
             />
             <Button to={"/liste/yrke"} type="light">
               <Translate nb="Se oversikt over alle yrker" />
@@ -37,6 +38,7 @@ class Breadcrumb extends Component<Props> {
             <SearchBox
               innholdstype={innholdstype}
               className={`${styles.SearchBox}`}
+              clearOnBlur={true}
             />
             <Button to={"/liste/utdanning"} type="light">
               <Translate nb="Se oversikt over alle utdanninger" />

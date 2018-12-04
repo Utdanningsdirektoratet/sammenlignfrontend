@@ -45,6 +45,7 @@ class UnoIdSearchModal extends Component<Props & AppStateProps> {
             className={`${styles.container_searchbox}`}
             innholdstype={innholdsType}
             onUnoIdClick={this.handleOnUnoIdClicked}
+            clearOnBlur={false}
           />
         </div>
       </ReactModal>

@@ -1,4 +1,9 @@
 @import "src/styles/constants.scss";
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 .selection {
   margin: 0;
   padding: 0;
@@ -7,6 +12,9 @@
   top: 0px;
   z-index: 1010;
   background-color: #fbe5d0;
+  @media (max-width: $max-mobile) {
+    justify-content: center;
+  }
   &_cell {
     background-color: #fbe5d0;
     padding: 0.5em;
