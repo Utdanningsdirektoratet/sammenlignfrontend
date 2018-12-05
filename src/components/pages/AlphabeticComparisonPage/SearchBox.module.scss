@@ -32,8 +32,12 @@
     // }
     position: absolute;
     z-index: 1021;
-    width: 400px;
     top: 35px;
+    width: 400px;
+
+    @media (max-width: $max-mobile) {
+      max-width: 100%;
+    }
 
     background-color: white;
     padding: 0.1em 1em 1em 1em;

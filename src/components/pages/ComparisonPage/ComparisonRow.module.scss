@@ -3,6 +3,9 @@
 .row_style {
   display: flex;
   align-items: stretch;
+  @media (max-width: $max-mobile) {
+    justify-content: center;
+  }
 
   .empty_cells_placeholder {
     border-right: 1px dotted gray;
