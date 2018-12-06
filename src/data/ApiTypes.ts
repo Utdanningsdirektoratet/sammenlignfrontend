@@ -135,3 +135,39 @@ export type DataList = {
   interesser: string[];
 };
 export type Kjønn = "A" | "KM";
+
+export interface UtdanningLonnObject {
+  tittel: string;
+  uno_id: string;
+  A_antall_ansatte: number;
+  A_wage_avtalt_median?: number;
+  A_wage_q1?: number;
+  A_wage_q3?: number;
+  A_wage_avg?: number;
+  A_wage_median?: number;
+  A_wage_overtime_avg?: number;
+  A_wage_overtime_median?: number;
+  A_wage_overtime_q3?: number;
+}
+
+export interface IUtdanningFullført {
+  A?: UtdanningLonnObject;
+  "00-04"?: UtdanningLonnObject;
+  "05-"?: UtdanningLonnObject;
+}
+
+export interface IUtdanningUnknow {
+  A: IUtdanningFullført;
+}
+
+export interface IUtdanningArbeidstid {
+  A: IUtdanningUnknow;
+}
+
+export interface IUtdanningSektor {
+  A: IUtdanningArbeidstid;
+}
+
+export interface UtdanningLonnElement {
+  [kategori: string]: IUtdanningSektor;
+}
