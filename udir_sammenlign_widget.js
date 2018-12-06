@@ -7,9 +7,9 @@
     var jsscript = document.getElementsByTagName("script");
     var domain = "";
     for (var i = 0; i < jsscript.length; i++) {
-      var pattern = /widget.js/i; // the name of your js, whose source you are looking for
+      var pattern = /\/udir_sammenlign_widget.js/i; // the name of your js, whose source you are looking for
       if ( pattern.test( jsscript[i].getAttribute("src") ) )
-        domain = jsscript[i].getAttribute("src").replace("widget.js","");
+        domain = jsscript[i].getAttribute("src").replace("udir_sammenlign_widget.js","");
     }
 
 
