@@ -4,12 +4,12 @@ import { SammenligningTemplate } from "./index";
 import { MainElement } from "../../data/ApiTypes";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 import NoData from "../visualizations/Old/NoData";
-import Translate, { TranslateString } from "../app/Translate";
+import { TranslateString } from "../app/Translate";
 import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/EntreprenorskapWrapper";
 import PieChart from "../visualizations/Generic/PieChart";
-import visualizationstyles from "../visualizations/Visualization.module.scss";
 import { SektorConfig } from "../visualizations/Sektor/SektorConfig";
 import BarChart from "../visualizations/Generic/BarChart";
+import LenkeVisualization from "../visualizations/Lenke/LenkeVisualization";
 
 const Utdanning: SammenligningTemplate[] = [
   {
@@ -66,6 +66,12 @@ const Utdanning: SammenligningTemplate[] = [
         <BarChart values={SektorConfig.values} element={element} />
       );
     },
+  },
+  {
+    title: "Lenke",
+    widget_id: "lenke",
+    path: "/rest/main",
+    Component: LenkeVisualization,
   },
 ];
 export default Utdanning;

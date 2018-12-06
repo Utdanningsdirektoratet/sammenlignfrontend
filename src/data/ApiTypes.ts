@@ -1,7 +1,7 @@
 export interface MainElement {
   // funksjon: string;
   // id: string;
-  // innholdstype: string;
+  innholdstype: "utdanningsbeskrivelse" | "yrke";
   interesser?: string[];
   // path: string;
   tittel: string;
@@ -16,6 +16,7 @@ export interface MainElement {
   sektor_antall_ikkearbeid?: number;
   sektor_antall_selvstendig?: number;
   sektor_antall_offentlig?: number;
+  url: string;
 }
 
 export interface EntrepenorElement {
