@@ -19,6 +19,7 @@ import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/Entrepreno
 import PieChart from "../visualizations/Generic/PieChart";
 import visualizationstyles from "../visualizations/Visualization.module.scss";
 import BarChart from "../visualizations/Generic/BarChart";
+import LenkeVisualizationWrapper from "../visualizations/Lenke/LenkeVisualizationWrapper";
 
 const Yrke: SammenligningTemplate[] = [
   {
@@ -82,6 +83,12 @@ const Yrke: SammenligningTemplate[] = [
         <BarChart values={SektorConfig.values} element={element} />
       );
     },
+  },
+  {
+    title: "Lenke",
+    widget_id: "lenke",
+    path: "/rest/main",
+    Component: LenkeVisualizationWrapper,
   },
 ];
 export default Yrke;

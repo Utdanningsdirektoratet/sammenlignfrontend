@@ -89,6 +89,7 @@
   "< Start på nytt": null,
   "Du kan søke for å legge til flere kolonner": null,
   "Lukk": null,
+  "Les mer": null,
   "Avtalt lønn": null,
   "Viser sum lønn utbetalt i avtalt lønn, eksklusive overtid.": null,
   "Antall år etter fullført utdanning": null,
@@ -99,5 +100,7 @@
   "5 år eller mer": null,
   "Viser tall for de som har fullført utdanning for 5 år siden eller mer.": null,
   "0-4 år etter fullført utdanning": null,
-  "5 år eller mer etter fullført utdanning": null
+  "5 år eller mer etter fullført utdanning": null,
+  "Vil du vite mer om yrket %yrke%?": null,
+  "Vil du vite mer om utdannelse til %utdannelse%?": null
 }

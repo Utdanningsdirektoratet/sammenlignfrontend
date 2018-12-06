@@ -1,0 +1,29 @@
+@import "src/styles/_constants.scss";
+.container {
+  text-align: center;
+  &_title {
+    word-break: break-word;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+  }
+  &_link {
+    border: 2px solid $color-primary;
+    border-radius: 22px;
+    padding: 1.2em;
+    padding-top: 0.4em;
+    padding-bottom: 0.6em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    &_icon {
+      height: 15px;
+      width: 15px;
+      margin-bottom: -3px;
+      padding-left: 5px;
+      margin-left: 4px;
+      path {
+        fill: $color-primary;
+      }
+    }
+  }
+}
