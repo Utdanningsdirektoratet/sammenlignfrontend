@@ -46,7 +46,6 @@ class SearchBox extends Component<Props & AppStateProps, State> {
   inputRef = React.createRef<HTMLInputElement>();
 
   componentDidMount = () => {
-    // if (this.inputRef.current) this.inputRef.current.focus();
     if (this.inputRef.current && this.props.focusOnMount)
       this.inputRef.current.focus();
   };
@@ -146,7 +145,6 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       this.setState({ suggestions: {}, searchString: "" });
     } else if (e.key === "Escape") {
       this.setState({ suggestions: {}, searchString: "" });
-      // if (this.inputRef.current) this.inputRef.current.blur();
     } else {
       return;
     }
