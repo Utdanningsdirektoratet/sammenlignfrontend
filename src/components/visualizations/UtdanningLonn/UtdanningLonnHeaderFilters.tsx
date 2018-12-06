@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import RadioButtonGroup from "../../defaultComponents/RadioButtonGroup";
 import Translate from "../../app/Translate";
 import styles from "../Shared/VisualizationFilterHeader.module.scss";
-import HeaderModalKjonn from "../Shared/HeaderModalKjonn";
-import { VisualizationHeaderConfigLonn } from "./VisualizationHeaderLonn";
 import CloseIcon from "../Generic/CloseIcon";
+import { UtdanningLonnConfig } from "./UtdanningLonnConfig";
 
 type Props = {
-  config: VisualizationHeaderConfigLonn;
+  config: UtdanningLonnConfig;
   onFilterClicked: (event: any, key: string) => void;
   showHeaders?: boolean;
   showHelpText?: boolean;
@@ -18,7 +17,7 @@ type State = {
   shownHelpText: string;
 };
 
-class HeaderLonnFilters extends Component<Props, State> {
+class UtdanningLonnHeaderFilters extends Component<Props, State> {
   state = { shownHelpText: "" };
 
   onClickHelpText = (type: string) => {
@@ -31,14 +30,7 @@ class HeaderLonnFilters extends Component<Props, State> {
   };
 
   render() {
-    const {
-      Arbeidstid,
-      Sektor,
-      Tidsenhet,
-      Lønn,
-      StatistiskMål,
-      Kjønn,
-    } = this.props.config;
+    const { Tidsenhet, Lønn, StatistiskMål, Fullført } = this.props.config;
     const { showHelpText, showHeaders, showHeaderHelpText } = this.props;
     return (
       <div className={`${styles.visualizationheader_container_modal_filters}`}>
@@ -49,16 +41,16 @@ class HeaderLonnFilters extends Component<Props, State> {
                 styles.visualizationheader_container_modal_filters_header
               }
             >
-              <Translate nb="Arbeidstid" />
+              <Translate nb="Antall år etter fullført utdanning" />
               {showHeaderHelpText ? (
                 <span
                   className={
                     styles.visualizationheader_container_modal_filters_header_icon
                   }
-                  onClick={() => this.onClickHelpText("Arbeidstid")}
+                  onClick={() => this.onClickHelpText("Fullført")}
                 >
                   (?)
-                  {this.state.shownHelpText === "Arbeidstid" ? (
+                  {this.state.shownHelpText === "Fullført" ? (
                     <div
                       className={
                         styles.visualizationheader_container_modal_filters_header_helptext
@@ -69,86 +61,7 @@ class HeaderLonnFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate nb="Vis tall beregnet på grunnlag av de som jobber heltid, deltid, eller alle arbeidstider." />
-                      </div>
-                      <div
-                        className={
-                          styles.visualizationheader_container_modal_filters_header_helptext_closeIcon
-                        }
-                        onClick={() => this.onClickHelpText("")}
-                      >
-                        <CloseIcon />
-                      </div>
-                    </div>
-                  ) : null}
-                </span>
-              ) : null}
-            </div>
-          ) : null}
-          <RadioButtonGroup
-            group={[
-              {
-                text: <Translate nb="Heltid" />,
-                selected: Arbeidstid === "H",
-                valueKey: "H",
-                helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber heltid." />
-                ) : (
-                  undefined
-                ),
-              },
-              {
-                text: <Translate nb="Deltid" />,
-                selected: Arbeidstid === "D",
-                valueKey: "D",
-                helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber deltid." />
-                ) : (
-                  undefined
-                ),
-              },
-              {
-                text: <Translate nb="Begge" />,
-                selected: Arbeidstid === "A",
-                valueKey: "A",
-                helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber heltid og deltid." />
-                ) : (
-                  undefined
-                ),
-              },
-            ]}
-            onChange={event => this.props.onFilterClicked(event, "Arbeidstid")}
-          />
-        </ul>
-        <ul>
-          {showHeaders ? (
-            <div
-              className={
-                styles.visualizationheader_container_modal_filters_header
-              }
-            >
-              <Translate nb="Sektor" />
-              {showHeaderHelpText ? (
-                <span
-                  className={
-                    styles.visualizationheader_container_modal_filters_header_icon
-                  }
-                  onClick={() => this.onClickHelpText("Sektor")}
-                >
-                  (?)
-                  {this.state.shownHelpText === "Sektor" ? (
-                    <div
-                      className={
-                        styles.visualizationheader_container_modal_filters_header_helptext
-                      }
-                    >
-                      <div
-                        className={
-                          styles.visualizationheader_container_modal_filters_header_helptext_content
-                        }
-                      >
-                        <Translate nb="Vis tall beregnet på grunnlag av de som jobber i privat / statlig / kommunal sektor, eller alle sektorer." />
+                        <Translate nb="Vis tall beregnet på grunnlag av antall år etter fullført utdanning." />
                       </div>
                       <div
                         className={
@@ -168,46 +81,36 @@ class HeaderLonnFilters extends Component<Props, State> {
             group={[
               {
                 text: <Translate nb="Alle" />,
-                selected: Sektor === "A",
+                selected: Fullført === "A",
                 valueKey: "A",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i både privat, statlig og kommunal sektor." />
+                  <Translate nb="Viser tall uavhengig av hvor lenge det er siden fullført utdanning." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Privat" />,
-                selected: Sektor === "P",
-                valueKey: "P",
+                text: <Translate nb="0-4 år" />,
+                selected: Fullført === "04",
+                valueKey: "04",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i privat sektor." />
+                  <Translate nb="Viser tall for de som har fullført utdanning innen 0-4 år." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Statlig" />,
-                selected: Sektor === "S",
-                valueKey: "S",
+                text: <Translate nb="5 år eller mer" />,
+                selected: Fullført === "5",
+                valueKey: "5",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i statlig sektor." />
-                ) : (
-                  undefined
-                ),
-              },
-              {
-                text: <Translate nb="Kommunal" />,
-                selected: Sektor === "K",
-                valueKey: "K",
-                helptext: showHelpText ? (
-                  <Translate nb="Viser tall beregnet på grunnlag av de som jobber i kommunal sektor." />
+                  <Translate nb="Viser tall for de som har fullført utdanning for 5 år siden eller mer." />
                 ) : (
                   undefined
                 ),
               },
             ]}
-            onChange={event => this.props.onFilterClicked(event, "Sektor")}
+            onChange={event => this.props.onFilterClicked(event, "Fullført")}
           />
         </ul>
         <ul>
@@ -448,16 +351,9 @@ class HeaderLonnFilters extends Component<Props, State> {
             onChange={event => this.props.onFilterClicked(event, "Tidsenhet")}
           />
         </ul>
-
-        <HeaderModalKjonn
-          kjønn={Kjønn}
-          onFilterClicked={this.props.onFilterClicked}
-          showHelpText={showHelpText}
-          showHeaders={showHeaders}
-        />
       </div>
     );
   }
 }
 
-export default HeaderLonnFilters;
+export default UtdanningLonnHeaderFilters;

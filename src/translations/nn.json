@@ -26,8 +26,6 @@
   "Viser sum lønn utbetalt månedlig.": "Viser sum lønn utbetala månedleg.",
   "Per time": "Per time",
   "Viser sum lønn utbetalt per time.": "Viser sum lønn utbetala per time.",
-  "Brutto": "Brutto",
-  "Viser sum lønn utbetalt i brutto, eksklusive overtid.": "Viser sum lønn utbetala i brutto, eksklusive overtid.",
   "Inklusiv overtid": "Inklusiv overtid",
   "Viser sum lønn utbetalt inklusive overtid.": "Viser sum lønn utbetala inklusiv overtid.",
   "Median": "Median",
@@ -94,5 +92,16 @@
   "Vil du vite mer om": null,
   "yrket": null,
   "utdannelse til": null,
-  "Les mer": null
+  "Les mer": null,
+  "Avtalt lønn": null,
+  "Viser sum lønn utbetalt i avtalt lønn, eksklusive overtid.": null,
+  "Antall år etter fullført utdanning": null,
+  "Vis tall beregnet på grunnlag av antall år etter fullført utdanning.": null,
+  "Viser tall uavhengig av hvor lenge det er siden fullført utdanning.": null,
+  "0-4 år": null,
+  "Viser tall for de som har fullført utdanning innen 0-4 år.": null,
+  "5 år eller mer": null,
+  "Viser tall for de som har fullført utdanning for 5 år siden eller mer.": null,
+  "0-4 år etter fullført utdanning": null,
+  "5 år eller mer etter fullført utdanning": null
 }

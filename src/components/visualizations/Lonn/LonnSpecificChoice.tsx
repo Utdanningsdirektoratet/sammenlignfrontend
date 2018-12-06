@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { LonnElement } from "../../../data/ApiTypes";
 import OpenIcon from "../Generic/OpenIcon";
 import CloseIcon2 from "../Generic/CloseIcon2";
 import Translate from "../../app/Translate";
@@ -9,7 +8,7 @@ import ClickOutsideListener from "../../utils/ClickOutsideListner";
 
 type Props = {
   onChange: (uno_id: string, ssb_sektor: string) => void;
-  data: LonnElement;
+  data: any;
   selectedChoice: string;
   unoId: string;
 };

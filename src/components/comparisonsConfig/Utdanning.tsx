@@ -10,8 +10,15 @@ import PieChart from "../visualizations/Generic/PieChart";
 import { SektorConfig } from "../visualizations/Sektor/SektorConfig";
 import BarChart from "../visualizations/Generic/BarChart";
 import LenkeVisualization from "../visualizations/Lenke/LenkeVisualization";
+import UtdanningLonnWrapper from "../visualizations/UtdanningLonn/UtdanningLonnWrapper";
 
 const Utdanning: SammenligningTemplate[] = [
+  {
+    title: "Lønn",
+    widget_id: "utdanninglonn",
+    path: "/rest/lonn2",
+    Component: UtdanningLonnWrapper,
+  },
   {
     title: "Arbeidsledighet",
     widget_id: "arbeidsledighet",
