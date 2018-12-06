@@ -3,10 +3,10 @@ import { ComparisonComponentProps } from "../../comparisonsConfig";
 import { MainElement } from "../../../data/ApiTypes";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 import Translate from "../../app/Translate";
-import styles from "./LenkeVisualization.module.scss";
-import { ReactComponent as Greaterthan } from "../../../fontawesome/solid/greater-than.svg";
+import styles from "./LenkeVisualizationWrapper.module.scss";
+import { ReactComponent as GreaterThan } from "../../../fontawesome/solid/greater-than.svg";
 
-class LenkeVisualization extends Component<
+class LenkeVisualizationWrapper extends Component<
   ComparisonComponentProps<MainElement>
 > {
   render() {
@@ -19,13 +19,19 @@ class LenkeVisualization extends Component<
           return (
             <div className={`${styles.container}`}>
               <h1 className={`${styles.container_title}`}>
-                <Translate nb="Vil du vite mer om" />{" "}
                 {unoIdData.innholdstype === "yrke" ? (
-                  <Translate nb="yrket" />
+                  <Translate
+                    nb="Vil du vite mer om yrket %yrke%?"
+                    replacements={{ "%yrke%": unoIdData.tittel.toLowerCase() }}
+                  />
                 ) : (
-                  <Translate nb="utdannelse til" />
+                  <Translate
+                    nb="Vil du vite mer om utdannelse til %utdannelse%?"
+                    replacements={{
+                      "%utdannelse%": unoIdData.tittel.toLowerCase(),
+                    }}
+                  />
                 )}
-                {" " + unoIdData.tittel.toLowerCase() + "?"}
               </h1>
               <a
                 className={`${styles.container_link}`}
@@ -33,7 +39,7 @@ class LenkeVisualization extends Component<
                 target="_blank"
               >
                 <Translate nb="Les mer" />
-                <Greaterthan className={`${styles.container_link_icon}`} />
+                <GreaterThan className={`${styles.container_link_icon}`} />
               </a>
             </div>
           );
@@ -43,4 +49,4 @@ class LenkeVisualization extends Component<
   }
 }
 
-export default LenkeVisualization;
+export default LenkeVisualizationWrapper;

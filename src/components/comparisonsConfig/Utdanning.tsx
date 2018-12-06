@@ -9,7 +9,7 @@ import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/Entrepreno
 import PieChart from "../visualizations/Generic/PieChart";
 import { SektorConfig } from "../visualizations/Sektor/SektorConfig";
 import BarChart from "../visualizations/Generic/BarChart";
-import LenkeVisualization from "../visualizations/Lenke/LenkeVisualization";
+import LenkeVisualizationWrapper from "../visualizations/Lenke/LenkeVisualizationWrapper";
 import UtdanningLonnWrapper from "../visualizations/UtdanningLonn/UtdanningLonnWrapper";
 
 const Utdanning: SammenligningTemplate[] = [
@@ -78,7 +78,7 @@ const Utdanning: SammenligningTemplate[] = [
     title: "Lenke",
     widget_id: "lenke",
     path: "/rest/main",
-    Component: LenkeVisualization,
+    Component: LenkeVisualizationWrapper,
   },
 ];
 export default Utdanning;
