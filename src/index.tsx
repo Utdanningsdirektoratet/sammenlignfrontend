@@ -11,9 +11,9 @@ import "./util/NoUndefinedClass";
 import Widget from "./components/widget/Widget";
 import { Lang } from "./components/app/Translate";
 
-const root = document.getElementById("root");
+const root = document.getElementById("udir_sammenligning_root_8rBHo7hGy");
 if (root) {
-  ReactModal.setAppElement("#root");
+  ReactModal.setAppElement("#udir_sammenligning_root_8rBHo7hGy");
   ReactDOM.render(<App />, root);
 }
 
