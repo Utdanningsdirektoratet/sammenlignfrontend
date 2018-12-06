@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from "react";
-import { LonnElement, Sektor } from "../../../data/ApiTypes";
+import { LonnElement } from "../../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
+  Tidsenhet,
+  Lønn,
+  StatistiskMål,
 } from "./VisualizationHeaderLonn";
 import NoData from "../Old/NoData";
 import LonnVisualization from "./LonnVisualization";
@@ -9,6 +12,67 @@ import LonnSpecificChoice from "./LonnSpecificChoice";
 import { ComparisonComponentProps } from "../../comparisonsConfig";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
+
+export function getTimeUnit(wageCalc: number, tidsenhet: Tidsenhet) {
+  switch (tidsenhet) {
+    case "Årlig":
+      wageCalc *= 12;
+      break;
+    case "Månedlig":
+      break;
+    case "Ca. timelønn":
+      wageCalc = wageCalc / 30 / 7.5;
+  }
+  return wageCalc;
+}
+
+export function getMaxValue(
+  kjønn: string,
+  data: any,
+  lønn: Lønn,
+  statistiskMål: StatistiskMål,
+  dataSelector: any,
+  tidsenhet: Tidsenhet
+) {
+  let wage = kjønn + "_wage";
+
+  switch (lønn) {
+    case "Brutto":
+      break;
+    case "Med overtid":
+      wage += "_overtime";
+      break;
+  }
+
+  switch (statistiskMål) {
+    case "Median":
+      wage += "_median";
+      break;
+    case "Gjennomsnitt":
+      wage += "_avg";
+      break;
+    case "Median og kvartiler":
+      wage += "_q3";
+      break;
+  }
+
+  if (!data[dataSelector]) return 0;
+  if (!data[dataSelector][wage] && lønn !== "Med overtid") return 0;
+  let wageCalc = (data[dataSelector][wage] as number) || 0;
+  wageCalc = getTimeUnit(wageCalc, tidsenhet);
+
+  if (lønn === "Med overtid") {
+    let brutto = wage.replace("_overtime", "");
+    let bruttoCalc = 0;
+    if (data[dataSelector][brutto])
+      bruttoCalc = data[dataSelector][brutto] as number;
+    bruttoCalc = getTimeUnit(bruttoCalc, tidsenhet);
+
+    wageCalc += bruttoCalc;
+  }
+
+  return Math.round(wageCalc);
+}
 
 class LonnWrapper extends Component<
   ComparisonComponentProps<LonnElement>,
@@ -38,61 +102,6 @@ class LonnWrapper extends Component<
   };
   setConfig = (config: VisualizationHeaderConfigLonn) => {
     this.setState(config);
-  };
-
-  getTimeUnit = (wageCalc: number) => {
-    switch (this.state.Tidsenhet) {
-      case "Årlig":
-        wageCalc *= 12;
-        break;
-      case "Månedlig":
-        break;
-      case "Ca. timelønn":
-        wageCalc = wageCalc / 30 / 7.5;
-    }
-    return wageCalc;
-  };
-
-  getMaxValue = (kjønn: string, data: any) => {
-    let wage = kjønn + "_wage";
-
-    switch (this.state.Lønn) {
-      case "Brutto":
-        break;
-      case "Med overtid":
-        wage += "_overtime";
-        break;
-    }
-
-    switch (this.state.StatistiskMål) {
-      case "Median":
-        wage += "_median";
-        break;
-      case "Gjennomsnitt":
-        wage += "_avg";
-        break;
-      case "Median og kvartiler":
-        wage += "_q3";
-        break;
-    }
-
-    if (!data[this.state.Arbeidstid]) return 0;
-    if (!data[this.state.Arbeidstid][wage] && this.state.Lønn !== "Med overtid")
-      return 0;
-    let wageCalc = (data[this.state.Arbeidstid][wage] as number) || 0;
-    wageCalc = this.getTimeUnit(wageCalc);
-
-    if (this.state.Lønn === "Med overtid") {
-      let brutto = wage.replace("_overtime", "");
-      let bruttoCalc = 0;
-      if (data[this.state.Arbeidstid][brutto])
-        bruttoCalc = data[this.state.Arbeidstid][brutto] as number;
-      bruttoCalc = this.getTimeUnit(bruttoCalc);
-
-      wageCalc += bruttoCalc;
-    }
-
-    return Math.round(wageCalc);
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -147,13 +156,34 @@ class LonnWrapper extends Component<
       let unoData = data[uno_id][ssbSektor][Sektor];
 
       if (this.state.Kjønn === "A") {
-        var wage = this.getMaxValue("A", unoData);
-        if (maxValue < wage) maxValue = wage;
+        var wage = getMaxValue(
+          "A",
+          unoData,
+          this.state.Lønn,
+          this.state.StatistiskMål,
+          this.state.Arbeidstid,
+          this.state.Tidsenhet
+        );
+        if (maxValue < (wage || 0)) maxValue = wage || 0;
       } else {
-        var wageM = this.getMaxValue("M", unoData);
-        if (maxValue < wageM) maxValue = wageM;
-        var wageK = this.getMaxValue("K", unoData);
-        if (maxValue < wageK) maxValue = wageK;
+        var wageM = getMaxValue(
+          "M",
+          unoData,
+          this.state.Lønn,
+          this.state.StatistiskMål,
+          this.state.Arbeidstid,
+          this.state.Tidsenhet
+        );
+        if (maxValue < (wageM || 0)) maxValue = wageM || 0;
+        var wageK = getMaxValue(
+          "K",
+          unoData,
+          this.state.Lønn,
+          this.state.StatistiskMål,
+          this.state.Arbeidstid,
+          this.state.Tidsenhet
+        );
+        if (maxValue < (wageK || 0)) maxValue = wageK || 0;
       }
     });
 

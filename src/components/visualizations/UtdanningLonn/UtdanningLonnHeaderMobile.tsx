@@ -1,33 +1,20 @@
-import { Arbeidstid, Sektor, Kjønn } from "../../../data/ApiTypes";
 import React, { Component } from "react";
+import { UtdanningLonnConfig } from "./UtdanningLonnConfig";
 import Translate from "../../app/Translate";
-import styles from "../Shared/VisualizationFilterHeader.module.scss";
-import HeaderLonnFilters from "./HeaderLonnFilters";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
-
-export type VisualizationHeaderConfigLonn = {
-  Arbeidstid: Arbeidstid;
-  Sektor: Sektor;
-  Tidsenhet: Tidsenhet;
-  Lønn: Lønn;
-  StatistiskMål: StatistiskMål;
-  Kjønn: Kjønn;
-  ssbSektor: { [uno_id: string]: string };
-};
-
-export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
-export type Lønn = "Brutto" | "Med overtid";
-export type StatistiskMål = "Median" | "Gjennomsnitt" | "Median og kvartiler";
+import styles from "../Shared/VisualizationFilterHeader.module.scss";
+import UtdanningLonnHeaderFilters from "./UtdanningLonnHeaderFilters";
 
 type Props = {
-  config: VisualizationHeaderConfigLonn;
-  setConfig: (config: VisualizationHeaderConfigLonn) => void;
+  config: UtdanningLonnConfig;
+  setConfig: (config: UtdanningLonnConfig) => void;
   onFilterClicked: (event: any, key: string) => void;
 };
 
 type State = {
   open: boolean;
 };
+
 const LonnTranslations = {
   Brutto: <Translate nb="Avtalt lønn" />,
   "Med overtid": <Translate nb="Med overtid" />,
@@ -44,9 +31,8 @@ const TidsenhetTranslations = {
   "Ca. timelønn": <Translate nb="Ca. timelønn" />,
 };
 
-class VisualizationHeaderLonn extends Component<Props, State> {
+class UtdanningLonnHeaderMobile extends Component<Props, State> {
   state = { open: false };
-
   onFilterButtonClick = (open: boolean) => {
     this.setState({ open: open });
   };
@@ -55,16 +41,10 @@ class VisualizationHeaderLonn extends Component<Props, State> {
   };
 
   render() {
-    const {
-      Arbeidstid,
-      Sektor,
-      Tidsenhet,
-      Lønn,
-      StatistiskMål,
-      Kjønn,
-    } = this.props.config;
+    const { Tidsenhet, Lønn, StatistiskMål, Fullført } = this.props.config;
     let Modal = null;
-    if (!this.props.config.Arbeidstid) return null;
+    if (!this.props.config.Lønn) return null;
+
     if (this.state.open)
       Modal = (
         <ClickOutsideListener
@@ -95,7 +75,7 @@ class VisualizationHeaderLonn extends Component<Props, State> {
               />
             </div>
           </div>
-          <HeaderLonnFilters
+          <UtdanningLonnHeaderFilters
             config={this.props.config}
             onFilterClicked={this.props.onFilterClicked}
             showHelpText={true}
@@ -122,45 +102,20 @@ class VisualizationHeaderLonn extends Component<Props, State> {
               <ul>
                 (
                 <li>
-                  {Arbeidstid === "A" ? (
-                    <span>
-                      <Translate nb="Begge" />
-                      {","}
-                    </span>
-                  ) : Arbeidstid === "D" ? (
-                    <span>
-                      <Translate nb="Deltid" />
-                      {","}
-                    </span>
-                  ) : (
-                    <span key={Arbeidstid}>
-                      <Translate nb="Heltid" />
-                      {","}
-                    </span>
-                  )}
-                </li>
-                <li>
-                  {Sektor === "A" ? (
+                  {Fullført === "A" ? (
                     <span>
                       <Translate nb="Alle" />
-                      {","}
                     </span>
-                  ) : Sektor === "K" ? (
+                  ) : Fullført === "04" ? (
                     <span>
-                      <Translate nb="Kommunal" />
-                      {","}
-                    </span>
-                  ) : Sektor === "P" ? (
-                    <span>
-                      <Translate nb="Privat" />
-                      {","}
+                      <Translate nb="0-4 år etter fullført utdanning" />
                     </span>
                   ) : (
                     <span>
-                      <Translate nb="Statlig" />
-                      {","}
+                      <Translate nb="5 år eller mer etter fullført utdanning" />
                     </span>
                   )}
+                  {","}
                 </li>
                 <li>
                   {LonnTranslations[Lønn]}
@@ -170,22 +125,7 @@ class VisualizationHeaderLonn extends Component<Props, State> {
                   {StatistiskMålTranslations[StatistiskMål]}
                   {","}
                 </li>
-                <li>
-                  {TidsenhetTranslations[Tidsenhet]}
-                  {","}
-                </li>
-                <li>
-                  {Kjønn === "A" ? (
-                    <span>
-                      <Translate nb="Alle" />
-                    </span>
-                  ) : (
-                    <span>
-                      <Translate nb="Kvinner og menn" />
-                    </span>
-                  )}
-                </li>
-                )
+                <li>{TidsenhetTranslations[Tidsenhet]}</li>)
               </ul>
             </span>
             <span
@@ -202,4 +142,5 @@ class VisualizationHeaderLonn extends Component<Props, State> {
     );
   }
 }
-export default VisualizationHeaderLonn;
+
+export default UtdanningLonnHeaderMobile;
