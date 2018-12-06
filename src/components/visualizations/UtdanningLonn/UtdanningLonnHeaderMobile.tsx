@@ -16,8 +16,8 @@ type State = {
 };
 
 const LonnTranslations = {
-  Brutto: <Translate nb="Avtalt lønn" />,
-  "Med overtid": <Translate nb="Med overtid" />,
+  Brutto: <Translate nb="Månedslønn" />,
+  "Med overtid": <Translate nb="Avtalt lønn" />,
 };
 const StatistiskMålTranslations = {
   Median: <Translate nb="Median" />,
