@@ -5,6 +5,9 @@
     word-break: break-word;
     font-size: 1.3em;
     margin-bottom: 20px;
+    &_tittel {
+      text-transform: lowercase;
+    }
   }
   &_link {
     border: 2px solid $color-primary;

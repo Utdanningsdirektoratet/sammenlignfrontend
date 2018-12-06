@@ -24,8 +24,10 @@ class LenkeVisualization extends Component<
                   <Translate nb="yrket" />
                 ) : (
                   <Translate nb="utdannelse til" />
-                )}
-                {" " + unoIdData.tittel + "?"}
+                )}{" "}
+                <span className={`${styles.container_title_tittel}`}>
+                  {unoIdData.tittel}?
+                </span>
               </h1>
               <a
                 className={`${styles.container_link}`}
