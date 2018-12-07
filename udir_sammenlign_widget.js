@@ -15,11 +15,11 @@
 
     // Include required scripts for the widget
     var script0 = document.createElement('script');
-    script0.src = domain + "/static/js/main.08d3ec56.chunk.js";
+    script0.src = domain + "/static/js/main.120a594e.chunk.js";
     document.body.append(script0);
 
     var script1 = document.createElement('script');
-    script1.src = domain + "/static/js/1.e33aa9cc.chunk.js";
+    script1.src = domain + "/static/js/1.15e2638f.chunk.js";
     document.body.append(script1);
 
     var script2 = document.createElement('script');
@@ -29,7 +29,7 @@
     // Include styles
     var style0 = document.createElement('link');
     style0.rel = "stylesheet";
-    style0.href = domain + "/static/css/main.6923eeec.chunk.css";
+    style0.href = domain + "/static/css/main.1bb985e1.chunk.css";
     document.head.appendChild(style0);
 
 })()
