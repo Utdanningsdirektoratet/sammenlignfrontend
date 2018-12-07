@@ -109,7 +109,7 @@ class App extends Component<{}, AppState> {
   };
   replaceUnoId = (old_uno_id: string, new_uno_id: string) => {
     this.setState(prevState => {
-      let selected = prevState.selected_uno_id;
+      let selected = [...prevState.selected_uno_id];
       let thisIndex = prevState.selected_uno_id.indexOf(old_uno_id);
       if (thisIndex !== -1) {
         selected[thisIndex] = new_uno_id;
