@@ -24,7 +24,5 @@
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
     }
-    @media (min-width: $min-not-mobile) {
-    }
   }
 }
