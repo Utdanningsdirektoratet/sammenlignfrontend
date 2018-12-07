@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .selection {
   width: 100%;
   background-color: #e4e4e4;
@@ -8,12 +9,13 @@
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    @media (max-width: 575px) {
+    @media (max-width: $max-mobile) {
       justify-content: center;
       width: 100%;
+      position: relative;
     }
     .searchbox {
-      @media (max-width: 575px) {
+      @media (max-width: $max-mobile) {
         display: none;
       }
     }
@@ -42,17 +44,18 @@
   font-size: 1em;
   width: 10em;
   text-align: center;
-  &:last-child {
-    margin-left: 20px;
-  }
+
   svg {
     position: relative;
     height: 1.2em;
     float: right;
   }
+  &_interests {
+    margin-left: 20px;
+  }
 }
 
-.dropdown {
+.notdropdown {
   width: 80%;
   margin: auto;
   border-top: solid 1px black;
@@ -62,4 +65,25 @@
 
 .unselected {
   background-color: lightgray;
+}
+
+.filterContainer {
+  display: flex;
+  .dropdown_container {
+    position: relative;
+    @media (max-width: $max-mobile) {
+      position: unset;
+    }
+    .dropdown {
+      position: absolute;
+      width: 300px;
+      background-color: white;
+      z-index: 1020;
+
+      @media (max-width: $max-mobile) {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
 }

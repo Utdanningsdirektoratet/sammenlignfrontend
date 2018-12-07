@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
@@ -33,7 +33,11 @@ type Props = RouteComponentProps<{
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
-    data: { list: [] as MainElement[], interesser: [] as string[] },
+    data: {
+      list: [] as MainElement[],
+      interesser: [] as string[],
+      nivåer: [] as string[],
+    },
     redirectToHomepage: false,
   };
 
@@ -60,14 +64,35 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
   getFilteredList = () => {
     const interesserSelected = this.props.appState.selected_interests;
+    const nivåerSelected = this.props.appState.selected_nivåer;
     const list = this.state.data.list;
-    if (!interesserSelected || interesserSelected.length === 0) return list;
-    return list.filter(l => {
-      if (!l.interesser) return false;
+    if (
+      (!interesserSelected || interesserSelected.length === 0) &&
+      (!nivåerSelected || nivåerSelected.length === 0)
+    )
+      return list;
 
-      return l.interesser.some(i => {
-        return interesserSelected.indexOf(i) > -1;
-      });
+    return list.filter(l => {
+      if ((!l.interesser && !l.utdanningstype) || !l.utdanningstype)
+        return false;
+
+      let hasInterests = l.interesser
+        ? l.interesser.some(i => {
+            return interesserSelected.indexOf(i) > -1;
+          })
+        : false;
+
+      if (!hasInterests && interesserSelected.length > 0) return false;
+
+      let hasNivåer =
+        l.utdanningstype && typeof l.utdanningstype !== "string"
+          ? l.utdanningstype.some((u: string) => {
+              return nivåerSelected.indexOf(u) > -1;
+            })
+          : false;
+
+      if (!hasNivåer && nivåerSelected.length > 0) return false;
+      return true;
     });
   };
   handleItemClick = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,9 +127,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     const {
       selected_interests: interesserSelected,
       selected_uno_id,
+      selected_nivåer: nivåerSelected,
     } = this.props.appState;
     const {
-      data: { interesser, list },
+      data: { interesser, list, nivåer },
       redirectToHomepage,
     } = this.state;
     if (redirectToHomepage) {
@@ -153,10 +179,13 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
           <InterestsHeader
             innholdstype={innholdstype}
             interesser={interesser}
-            selected={interesserSelected}
+            nivåer={nivåer}
+            selectedInterests={interesserSelected}
+            selectedNivåer={nivåerSelected}
             toggleSelectedInterest={this.props.appState.toggleInterest}
+            toggleSelectedNivå={this.props.appState.toggleNivå}
             toggleSelectedInterests={this.props.appState.toggleInterests}
-            removeAllSelected={this.props.appState.clearInterest}
+            removeAllSelectedInterests={this.props.appState.clearInterest}
           />
           <AlphabetFilter
             list={this.getFilteredList()}

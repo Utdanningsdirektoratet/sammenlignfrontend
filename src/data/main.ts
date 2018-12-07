@@ -17,7 +17,7 @@ export function getMain(result: (data: Main) => void) {
     API_DOMAIN +
       "/rest/main?" +
       objectToQueryString({
-        felt: "tittel,interesser",
+        felt: "tittel,interesser,utdanningstype",
       })
   )
     .then(response => response.json())
@@ -42,13 +42,18 @@ function getGeneric(result: (data: DataList) => void, prefix: "u" | "y" | "s") {
         a.tittel < b.tittel ? -1 : a.tittel > b.tittel ? 1 : 0
       );
     const interesser: { [key: string]: boolean } = {};
+    const nivåer: { [key: string]: boolean } = {};
     list.forEach((el: MainElement) => {
       if (el.interesser) {
         el.interesser.forEach(i => (interesser[i] = true));
       }
+      if (el.utdanningstype && typeof el.utdanningstype !== "string") {
+        (el.utdanningstype as string[]).forEach(i => (nivåer[i] = true));
+      }
     });
     const interesseKeys = Object.keys(interesser).sort();
-    result({ list, interesser: interesseKeys });
+    const nivåKeys = Object.keys(nivåer);
+    result({ list, interesser: interesseKeys, nivåer: nivåKeys });
   });
 }
 
