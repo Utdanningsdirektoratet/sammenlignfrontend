@@ -11,6 +11,7 @@ export type ComparisonComponentProps<Data> = {
 
 export interface SammenligningTemplate {
   title: string;
+  description?: string;
   widget_id: string;
   path: string;
   query?: QueryObject;

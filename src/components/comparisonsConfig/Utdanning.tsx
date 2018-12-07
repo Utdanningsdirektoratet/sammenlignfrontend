@@ -1,7 +1,10 @@
 import React from "react";
 
 import { SammenligningTemplate } from "./index";
-import { MainElement } from "../../data/ApiTypes";
+import {
+  MainElement,
+  ArbeidsmarkedUtdanningElement,
+} from "../../data/ApiTypes";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 import NoData from "../visualizations/Old/NoData";
 import { TranslateString } from "../app/Translate";
@@ -72,6 +75,19 @@ const Utdanning: SammenligningTemplate[] = [
       ) : (
         <BarChart values={SektorConfig.values} element={element} />
       );
+    },
+  },
+  {
+    title: "Arbeidsmarked",
+    description: TranslateString("Vanligste yrker for utdanningen"),
+    widget_id: "arbeidsmarkedUtdanning",
+    path: "/rest/utdanning2yrke",
+    render: (element: ArbeidsmarkedUtdanningElement[]) => {
+      let values = element.map(e => {
+        return { label: e.yrkeskode_styrk08_navn, value: e.antall_personer };
+      });
+
+      return <BarChart values={values} element={element} />;
     },
   },
   {

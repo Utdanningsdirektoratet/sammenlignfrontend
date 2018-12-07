@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Plotly from "../Generic/Plotly";
-import { MainElement } from "../../../data/ApiTypes";
 
 type Props = {
-  element: MainElement;
-  values: { label: string; value: string }[];
+  element: any;
+  values: { label: string; value: string | number }[];
 };
 
 class BarChart extends Component<Props> {
@@ -15,6 +14,7 @@ class BarChart extends Component<Props> {
         data={[
           {
             y: values.map(v => {
+              if (typeof v.value === "number") return v.value || 0;
               return (element as any)[v.value] || 0;
             }),
             x: values.map(v => {

@@ -6,6 +6,8 @@ import {
   LonnElement,
   ArbeidsledighetElement,
   EntrepenorElement,
+  ArbeidsmarkedYrkeElement,
+  ArbeidsmarkedUtdanningElement,
 } from "../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
@@ -82,6 +84,35 @@ const Yrke: SammenligningTemplate[] = [
       ) : (
         <BarChart values={SektorConfig.values} element={element} />
       );
+    },
+  },
+  {
+    title: "Arbeidsmarked",
+    description: TranslateString("Andre like yrker"),
+    widget_id: "arbeidsmarkedUtdanning",
+    path: "/rest/utdanning2yrke",
+    render: (element: ArbeidsmarkedUtdanningElement[]) => {
+      let values = element.map(e => {
+        return { label: e.yrkeskode_styrk08_navn, value: e.antall_personer };
+      });
+
+      return <BarChart values={values} element={element} />;
+    },
+  },
+  {
+    title: "Utdanningsbakgrunn",
+    description: TranslateString("Vanligste utdanningsbakgrunn for yrke"),
+    widget_id: "arbeidsmarkedYrke",
+    path: "/rest/yrke2utdanning",
+    render: (element: ArbeidsmarkedYrkeElement[]) => {
+      let values = element.map(e => {
+        return {
+          label: e.utdanningskode_nus_kortnavn,
+          value: e.antall_personer,
+        };
+      });
+
+      return <BarChart values={values} element={element} />;
     },
   },
   {
