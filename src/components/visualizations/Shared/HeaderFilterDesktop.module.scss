@@ -1,5 +1,6 @@
+@import "src/styles/_constants.scss";
 .container {
-  @media (max-width: 575px) {
+  @media (max-width: $max-mobile) {
     display: none;
   }
 

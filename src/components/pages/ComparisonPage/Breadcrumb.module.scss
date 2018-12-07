@@ -5,6 +5,11 @@
   > * {
     margin: 2%;
   }
+  @media (max-width: $max-mobile) {
+    a {
+      width: 190px;
+    }
+  }
   .SearchBox {
     display: none;
   }

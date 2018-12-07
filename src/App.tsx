@@ -13,6 +13,7 @@ import D3TestPage from "./components/pages/D3TestPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 import Widget from "./components/widget/Widget";
 import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./data/config";
+import { MIN_DESKTOP_PX } from "./util/Constants";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -54,7 +55,7 @@ class App extends Component<{}, AppState> {
   allowMoreCompares = (length: number) => {
     const innerWidth = window.innerWidth;
 
-    if (innerWidth < 768) {
+    if (innerWidth < MIN_DESKTOP_PX) {
       return length < NUM_COMPARES_MOBILE;
     } else if (innerWidth < 992) {
       return length < NUM_COMPARES_DESKTOP;
@@ -75,7 +76,7 @@ class App extends Component<{}, AppState> {
       );
 
       let maxCompare = null;
-      if (innerWidth < 768) {
+      if (innerWidth < MIN_DESKTOP_PX) {
         maxCompare = NUM_COMPARES_MOBILE;
       } else {
         maxCompare = NUM_COMPARES_DESKTOP;

@@ -11,7 +11,7 @@
   display: flex;
   border-bottom: 1px solid black;
   margin-bottom: 1em;
-  @media (max-width: 575px) {
+  @media (max-width: $max-mobile) {
     border-bottom: none;
     margin-bottom: 0;
     h3 {
@@ -58,7 +58,7 @@
     @media only screen and (max-width: 600px) {
       width: 60%;
     }
-    @media only screen and (max-width: 575px) {
+    @media only screen and (max-width: $max-mobile) {
       width: 100%;
     }
 
@@ -73,7 +73,7 @@
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
     &_label {
-      @media (max-width: 575px) {
+      @media (max-width: $max-mobile) {
         display: block;
         background-color: lightgrey;
         border-radius: 20px;
@@ -86,7 +86,7 @@
         }
       }
       &_selected {
-        @media (max-width: 575px) {
+        @media (max-width: $max-mobile) {
           background-color: $color-primary;
         }
       }
@@ -105,7 +105,7 @@
     justify-content: center;
     display: flex;
     padding-bottom: 20px;
-    @media (max-width: 575px) {
+    @media (max-width: $max-mobile) {
       display: none;
     }
     &_item {

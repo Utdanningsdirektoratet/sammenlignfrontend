@@ -1,10 +1,12 @@
 $column-width: 235px;
 $column-width-mobile: 48%;
 
-$max-mobile: 575.98px;
-$min-not-mobile: 576px;
+$max-mobile: 767.98px;
+$min-not-mobile: 768px;
+// Samme konstant-verdi brukes i /src/util/Constants.ts
+// Skal denne endres, må den endres begge steder.
 
-$min-with-separate-search-box: 800px;
+$min-with-separate-search-box: 768px;
 
 $color-primary: #f89330;
 $color-primary-light: #fbe5d0;

@@ -19,19 +19,11 @@
     background-color: #fbe5d0;
     padding: 0.5em;
     position: relative;
-    flex: 0 0 $column-width;
+    flex: 0 0 $column-width - 2;
+    margin-right: 2px;
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
       overflow: hidden;
-    }
-    @media (min-width: $min-not-mobile) {
-      @for $i from 1 to 10 {
-        @media (max-width: $i*$column-width) {
-          &:nth-child(#{$i}) {
-            display: none;
-          }
-        }
-      }
     }
   }
   &_item {

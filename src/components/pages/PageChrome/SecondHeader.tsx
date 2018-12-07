@@ -11,10 +11,6 @@ class SecondHeader extends PureComponent {
             UTDANNING.NO
           </div>
           <input placeholder="Finn utdanning, yrke eller skole" />
-          <div>
-            <span>Meny</span>
-            <span>Min Side</span>
-          </div>
         </div>
       </div>
     );

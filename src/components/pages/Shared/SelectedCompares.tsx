@@ -13,6 +13,7 @@ import { NUM_COMPARES_MOBILE } from "../../../data/config";
 import Translate, { TranslateString } from "../../app/Translate";
 import UnoIdSearchModal from "./UnoIdSearchModal";
 import { ReactComponent as Edit } from "../../../fontawesome/solid/edit.svg";
+import { MIN_DESKTOP_PX } from "../../../util/Constants";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -58,7 +59,7 @@ class SelectedCompares extends Component<
 
     let dom: any = [];
 
-    if (innerWidth < 576) {
+    if (innerWidth < MIN_DESKTOP_PX) {
       let boxes = [];
       for (var i = 0; i < NUM_COMPARES_MOBILE; i++) {
         boxes.push(

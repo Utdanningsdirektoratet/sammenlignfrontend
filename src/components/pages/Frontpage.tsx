@@ -1,16 +1,14 @@
 import * as React from "react";
 
 import PageChrome from "./PageChrome/PageChrome";
-import CompareSelection from "./Shared/CompareSelection";
 
 import styles from "./Frontpage.module.scss";
 import SearchBox from "./AlphabeticComparisonPage/SearchBox";
 import Translate from "../app/Translate";
-import { Link } from "react-router-dom";
-import ComparisonRow from "./ComparisonPage/ComparisonRow";
 import Button from "../ui/Button";
 import { num_compare_sizing, ScreenSizeProps } from "../utils/NumCompareSizing";
 import { Innholdstype } from "../../data/ApiTypes";
+import { MIN_DESKTOP_PX } from "../../util/Constants";
 
 type Props = {
   innholdstype?: Innholdstype;
@@ -26,14 +24,14 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
             clearOnBlur={true}
           />
           <Button to="/liste/yrke" type="light">
-            {innerWidth < 576 ? (
+            {innerWidth < MIN_DESKTOP_PX ? (
               <Translate nb="Yrker" />
             ) : (
               <Translate nb="Se oversikt over alle yrker" />
             )}
           </Button>
           <Button to="/liste/utdanning" type="light">
-            {innerWidth < 576 ? (
+            {innerWidth < MIN_DESKTOP_PX ? (
               <Translate nb="Utdanninger" />
             ) : (
               <Translate nb="Se oversikt over alle utdanninger" />
@@ -52,14 +50,14 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                 innholdstype={this.props.innholdstype}
               />
               <Button to="/liste/yrke" type="light">
-                {innerWidth < 576 ? (
+                {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Yrker" />
                 ) : (
                   <Translate nb="Se oversikt over alle yrker" />
                 )}
               </Button>
               <Button to="/sammenligne/utdanning" type="light" selected>
-                {innerWidth < 576 ? (
+                {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Utdanninger" />
                 ) : (
                   <Translate nb="Bytt til å se på utdanninger" />
@@ -76,14 +74,14 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                 innholdstype={this.props.innholdstype}
               />
               <Button to="/liste/utdanning" type="light">
-                {innerWidth < 576 ? (
+                {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Utdanninger" />
                 ) : (
                   <Translate nb="Se oversikt over alle utdanninger" />
                 )}
               </Button>
               <Button to="/sammenligne/yrke" type="light" selected>
-                {innerWidth < 576 ? (
+                {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Yrker" />
                 ) : (
                   <Translate nb="Bytt til å se på yrker" />
