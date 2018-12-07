@@ -1,5 +1,9 @@
 .container {
   margin-left: 60px;
+  @media (max-width: 500px) {
+    margin-left: 0;
+    text-align: center;
+  }
   &_data {
     &_header {
       font-weight: 500;
@@ -8,6 +12,9 @@
       margin-bottom: 20px;
       &_A {
         margin-bottom: 50px;
+        @media (max-width: 500px) {
+          margin-bottom: 10px;
+        }
       }
     }
     &_median {
@@ -22,6 +29,9 @@
           font-weight: 700;
           text-transform: uppercase;
         }
+        @media (max-width: 500px) {
+          margin-bottom: 10px;
+        }
       }
     }
 
@@ -30,6 +40,9 @@
       font-weight: 600;
       display: flex;
       word-break: break-all;
+      @media (max-width: 500px) {
+        display: inline-flex;
+      }
       &_icon {
         background-color: #84012e;
         border-radius: 50%;

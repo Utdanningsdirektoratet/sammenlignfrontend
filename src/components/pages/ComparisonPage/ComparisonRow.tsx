@@ -43,9 +43,19 @@ function ComparisonRow({
     }
   }
 
+  let shownChildren = [];
+  const numberOfRows =
+    innerWidth < 768 ? NUM_COMPARES_MOBILE : NUM_COMPARES_DESKTOP;
+  if (rowLength <= numberOfRows) {
+    shownChildren = children;
+  } else {
+    for (var i = 0; i < numberOfRows; i++) {
+      shownChildren.push(children[i]);
+    }
+  }
   return (
     <div className={`${styles.row_style}`}>
-      {children}
+      {shownChildren}
       {emptyCells}
     </div>
   );
