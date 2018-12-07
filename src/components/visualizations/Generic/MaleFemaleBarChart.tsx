@@ -110,11 +110,11 @@ class MaleFemaleBarChart extends Component<Props> {
             />
           </g>
           <Circle fill={false} x="male" y={male.top} />
-          <Circle fill={true} x="male" y={male.middle} />
           <Circle fill={false} x="male" y={male.bottom} />
+          <Circle fill={true} x="male" y={male.middle} />
           <Circle fill={false} x="female" y={female.top} />
-          <Circle fill={true} x="female" y={female.middle} />
           <Circle fill={false} x="female" y={female.bottom} />
+          <Circle fill={true} x="female" y={female.middle} />
         </g>
       </svg>
     );
