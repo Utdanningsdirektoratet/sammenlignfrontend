@@ -17,6 +17,7 @@ export interface MainElement {
   sektor_antall_selvstendig?: number;
   sektor_antall_offentlig?: number;
   url: string;
+  utdanningstype?: any; //Because for now, yrke and utdanning is different (string and string[])
 }
 
 export interface EntrepenorElement {
@@ -134,6 +135,7 @@ export interface Suggest {
 export type DataList = {
   list: MainElement[];
   interesser: string[];
+  nivåer: string[];
 };
 export type Kjønn = "A" | "KM";
 
@@ -171,4 +173,14 @@ export interface IUtdanningSektor {
 
 export interface UtdanningLonnElement {
   [kategori: string]: IUtdanningSektor;
+}
+
+export interface ArbeidsmarkedYrkeElement {
+  utdanningskode_nus_kortnavn: string;
+  antall_personer: number;
+}
+
+export interface ArbeidsmarkedUtdanningElement {
+  yrkeskode_styrk08_navn: string;
+  antall_personer: number;
 }

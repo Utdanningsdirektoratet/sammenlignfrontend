@@ -6,7 +6,9 @@ export type AppState = {
   toggleUnoId: (uno_id: string) => void;
   replaceUnoId: (old_uno_id: string, new_uno_id: string) => void;
   selected_interests: string[];
+  selected_nivåer: string[];
   toggleInterest: (interest: string) => void;
+  toggleNivå: (nivå: string) => void;
   toggleInterests: (interests: string[]) => void;
   clearInterest: () => void;
   allowMoreCompares: (length: number) => boolean;
