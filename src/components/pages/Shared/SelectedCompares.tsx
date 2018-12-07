@@ -53,7 +53,7 @@ class SelectedCompares extends Component<
       uno_id => uno_id[0].toLowerCase() === innholdstype[0].toLowerCase()
     );
 
-    if (filtered_uno_id.length === 0) {
+    if (filtered_uno_id.length === 0 && innerWidth > MIN_DESKTOP_PX) {
       return null;
     }
 

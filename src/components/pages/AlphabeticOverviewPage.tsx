@@ -20,6 +20,8 @@ import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
 import AlphabetFilter from "../filters/AlphabetFilter";
 import ScrollToTop from "./AlphabeticComparisonPage/ScrollToTop";
+import { num_compare_sizing } from "../utils/NumCompareSizing";
+import { MIN_DESKTOP_PX } from "../../util/Constants";
 
 type State = {
   data: DataList;
@@ -147,23 +149,16 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               <Link to={"/"} className={`${styles.mobile_back_btn}`}>
                 <Translate nb="< Start på nytt" />
               </Link>
-              {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
-                <Link
-                  to={"/sammenligne/" + innholdstype}
-                  className={`${styles.mobile_sammenlign_btn}`}
-                >
-                  <BalanceScale />
-                  <Translate nb="Sammenlign" />
-                </Link>
-              ) : null}
             </div>
             <div className={`${styles.mobile_search}`}>
               <SearchBox innholdstype={innholdstype} clearOnBlur={true} />
             </div>
-
+          </div>
+          <div className={`${styles.sticky_header}`}>
             <SelectedCompares innholdstype={innholdstype} />
 
-            {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
+            {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) &&
+            innerWidth > MIN_DESKTOP_PX ? (
               <div className={`${styles.compare_section_row}`}>
                 <Link
                   to={"/sammenligne/" + innholdstype}
@@ -172,6 +167,30 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
                   <BalanceScale />
                   <Translate nb="Sammenlign" />
                 </Link>
+              </div>
+            ) : null}
+            {innerWidth < MIN_DESKTOP_PX ? (
+              <div className={`${styles.compare_section_row}`}>
+                {selected_uno_id.some(
+                  uno_id => uno_id[0] === innholdstype[0]
+                ) ? (
+                  <Link
+                    to={"/sammenligne/" + innholdstype}
+                    className={`${styles.mobile_sammenlign_btn} `}
+                  >
+                    <BalanceScale />
+                    <Translate nb="Sammenlign" />
+                  </Link>
+                ) : (
+                  <div
+                    className={`${styles.mobile_sammenlign_btn} ${
+                      styles.mobile_sammenlign_btn_disabled
+                    }`}
+                  >
+                    <BalanceScale />
+                    <Translate nb="Sammenlign" />
+                  </div>
+                )}
               </div>
             ) : null}
           </div>
@@ -205,4 +224,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 }
 
-export default with_app_state(AlphabeticOverviewPage);
+export default with_app_state(
+  num_compare_sizing<Props & AppStateProps>(AlphabeticOverviewPage)
+);
