@@ -145,22 +145,24 @@ class LonnVisualization extends Component<Props> {
 
       return (
         <div className={`${visualizationstyles.visualization_container}`}>
-          {showGraphics ? (
-            <ColumnChart
+          <div className={`${styles.chart_container}`}>
+            {showGraphics ? (
+              <ColumnChart
+                kjønn={kjønn}
+                low={q1}
+                mid={median}
+                high={q3}
+                max={maxValue}
+              />
+            ) : null}
+            <LonnKvartilVisualization
               kjønn={kjønn}
               low={q1}
               mid={median}
               high={q3}
-              max={maxValue}
+              tidsenhet={tidsenhet}
             />
-          ) : null}
-          <LonnKvartilVisualization
-            kjønn={kjønn}
-            low={q1}
-            mid={median}
-            high={q3}
-            tidsenhet={tidsenhet}
-          />
+          </div>
         </div>
       );
     }

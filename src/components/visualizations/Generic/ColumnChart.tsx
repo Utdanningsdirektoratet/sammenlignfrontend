@@ -32,7 +32,7 @@ class ColumnChart extends Component<Props> {
   render() {
     const { kjønn, low, mid, high, max } = this.props;
     return (
-      <div>
+      <div className={`${styles.columnchart}`}>
         {kjønn === "A" ? (
           <div className={`${styles.columnchart_container}`}>
             <SingleBarChart
