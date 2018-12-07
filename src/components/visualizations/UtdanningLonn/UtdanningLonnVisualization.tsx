@@ -12,7 +12,7 @@ import styles from "../Lonn/LonnVisualization.module.scss";
 import { KvartilInfo } from "../Lonn/LonnVisualization";
 import ColumnChart from "../Generic/ColumnChart";
 import LonnKvartilVisualization from "../Lonn/LonnKvartilVisualization";
-import { Fullført } from "../Arbeidsledighet/ArbeidsledighetWrapper";
+import { getNumberWithProperSpacing } from "../../../util/NumberWithThousandSpacing";
 
 type Props = {
   data: IUtdanningFullført;
@@ -75,9 +75,7 @@ class UtdanningLonnVisualization extends Component<Props> {
     }
 
     if (notLocale) return Math.round(wageCalc);
-    return Math.round(wageCalc)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return getNumberWithProperSpacing(Math.round(wageCalc));
   };
 
   getTimeUnit = (wage: string) => {

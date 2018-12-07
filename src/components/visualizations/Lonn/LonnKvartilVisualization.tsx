@@ -6,6 +6,7 @@ import Translate from "../../app/Translate";
 import { ReactComponent as Woman } from "../Generic/Woman.svg";
 import { ReactComponent as Man } from "../Generic/Man.svg";
 import { Tidsenhet } from "./VisualizationHeaderLonn";
+import { getNumberWithProperSpacing } from "../../../util/NumberWithThousandSpacing";
 
 type Props = {
   kjønn: Kjønn;
@@ -16,10 +17,6 @@ type Props = {
 };
 
 class LonnKvartilVisualization extends Component<Props> {
-  getNumberWithProperSpacing = (value: any) => {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  };
-
   render() {
     const { kjønn, tidsenhet, low, mid, high } = this.props;
     return (
@@ -39,9 +36,9 @@ class LonnKvartilVisualization extends Component<Props> {
               {!high["A"] ? (
                 <Translate nb="ingen data" />
               ) : tidsenhet === "Ca. timelønn" ? (
-                "ca " + this.getNumberWithProperSpacing(high["A"]) + " kr"
+                "ca " + getNumberWithProperSpacing(high["A"]) + " kr"
               ) : (
-                this.getNumberWithProperSpacing(high["A"]) + " kr"
+                getNumberWithProperSpacing(high["A"]) + " kr"
               )}
             </div>
           ) : (
@@ -50,9 +47,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!high["M"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + this.getNumberWithProperSpacing(high["M"]) + " kr"
+                  "ca " + getNumberWithProperSpacing(high["M"]) + " kr"
                 ) : (
-                  this.getNumberWithProperSpacing(high["M"]) + " kr"
+                  getNumberWithProperSpacing(high["M"]) + " kr"
                 )}
                 <Man />
               </div>
@@ -60,9 +57,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!high["K"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + this.getNumberWithProperSpacing(high["K"]) + " kr"
+                  "ca " + getNumberWithProperSpacing(high["K"]) + " kr"
                 ) : (
-                  this.getNumberWithProperSpacing(high["K"]) + " kr"
+                  getNumberWithProperSpacing(high["K"]) + " kr"
                 )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
@@ -86,9 +83,9 @@ class LonnKvartilVisualization extends Component<Props> {
               {!mid["A"] ? (
                 <Translate nb="ingen data" />
               ) : tidsenhet === "Ca. timelønn" ? (
-                "ca " + this.getNumberWithProperSpacing(mid["A"]) + " kr"
+                "ca " + getNumberWithProperSpacing(mid["A"]) + " kr"
               ) : (
-                this.getNumberWithProperSpacing(mid["A"]) + " kr"
+                getNumberWithProperSpacing(mid["A"]) + " kr"
               )}
             </div>
           ) : (
@@ -97,9 +94,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!mid["M"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + this.getNumberWithProperSpacing(mid["M"]) + " kr"
+                  "ca " + getNumberWithProperSpacing(mid["M"]) + " kr"
                 ) : (
-                  this.getNumberWithProperSpacing(mid["M"]) + " kr"
+                  getNumberWithProperSpacing(mid["M"]) + " kr"
                 )}
                 <Man />
               </div>
@@ -107,9 +104,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!mid["K"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + this.getNumberWithProperSpacing(mid["K"]) + " kr"
+                  "ca " + getNumberWithProperSpacing(mid["K"]) + " kr"
                 ) : (
-                  this.getNumberWithProperSpacing(mid["K"]) + " kr"
+                  getNumberWithProperSpacing(mid["K"]) + " kr"
                 )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
@@ -127,9 +124,9 @@ class LonnKvartilVisualization extends Component<Props> {
               {!low["A"] ? (
                 <Translate nb="ingen data" />
               ) : tidsenhet === "Ca. timelønn" ? (
-                "ca " + this.getNumberWithProperSpacing(low["A"]) + " kr"
+                "ca " + getNumberWithProperSpacing(low["A"]) + " kr"
               ) : (
-                this.getNumberWithProperSpacing(low["A"]) + " kr"
+                getNumberWithProperSpacing(low["A"]) + " kr"
               )}
             </div>
           ) : (
@@ -138,9 +135,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!low["M"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + this.getNumberWithProperSpacing(low["M"]) + " kr"
+                  "ca " + getNumberWithProperSpacing(low["M"]) + " kr"
                 ) : (
-                  this.getNumberWithProperSpacing(low["M"]) + " kr"
+                  getNumberWithProperSpacing(low["M"]) + " kr"
                 )}
                 <Man />
               </div>
@@ -148,9 +145,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!low["K"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + this.getNumberWithProperSpacing(low["K"]) + " kr"
+                  "ca " + getNumberWithProperSpacing(low["K"]) + " kr"
                 ) : (
-                  this.getNumberWithProperSpacing(low["K"]) + " kr"
+                  getNumberWithProperSpacing(low["K"]) + " kr"
                 )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
