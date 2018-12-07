@@ -10,6 +10,7 @@ import LonnKvartilVisualization from "./LonnKvartilVisualization";
 import ColumnChart from "../Generic/ColumnChart";
 import { ReactComponent as Woman } from "../Generic/Woman.svg";
 import { ReactComponent as Man } from "../Generic/Man.svg";
+import { getNumberWithProperSpacing } from "../../../util/NumberWithThousandSpacing";
 
 type Props = {
   data: IArbeidstid;
@@ -91,7 +92,7 @@ class LonnVisualization extends Component<Props> {
     }
 
     if (notLocale) return Math.round(wageCalc);
-    return Math.round(wageCalc).toLocaleString();
+    return getNumberWithProperSpacing(Math.round(wageCalc));
   };
 
   render() {
