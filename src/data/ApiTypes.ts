@@ -174,3 +174,13 @@ export interface IUtdanningSektor {
 export interface UtdanningLonnElement {
   [kategori: string]: IUtdanningSektor;
 }
+
+export interface ArbeidsmarkedYrkeElement {
+  utdanningskode_nus_kortnavn: string;
+  antall_personer: number;
+}
+
+export interface ArbeidsmarkedUtdanningElement {
+  yrkeskode_styrk08_navn: string;
+  antall_personer: number;
+}

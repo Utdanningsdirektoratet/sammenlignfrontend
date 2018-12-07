@@ -8,13 +8,22 @@
     max-width: 30%;
   }
 
-  &.item_title {
-    vertical-align: middle;
-    text-transform: uppercase;
-    margin-left: 50px;
-  }
-
   &.item {
     max-width: 30%;
+
+    &_title {
+      vertical-align: middle;
+      text-transform: uppercase;
+      margin-left: 50px;
+
+      &_withDesc {
+        margin-bottom: 0;
+      }
+    }
+    &_description {
+      margin-top: 0;
+      font-weight: 500;
+      margin-left: 50px;
+    }
   }
 }
