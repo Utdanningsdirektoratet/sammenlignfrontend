@@ -52,6 +52,7 @@ class UnoIdSearchModal extends Component<Props & AppStateProps> {
             onUnoIdClick={this.handleOnUnoIdClicked}
             clearOnBlur={false}
             inlineSuggestions
+            focusOnMount
           />
         </div>
       </ReactModal>
