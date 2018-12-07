@@ -105,9 +105,6 @@
     justify-content: center;
     display: flex;
     padding-bottom: 20px;
-    @media (max-width: $max-mobile) {
-      display: none;
-    }
     &_item {
       background-color: $color-primary;
       color: black;
@@ -116,6 +113,9 @@
       border-radius: 22px;
       width: 10em;
       text-align: center;
+      @media (max-width: $max-mobile) {
+        display: none;
+      }
       svg {
         height: 1.2em;
         margin-bottom: -0.2em;
@@ -133,24 +133,32 @@
   @media (min-width: $min-not-mobile) {
     display: none;
   }
-  .mobile_back_btn,
-  .mobile_sammenlign_btn {
-    border-radius: 22px;
-    border: 1px solid $color-primary;
-    text-decoration: none;
-    padding: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-    color: black;
+}
+
+.mobile_back_btn,
+.mobile_sammenlign_btn {
+  border-radius: 22px;
+  border: 1px solid $color-primary;
+  text-decoration: none;
+  padding: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  color: black;
+}
+.mobile_sammenlign_btn {
+  background-color: white;
+  border-color: black;
+  @media (min-width: $min-not-mobile) {
+    display: none;
   }
-  .mobile_sammenlign_btn {
-    margin-left: 15px;
-    svg {
-      height: 1.2em;
-      margin-bottom: -0.2em;
-      margin-right: 5px;
-    }
+  svg {
+    height: 1.2em;
+    margin-bottom: -0.2em;
+    margin-right: 5px;
+  }
+  &_disabled {
+    background-color: #cccccc;
   }
 }
 
@@ -161,4 +169,9 @@
   @media (min-width: $min-not-mobile) {
     display: none;
   }
+}
+.sticky_header {
+  position: sticky;
+  top: 0px;
+  z-index: 1010;
 }
