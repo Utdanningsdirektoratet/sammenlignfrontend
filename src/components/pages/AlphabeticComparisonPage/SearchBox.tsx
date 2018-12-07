@@ -17,6 +17,7 @@ type Props = {
   onUnoIdClick?: (uno_id: string) => void;
   clearOnBlur: boolean;
   inlineSuggestions?: boolean;
+  focusOnMount?: boolean;
 };
 
 type State = {
@@ -24,7 +25,6 @@ type State = {
   numSuggestions: number;
   searchString: string;
   activeSuggestion: number;
-  isFocused: boolean;
   error: boolean;
   redirect: boolean;
 };
@@ -40,19 +40,26 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     numSuggestions: 0,
     searchString: "",
     activeSuggestion: -1,
-    isFocused: false,
     error: false,
     redirect: false,
   };
   inputRef = React.createRef<HTMLInputElement>();
 
+  componentDidMount = () => {
+    if (this.inputRef.current && this.props.focusOnMount)
+      this.inputRef.current.focus();
+  };
+
   resetState = (value: string) => {
-    this.setState({
-      suggestions: {},
-      numSuggestions: 0,
+    const state: State = {
       searchString: value,
       activeSuggestion: -1,
-    });
+    } as any;
+    if (value.length < 3) {
+      state.numSuggestions = 0;
+      state.suggestions = {};
+    }
+    this.setState(state);
   };
 
   handleChange = (event: any) => {
@@ -120,28 +127,35 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       });
       e.preventDefault();
     } else if (
-      (e.key == "Enter" || e.key == " ") &&
-      this.state.activeSuggestion !== -1
+      (e.key == "Enter" && this.state.numSuggestions > 0) ||
+      (e.key == " " && this.state.activeSuggestion !== -1)
     ) {
+      const activeSuggestion =
+        this.state.activeSuggestion !== -1 ? this.state.activeSuggestion : 0;
       const allSuggestions = Object.keys(this.state.suggestions)
         .map(innholdstype => this.state.suggestions[innholdstype])
         .reduce(
           (previousValue, currentValue) => previousValue.concat(currentValue),
           []
         );
-      const suggestion = allSuggestions[this.state.activeSuggestion];
+      const suggestion = allSuggestions[activeSuggestion];
       if (suggestion) {
         this.handleUnoIdClick(suggestion.uno_id);
       }
+      this.setState({ suggestions: {}, searchString: "" });
     } else if (e.key === "Escape") {
       this.setState({ suggestions: {}, searchString: "" });
-      if (this.inputRef.current) this.inputRef.current.blur();
     } else {
       return;
     }
     e.preventDefault();
   };
   handleUnoIdClick = (uno_id: string) => {
+    this.setState({
+      searchString: "",
+      suggestions: {},
+      redirect: !this.props.innholdstype,
+    });
     if (uno_id) {
       if (this.props.onUnoIdClick) {
         this.props.onUnoIdClick(uno_id);
@@ -149,32 +163,17 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       }
       this.props.appState.toggleUnoId(uno_id);
     }
-    this.setState({
-      redirect: !this.props.innholdstype,
-    });
   };
   handleFocus = () => {
     this.setState({
-      isFocused: true,
       suggestions: {},
     });
   };
 
-  unMounted = false;
-  componentWillUnmount = () => {
-    this.unMounted = true;
-  };
-
   handleBlur = () => {
-    if (this.props.clearOnBlur) {
-      setTimeout(() => {
-        if (!this.unMounted)
-          this.setState({
-            isFocused: false,
-            searchString: "", // TODO: remove after user testing
-          });
-      }, 100);
-    }
+    this.setState({
+      searchString: "", // TODO: remove after user testing
+    });
   };
   renderSuggestion = (suggestion: SuggestElement, i: number) => {
     const {
@@ -190,6 +189,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       <li key={i}>
         <button
           onClick={() => this.handleUnoIdClick(suggestion.uno_id)}
+          onMouseDown={(e: any) => e.preventDefault()}
           data-uno-id={suggestion.uno_id}
           className={activeClass + " " + selectedClass}
         >
@@ -199,7 +199,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     );
   };
   render() {
-    const { suggestions, searchString, isFocused, redirect } = this.state;
+    const { suggestions, searchString, redirect } = this.state;
     const {
       appState: { selected_uno_id },
       innholdstype,
@@ -222,43 +222,43 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     const innholdstyper = Object.keys(suggestions);
 
     let suggestionNumber = 0;
-    const suggestionsDom = (
-      <div
-        className={`${styles.searchbox_dropdown} ${
-          isFocused && searchString.length > 2
-            ? ""
-            : styles.searchbox_dropdown_hide
-        } ${inlineSuggestions ? styles.searchbox_dropdown_inline : ""}`}
-      >
-        <div className={`${styles.searchbox_dropdown_help}`}>
-          {innholdstyper.length > 0 ? (
-            <Translate
-              nb="KLIKK PÅ NAVN FOR Å LEGGE TIL %innholdstype%"
-              replacements={{
-                "%innholdstype%": (innholdstype || "") as string,
-              }}
-            />
-          ) : (
-            <Translate nb="Ingen resultater" />
-          )}
+    let suggestionsDom = null;
+    if (searchString.length > 2) {
+      suggestionsDom = (
+        <div
+          className={`${styles.searchbox_dropdown} ${
+            inlineSuggestions ? styles.searchbox_dropdown_inline : ""
+          }`}
+        >
+          <div className={`${styles.searchbox_dropdown_help}`}>
+            {innholdstyper.length > 0 ? (
+              <Translate
+                nb="KLIKK PÅ NAVN FOR Å LEGGE TIL %innholdstype%"
+                replacements={{
+                  "%innholdstype%": (innholdstype || "") as string,
+                }}
+              />
+            ) : (
+              <Translate nb="Ingen resultater" />
+            )}
+          </div>
+          {innholdstyper.map(type => (
+            <Fragment key={type}>
+              {!innholdstype ? (
+                <h4 className={`${styles.searchbox_dropdown_header}`}>
+                  {Innholdstyper[type]}
+                </h4>
+              ) : null}
+              <ul>
+                {suggestions[type].map(suggestion =>
+                  this.renderSuggestion(suggestion, suggestionNumber++)
+                )}
+              </ul>
+            </Fragment>
+          ))}
         </div>
-        {innholdstyper.map(type => (
-          <Fragment key={type}>
-            {!innholdstype ? (
-              <h4 className={`${styles.searchbox_dropdown_header}`}>
-                {Innholdstyper[type]}
-              </h4>
-            ) : null}
-            <ul>
-              {suggestions[type].map(suggestion =>
-                this.renderSuggestion(suggestion, suggestionNumber++)
-              )}
-            </ul>
-          </Fragment>
-        ))}
-      </div>
-    );
-
+      );
+    }
     return (
       <ClickOutsideListener
         className={`${styles.searchbox} ${className || ""}`}
