@@ -29,7 +29,9 @@ class App extends Component<{}, AppState> {
       replaceUnoId: this.replaceUnoId,
       selected_uno_id: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
       selected_interests: [],
+      selected_nivåer: [],
       toggleInterest: this.toggleInterest,
+      toggleNivå: this.toggleNivå,
       toggleInterests: this.toggleInterests,
       clearInterest: this.clearInterest,
       allowMoreCompares: this.allowMoreCompares,
@@ -114,6 +116,15 @@ class App extends Component<{}, AppState> {
 
       setUrlState(selected);
       return { selected_uno_id: selected };
+    });
+  };
+  toggleNivå = (nivå: string) => {
+    this.setState(prevState => {
+      const nivåer = prevState.selected_nivåer.filter(sel => sel !== nivå);
+      if (nivåer.length === prevState.selected_nivåer.length) {
+        nivåer.push(nivå);
+      }
+      return { selected_nivåer: nivåer };
     });
   };
   toggleInterest = (interest: string) => {

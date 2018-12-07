@@ -1,0 +1,13 @@
+.container {
+  label {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 0.6em;
+    display: block;
+    cursor: pointer;
+    &:last-child {
+      border-bottom: 1px solid black;
+    }
+  }
+}

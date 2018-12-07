@@ -47,7 +47,6 @@
   "Nullstill": "Nullstill",
   "Median og kvartiler": "Median og kvartilar",
   "Entreprenørskap": "Entreprenørskap",
-  "Nivå": "Nivå",
   "Interesser": "Interesser",
   "Viser tall for:": "Viser tal for:",
   "Med overtid": "Med overtid",
@@ -103,6 +102,9 @@
   "5 år eller mer etter fullført utdanning": null,
   "Vil du vite mer om yrket %yrke%?": null,
   "Vil du vite mer om utdannelse til %utdannelse%?": null,
+  "%number% nivå": null,
+  "%number% nivåer": null,
+  "Alle nivåer": null,
   "Vanligste yrker for utdanningen": null,
   "Vanligste utdanningsbakgrunn for yrke": null
 }
