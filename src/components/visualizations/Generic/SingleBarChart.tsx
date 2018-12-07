@@ -62,8 +62,8 @@ class SingleBarChart extends Component<Props> {
           />
 
           <Circle fill={false} y={data.top} />
-          <Circle fill={true} y={data.middle} />
           <Circle fill={false} y={data.bottom} />
+          <Circle fill={true} y={data.middle} />
         </g>
       </svg>
     );
