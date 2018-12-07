@@ -16,6 +16,10 @@ type Props = {
 };
 
 class LonnKvartilVisualization extends Component<Props> {
+  getNumberWithProperSpacing = (value: any) => {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
+
   render() {
     const { kjønn, tidsenhet, low, mid, high } = this.props;
     return (
@@ -35,9 +39,9 @@ class LonnKvartilVisualization extends Component<Props> {
               {!high["A"] ? (
                 <Translate nb="ingen data" />
               ) : tidsenhet === "Ca. timelønn" ? (
-                "ca " + (high["A"] as any).toLocaleString() + " kr"
+                "ca " + this.getNumberWithProperSpacing(high["A"]) + " kr"
               ) : (
-                (high["A"] as any).toLocaleString() + " kr"
+                this.getNumberWithProperSpacing(high["A"]) + " kr"
               )}
             </div>
           ) : (
@@ -46,9 +50,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!high["M"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + (high["M"] as any).toLocaleString() + " kr"
+                  "ca " + this.getNumberWithProperSpacing(high["M"]) + " kr"
                 ) : (
-                  (high["M"] as any).toLocaleString() + " kr"
+                  this.getNumberWithProperSpacing(high["M"]) + " kr"
                 )}
                 <Man />
               </div>
@@ -56,9 +60,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!high["K"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + (high["K"] as any).toLocaleString() + " kr"
+                  "ca " + this.getNumberWithProperSpacing(high["K"]) + " kr"
                 ) : (
-                  (high["K"] as any).toLocaleString() + " kr"
+                  this.getNumberWithProperSpacing(high["K"]) + " kr"
                 )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
@@ -82,9 +86,9 @@ class LonnKvartilVisualization extends Component<Props> {
               {!mid["A"] ? (
                 <Translate nb="ingen data" />
               ) : tidsenhet === "Ca. timelønn" ? (
-                "ca " + (mid["A"] as any).toLocaleString() + " kr"
+                "ca " + this.getNumberWithProperSpacing(mid["A"]) + " kr"
               ) : (
-                (mid["A"] as any).toLocaleString() + " kr"
+                this.getNumberWithProperSpacing(mid["A"]) + " kr"
               )}
             </div>
           ) : (
@@ -93,9 +97,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!mid["M"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + (mid["M"] as any).toLocaleString() + " kr"
+                  "ca " + this.getNumberWithProperSpacing(mid["M"]) + " kr"
                 ) : (
-                  (mid["M"] as any).toLocaleString() + " kr"
+                  this.getNumberWithProperSpacing(mid["M"]) + " kr"
                 )}
                 <Man />
               </div>
@@ -103,9 +107,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!mid["K"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + (mid["K"] as any).toLocaleString() + " kr"
+                  "ca " + this.getNumberWithProperSpacing(mid["K"]) + " kr"
                 ) : (
-                  (mid["K"] as any).toLocaleString() + " kr"
+                  this.getNumberWithProperSpacing(mid["K"]) + " kr"
                 )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />
@@ -123,9 +127,9 @@ class LonnKvartilVisualization extends Component<Props> {
               {!low["A"] ? (
                 <Translate nb="ingen data" />
               ) : tidsenhet === "Ca. timelønn" ? (
-                "ca " + (low["A"] as any).toLocaleString() + " kr"
+                "ca " + this.getNumberWithProperSpacing(low["A"]) + " kr"
               ) : (
-                (low["A"] as any).toLocaleString() + " kr"
+                this.getNumberWithProperSpacing(low["A"]) + " kr"
               )}
             </div>
           ) : (
@@ -134,9 +138,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!low["M"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + (low["M"] as any).toLocaleString() + " kr"
+                  "ca " + this.getNumberWithProperSpacing(low["M"]) + " kr"
                 ) : (
-                  (low["M"] as any).toLocaleString() + " kr"
+                  this.getNumberWithProperSpacing(low["M"]) + " kr"
                 )}
                 <Man />
               </div>
@@ -144,9 +148,9 @@ class LonnKvartilVisualization extends Component<Props> {
                 {!low["K"] ? (
                   <Translate nb="ingen data" />
                 ) : tidsenhet === "Ca. timelønn" ? (
-                  "ca " + (low["K"] as any).toLocaleString() + " kr"
+                  "ca " + this.getNumberWithProperSpacing(low["K"]) + " kr"
                 ) : (
-                  (low["K"] as any).toLocaleString() + " kr"
+                  this.getNumberWithProperSpacing(low["K"]) + " kr"
                 )}
                 <div className={`${styles.container_data_female_icon}`}>
                   <Woman />

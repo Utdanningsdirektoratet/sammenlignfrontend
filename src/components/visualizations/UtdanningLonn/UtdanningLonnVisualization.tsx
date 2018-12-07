@@ -75,7 +75,9 @@ class UtdanningLonnVisualization extends Component<Props> {
     }
 
     if (notLocale) return Math.round(wageCalc);
-    return Math.round(wageCalc).toLocaleString();
+    return Math.round(wageCalc)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   };
 
   getTimeUnit = (wage: string) => {
