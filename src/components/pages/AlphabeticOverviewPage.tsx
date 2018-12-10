@@ -75,14 +75,19 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       return list;
 
     return list.filter(l => {
-      if ((!l.interesser && !l.utdanningstype) || !l.utdanningstype)
-        return false;
+      if (!l.interesser && !l.utdanningstype) return false;
 
       let hasInterests = l.interesser
         ? l.interesser.some(i => {
             return interesserSelected.indexOf(i) > -1;
           })
         : false;
+      if (
+        hasInterests &&
+        interesserSelected.length > 0 &&
+        (!l.utdanningstype || nivåerSelected.length === 0)
+      )
+        return hasInterests;
 
       if (!hasInterests && interesserSelected.length > 0) return false;
 
