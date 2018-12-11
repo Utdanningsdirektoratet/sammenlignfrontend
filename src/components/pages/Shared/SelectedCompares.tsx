@@ -13,6 +13,7 @@ import { NUM_COMPARES_MOBILE } from "../../../data/config";
 import Translate, { TranslateString } from "../../app/Translate";
 import UnoIdSearchModal from "./UnoIdSearchModal";
 import { ReactComponent as Edit } from "../../../fontawesome/solid/edit.svg";
+import { ReactComponent as Times } from "../../../fontawesome/solid/times.svg";
 import { MIN_DESKTOP_PX } from "../../../util/Constants";
 
 type Props = {
@@ -64,11 +65,7 @@ class SelectedCompares extends Component<
       for (var i = 0; i < NUM_COMPARES_MOBILE; i++) {
         boxes.push(
           <div key={i} className={`${styles.selection_cell}`}>
-            <div
-              className={`${styles.selection_item}`}
-              onClick={this.openModalClick}
-              data-uno-id={filtered_uno_id[i]}
-            >
+            <div className={`${styles.selection_item}`}>
               <div
                 className={`${
                   filtered_uno_id[i]
@@ -77,6 +74,8 @@ class SelectedCompares extends Component<
                       " " +
                       styles.selection_item_text_search
                 }`}
+                onClick={this.openModalClick}
+                data-uno-id={filtered_uno_id[i]}
               >
                 {filtered_uno_id[i] ? (
                   <UnoId uno_id={filtered_uno_id[i]} />
@@ -86,9 +85,21 @@ class SelectedCompares extends Component<
                   })
                 )}
               </div>
-              <button>
-                <Edit />
-              </button>
+              {filtered_uno_id[i] ? (
+                <button
+                  onClick={this.handleRemoveClick}
+                  data-uno_id={filtered_uno_id[i]}
+                >
+                  <Times />
+                </button>
+              ) : (
+                <button
+                  onClick={this.openModalClick}
+                  data-uno-id={filtered_uno_id[i]}
+                >
+                  <Edit />
+                </button>
+              )}
             </div>
           </div>
         );
@@ -117,7 +128,11 @@ class SelectedCompares extends Component<
             <div className={`${styles.selection_item_text}`}>
               <UnoId uno_id={uno_id} />
             </div>
-            <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
+            <button
+              onClick={this.handleRemoveClick}
+              onMouseDown={(e: any) => e.preventDefault()}
+              data-uno_id={uno_id}
+            >
               <CloseIcon />
             </button>
           </div>
