@@ -128,11 +128,7 @@ class SelectedCompares extends Component<
             <div className={`${styles.selection_item_text}`}>
               <UnoId uno_id={uno_id} />
             </div>
-            <button
-              onClick={this.handleRemoveClick}
-              onMouseDown={(e: any) => e.preventDefault()}
-              data-uno_id={uno_id}
-            >
+            <button onClick={this.handleRemoveClick} data-uno_id={uno_id}>
               <CloseIcon />
             </button>
           </div>
