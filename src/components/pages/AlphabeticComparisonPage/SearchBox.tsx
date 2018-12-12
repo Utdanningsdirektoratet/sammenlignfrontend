@@ -17,7 +17,6 @@ type Props = {
   onUnoIdClick?: (uno_id: string) => void;
   clearOnBlur: boolean;
   inlineSuggestions?: boolean;
-  focusOnMount?: boolean;
 };
 
 type State = {
@@ -46,8 +45,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
   inputRef = React.createRef<HTMLInputElement>();
 
   componentDidMount = () => {
-    if (this.inputRef.current && this.props.focusOnMount)
-      this.inputRef.current.focus();
+    if (this.inputRef.current) this.inputRef.current.focus();
   };
 
   resetState = (value: string) => {
@@ -87,9 +85,15 @@ class SearchBox extends Component<Props & AppStateProps, State> {
       .then((data: Suggest) => {
         // Ensure searchString has not changed since the request was sent
         if (this.state.searchString === value) {
+          // Do not show suggestions that has already been selected
+          let suggestions = data.response.docs.filter(s => {
+            return !this.props.appState.selected_uno_id.some(
+              u => u === s.uno_id
+            );
+          });
           this.setState({
-            suggestions: group_by_innholdstype(data.response.docs),
-            numSuggestions: data.response.docs.length,
+            suggestions: group_by_innholdstype(suggestions),
+            numSuggestions: suggestions.length,
             activeSuggestion: -1,
             error: false,
           });
@@ -176,22 +180,15 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     });
   };
   renderSuggestion = (suggestion: SuggestElement, i: number) => {
-    const {
-      appState: { selected_uno_id },
-    } = this.props;
     const { activeSuggestion } = this.state;
     const activeClass = i == activeSuggestion ? `${styles.active}` : "";
-    const selectedClass =
-      selected_uno_id.indexOf(suggestion.uno_id) !== -1
-        ? `${styles.selected}`
-        : "";
     return (
       <li key={i}>
         <button
           onClick={() => this.handleUnoIdClick(suggestion.uno_id)}
           onMouseDown={(e: any) => e.preventDefault()}
           data-uno-id={suggestion.uno_id}
-          className={activeClass + " " + selectedClass}
+          className={activeClass}
         >
           {suggestion.tittel}
         </button>
