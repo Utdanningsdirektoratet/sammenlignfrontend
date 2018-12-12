@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .frontpage {
   &_header {
     text-align: center;
@@ -13,7 +14,7 @@
     &_searchbox {
       margin: 2%;
       width: 20em;
-      @media (max-width: 575px) {
+      @media (max-width: $max-mobile) {
         width: 90%;
         margin: auto;
         margin-bottom: 15px;
@@ -21,7 +22,7 @@
     }
     a {
       margin: 2%;
-      @media (max-width: 575px) {
+      @media (max-width: $max-mobile) {
         width: 80%;
         margin: auto;
         margin-top: 10px;

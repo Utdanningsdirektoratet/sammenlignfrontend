@@ -13,6 +13,7 @@ import D3TestPage from "./components/pages/D3TestPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 import Widget from "./components/widget/Widget";
 import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./data/config";
+import { MIN_DESKTOP_PX } from "./util/Constants";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -29,7 +30,9 @@ class App extends Component<{}, AppState> {
       replaceUnoId: this.replaceUnoId,
       selected_uno_id: getUrlState(), // Somewhat ugly to do side effects in constructor, but we really need this before rendering
       selected_interests: [],
+      selected_nivåer: [],
       toggleInterest: this.toggleInterest,
+      toggleNivå: this.toggleNivå,
       toggleInterests: this.toggleInterests,
       clearInterest: this.clearInterest,
       allowMoreCompares: this.allowMoreCompares,
@@ -52,7 +55,7 @@ class App extends Component<{}, AppState> {
   allowMoreCompares = (length: number) => {
     const innerWidth = window.innerWidth;
 
-    if (innerWidth < 768) {
+    if (innerWidth < MIN_DESKTOP_PX) {
       return length < NUM_COMPARES_MOBILE;
     } else if (innerWidth < 992) {
       return length < NUM_COMPARES_DESKTOP;
@@ -73,7 +76,7 @@ class App extends Component<{}, AppState> {
       );
 
       let maxCompare = null;
-      if (innerWidth < 768) {
+      if (innerWidth < MIN_DESKTOP_PX) {
         maxCompare = NUM_COMPARES_MOBILE;
       } else {
         maxCompare = NUM_COMPARES_DESKTOP;
@@ -106,7 +109,7 @@ class App extends Component<{}, AppState> {
   };
   replaceUnoId = (old_uno_id: string, new_uno_id: string) => {
     this.setState(prevState => {
-      let selected = prevState.selected_uno_id;
+      let selected = [...prevState.selected_uno_id];
       let thisIndex = prevState.selected_uno_id.indexOf(old_uno_id);
       if (thisIndex !== -1) {
         selected[thisIndex] = new_uno_id;
@@ -114,6 +117,15 @@ class App extends Component<{}, AppState> {
 
       setUrlState(selected);
       return { selected_uno_id: selected };
+    });
+  };
+  toggleNivå = (nivå: string) => {
+    this.setState(prevState => {
+      const nivåer = prevState.selected_nivåer.filter(sel => sel !== nivå);
+      if (nivåer.length === prevState.selected_nivåer.length) {
+        nivåer.push(nivå);
+      }
+      return { selected_nivåer: nivåer };
     });
   };
   toggleInterest = (interest: string) => {

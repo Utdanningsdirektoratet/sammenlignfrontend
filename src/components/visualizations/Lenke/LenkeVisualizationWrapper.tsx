@@ -17,7 +17,7 @@ class LenkeVisualizationWrapper extends Component<
           let unoIdData = data[uno_id];
           if (!unoIdData || !unoIdData.url) return <div />;
           return (
-            <div className={`${styles.container}`}>
+            <div className={`${styles.container}`} key={uno_id}>
               <h1 className={`${styles.container_title}`}>
                 {unoIdData.innholdstype === "yrke" ? (
                   <Translate

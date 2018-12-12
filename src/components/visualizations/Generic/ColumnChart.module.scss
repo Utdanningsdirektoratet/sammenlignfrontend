@@ -1,4 +1,9 @@
 .columnchart {
+  @media (max-width: 500px) {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
   &_container {
     height: 230px;
     svg {
@@ -6,7 +11,13 @@
     }
     display: flex;
     float: left;
-    margin-right: 20px;
+    margin-right: 10px;
     position: relative;
+
+    @media (max-width: 500px) {
+      display: unset;
+      float: none;
+      margin-right: 0;
+    }
   }
 }

@@ -19,19 +19,11 @@
     background-color: #fbe5d0;
     padding: 0.5em;
     position: relative;
-    flex: 0 0 $column-width;
+    flex: 0 0 $column-width - 2;
+    margin-right: 2px;
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
       overflow: hidden;
-    }
-    @media (min-width: $min-not-mobile) {
-      @for $i from 1 to 10 {
-        @media (max-width: $i*$column-width) {
-          &:nth-child(#{$i}) {
-            display: none;
-          }
-        }
-      }
     }
   }
   &_item {
@@ -39,30 +31,14 @@
     border: solid 2px $color-primary;
     background-color: white;
 
-    @media (max-width: $max-mobile) {
-      cursor: pointer;
-      button {
-        &:focus {
-          outline: none;
-        }
-        svg {
-          height: 20px;
-          width: 20px;
-          margin-top: 25px;
-          margin-right: 20px;
-          cursor: pointer;
-        }
-      }
-    }
-
     &_text {
-      width: 75%;
       font-weight: bold;
       font-size: 1em;
       margin: 10px;
       overflow-wrap: break-word;
       -webkit-touch-callout: none; /* iOS Safari */
       user-select: none;
+      flex: 1 1 100%;
 
       &_search {
         text-transform: uppercase;
@@ -70,14 +46,36 @@
       }
     }
     button {
-      position: absolute;
-      top: -0.4em;
-      right: -0.4em;
       display: inline;
       background-color: transparent;
       border: none;
       margin: 0;
       padding: 0;
+      align-self: stretch;
+    }
+
+    @media (max-width: $max-mobile) {
+      cursor: pointer;
+      button {
+        padding-right: 5px;
+        &:focus {
+          outline: none;
+        }
+        svg {
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    @media (min-width: $min-not-mobile) {
+      button {
+        position: absolute;
+        top: -0.3em;
+        right: -0.3em;
+        padding: 0;
+      }
     }
   }
 }

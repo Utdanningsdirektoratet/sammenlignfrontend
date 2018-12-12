@@ -13,6 +13,8 @@ import { NUM_COMPARES_MOBILE } from "../../../data/config";
 import Translate, { TranslateString } from "../../app/Translate";
 import UnoIdSearchModal from "./UnoIdSearchModal";
 import { ReactComponent as Edit } from "../../../fontawesome/solid/edit.svg";
+import { ReactComponent as Times } from "../../../fontawesome/solid/times.svg";
+import { MIN_DESKTOP_PX } from "../../../util/Constants";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -52,22 +54,18 @@ class SelectedCompares extends Component<
       uno_id => uno_id[0].toLowerCase() === innholdstype[0].toLowerCase()
     );
 
-    if (filtered_uno_id.length === 0) {
+    if (filtered_uno_id.length === 0 && innerWidth > MIN_DESKTOP_PX) {
       return null;
     }
 
     let dom: any = [];
 
-    if (innerWidth < 576) {
+    if (innerWidth < MIN_DESKTOP_PX) {
       let boxes = [];
       for (var i = 0; i < NUM_COMPARES_MOBILE; i++) {
         boxes.push(
           <div key={i} className={`${styles.selection_cell}`}>
-            <div
-              className={`${styles.selection_item}`}
-              onClick={this.openModalClick}
-              data-uno-id={filtered_uno_id[i]}
-            >
+            <div className={`${styles.selection_item}`}>
               <div
                 className={`${
                   filtered_uno_id[i]
@@ -76,6 +74,8 @@ class SelectedCompares extends Component<
                       " " +
                       styles.selection_item_text_search
                 }`}
+                onClick={this.openModalClick}
+                data-uno-id={filtered_uno_id[i]}
               >
                 {filtered_uno_id[i] ? (
                   <UnoId uno_id={filtered_uno_id[i]} />
@@ -85,9 +85,21 @@ class SelectedCompares extends Component<
                   })
                 )}
               </div>
-              <button>
-                <Edit />
-              </button>
+              {filtered_uno_id[i] ? (
+                <button
+                  onClick={this.handleRemoveClick}
+                  data-uno_id={filtered_uno_id[i]}
+                >
+                  <Times />
+                </button>
+              ) : (
+                <button
+                  onClick={this.openModalClick}
+                  data-uno-id={filtered_uno_id[i]}
+                >
+                  <Edit />
+                </button>
+              )}
             </div>
           </div>
         );

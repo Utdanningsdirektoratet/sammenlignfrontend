@@ -23,22 +23,6 @@
     flex: 0 0 $column-width;
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
-      @for $i from 1 to 10 {
-        @media (max-width: $i*$column-width-mobile) {
-          &:nth-child(#{$i}) {
-            display: none;
-          }
-        }
-      }
-    }
-    @media (min-width: $min-not-mobile) {
-      @for $i from 1 to 10 {
-        @media (max-width: $i*$column-width) {
-          &:nth-child(#{$i}) {
-            display: none;
-          }
-        }
-      }
     }
   }
 }

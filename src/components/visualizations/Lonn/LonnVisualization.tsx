@@ -10,6 +10,7 @@ import LonnKvartilVisualization from "./LonnKvartilVisualization";
 import ColumnChart from "../Generic/ColumnChart";
 import { ReactComponent as Woman } from "../Generic/Woman.svg";
 import { ReactComponent as Man } from "../Generic/Man.svg";
+import { getNumberWithProperSpacing } from "../../../util/NumberWithThousandSpacing";
 
 type Props = {
   data: IArbeidstid;
@@ -67,7 +68,7 @@ class LonnVisualization extends Component<Props> {
       case "Månedlig":
         break;
       case "Ca. timelønn":
-        wageCalc = wageCalc / 30 / 7.5;
+        wageCalc = wageCalc / 162.5;
     }
     return wageCalc;
   };
@@ -91,7 +92,7 @@ class LonnVisualization extends Component<Props> {
     }
 
     if (notLocale) return Math.round(wageCalc);
-    return Math.round(wageCalc).toLocaleString();
+    return getNumberWithProperSpacing(Math.round(wageCalc));
   };
 
   render() {
@@ -144,22 +145,24 @@ class LonnVisualization extends Component<Props> {
 
       return (
         <div className={`${visualizationstyles.visualization_container}`}>
-          {showGraphics ? (
-            <ColumnChart
+          <div className={`${styles.chart_container}`}>
+            {showGraphics ? (
+              <ColumnChart
+                kjønn={kjønn}
+                low={q1}
+                mid={median}
+                high={q3}
+                max={maxValue}
+              />
+            ) : null}
+            <LonnKvartilVisualization
               kjønn={kjønn}
               low={q1}
               mid={median}
               high={q3}
-              max={maxValue}
+              tidsenhet={tidsenhet}
             />
-          ) : null}
-          <LonnKvartilVisualization
-            kjønn={kjønn}
-            low={q1}
-            mid={median}
-            high={q3}
-            tidsenhet={tidsenhet}
-          />
+          </div>
         </div>
       );
     }

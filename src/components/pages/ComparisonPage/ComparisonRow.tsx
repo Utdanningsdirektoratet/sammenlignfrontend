@@ -10,6 +10,7 @@ import {
   num_compare_sizing,
   ScreenSizeProps,
 } from "../../utils/NumCompareSizing";
+import { MIN_DESKTOP_PX } from "../../../util/Constants";
 
 type Props = {
   children: JSX.Element[];
@@ -28,7 +29,7 @@ function ComparisonRow({
   );
 
   const emptyCellsLength =
-    innerWidth < 768
+    innerWidth < MIN_DESKTOP_PX
       ? NUM_COMPARES_MOBILE - rowLength
       : NUM_COMPARES_DESKTOP - rowLength;
 
@@ -43,9 +44,19 @@ function ComparisonRow({
     }
   }
 
+  let shownChildren = [];
+  const numberOfRows =
+    innerWidth < MIN_DESKTOP_PX ? NUM_COMPARES_MOBILE : NUM_COMPARES_DESKTOP;
+  if (rowLength <= numberOfRows) {
+    shownChildren = children;
+  } else {
+    for (var i = 0; i < numberOfRows; i++) {
+      shownChildren.push(children[i]);
+    }
+  }
   return (
     <div className={`${styles.row_style}`}>
-      {children}
+      {shownChildren}
       {emptyCells}
     </div>
   );

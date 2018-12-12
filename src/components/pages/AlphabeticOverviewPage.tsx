@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
@@ -20,6 +20,8 @@ import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
 import AlphabetFilter from "../filters/AlphabetFilter";
 import ScrollToTop from "./AlphabeticComparisonPage/ScrollToTop";
+import { num_compare_sizing } from "../utils/NumCompareSizing";
+import { MIN_DESKTOP_PX } from "../../util/Constants";
 
 type State = {
   data: DataList;
@@ -33,7 +35,11 @@ type Props = RouteComponentProps<{
 
 class AlphabeticOverviewPage extends React.Component<Props, State> {
   state = {
-    data: { list: [] as MainElement[], interesser: [] as string[] },
+    data: {
+      list: [] as MainElement[],
+      interesser: [] as string[],
+      nivåer: [] as string[],
+    },
     redirectToHomepage: false,
   };
 
@@ -60,14 +66,40 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
   getFilteredList = () => {
     const interesserSelected = this.props.appState.selected_interests;
+    const nivåerSelected = this.props.appState.selected_nivåer;
     const list = this.state.data.list;
-    if (!interesserSelected || interesserSelected.length === 0) return list;
-    return list.filter(l => {
-      if (!l.interesser) return false;
+    if (
+      (!interesserSelected || interesserSelected.length === 0) &&
+      (!nivåerSelected || nivåerSelected.length === 0)
+    )
+      return list;
 
-      return l.interesser.some(i => {
-        return interesserSelected.indexOf(i) > -1;
-      });
+    return list.filter(l => {
+      if (!l.interesser && !l.utdanningstype) return false;
+
+      let hasInterests = l.interesser
+        ? l.interesser.some(i => {
+            return interesserSelected.indexOf(i) > -1;
+          })
+        : false;
+      if (
+        hasInterests &&
+        interesserSelected.length > 0 &&
+        (!l.utdanningstype || nivåerSelected.length === 0)
+      )
+        return hasInterests;
+
+      if (!hasInterests && interesserSelected.length > 0) return false;
+
+      let hasNivåer =
+        l.utdanningstype && typeof l.utdanningstype !== "string"
+          ? l.utdanningstype.some((u: string) => {
+              return nivåerSelected.indexOf(u) > -1;
+            })
+          : false;
+
+      if (!hasNivåer && nivåerSelected.length > 0) return false;
+      return true;
     });
   };
   handleItemClick = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,9 +134,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     const {
       selected_interests: interesserSelected,
       selected_uno_id,
+      selected_nivåer: nivåerSelected,
     } = this.props.appState;
     const {
-      data: { interesser, list },
+      data: { interesser, list, nivåer },
       redirectToHomepage,
     } = this.state;
     if (redirectToHomepage) {
@@ -121,23 +154,16 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               <Link to={"/"} className={`${styles.mobile_back_btn}`}>
                 <Translate nb="< Start på nytt" />
               </Link>
-              {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
-                <Link
-                  to={"/sammenligne/" + innholdstype}
-                  className={`${styles.mobile_sammenlign_btn}`}
-                >
-                  <BalanceScale />
-                  <Translate nb="Sammenlign" />
-                </Link>
-              ) : null}
             </div>
             <div className={`${styles.mobile_search}`}>
               <SearchBox innholdstype={innholdstype} clearOnBlur={true} />
             </div>
-
+          </div>
+          <div className={`${styles.sticky_header}`}>
             <SelectedCompares innholdstype={innholdstype} />
 
-            {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) ? (
+            {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) &&
+            innerWidth > MIN_DESKTOP_PX ? (
               <div className={`${styles.compare_section_row}`}>
                 <Link
                   to={"/sammenligne/" + innholdstype}
@@ -148,15 +174,42 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
                 </Link>
               </div>
             ) : null}
+            {innerWidth < MIN_DESKTOP_PX ? (
+              <div className={`${styles.compare_section_row}`}>
+                {selected_uno_id.some(
+                  uno_id => uno_id[0] === innholdstype[0]
+                ) ? (
+                  <Link
+                    to={"/sammenligne/" + innholdstype}
+                    className={`${styles.mobile_sammenlign_btn} `}
+                  >
+                    <BalanceScale />
+                    <Translate nb="Sammenlign" />
+                  </Link>
+                ) : (
+                  <div
+                    className={`${styles.mobile_sammenlign_btn} ${
+                      styles.mobile_sammenlign_btn_disabled
+                    }`}
+                  >
+                    <BalanceScale />
+                    <Translate nb="Sammenlign" />
+                  </div>
+                )}
+              </div>
+            ) : null}
           </div>
 
           <InterestsHeader
             innholdstype={innholdstype}
             interesser={interesser}
-            selected={interesserSelected}
+            nivåer={nivåer}
+            selectedInterests={interesserSelected}
+            selectedNivåer={nivåerSelected}
             toggleSelectedInterest={this.props.appState.toggleInterest}
+            toggleSelectedNivå={this.props.appState.toggleNivå}
             toggleSelectedInterests={this.props.appState.toggleInterests}
-            removeAllSelected={this.props.appState.clearInterest}
+            removeAllSelectedInterests={this.props.appState.clearInterest}
           />
           <AlphabetFilter
             list={this.getFilteredList()}
@@ -176,4 +229,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   }
 }
 
-export default with_app_state(AlphabeticOverviewPage);
+export default with_app_state(
+  num_compare_sizing<Props & AppStateProps>(AlphabeticOverviewPage)
+);

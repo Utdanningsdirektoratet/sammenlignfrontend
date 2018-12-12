@@ -21,7 +21,7 @@ export function getTimeUnit(wageCalc: number, tidsenhet: Tidsenhet) {
     case "Månedlig":
       break;
     case "Ca. timelønn":
-      wageCalc = wageCalc / 30 / 7.5;
+      wageCalc = wageCalc / 162.5;
   }
   return wageCalc;
 }
