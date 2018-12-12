@@ -33,7 +33,7 @@ class UtdanningLonnVisualization extends Component<Props> {
       case "Brutto":
         break;
       case "Med overtid":
-        wage += "_overtime";
+        wage += "_avtalt";
         break;
     }
 

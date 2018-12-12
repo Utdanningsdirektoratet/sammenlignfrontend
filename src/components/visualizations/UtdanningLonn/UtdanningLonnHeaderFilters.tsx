@@ -140,7 +140,7 @@ class UtdanningLonnHeaderFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate nb="Vis sum lønn utbetalt på gitt grunnlag, i brutto eller inklusive overtid." />
+                        <Translate nb="Vis månedslønn utbetalt eller avtalt lønn uten tillegg på grunn av arbeid på søndag, feriedag, skift eller turnus." />
                       </div>
                       <div
                         className={
@@ -159,21 +159,21 @@ class UtdanningLonnHeaderFilters extends Component<Props, State> {
           <RadioButtonGroup
             group={[
               {
-                text: <Translate nb="Avtalt lønn" />,
+                text: <Translate nb="Månedslønn" />,
                 selected: Lønn === "Brutto",
                 valueKey: "Brutto",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser sum lønn utbetalt i avtalt lønn, eksklusive overtid." />
+                  <Translate nb="Månedslønn er bruttolønn." />
                 ) : (
                   undefined
                 ),
               },
               {
-                text: <Translate nb="Inklusiv overtid" />,
+                text: <Translate nb="Kun avtalt lønn" />,
                 selected: Lønn === "Med overtid",
                 valueKey: "Med overtid",
                 helptext: showHelpText ? (
-                  <Translate nb="Viser sum lønn utbetalt inklusive overtid." />
+                  <Translate nb="Avtalt lønn uten tillegg på grunn av arbeid på søndag, feriedag, skift eller turnus." />
                 ) : (
                   undefined
                 ),
