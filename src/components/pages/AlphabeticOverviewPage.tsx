@@ -159,7 +159,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               <SearchBox
                 innholdstype={innholdstype}
                 clearOnBlur={true}
-                autoFocus={innerWidth >= MIN_DESKTOP_PX}
+                focusOnMount={innerWidth >= MIN_DESKTOP_PX}
               />
             </div>
           </div>

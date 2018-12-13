@@ -25,7 +25,7 @@ class Breadcrumb extends Component<Props> {
               innholdstype={innholdstype}
               className={`${styles.SearchBox}`}
               clearOnBlur={true}
-              autoFocus={innerWidth >= MIN_DESKTOP_PX}
+              focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
 
             <Button to={"/liste/yrke"} type="light">
@@ -51,7 +51,7 @@ class Breadcrumb extends Component<Props> {
               innholdstype={innholdstype}
               className={`${styles.SearchBox}`}
               clearOnBlur={true}
-              autoFocus={innerWidth >= MIN_DESKTOP_PX}
+              focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
             <Button to={"/liste/utdanning"} type="light">
               {innerWidth < MIN_DESKTOP_PX ? (
