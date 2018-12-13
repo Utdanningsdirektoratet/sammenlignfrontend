@@ -50,7 +50,7 @@ class EntreprenorskapWrapper extends Component<
     return (
       <div>
         <Header
-          mainHeader={<Translate nb="Entreprenørskap" />}
+          mainHeader={<Translate nb="Selvstendig næringsdrivende" />}
           secondHeader={
             <Translate nb="Andel som har startet egen virksomhet" />
           }

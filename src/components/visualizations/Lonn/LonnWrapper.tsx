@@ -83,7 +83,7 @@ class LonnWrapper extends Component<
     this.state = {
       Arbeidstid: "A",
       Sektor: "A",
-      Tidsenhet: "Månedlig",
+      Tidsenhet: "Årlig",
       Lønn: "Brutto",
       StatistiskMål: "Median og kvartiler",
       Kjønn: "A",
@@ -194,8 +194,12 @@ class LonnWrapper extends Component<
           setConfig={this.setConfig}
           onFilterClicked={this.onFilterClicked}
         />
+        <LonnHeaderFilterDesktop
+          config={this.state}
+          onFilterClicked={this.onFilterClicked}
+        />
         <Fragment key={Sektor}>
-          <ComparisonRow>
+          <ComparisonRow noPadding>
             {uno_ids.map(uno_id => {
               const ssbSektor = this.getSsbSektor(uno_id);
 
@@ -234,10 +238,6 @@ class LonnWrapper extends Component<
             );
           })}
         </ComparisonRow>
-        <LonnHeaderFilterDesktop
-          config={this.state}
-          onFilterClicked={this.onFilterClicked}
-        />
       </div>
     );
   }

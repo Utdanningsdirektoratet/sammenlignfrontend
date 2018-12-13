@@ -1,11 +1,22 @@
+@import "src/styles/_constants.scss";
 .header {
-  margin-left: 50px;
+  margin-left: 20px;
+  @media (min-width: $min-not-mobile) {
+    margin-left: 50px;
+  }
   h2 {
     text-transform: uppercase;
     margin-bottom: 0;
+    font-size: 1.8em;
+    @media (min-width: $min-not-mobile) {
+      font-size: 2em;
+    }
   }
   h4 {
     margin-top: 0;
     font-weight: 500;
+    @media (min-width: $min-not-mobile) {
+      font-size: 1.2em;
+    }
   }
 }

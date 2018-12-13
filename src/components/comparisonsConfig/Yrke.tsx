@@ -38,12 +38,6 @@ const Yrke: SammenligningTemplate[] = [
     Component: ArbeidsledighetWrapper,
   },
   {
-    title: "Entrepenørskap",
-    widget_id: "entrepenorskap",
-    path: "/rest/entrepenorskap",
-    Component: EntreprenorskapWrapper,
-  },
-  {
     title: "Sektorer",
     widget_id: "sektor",
     path: "/rest/main",
@@ -114,6 +108,12 @@ const Yrke: SammenligningTemplate[] = [
 
       return <BarChart values={values} element={element} />;
     },
+  },
+  {
+    title: "Selvstendig næringsdrivende",
+    widget_id: "entrepenorskap",
+    path: "/rest/entrepenorskap",
+    Component: EntreprenorskapWrapper,
   },
   {
     title: "Lenke",

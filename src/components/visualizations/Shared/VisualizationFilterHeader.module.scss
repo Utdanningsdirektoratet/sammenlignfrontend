@@ -1,6 +1,5 @@
 @import "src/styles/_constants.scss";
 .visualizationheader {
-  font-size: 1rem;
   &_container {
     position: relative;
     &_header {
@@ -9,11 +8,24 @@
         text-align: center;
         text-transform: uppercase;
         display: flex;
-        margin-left: 50px;
+        margin-left: 20px;
+
+        h2 {
+          margin-bottom: 10px;
+          font-size: 1.8em;
+          @media (min-width: $min-not-mobile) {
+            font-size: 2em;
+            margin-left: 50px;
+          }
+        }
         &_filter {
           text-transform: lowercase;
           padding-top: 10px;
           margin-left: 10px;
+          @media (min-width: $min-not-mobile) {
+            font-size: 1.2em;
+            padding-top: 16px;
+          }
           ul {
             display: inline-block;
             padding-left: 0;

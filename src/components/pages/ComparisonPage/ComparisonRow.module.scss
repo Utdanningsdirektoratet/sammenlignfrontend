@@ -3,6 +3,10 @@
 .row_style {
   display: flex;
   align-items: stretch;
+  &_padding {
+    padding-bottom: 40px;
+  }
+
   @media (max-width: $max-mobile) {
     justify-content: center;
   }

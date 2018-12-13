@@ -1,3 +1,4 @@
+@import "src/styles/_constants.scss";
 .flex_item {
   max-width: 100%;
   &.title {
@@ -14,7 +15,12 @@
     &_title {
       vertical-align: middle;
       text-transform: uppercase;
-      margin-left: 50px;
+      margin-left: 20px;
+      font-size: 1.8em;
+      @media (min-width: $min-not-mobile) {
+        font-size: 2em;
+        margin-left: 50px;
+      }
 
       &_withDesc {
         margin-bottom: 0;
@@ -23,7 +29,11 @@
     &_description {
       margin-top: 0;
       font-weight: 500;
-      margin-left: 50px;
+      margin-left: 20px;
+      @media (min-width: $min-not-mobile) {
+        font-size: 1.2em;
+        margin-left: 50px;
+      }
     }
   }
 }
