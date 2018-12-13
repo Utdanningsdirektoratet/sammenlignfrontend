@@ -4,6 +4,8 @@
 //# sourceMappingURL=runtime~main.af4c8968.js.map
   
 (function(){
+    // Figure out which domain this udir_sammenlign_widget.js is hosted at,
+    // and assume all related files are from the same domain.
     var jsscript = document.getElementsByTagName("script");
     var domain = "";
     for (var i = 0; i < jsscript.length; i++) {
@@ -11,15 +13,19 @@
       if ( pattern.test( jsscript[i].getAttribute("src") ) )
         domain = jsscript[i].getAttribute("src").replace("udir_sammenlign_widget.js","");
     }
+    // Include config.js for server side config on the window object
+    var configScript = document.createElement('script');
+    script.src = domain + "/config.js";
+    document.body.append(configScript);
 
 
     // Include required scripts for the widget
     var script0 = document.createElement('script');
-    script0.src = domain + "/static/js/main.e03ce72b.chunk.js";
+    script0.src = domain + "/static/js/main.c09a669c.chunk.js";
     document.body.append(script0);
 
     var script1 = document.createElement('script');
-    script1.src = domain + "/static/js/1.8c13071d.chunk.js";
+    script1.src = domain + "/static/js/1.b05f2a4e.chunk.js";
     document.body.append(script1);
 
     var script2 = document.createElement('script');
@@ -29,7 +35,7 @@
     // Include styles
     var style0 = document.createElement('link');
     style0.rel = "stylesheet";
-    style0.href = domain + "/static/css/main.fb81cff7.chunk.css";
+    style0.href = domain + "/static/css/main.8e23fd67.chunk.css";
     document.head.appendChild(style0);
 
 })()
