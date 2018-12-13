@@ -2,10 +2,7 @@ import React from "react";
 
 import styles from "./ComparisonRow.module.scss";
 import Translate from "../../app/Translate";
-import {
-  NUM_COMPARES_MOBILE,
-  NUM_COMPARES_DESKTOP,
-} from "../../../data/config";
+import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "../../../config";
 import {
   num_compare_sizing,
   ScreenSizeProps,

@@ -1,6 +1,6 @@
 import { MainElement, Main, DataList } from "./ApiTypes";
 import main_json from "./main.json";
-import { API_DOMAIN } from "./config";
+import { API_DOMAIN } from "../config";
 import { objectToQueryString } from "../util/querystring";
 
 let mainFetchStarted: Promise<any> | null = null;

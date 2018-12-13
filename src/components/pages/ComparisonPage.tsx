@@ -9,7 +9,7 @@ import PageChrome from "./PageChrome/PageChrome";
 // import { getData } from "../../data/data";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 import comparisonsConfig from "../comparisonsConfig";
-import { API_DOMAIN } from "../../data/config";
+import { API_DOMAIN } from "../../config";
 import { objectToQueryString } from "../../util/querystring";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
 import SelectedCompares from "./Shared/SelectedCompares";
