@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import comparisonsConfig, { SammenligningTemplate } from "../comparisonsConfig";
 import IsolatedComparisonPart from "../pages/ComparisonPage/IsolatedComparisonPart";
 import { Lang, TranslateRoot, setLang } from "../app/Translate";
-import { API_DOMAIN } from "../../data/config";
+import { API_DOMAIN } from "../../config";
 import { objectToQueryString } from "../../util/querystring";
 
 type Props = {

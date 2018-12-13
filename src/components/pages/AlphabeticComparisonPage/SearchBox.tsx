@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Innholdstype, Suggest, SuggestElement } from "../../../data/ApiTypes";
-import { API_DOMAIN } from "../../../data/config";
+import { API_DOMAIN } from "../../../config";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "./SearchIcon.svg";

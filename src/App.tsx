@@ -12,7 +12,7 @@ import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
 import D3TestPage from "./components/pages/D3TestPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 import Widget from "./components/widget/Widget";
-import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./data/config";
+import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./config";
 import { MIN_DESKTOP_PX } from "./util/Constants";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 

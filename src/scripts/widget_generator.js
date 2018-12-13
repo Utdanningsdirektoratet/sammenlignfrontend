@@ -23,6 +23,8 @@ fs.writeFileSync(
 ${startupScript}
   
 (function(){
+    // Figure out which domain this udir_sammenlign_widget.js is hosted at,
+    // and assume all related files are from the same domain.
     var jsscript = document.getElementsByTagName("script");
     var domain = "";
     for (var i = 0; i < jsscript.length; i++) {
@@ -30,6 +32,10 @@ ${startupScript}
       if ( pattern.test( jsscript[i].getAttribute("src") ) )
         domain = jsscript[i].getAttribute("src").replace("udir_sammenlign_widget.js","");
     }
+    // Include config.js for server side config on the window object
+    var configScript = document.createElement('script');
+    script.src = domain + "/config.js";
+    document.body.append(configScript);
 
 
     // Include required scripts for the widget
@@ -54,3 +60,11 @@ ${startupScript}
 })()
 `
 );
+
+// Ensure build/config.js exists
+if (!fs.existsSync("./build/config.js")) {
+  fs.writeFileSync(
+    "./build/config.js",
+    `//window.sammenlignBackendURL = "https://sammenlign.utdanning.no"`
+  );
+}

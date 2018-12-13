@@ -9,7 +9,7 @@ import {
   num_compare_sizing,
   ScreenSizeProps,
 } from "../../utils/NumCompareSizing";
-import { NUM_COMPARES_MOBILE } from "../../../data/config";
+import { NUM_COMPARES_MOBILE } from "../../../config";
 import Translate, { TranslateString } from "../../app/Translate";
 import UnoIdSearchModal from "./UnoIdSearchModal";
 import { ReactComponent as Edit } from "../../../fontawesome/solid/edit.svg";
