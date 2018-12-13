@@ -17,6 +17,7 @@ type Props = {
   onUnoIdClick?: (uno_id: string) => void;
   clearOnBlur: boolean;
   inlineSuggestions?: boolean;
+  autoFocus?: boolean;
 };
 
 type State = {
@@ -45,7 +46,8 @@ class SearchBox extends Component<Props & AppStateProps, State> {
   inputRef = React.createRef<HTMLInputElement>();
 
   componentDidMount = () => {
-    if (this.inputRef.current) this.inputRef.current.focus();
+    if (this.inputRef.current && this.props.autoFocus)
+      this.inputRef.current.focus();
   };
 
   resetState = (value: string) => {

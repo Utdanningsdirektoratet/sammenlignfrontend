@@ -22,6 +22,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
           <SearchBox
             className={`${styles.frontpage_options_searchbox}`}
             clearOnBlur={true}
+            autoFocus={innerWidth >= MIN_DESKTOP_PX}
           />
           <Button to="/liste/yrke" type="light">
             {innerWidth < MIN_DESKTOP_PX ? (
@@ -48,6 +49,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                 className={`${styles.frontpage_options_searchbox}`}
                 clearOnBlur={true}
                 innholdstype={this.props.innholdstype}
+                autoFocus={innerWidth >= MIN_DESKTOP_PX}
               />
               <Button to="/liste/yrke" type="light">
                 {innerWidth < MIN_DESKTOP_PX ? (
@@ -72,6 +74,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                 className={`${styles.frontpage_options_searchbox}`}
                 clearOnBlur={true}
                 innholdstype={this.props.innholdstype}
+                autoFocus={innerWidth >= MIN_DESKTOP_PX}
               />
               <Button to="/liste/utdanning" type="light">
                 {innerWidth < MIN_DESKTOP_PX ? (

@@ -12,6 +12,8 @@ import InteresserFilter from "../../filters/InteresseFilter";
 import Translate from "../../app/Translate";
 import NivåFilter from "../../filters/NivåFilter";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
+import { num_compare_sizing } from "../../utils/NumCompareSizing";
+import { MIN_DESKTOP_PX } from "../../../util/Constants";
 
 type State = { showInterestFilter: boolean; showNivåFilter: boolean };
 
@@ -69,7 +71,11 @@ class InterestsHeader extends Component<Props, State> {
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
           <div className={`${style.searchbox}`}>
-            <SearchBox innholdstype={innholdstype} clearOnBlur={true} />
+            <SearchBox
+              innholdstype={innholdstype}
+              clearOnBlur={true}
+              autoFocus={innerWidth >= MIN_DESKTOP_PX}
+            />
           </div>
           <div className={`${style.filterContainer}`}>
             <div className={`${style.dropdown_container}`}>
@@ -150,4 +156,4 @@ class InterestsHeader extends Component<Props, State> {
   }
 }
 
-export default InterestsHeader;
+export default num_compare_sizing<Props>(InterestsHeader);
