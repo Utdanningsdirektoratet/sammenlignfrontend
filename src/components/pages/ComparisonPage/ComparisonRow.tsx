@@ -56,7 +56,7 @@ function ComparisonRow({
   return (
     <div
       className={`${styles.row_style} ${
-        !noPadding ? styles.row_style_padding : null
+        !noPadding ? styles.row_style_padding : ""
       }`}
     >
       {shownChildren}
