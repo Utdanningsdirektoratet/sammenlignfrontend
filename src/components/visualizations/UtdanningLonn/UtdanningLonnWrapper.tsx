@@ -17,7 +17,7 @@ class UtdanningLonnWrapper extends Component<
   constructor(props: ComparisonComponentProps<UtdanningLonnElement>) {
     super(props);
     this.state = {
-      Tidsenhet: "Månedlig",
+      Tidsenhet: "Årlig",
       Lønn: "Brutto",
       StatistiskMål: "Median og kvartiler",
       Fullført: "A",
@@ -109,8 +109,12 @@ class UtdanningLonnWrapper extends Component<
           setConfig={this.setConfig}
           onFilterClicked={this.onFilterClicked}
         />
+        <UtdanningLonnHeaderDesktop
+          config={this.state}
+          onFilterClicked={this.onFilterClicked}
+        />
         <Fragment>
-          <ComparisonRow>
+          <ComparisonRow noPadding>
             {uno_ids.map(uno_id => {
               const ssbSektor = this.getSsbSektor(uno_id);
 
@@ -149,10 +153,6 @@ class UtdanningLonnWrapper extends Component<
             );
           })}
         </ComparisonRow>
-        <UtdanningLonnHeaderDesktop
-          config={this.state}
-          onFilterClicked={this.onFilterClicked}
-        />
       </div>
     );
   }

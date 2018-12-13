@@ -13,12 +13,14 @@ type Props = {
   children: JSX.Element[];
   emptyCellsText?: JSX.Element;
   hideEmptyCells?: boolean;
+  noPadding?: boolean;
 };
 
 function ComparisonRow({
   children,
   innerWidth,
   hideEmptyCells,
+  noPadding,
 }: Props & ScreenSizeProps) {
   const rowLength = children.length;
   const emptyCellsText = (
@@ -52,7 +54,11 @@ function ComparisonRow({
     }
   }
   return (
-    <div className={`${styles.row_style}`}>
+    <div
+      className={`${styles.row_style} ${
+        !noPadding ? styles.row_style_padding : ""
+      }`}
+    >
       {shownChildren}
       {emptyCells}
     </div>
