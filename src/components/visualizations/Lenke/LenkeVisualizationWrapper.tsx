@@ -15,7 +15,7 @@ class LenkeVisualizationWrapper extends Component<
       <ComparisonRow hideEmptyCells>
         {uno_ids.map(uno_id => {
           let unoIdData = data[uno_id];
-          if (!unoIdData || !unoIdData.url) return <div />;
+          if (!unoIdData || !unoIdData.url) return <div key={uno_id} />;
           return (
             <div className={`${styles.container}`} key={uno_id}>
               <h1 className={`${styles.container_title}`}>
