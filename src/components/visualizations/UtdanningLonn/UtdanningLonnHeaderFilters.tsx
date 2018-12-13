@@ -140,7 +140,7 @@ class UtdanningLonnHeaderFilters extends Component<Props, State> {
                           styles.visualizationheader_container_modal_filters_header_helptext_content
                         }
                       >
-                        <Translate nb="Vis månedslønn utbetalt eller avtalt lønn uten tillegg på grunn av arbeid på søndag, feriedag, skift eller turnus." />
+                        <Translate nb="Vis lønn utbetalt eller avtalt lønn uten tillegg på grunn av arbeid på søndag, feriedag, skift eller turnus." />
                       </div>
                       <div
                         className={
@@ -159,11 +159,11 @@ class UtdanningLonnHeaderFilters extends Component<Props, State> {
           <RadioButtonGroup
             group={[
               {
-                text: <Translate nb="Månedslønn" />,
+                text: <Translate nb="Lønn" />,
                 selected: Lønn === "Brutto",
                 valueKey: "Brutto",
                 helptext: showHelpText ? (
-                  <Translate nb="Månedslønn er bruttolønn." />
+                  <Translate nb="Lønn er bruttolønn." />
                 ) : (
                   undefined
                 ),

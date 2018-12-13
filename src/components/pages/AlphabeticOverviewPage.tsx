@@ -156,7 +156,11 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               </Link>
             </div>
             <div className={`${styles.mobile_search}`}>
-              <SearchBox innholdstype={innholdstype} clearOnBlur={true} />
+              <SearchBox
+                innholdstype={innholdstype}
+                clearOnBlur={true}
+                focusOnMount={innerWidth >= MIN_DESKTOP_PX}
+              />
             </div>
           </div>
           <div className={`${styles.sticky_header}`}>
