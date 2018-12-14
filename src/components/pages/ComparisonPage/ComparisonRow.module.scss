@@ -25,8 +25,10 @@
   }
   > * {
     flex: 0 0 $column-width;
+    max-width: $column-width; // IE: really?
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
+      max-width: $column-width-mobile; // IE: really?
     }
   }
 }
