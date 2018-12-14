@@ -42,7 +42,7 @@ class App extends Component<{}, AppState> {
     window.addEventListener("hashchange", this.hashChangeListener);
   }
   hashChangeListener = (e: HashChangeEvent) => {
-    const urlState = parseUrl(e.newURL);
+    const urlState = parseUrl(window.location.hash);
     const reactState = this.state.selected_uno_id;
     if (
       urlState.length !== reactState.length ||
