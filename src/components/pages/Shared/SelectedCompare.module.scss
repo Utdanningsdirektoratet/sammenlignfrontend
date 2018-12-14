@@ -20,9 +20,11 @@
     padding: 0.5em;
     position: relative;
     flex: 0 0 $column-width - 2;
+    max-width: $column-width - 2;
     margin-right: 2px;
     @media (max-width: $max-mobile) {
       flex: 0 0 $column-width-mobile;
+      max-width: $column-width-mobile;
       overflow: hidden;
     }
   }
