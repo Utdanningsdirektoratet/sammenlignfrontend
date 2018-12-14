@@ -22,6 +22,7 @@ import AlphabetFilter from "../filters/AlphabetFilter";
 import ScrollToTop from "./AlphabeticComparisonPage/ScrollToTop";
 import { num_compare_sizing } from "../utils/NumCompareSizing";
 import { MIN_DESKTOP_PX } from "../../util/Constants";
+import { isIE } from "../../util/IsIE";
 
 type State = {
   data: DataList;
@@ -122,11 +123,17 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     var domElement = document.querySelector(
       "[data-letter=" + letter + "]"
     ) as any;
-    if (domElement && domElement.offsetTop)
-      window.scrollTo({
-        top: domElement.offsetTop,
-        behavior: "smooth",
-      });
+    if (domElement && domElement.offsetTop) {
+      var ie = isIE();
+      if (ie) {
+        window.scrollTo(0, domElement.offsetTop);
+      } else {
+        window.scrollTo({
+          top: domElement.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    }
   };
 
   render() {
