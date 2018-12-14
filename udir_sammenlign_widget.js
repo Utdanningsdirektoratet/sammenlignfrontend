@@ -21,7 +21,7 @@
 
     // Include required scripts for the widget
     var script0 = document.createElement('script');
-    script0.src = domain + "/static/js/main.c09a669c.chunk.js";
+    script0.src = domain + "/static/js/main.9eef9894.chunk.js";
     document.body.append(script0);
 
     var script1 = document.createElement('script');
