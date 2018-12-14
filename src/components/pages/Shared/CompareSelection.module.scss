@@ -12,9 +12,11 @@
 .button_row {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
   margin-top: 20px;
   margin-bottom: 40px;
   -ms-flex-pack: center;
+  align-items: center;
 
   @media (max-width: $max-mobile) {
     display: none;
