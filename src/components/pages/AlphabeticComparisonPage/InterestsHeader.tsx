@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InteresseModal from "../../app/InteresseModal";
 import SelectedInterests from "./SelectedInterests";
-import SearchBox from "./SearchBox";
+import SearchBox from "../../ui/SearchBox";
 import { Innholdstype } from "../../../data/ApiTypes";
 
 import { ReactComponent as ChevronDown } from "../../../fontawesome/solid/chevron-down.svg";
@@ -73,7 +73,6 @@ class InterestsHeader extends Component<Props, State> {
           <div className={`${style.searchbox}`}>
             <SearchBox
               innholdstype={innholdstype}
-              clearOnBlur={true}
               focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
           </div>

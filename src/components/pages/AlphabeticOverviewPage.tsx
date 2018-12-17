@@ -15,11 +15,11 @@ import SelectedCompares from "./Shared/SelectedCompares";
 
 import AlphabeticList from "./AlphabeticList";
 import Translate from "../app/Translate";
-import SearchBox from "./AlphabeticComparisonPage/SearchBox";
+import SearchBox from "../ui/SearchBox";
 import InterestsHeader from "./AlphabeticComparisonPage/InterestsHeader";
 import { ReactComponent as BalanceScale } from "../../fontawesome/solid/balance-scale.svg";
 import AlphabetFilter from "../filters/AlphabetFilter";
-import ScrollToTop from "./AlphabeticComparisonPage/ScrollToTop";
+import ScrollToTop from "../utils/ScrollToTop";
 import { num_compare_sizing } from "../utils/NumCompareSizing";
 import { MIN_DESKTOP_PX } from "../../util/Constants";
 import { isIE } from "../../util/IsIE";
@@ -165,7 +165,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             <div className={`${styles.mobile_search}`}>
               <SearchBox
                 innholdstype={innholdstype}
-                clearOnBlur={true}
                 focusOnMount={innerWidth >= MIN_DESKTOP_PX}
               />
             </div>

@@ -5,7 +5,7 @@ import styles from "./Breadcrumb.module.scss";
 
 import { Innholdstype } from "../../../data/ApiTypes";
 import Translate from "../../app/Translate";
-import SearchBox from "../AlphabeticComparisonPage/SearchBox";
+import SearchBox from "../../ui/SearchBox";
 import Button from "../../ui/Button";
 import { num_compare_sizing } from "../../utils/NumCompareSizing";
 import { MIN_DESKTOP_PX } from "../../../util/Constants";
@@ -24,7 +24,6 @@ class Breadcrumb extends Component<Props> {
             <SearchBox
               innholdstype={innholdstype}
               className={`${styles.SearchBox}`}
-              clearOnBlur={true}
               focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
 
@@ -50,7 +49,6 @@ class Breadcrumb extends Component<Props> {
             <SearchBox
               innholdstype={innholdstype}
               className={`${styles.SearchBox}`}
-              clearOnBlur={true}
               focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
             <Button to={"/liste/utdanning"} type="light">

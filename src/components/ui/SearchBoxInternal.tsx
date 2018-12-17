@@ -1,23 +1,21 @@
 import React, { Component, Fragment } from "react";
-import { Innholdstype, Suggest, SuggestElement } from "../../../data/ApiTypes";
-import { API_DOMAIN } from "../../../config";
-import { with_app_state, AppStateProps } from "../../app/AppContext";
+import { Innholdstype, Suggest, SuggestElement } from "../../data/ApiTypes";
+import { API_DOMAIN } from "../../config";
 import styles from "./SearchBox.module.scss";
 import { ReactComponent as Search } from "./SearchIcon.svg";
-import { ReactComponent as Times } from "../../../fontawesome/solid/times.svg";
-import { objectToQueryString } from "../../../util/querystring";
-import Translate, { TranslateString } from "../../app/Translate";
-import { Redirect } from "react-router";
-import ClickOutsideListener from "../../utils/ClickOutsideListner";
+import { ReactComponent as Times } from "../../fontawesome/solid/times.svg";
+import { objectToQueryString } from "../../util/querystring";
+import Translate, { TranslateString } from "../app/Translate";
+import ClickOutsideListener from "../utils/ClickOutsideListner";
 
 type Props = {
   innholdstype?: Innholdstype;
   className?: string;
   placeholder?: string;
   onUnoIdClick?: (uno_id: string) => void;
-  clearOnBlur: boolean;
   inlineSuggestions?: boolean;
-  focusOnMount?: boolean;
+  inputRef?: React.Ref<HTMLInputElement>;
+  hideUnoIds?: string[];
 };
 
 type State = {
@@ -26,7 +24,6 @@ type State = {
   searchString: string;
   activeSuggestion: number;
   error: boolean;
-  redirect: boolean;
 };
 
 const Innholdstyper: { [type: string]: JSX.Element } = {
@@ -34,20 +31,13 @@ const Innholdstyper: { [type: string]: JSX.Element } = {
   y: <Translate nb="Yrker" />,
 };
 
-class SearchBox extends Component<Props & AppStateProps, State> {
+class SearchBoxInternal extends Component<Props, State> {
   state: State = {
     suggestions: {},
     numSuggestions: 0,
     searchString: "",
     activeSuggestion: -1,
     error: false,
-    redirect: false,
-  };
-  inputRef = React.createRef<HTMLInputElement>();
-
-  componentDidMount = () => {
-    if (this.inputRef.current && this.props.focusOnMount)
-      this.inputRef.current.focus();
   };
 
   resetState = (value: string) => {
@@ -88,11 +78,13 @@ class SearchBox extends Component<Props & AppStateProps, State> {
         // Ensure searchString has not changed since the request was sent
         if (this.state.searchString === value) {
           // Do not show suggestions that has already been selected
-          let suggestions = data.response.docs.filter(s => {
-            return !this.props.appState.selected_uno_id.some(
-              u => u === s.uno_id
-            );
-          });
+          let suggestions = data.response.docs;
+          if (this.props.hideUnoIds) {
+            const hide = this.props.hideUnoIds;
+            suggestions = data.response.docs.filter(s => {
+              return !hide.some(u => u === s.uno_id);
+            });
+          }
           this.setState({
             suggestions: group_by_innholdstype(suggestions),
             numSuggestions: suggestions.length,
@@ -160,14 +152,12 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     this.setState({
       searchString: "",
       suggestions: {},
-      redirect: !this.props.innholdstype,
     });
     if (uno_id) {
       if (this.props.onUnoIdClick) {
         this.props.onUnoIdClick(uno_id);
         return;
       }
-      this.props.appState.toggleUnoId(uno_id);
     }
   };
   handleFocus = () => {
@@ -198,26 +188,15 @@ class SearchBox extends Component<Props & AppStateProps, State> {
     );
   };
   render() {
-    const { suggestions, searchString, redirect } = this.state;
+    const { suggestions, searchString } = this.state;
     const {
-      appState: { selected_uno_id },
       innholdstype,
       className,
       placeholder,
       inlineSuggestions,
+      inputRef,
     } = this.props;
-    if (redirect) {
-      return (
-        <Redirect
-          push={true}
-          to={
-            selected_uno_id[selected_uno_id.length - 1][0] == "u"
-              ? "sammenligne/utdanning"
-              : "sammenligne/yrke"
-          }
-        />
-      );
-    }
+
     const innholdstyper = Object.keys(suggestions);
 
     let suggestionNumber = 0;
@@ -271,7 +250,7 @@ class SearchBox extends Component<Props & AppStateProps, State> {
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             className={`${styles.searchbox_container_input}`}
-            ref={this.inputRef}
+            ref={inputRef}
             placeholder={
               placeholder
                 ? placeholder
@@ -308,4 +287,4 @@ function group_by_innholdstype(suggestions: SuggestElement[]) {
   return groups;
 }
 
-export default with_app_state<Props>(SearchBox);
+export default SearchBoxInternal;
