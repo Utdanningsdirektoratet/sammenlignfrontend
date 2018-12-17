@@ -2,6 +2,7 @@ import React, { ReactInstance } from "react";
 
 import "./HvilkeJobber.scss";
 import { updateStats, updateTSVData } from "./HvilkeJobberHelperMethods";
+import Translate, { TranslateString } from "../../app/Translate";
 
 type MyState = {
   selectedFilter: string;
@@ -32,11 +33,17 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
   };
   onFilterSelect: ((className: string) => void) | null = null;
   filters: { className: string; title: string }[] = [
-    { className: "antall_personer", title: "Antall personer" },
-    { className: "kvinner_menn", title: "Kvinner / menn" },
-    { className: "offentlig_privat", title: "Offentlig / Privat" },
-    { className: "over_under_40", title: "Over 40 år / Under 40 år" },
-    { className: "kandidater_13", title: "Nyutdanna" },
+    { className: "antall_personer", title: TranslateString("Antall personer") },
+    { className: "kvinner_menn", title: TranslateString("Kvinner / menn") },
+    {
+      className: "offentlig_privat",
+      title: TranslateString("Offentlig / Privat"),
+    },
+    {
+      className: "over_under_40",
+      title: TranslateString("Over 40 år / Under 40 år"),
+    },
+    { className: "kandidater_13", title: TranslateString("Nyutdannet") },
   ];
 
   componentDidMount() {
@@ -67,11 +74,16 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
     return (
       <div>
         <h1>
-          Hva jobber de som har er utdannet {selectedUtdanning.unoId} med?
+          <Translate
+            nb="Hva jobber de som er utdannet %unoId% som?"
+            replacements={{ "%unoId%": selectedUtdanning.unoId.toString() }}
+          />
         </h1>
         <header className="hvilkejobber_d3-control-panel">
           <section>
-            <h2>Vis</h2>
+            <h2>
+              <Translate nb="Vis" />
+            </h2>
             <ul className="hvilkejobber_tabs">
               {this.filters.map((f, i) => (
                 <li
@@ -90,7 +102,9 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
             </ul>
           </section>
           <section>
-            <h2 className="hvilkejobber_color-header">Sorter etter</h2>
+            <h2 className="hvilkejobber_color-header">
+              <Translate nb="Sorter etter" />
+            </h2>
             <div className="hvilkejobber_color-controler" />
           </section>
         </header>
