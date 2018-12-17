@@ -27,9 +27,44 @@ export function setLang(lang: Lang) {
   GLOBAL_LANGUAGE_CHANGE_LISTENERS.forEach(f => f());
 }
 
-function Translate({ nb, nn, replacements }: Props): JSX.Element {
-  return (TranslateString(nb, replacements, nn) as any) as JSX.Element;
+export function splitKeys(string: string, keys: string[]) {
+  let arr = [string];
+  keys.forEach(key => {
+    arr = arr.reduce(
+      (arr, part) => {
+        if (part.indexOf(key) !== -1) {
+          const parts = part.split(key);
+          for (let i = 0; i < parts.length - 1; i++) {
+            arr.push(parts[i]);
+            arr.push(key);
+          }
+          arr.push(parts[parts.length - 1]);
+        } else {
+          arr.push(part);
+        }
+        return arr;
+      },
+      [] as string[]
+    );
+  });
+  return arr;
 }
+
+const Translate: React.SFC<Props> = ({ nb, nn, replacements }): JSX.Element => {
+  if (
+    replacements &&
+    Object.values(replacements).some(r => typeof r !== "string")
+  ) {
+    const parts = splitKeys(
+      TranslateString(nb, undefined, nn),
+      Object.keys(replacements)
+    );
+    return (
+      <>{parts.map(part => (replacements[part] ? replacements[part] : part))}</>
+    );
+  }
+  return (TranslateString(nb, replacements, nn) as any) as JSX.Element;
+};
 
 export function TranslateString(
   nb: string,
