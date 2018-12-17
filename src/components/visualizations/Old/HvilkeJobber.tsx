@@ -10,8 +10,8 @@ type MyState = {
 
 type MyProps = {
   data: any;
-  onUtdanningChanged: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  selectedUtdanning: { unoId: string; title: string };
+  // onUtdanningChanged: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  unoId: string;
   mainSelect: React.RefObject<HTMLSelectElement>;
 };
 
@@ -70,13 +70,13 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
 
   render() {
     const { selectedFilter } = this.state;
-    const { selectedUtdanning } = this.props;
+    const { unoId } = this.props;
     return (
       <div>
         <h1>
           <Translate
             nb="Hva jobber de som er utdannet %unoId% som?"
-            replacements={{ "%unoId%": selectedUtdanning.unoId.toString() }}
+            replacements={{ "%unoId%": unoId.toString() }}
           />
         </h1>
         <header className="hvilkejobber_d3-control-panel">

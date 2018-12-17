@@ -55,6 +55,8 @@ export function updateTSVData(
     info: React.RefObject<HTMLDivElement>;
   }
 ) {
+  console.log(JSON.stringify(data));
+
   removeStats();
   thisData = data;
   svg = d3.select(refs.chart.current);
@@ -67,7 +69,9 @@ export function updateTSVData(
     .domain([0, (d3.max(thisData, (d: any) => d.sum) as any) as number])
     .nice();
   yScale.domain(
-    thisData.sort((a: any, b: any) => b.sum - a.sum).map((d: any) => d.name)
+    thisData
+      .sort((a: any, b: any) => b.sum - a.sum)
+      .map((d: any) => d.yrkeskode_styrk08_navn)
   );
 
   const mean = d3.mean(thisData, (d: any) => d.sum);
@@ -169,26 +173,26 @@ export function updateTSVData(
       let description = "";
       let heading = "";
 
-      const unit = mapping[v.type].replace(/(antall|personer) /g, "");
+      // const unit = mapping[v.type].replace(/(antall|personer) /g, "");
 
-      if (Object.keys(mapping).length === 1) {
-        heading = `<b>${
-          v.value
-        } ${unit}</b> med denne utdanningen jobber som <b>${v.name}</b>.`;
-        description = `<b>${d3.format(".1%")(
-          v.value / sum
-        )}</b> av de med denne utdanningen har dette yrket.`;
-      } else {
-        heading = `Av de <b>${
-          v.sum
-        }</b> personene med denne utdanningen som jobber som <b>${
-          v.name
-        }</b>,<br> er ${v.value} <b>${unit}</b>.`;
-        description = `Det vil si ${d3.format(".1%")(
-          v.value / v.sum
-        )} <b>${unit}</b> .`;
-      }
-      createInfo(thisInfo, heading, description);
+      // if (Object.keys(mapping).length === 1) {
+      //   heading = `<b>${
+      //     v.value
+      //   } ${unit}</b> med denne utdanningen jobber som <b>${v.name}</b>.`;
+      //   description = `<b>${d3.format(".1%")(
+      //     v.value / sum
+      //   )}</b> av de med denne utdanningen har dette yrket.`;
+      // } else {
+      //   heading = `Av de <b>${
+      //     v.sum
+      //   }</b> personene med denne utdanningen som jobber som <b>${
+      //     v.name
+      //   }</b>,<br> er ${v.value} <b>${unit}</b>.`;
+      //   description = `Det vil si ${d3.format(".1%")(
+      //     v.value / v.sum
+      //   )} <b>${unit}</b> .`;
+      // }
+      // createInfo(thisInfo, heading, description);
 
       svg
         .select(".hovered")
@@ -313,9 +317,14 @@ function moveBars(duration = 0, delay = 0, key = null) {
     .transition()
     .duration(duration)
     .delay(delay)
-    .attr("transform", (d: any) => "translate(0," + yScale(d.name) + ")")
+    .attr(
+      "transform",
+      (d: any) => "translate(0," + yScale(d.yrkeskode_styrk08_navn) + ")"
+    )
     .style("display", (d: any) =>
-      showAll || domain.indexOf(d.name) < 10 ? "inline" : "none"
+      showAll || domain.indexOf(d.yrkeskode_styrk08_navn) < 10
+        ? "inline"
+        : "none"
     );
 
   const restRow = svg.select(".rows_rest");
@@ -452,16 +461,24 @@ function updateData() {
   for (let x of thisData) {
     const values = [];
 
-    for (let z of types) {
-      const key = mapping[z];
-      const xkey = x[key];
-      values.push({
-        name: x.name,
-        type: z,
-        value: parseInt(xkey || "0"),
-        sum: 0,
-      });
-    }
+    // for (let z of types) {
+    //   const key = mapping[z];
+    //   const xkey = x[key];
+    //   values.push({
+    //     name: x.yrkeskode_styrk08_navn,
+    //     type: z,
+    //     value: parseInt(xkey || "0"),
+    //     sum: 0,
+    //   });
+    // }
+
+    values.push({
+      name: x.yrkeskode_styrk08_navn,
+      // type: z,
+      value: parseInt(x.antall_personer || "0"),
+      sum: 0,
+    });
+    console.log(values);
     x.sum = d3.sum(values.map(d => d.value));
     for (let z of values) {
       z.sum = x.sum;
