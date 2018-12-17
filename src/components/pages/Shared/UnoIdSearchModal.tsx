@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactModal from "react-modal";
 
 import styles from "./UnoIdSearchModal.module.scss";
-import SearchBox from "../AlphabeticComparisonPage/SearchBox";
+import SearchBox from "../../ui/SearchBox";
 import Translate from "../../app/Translate";
 import { ReactComponent as Times } from "../../../fontawesome/solid/times.svg";
 import { Innholdstype } from "../../../data/ApiTypes";
@@ -50,7 +50,6 @@ class UnoIdSearchModal extends Component<Props & AppStateProps> {
             className={`${styles.container_searchbox}`}
             innholdstype={innholdsType}
             onUnoIdClick={this.handleOnUnoIdClicked}
-            clearOnBlur={false}
             inlineSuggestions
             focusOnMount
           />

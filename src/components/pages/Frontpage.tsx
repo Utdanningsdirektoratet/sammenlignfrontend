@@ -3,7 +3,7 @@ import * as React from "react";
 import PageChrome from "./PageChrome/PageChrome";
 
 import styles from "./Frontpage.module.scss";
-import SearchBox from "./AlphabeticComparisonPage/SearchBox";
+import SearchBox from "../ui/SearchBox";
 import Translate from "../app/Translate";
 import Button from "../ui/Button";
 import { num_compare_sizing, ScreenSizeProps } from "../utils/NumCompareSizing";
@@ -21,7 +21,6 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
         <div className={`${styles.frontpage_options}`}>
           <SearchBox
             className={`${styles.frontpage_options_searchbox}`}
-            clearOnBlur={true}
             focusOnMount={innerWidth >= MIN_DESKTOP_PX}
           />
           <Button to="/liste/yrke" type="light">
@@ -47,7 +46,6 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
             <div className={`${styles.frontpage_options}`}>
               <SearchBox
                 className={`${styles.frontpage_options_searchbox}`}
-                clearOnBlur={true}
                 innholdstype={this.props.innholdstype}
                 focusOnMount={innerWidth >= MIN_DESKTOP_PX}
               />
@@ -72,7 +70,6 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
             <div className={`${styles.frontpage_options}`}>
               <SearchBox
                 className={`${styles.frontpage_options_searchbox}`}
-                clearOnBlur={true}
                 innholdstype={this.props.innholdstype}
                 focusOnMount={innerWidth >= MIN_DESKTOP_PX}
               />

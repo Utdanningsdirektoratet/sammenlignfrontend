@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import style from "./ScrollToTop.module.scss";
-import { ReactComponent as Up } from "../../../fontawesome/solid/chevron-up.svg";
-import Translate from "../../app/Translate";
+import { ReactComponent as Up } from "../../fontawesome/solid/chevron-up.svg";
+import Translate from "../app/Translate";
 
 type State = {
   yOffset: number;
