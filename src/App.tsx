@@ -164,7 +164,7 @@ class App extends Component<{}, AppState> {
                 path="/sammenligne/:innholdstype"
                 render={render(ComparisonPage)}
               />
-              <Route path="/d3test" render={D3TestPage} />
+              <Route path="/arbeidsmarked" render={D3TestPage} />
               <Route path="/search" render={SearchBoxPage} />
               {/* Test route for å utvikle og vise frem widgets, replace before production */}
               <Route
