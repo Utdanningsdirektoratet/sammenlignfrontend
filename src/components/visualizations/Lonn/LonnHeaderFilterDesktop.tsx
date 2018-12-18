@@ -44,18 +44,18 @@ class LonnHeaderFilterDesktop extends Component<Props, State> {
         onOutsideClick={this.closeExpansion}
         className={`${styles.container}`}
       >
-        <div className={`${styles.container_head}`}>
+        <div
+          className={`${styles.container_head}`}
+          onClick={this.toggleExpansion}
+        >
           <div className={`${styles.container_head_infotext}`}>
-            <Translate nb="Visningsalternativer" />
+            <Translate nb="Se Visningsalternativer" />
           </div>
-          <div className={`${styles.container_head_upper}`}>
+          {/* <div className={`${styles.container_head_upper}`}>
             {" - "}
             <Translate nb="Lønn" />
-          </div>
-          <div
-            className={`${styles.container_head_icon}`}
-            onClick={this.toggleExpansion}
-          >
+          </div> */}
+          <div className={`${styles.container_head_icon}`}>
             {this.state.expanded ? <CloseIcon2 /> : <OpenIcon />}
           </div>
         </div>
