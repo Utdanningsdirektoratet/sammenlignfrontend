@@ -7,6 +7,7 @@ import { API_DOMAIN } from "../../../config";
 import { Innholdstype } from "../../../data/ApiTypes";
 import SearchBoxInternal from "../../ui/SearchBoxInternal";
 import searchboxStyles from "../../ui/SearchBox.module.scss";
+import { objectToQueryString } from "../../../util/querystring";
 
 type Utdanning = { unoId: string; title: string };
 
@@ -38,16 +39,6 @@ class HvilkeJobberWrapper extends React.Component<Props, State> {
     this.fetchData(this.state.unoId);
   }
 
-  // onUtdanningChanged = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   this.setState({
-  //     selectedUtdanning: {
-  //       unoId: event.target.value,
-  //       title: event.target.title ? event.target.title : event.target.value,
-  //     },
-  //   });
-  //   this.getTsv(event.target.value);
-  // };
-
   handleOnUnoIdClicked = (uno_id: string) => {
     this.setState({ unoId: uno_id });
     // TODO: Get uno_id into URL
@@ -56,7 +47,11 @@ class HvilkeJobberWrapper extends React.Component<Props, State> {
 
   fetchData = (uno_id: string) => {
     // TODO: Get &dataset=total into here aswell
-    fetch(`${API_DOMAIN}/rest/utdanning2yrke?uno_id=${uno_id}`)
+    fetch(
+      `${API_DOMAIN}/rest/utdanning2yrke?${objectToQueryString({
+        uno_id: uno_id,
+      })}`
+    )
       .then(r => r.json())
       .then(data => {
         if (data.error) {
@@ -67,18 +62,9 @@ class HvilkeJobberWrapper extends React.Component<Props, State> {
       .catch(e => this.setState({ error: "fetch failed:" + e.toString() }));
   };
 
-  // getTsv = (unoId: string) => {
-  //   d3.tsv("https://groven.no/utdno/yustat/data/" + unoId + ".tsv").then(
-  //     (data: any) => {
-  //       this.setState({ data: data });
-  //     }
-  //   );
-  // };
-
   render() {
     if (this.state.testData) {
       const { unoId } = this.state;
-      // const { innholdsType } = this.props;
       return (
         <div className={`${visualizationstyles.visualization_container}`}>
           <div className="hvilkejobber">
@@ -88,16 +74,9 @@ class HvilkeJobberWrapper extends React.Component<Props, State> {
               onUnoIdClick={this.handleOnUnoIdClicked}
               inlineSuggestions
             />
-            {/* <HvilkeJobberSelektor
-              utdanninger={this.props.utdanninger}
-              mainSelectRef={this.mainSelect}
-              selected={unoId.unoId}
-              onSelected={this.onUtdanningChanged}
-            /> */}
             <HvilkeJobber
               mainSelect={this.mainSelect}
               data={this.state.testData[unoId]}
-              // onUtdanningChanged={this.onUtdanningChanged}
               unoId={this.state.unoId}
             />
           </div>
