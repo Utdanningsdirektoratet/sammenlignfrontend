@@ -6,7 +6,8 @@ import NNTranslations from "../../translations/nn.json";
 
 export type Lang = "nb" | "nn";
 
-type Replacements = { [k: string]: string };
+type Replacements = { [k: string]: string | JSX.Element };
+type ReplacementsElement = { [k: string]: string };
 
 type Props = {
   nn?: string;
@@ -63,12 +64,16 @@ const Translate: React.SFC<Props> = ({ nb, nn, replacements }): JSX.Element => {
       <>{parts.map(part => (replacements[part] ? replacements[part] : part))}</>
     );
   }
-  return (TranslateString(nb, replacements, nn) as any) as JSX.Element;
+  return (TranslateString(
+    nb,
+    replacements as ReplacementsElement,
+    nn
+  ) as any) as JSX.Element;
 };
 
 export function TranslateString(
   nb: string,
-  replacements?: Replacements,
+  replacements?: ReplacementsElement,
   nn?: string
 ): string {
   const lang = getLang();

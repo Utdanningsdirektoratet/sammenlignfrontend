@@ -55,8 +55,6 @@ export function updateTSVData(
     info: React.RefObject<HTMLDivElement>;
   }
 ) {
-  console.log(JSON.stringify(data));
-
   removeStats();
   thisData = data;
   svg = d3.select(refs.chart.current);
@@ -467,18 +465,17 @@ function updateData() {
     //   values.push({
     //     name: x.yrkeskode_styrk08_navn,
     //     type: z,
-    //     value: parseInt(xkey || "0"),
+    //     value: parseInt(x.antall_personer || "0"),
     //     sum: 0,
     //   });
     // }
 
     values.push({
       name: x.yrkeskode_styrk08_navn,
-      // type: z,
+      type: "series-0",
       value: parseInt(x.antall_personer || "0"),
       sum: 0,
     });
-    console.log(values);
     x.sum = d3.sum(values.map(d => d.value));
     for (let z of values) {
       z.sum = x.sum;

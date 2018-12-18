@@ -3,6 +3,7 @@ import React, { ReactInstance } from "react";
 import "./HvilkeJobber.scss";
 import { updateStats, updateTSVData } from "./HvilkeJobberHelperMethods";
 import Translate, { TranslateString } from "../../app/Translate";
+import UnoId from "../../app/UnoId";
 
 type MyState = {
   selectedFilter: string;
@@ -10,7 +11,6 @@ type MyState = {
 
 type MyProps = {
   data: any;
-  // onUtdanningChanged: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   unoId: string;
   mainSelect: React.RefObject<HTMLSelectElement>;
 };
@@ -52,14 +52,14 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
 
   componentWillReceiveProps(nextProps: MyProps) {
     if (nextProps.data !== this.props.data) {
-      this.handleUtdanningClicked(nextProps.data);
+      updateTSVData(nextProps.data, this.myRefs);
     }
   }
 
-  handleUtdanningClicked = (data: any) => {
-    this.setState({ selectedFilter: this.defaultSelectedFilter });
-    updateTSVData(data, this.myRefs);
-  };
+  // handleUtdanningClicked = (data: any) => {
+  //   this.setState({ selectedFilter: this.defaultSelectedFilter });
+  //   updateTSVData(data, this.myRefs);
+  // };
 
   handleChangeFilter = (event: React.MouseEvent<HTMLLIElement>) => {
     var className = event.currentTarget.className.split(" ")[0];
@@ -76,7 +76,7 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
         <h1>
           <Translate
             nb="Hva jobber de som er utdannet %unoId% som?"
-            replacements={{ "%unoId%": unoId.toString() }}
+            replacements={{ "%unoId%": <UnoId uno_id={unoId} /> }}
           />
         </h1>
         <header className="hvilkejobber_d3-control-panel">
