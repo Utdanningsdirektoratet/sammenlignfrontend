@@ -8,6 +8,7 @@ import { Innholdstype } from "../../../data/ApiTypes";
 import SearchBoxInternal from "../../ui/SearchBoxInternal";
 import searchboxStyles from "../../ui/SearchBox.module.scss";
 import { objectToQueryString } from "../../../util/querystring";
+import { updateTSVData } from "./HvilkeJobberHelperMethods";
 
 type Utdanning = { unoId: string; title: string };
 
@@ -76,6 +77,7 @@ class HvilkeJobberWrapper extends React.Component<Props, State> {
             />
             <HvilkeJobber
               mainSelect={this.mainSelect}
+              onUnoIdClick={this.handleOnUnoIdClicked}
               data={this.state.testData[unoId]}
               unoId={this.state.unoId}
             />

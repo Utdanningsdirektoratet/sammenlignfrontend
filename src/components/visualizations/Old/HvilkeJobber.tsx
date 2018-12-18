@@ -1,6 +1,6 @@
 import React, { ReactInstance } from "react";
 
-import "./HvilkeJobber.scss";
+import styles from "./HvilkeJobber.module.scss";
 import { updateStats, updateTSVData } from "./HvilkeJobberHelperMethods";
 import Translate, { TranslateString } from "../../app/Translate";
 import UnoId from "../../app/UnoId";
@@ -13,6 +13,7 @@ type MyProps = {
   data: any;
   unoId: string;
   mainSelect: React.RefObject<HTMLSelectElement>;
+  onUnoIdClick?: (uno_id: string) => void;
 };
 
 class HvilkeJobber extends React.Component<MyProps, MyState> {
@@ -47,14 +48,28 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
   ];
 
   componentDidMount() {
+    // this.handleUnoIdClick(this.props.unoId);
     updateTSVData(this.props.data, this.myRefs);
   }
 
-  componentWillReceiveProps(nextProps: MyProps) {
-    if (nextProps.data !== this.props.data) {
-      updateTSVData(nextProps.data, this.myRefs);
-    }
-  }
+  // componentWillReceiveProps(nextProps: MyProps) {
+  //   if (nextProps.data !== this.props.data) {
+  //     updateTSVData(nextProps.data, this.myRefs);
+  //   }
+  // }
+
+  // handleUnoIdClick = (uno_id: string) => {
+  //   // this.setState({
+  //   //   searchString: "",
+  //   //   suggestions: {},
+  //   // });
+  //   if (uno_id) {
+  //     if (this.props.onUnoIdClick) {
+  //       this.props.onUnoIdClick(uno_id);
+  //       return;
+  //     }
+  //   }
+  // };
 
   // handleUtdanningClicked = (data: any) => {
   //   this.setState({ selectedFilter: this.defaultSelectedFilter });
@@ -79,19 +94,19 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
             replacements={{ "%unoId%": <UnoId uno_id={unoId} /> }}
           />
         </h1>
-        <header className="hvilkejobber_d3-control-panel">
+        <header className={`${styles.hvilkejobber_d3_control_panel}`}>
           <section>
             <h2>
               <Translate nb="Vis" />
             </h2>
-            <ul className="hvilkejobber_tabs">
+            <ul className={`${styles.hvilkejobber_tabs}`}>
               {this.filters.map((f, i) => (
                 <li
                   key={f.className}
                   className={
                     f.className +
                     (selectedFilter === f.className
-                      ? " hvilkejobber_active"
+                      ? ` ${styles.hvilkejobber_active}`
                       : "")
                   }
                   onClick={this.handleChangeFilter}
@@ -102,22 +117,22 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
             </ul>
           </section>
           <section>
-            <h2 className="hvilkejobber_color-header">
+            <h2 className={`${styles.hvilkejobber_color_header}`}>
               <Translate nb="Sorter etter" />
             </h2>
-            <div className="hvilkejobber_color-controler" />
+            <div className={`${styles.hvilkejobber_color_controler}`} />
           </section>
         </header>
-        <div className="hvilkejobber_container">
+        <div className={`${styles.hvilkejobber_container}`}>
           <div
-            className="hvilkejobber_chart-container"
+            className={`${styles.hvilkejobber_chart_container}`}
             id="hvilkejobber_container"
             ref={this.myRefs.container}
           >
             <svg id="hvilkejobber_chart" ref={this.myRefs.chart} />
             <div id="hvilkejobber_info" ref={this.myRefs.info}>
-              <div className="hvilkejobber_title">infoTitle</div>
-              <div className="hvilkejobber_desc" />
+              <div className={`${styles.hvilkejobber_title}`}>infoTitle</div>
+              <div className={`${styles.hvilkejobber_desc}`} />
             </div>
           </div>
         </div>

@@ -494,12 +494,12 @@ function calcLeft(datum: any) {
 }
 
 function createLegend() {
-  d3.select(".hvilkejobber_color-controler")
+  d3.select(".hvilkejobber_color_controler")
     .select("ul")
     .remove();
 
   const colorControler = d3
-    .select(".hvilkejobber_color-controler")
+    .select(".hvilkejobber_color_controler")
     .append("ul");
   const markerSize = parseFloat(colorControler.style("font-size").slice(0, -2));
   colorControler

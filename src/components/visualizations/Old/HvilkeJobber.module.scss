@@ -2,7 +2,7 @@
   //Scalable font size
   font-size: 1em;
 
-  &_chart-container {
+  &_chart_container {
     width: 100%;
     max-width: 100em;
     margin: 0 auto;
@@ -13,16 +13,16 @@
     border-bottom: 0.1em gray solid;
   }
 
-  &_d3-control-panel {
+  &_d3_control_panel {
     padding: 0.5em;
     display: grid;
   }
 
-  &_color-header {
+  &_color_header {
     margin-top: 14px !important;
   }
 
-  &_d3-control-panel h2 {
+  &_d3_control_panel h2 {
     clear: both;
     float: left;
     min-width: 5em;
@@ -30,17 +30,17 @@
     margin: 0;
   }
 
-  &_color-controler ul {
+  &_color_controler ul {
     max-width: 80em;
     margin: 1em auto 0.5em;
   }
 
-  &_color-controler li {
+  &_color_controler li {
     display: inline-block;
     margin: auto 0.6em;
   }
 
-  &_color-controler svg {
+  &_color_controler svg {
     display: inline-block;
     margin-right: 0.3em;
   }
