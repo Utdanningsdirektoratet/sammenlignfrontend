@@ -31,7 +31,7 @@ function Circle({ x, y, fill }: CircleProps) {
           : styles.circle_unfilled
       } ${x === "female" ? styles.circle_female : ""}`}
       strokeWidth="2"
-      cx={x === "male" ? 10 : 30}
+      cx={x === "male" ? 10 : 25}
       cy={100 - y + 5}
       r="4"
     />
@@ -62,7 +62,7 @@ class MaleFemaleBarChart extends Component<Props> {
     male.max = maximum(male.top, male.middle, male.bottom);
     female.max = maximum(female.top, female.middle, female.bottom);
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox={`5 0 30 105`}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={`5 0 25 105`}>
         <g>
           <rect
             className={`${styles.male_bar}`}
@@ -78,13 +78,13 @@ class MaleFemaleBarChart extends Component<Props> {
             width="10"
             height={female.max}
             rx="5"
-            x="25"
+            x="20"
             y={100 - female.max}
           />
 
           <g
             className={`${styles.icon + " " + styles.icon_woman}`}
-            transform={`translate(26.5 83) scale(0.6)`}
+            transform={`translate(21.5 83) scale(0.6)`}
           >
             <path
               d="M28.36 2.73A2.73 2.73 0 1 1 25.63 0a2.73 2.73 0 0 1 2.73 2.73z"
