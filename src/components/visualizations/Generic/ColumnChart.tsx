@@ -31,36 +31,35 @@ function numberOrZero(kjønn: KvartilKjønn, kvartInfo?: KvartilInfo) {
 class ColumnChart extends Component<Props> {
   render() {
     const { kjønn, low, mid, high, max } = this.props;
+    if (kjønn === "A") {
+      return (
+        <div className={`${styles.columnchart_container}`}>
+          <SingleBarChart
+            max={max}
+            data={{
+              top: numberOrZero("A", high),
+              middle: numberOrZero("A", mid),
+              bottom: numberOrZero("A", low),
+            }}
+          />
+        </div>
+      );
+    }
     return (
-      <div className={`${styles.columnchart}`}>
-        {kjønn === "A" ? (
-          <div className={`${styles.columnchart_container}`}>
-            <SingleBarChart
-              max={max}
-              data={{
-                top: numberOrZero("A", high),
-                middle: numberOrZero("A", mid),
-                bottom: numberOrZero("A", low),
-              }}
-            />
-          </div>
-        ) : (
-          <div className={`${styles.columnchart_container}`}>
-            <MaleFemaleBarChart
-              max={max}
-              male={{
-                top: numberOrZero("M", high),
-                middle: numberOrZero("M", mid),
-                bottom: numberOrZero("M", low),
-              }}
-              female={{
-                top: numberOrZero("K", high),
-                middle: numberOrZero("K", mid),
-                bottom: numberOrZero("K", low),
-              }}
-            />
-          </div>
-        )}
+      <div className={`${styles.columnchart_container}`}>
+        <MaleFemaleBarChart
+          max={max}
+          male={{
+            top: numberOrZero("M", high),
+            middle: numberOrZero("M", mid),
+            bottom: numberOrZero("M", low),
+          }}
+          female={{
+            top: numberOrZero("K", high),
+            middle: numberOrZero("K", mid),
+            bottom: numberOrZero("K", low),
+          }}
+        />
       </div>
     );
   }

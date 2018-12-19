@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .lonnVisualization {
   &_kjonncontainer {
     height: 230px;
@@ -78,11 +83,5 @@
         margin-top: 3px;
       }
     }
-  }
-}
-
-.chart_container {
-  @media (max-width: 500px) {
-    display: block;
   }
 }

@@ -1,36 +1,32 @@
+@import "src/styles/_constants.scss";
+
+$bar-width: 60px;
+
 .container {
-  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+  // max-width: $column-width - $bar-width;
   @media (max-width: 500px) {
     margin-left: 0;
     text-align: center;
   }
+  color: gray;
   &_data {
     &_header {
       font-weight: 500;
     }
-    &_q3 {
-      margin-bottom: 20px;
-      &_A {
-        margin-bottom: 50px;
-        @media (max-width: 500px) {
-          margin-bottom: 10px;
-        }
-      }
-    }
     &_median {
-      margin-bottom: 20px;
-      .container_data_header {
+      color: black;
+      .container_data_text {
         font-weight: 700;
-        text-transform: uppercase;
       }
+
       &_A {
-        margin-bottom: 50px;
-        .container_data_header {
+        .container_data_text {
+          color: black;
           font-weight: 700;
-          text-transform: uppercase;
-        }
-        @media (max-width: 500px) {
-          margin-bottom: 10px;
         }
       }
     }
@@ -38,18 +34,16 @@
     &_female {
       color: #84012e;
       font-weight: 600;
-      display: flex;
       word-break: break-all;
-      @media (max-width: 500px) {
-        display: inline-flex;
-      }
+
       &_icon {
         background-color: #84012e;
         border-radius: 50%;
         height: 15px;
         width: 15px;
         margin-left: 5px;
-        margin-top: 3px;
+        transform: translateY(2px);
+        display: inline-block;
         svg {
           height: 15px;
           width: 15px;
@@ -70,8 +64,8 @@
       svg {
         height: 15px;
         width: 15px;
-        margin-left: 3px !important;
-        margin-top: 3px;
+        margin-right: 3px !important;
+        margin-left: 2px !important;
       }
     }
     &_text {
