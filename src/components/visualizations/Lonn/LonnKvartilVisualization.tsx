@@ -29,7 +29,7 @@ class LonnKvartilVisualization extends Component<Props> {
           }
         >
           <div className={`${styles.container_data_header}`}>
-            <Translate nb="Høy kvart" />
+            <Translate nb="Høyest betalte ¼" />
           </div>
           {kjønn === "A" ? (
             <div className={`${styles.container_data_text}`}>
@@ -76,7 +76,7 @@ class LonnKvartilVisualization extends Component<Props> {
           }
         >
           <div className={`${styles.container_data_header}`}>
-            <Translate nb="Median" />
+            <Translate nb="Typisk lønn" />
           </div>
           {kjønn === "A" ? (
             <div className={`${styles.container_data_text}`}>
@@ -117,7 +117,7 @@ class LonnKvartilVisualization extends Component<Props> {
         </div>
         <div>
           <div className={`${styles.container_data_header}`}>
-            <Translate nb="Lav kvart" />
+            <Translate nb="Lavest betalte ¼" />
           </div>
           {kjønn === "A" ? (
             <div className={`${styles.container_data_text}`}>

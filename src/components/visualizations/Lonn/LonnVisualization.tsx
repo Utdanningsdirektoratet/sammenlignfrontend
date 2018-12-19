@@ -144,25 +144,27 @@ class LonnVisualization extends Component<Props> {
       }
 
       return (
-        <div className={`${visualizationstyles.visualization_container}`}>
-          <div className={`${styles.chart_container}`}>
-            {showGraphics ? (
-              <ColumnChart
-                kjønn={kjønn}
-                low={q1}
-                mid={median}
-                high={q3}
-                max={maxValue}
-              />
-            ) : null}
-            <LonnKvartilVisualization
+        <div
+          className={`${visualizationstyles.visualization_container} ${
+            styles.container
+          }`}
+        >
+          {showGraphics ? (
+            <ColumnChart
               kjønn={kjønn}
               low={q1}
               mid={median}
               high={q3}
-              tidsenhet={tidsenhet}
+              max={maxValue}
             />
-          </div>
+          ) : null}
+          <LonnKvartilVisualization
+            kjønn={kjønn}
+            low={q1}
+            mid={median}
+            high={q3}
+            tidsenhet={tidsenhet}
+          />
         </div>
       );
     }
@@ -171,7 +173,11 @@ class LonnVisualization extends Component<Props> {
       data = this.calcWageTimeUnit(this.getDataQuery(kjønn));
       if (data === null) return <NoData />;
       return (
-        <div className={`${visualizationstyles.visualization_container}`}>
+        <div
+          className={`${visualizationstyles.visualization_container} ${
+            styles.container
+          }`}
+        >
           {showGraphics ? (
             <ColumnChart
               kjønn={kjønn}
@@ -208,7 +214,11 @@ class LonnVisualization extends Component<Props> {
 
       if (kvinner === null && menn === null) return <NoData />;
       return (
-        <div className={`${visualizationstyles.visualization_container}`}>
+        <div
+          className={`${visualizationstyles.visualization_container} ${
+            styles.container
+          }`}
+        >
           {showGraphics ? (
             <ColumnChart
               kjønn={kjønn}

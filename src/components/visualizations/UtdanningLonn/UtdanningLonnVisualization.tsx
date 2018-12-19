@@ -118,7 +118,11 @@ class UtdanningLonnVisualization extends Component<Props> {
       if (!q1["A"] && !median["A"] && !q3["A"]) return <NoData />;
 
       return (
-        <div className={`${visualizationstyles.visualization_container}`}>
+        <div
+          className={`${visualizationstyles.visualization_container} ${
+            styles.container
+          }`}
+        >
           {showGraphics ? (
             <ColumnChart
               kjønn={"A"}
@@ -142,7 +146,11 @@ class UtdanningLonnVisualization extends Component<Props> {
     data = this.calcWageTimeUnit(this.getDataQuery());
     if (data === null) return <NoData />;
     return (
-      <div className={`${visualizationstyles.visualization_container}`}>
+      <div
+        className={`${visualizationstyles.visualization_container} ${
+          styles.container
+        }`}
+      >
         {showGraphics ? (
           <ColumnChart
             kjønn={"A"}

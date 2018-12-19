@@ -1,23 +1,6 @@
-.columnchart {
-  @media (max-width: 500px) {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
-  &_container {
-    height: 230px;
-    svg {
-      width: 60px;
-    }
-    display: flex;
-    float: left;
-    margin-right: 10px;
-    position: relative;
-
-    @media (max-width: 500px) {
-      display: unset;
-      float: none;
-      margin-right: 0;
-    }
+.columnchart_container {
+  height: 230px;
+  svg {
+    width: 60px;
   }
 }
