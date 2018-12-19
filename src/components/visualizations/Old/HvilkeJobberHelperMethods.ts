@@ -171,26 +171,26 @@ export function updateTSVData(
       let description = "";
       let heading = "";
 
-      // const unit = mapping[v.type].replace(/(antall|personer) /g, "");
+      const unit = mapping[v.type].replace(/(antall|personer) /g, "");
 
-      // if (Object.keys(mapping).length === 1) {
-      //   heading = `<b>${
-      //     v.value
-      //   } ${unit}</b> med denne utdanningen jobber som <b>${v.name}</b>.`;
-      //   description = `<b>${d3.format(".1%")(
-      //     v.value / sum
-      //   )}</b> av de med denne utdanningen har dette yrket.`;
-      // } else {
-      //   heading = `Av de <b>${
-      //     v.sum
-      //   }</b> personene med denne utdanningen som jobber som <b>${
-      //     v.name
-      //   }</b>,<br> er ${v.value} <b>${unit}</b>.`;
-      //   description = `Det vil si ${d3.format(".1%")(
-      //     v.value / v.sum
-      //   )} <b>${unit}</b> .`;
-      // }
-      // createInfo(thisInfo, heading, description);
+      if (Object.keys(mapping).length === 1) {
+        heading = `<b>${
+          v.value
+        } ${unit}</b> med denne utdanningen jobber som <b>${v.name}</b>.`;
+        description = `<b>${d3.format(".1%")(
+          v.value / sum
+        )}</b> av de med denne utdanningen har dette yrket.`;
+      } else {
+        heading = `Av de <b>${
+          v.sum
+        }</b> personene med denne utdanningen som jobber som <b>${
+          v.name
+        }</b>,<br> er ${v.value} <b>${unit}</b>.`;
+        description = `Det vil si ${d3.format(".1%")(
+          v.value / v.sum
+        )} <b>${unit}</b> .`;
+      }
+      createInfo(thisInfo, heading, description);
 
       svg
         .select(".hovered")
@@ -283,17 +283,13 @@ export function updateTSVData(
   win.on("resize", resize);
 }
 
-export function updateStats(id: string) {
-  setStats(id);
-}
-
 function removeStats() {
   d3.selectAll("g.yaxis .tick").remove();
   d3.selectAll("g.rows-wrapper").remove();
   d3.selectAll("g.show_top10").remove();
 }
 
-function setStats(id: string) {
+export function updateStats(id: string) {
   types = ["series-0", "series-1", "series-2"];
   moveBars(500);
   mapping = {};

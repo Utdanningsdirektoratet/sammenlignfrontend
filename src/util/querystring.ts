@@ -5,7 +5,7 @@ export type QueryObject = { [a: string]: string | undefined };
 export function objectToQueryString(obj?: QueryObject) {
   const params: QueryObject = {
     ...obj,
-    spraak: getLang(),
+    sprak: getLang(),
     origin: window.location.origin,
   };
 

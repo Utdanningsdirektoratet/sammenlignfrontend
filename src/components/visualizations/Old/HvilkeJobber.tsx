@@ -1,4 +1,4 @@
-import React, { ReactInstance } from "react";
+import React, { Component } from "react";
 
 import "./HvilkeJobber.scss";
 import { updateStats, updateTSVData } from "./HvilkeJobberHelperMethods";
@@ -15,7 +15,7 @@ type MyProps = {
   mainSelect: React.RefObject<HTMLSelectElement>;
 };
 
-class HvilkeJobber extends React.Component<MyProps, MyState> {
+class HvilkeJobber extends Component<MyProps, MyState> {
   myRefs: {
     container: React.RefObject<HTMLDivElement>;
     mainSelect: React.RefObject<HTMLSelectElement>;
@@ -50,18 +50,7 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
     updateTSVData(this.props.data, this.myRefs);
   }
 
-  componentWillReceiveProps(nextProps: MyProps) {
-    if (nextProps.data !== this.props.data) {
-      updateTSVData(nextProps.data, this.myRefs);
-    }
-  }
-
-  // handleUtdanningClicked = (data: any) => {
-  //   this.setState({ selectedFilter: this.defaultSelectedFilter });
-  //   updateTSVData(data, this.myRefs);
-  // };
-
-  handleChangeFilter = (event: React.MouseEvent<HTMLLIElement>) => {
+  handleChangeFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
     var className = event.currentTarget.className.split(" ")[0];
     this.setState({ selectedFilter: className });
     if (this.onFilterSelect) this.onFilterSelect(className);
@@ -94,9 +83,8 @@ class HvilkeJobber extends React.Component<MyProps, MyState> {
                       ? " hvilkejobber_active"
                       : "")
                   }
-                  onClick={this.handleChangeFilter}
                 >
-                  {f.title}
+                  <button onClick={this.handleChangeFilter}>{f.title}</button>
                 </li>
               ))}
             </ul>
