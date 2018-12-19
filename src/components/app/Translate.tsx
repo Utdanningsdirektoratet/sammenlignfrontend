@@ -53,7 +53,7 @@ export function splitKeys(string: string, keys: string[]) {
 const Translate: React.SFC<Props> = ({ nb, nn, replacements }): JSX.Element => {
   if (
     replacements &&
-    Object.values(replacements).some(r => typeof r !== "string")
+    Object.keys(replacements).some(key => typeof replacements[key] !== "string")
   ) {
     const parts = splitKeys(
       TranslateString(nb, undefined, nn),
