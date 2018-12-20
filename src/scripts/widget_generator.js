@@ -34,7 +34,7 @@ ${startupScript}
     }
     // Include config.js for server side config on the window object
     var configScript = document.createElement('script');
-    script.src = domain + "/config.js";
+    configScript.src = domain + "/config.js";
     document.body.append(configScript);
 
 
