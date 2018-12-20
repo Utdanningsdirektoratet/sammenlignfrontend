@@ -43,7 +43,7 @@ class HvilkeJobber extends Component<MyProps, MyState> {
       className: "over_under_40",
       title: TranslateString("Over 40 år / Under 40 år"),
     },
-    { className: "kandidater_13", title: TranslateString("Nyutdannet") },
+    { className: "kandidater_13", title: TranslateString("Nyutdanna") },
   ];
 
   componentDidMount() {

@@ -57,26 +57,27 @@ class HvilkeJobberWrapper extends Component<{}, State> {
 
   render() {
     const { unoId, testData } = this.state;
-    if (testData && testData[unoId]) {
-      return (
-        <div className={`${visualizationstyles.visualization_container}`}>
-          <div className="hvilkejobber">
-            <SearchBoxInternal
-              className={`${searchboxStyles.searchbox_container}`}
-              onUnoIdClick={this.handleOnUnoIdClicked}
-              inlineSuggestions
-            />
+    return (
+      <div className={`${visualizationstyles.visualization_container}`}>
+        <div className="hvilkejobber">
+          <SearchBoxInternal
+            className={`${searchboxStyles.searchbox_container}`}
+            onUnoIdClick={this.handleOnUnoIdClicked}
+            inlineSuggestions
+          />
+          {testData && testData[unoId] ? (
             <HvilkeJobber
               mainSelect={this.mainSelect}
               data={testData[unoId]}
               unoId={unoId}
               key={unoId}
             />
-          </div>
+          ) : (
+            ""
+          )}
         </div>
-      );
-    }
-    return null;
+      </div>
+    );
   }
 }
 

@@ -459,9 +459,9 @@ function updateData() {
     //   const key = mapping[z];
     //   const xkey = x[key];
     //   values.push({
-    //     name: x.yrkeskode_styrk08_navn,
+    //     name: x.name,
     //     type: z,
-    //     value: parseInt(x.antall_personer || "0"),
+    //     value: parseInt(xkey || "0"),
     //     sum: 0,
     //   });
     // }
