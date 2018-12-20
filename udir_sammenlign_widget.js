@@ -15,13 +15,13 @@
     }
     // Include config.js for server side config on the window object
     var configScript = document.createElement('script');
-    script.src = domain + "/config.js";
+    configScript.src = domain + "/config.js";
     document.body.append(configScript);
 
 
     // Include required scripts for the widget
     var script0 = document.createElement('script');
-    script0.src = domain + "/static/js/main.6d3821ec.chunk.js";
+    script0.src = domain + "/static/js/main.6e41df8e.chunk.js";
     document.body.append(script0);
 
     var script1 = document.createElement('script');
@@ -35,7 +35,7 @@
     // Include styles
     var style0 = document.createElement('link');
     style0.rel = "stylesheet";
-    style0.href = domain + "/static/css/main.8f4368df.chunk.css";
+    style0.href = domain + "/static/css/main.539def3a.chunk.css";
     document.head.appendChild(style0);
 
 })()
