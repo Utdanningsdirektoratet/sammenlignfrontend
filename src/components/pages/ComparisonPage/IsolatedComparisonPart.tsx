@@ -10,6 +10,7 @@ type Props = {
   data: any;
   template: SammenligningTemplate;
   uno_ids?: string[];
+  widget: boolean;
 };
 
 type State = { error: boolean };
@@ -24,13 +25,18 @@ class IsolatedComparisonPart extends Component<Props, State> {
   }
 
   render() {
-    const { data, template, uno_ids } = this.props;
+    const { data, template, uno_ids, widget } = this.props;
     if (this.state.error) {
       return <div>Error {template.title}</div>;
     }
     if (template.Component && uno_ids) {
       return (
-        <template.Component data={data} template={template} uno_ids={uno_ids} />
+        <template.Component
+          data={data}
+          template={template}
+          uno_ids={uno_ids}
+          widget={widget}
+        />
       );
     }
     if (!template.render) {

@@ -21,7 +21,6 @@ class UtdanningLonnWrapper extends Component<
       Lønn: "Brutto",
       StatistiskMål: "Median og kvartiler",
       Fullført: "A",
-      ShowGraphics: true,
       ssbSektor: {},
     };
   }
@@ -75,7 +74,7 @@ class UtdanningLonnWrapper extends Component<
   };
 
   render() {
-    const { data, uno_ids } = this.props;
+    const { data, uno_ids, widget } = this.props;
 
     let maxValue: number = 0;
 
@@ -102,12 +101,49 @@ class UtdanningLonnWrapper extends Component<
       if (maxValue < (wage || 0)) maxValue = wage || 0;
     });
 
+    if (widget) {
+      const uno_id = uno_ids[0];
+      if (!uno_id) return <NoData />;
+      const ssbSektor = this.getSsbSektor(uno_id);
+      const fullfort_data = data[uno_id][ssbSektor]["A"]["A"]["A"];
+      if (!fullfort_data) return <NoData />;
+      return (
+        <div>
+          <UtdanningLonnHeaderMobile
+            config={this.state}
+            setConfig={this.setConfig}
+            onFilterClicked={this.onFilterClicked}
+            widget={true}
+          />
+          <UtdanningLonnVisualization
+            key={uno_id}
+            data={fullfort_data}
+            lønn={this.state.Lønn}
+            statistiskMål={this.state.StatistiskMål}
+            tidsenhet={this.state.Tidsenhet}
+            fullført={this.state.Fullført}
+            maxValue={maxValue}
+            showGraphics={false}
+            getFullførtString={this.getFullførtString}
+          />
+          <LonnSpecificChoice
+            key={uno_id}
+            data={data[uno_id]}
+            onChange={this.onSelectedChoiceClick}
+            unoId={uno_id}
+            selectedChoice={this.getSsbSektor(uno_id)}
+          />
+        </div>
+      );
+    }
+
     return (
       <div>
         <UtdanningLonnHeaderMobile
           config={this.state}
           setConfig={this.setConfig}
           onFilterClicked={this.onFilterClicked}
+          widget={false}
         />
         <UtdanningLonnHeaderDesktop
           config={this.state}
@@ -130,7 +166,7 @@ class UtdanningLonnWrapper extends Component<
                       tidsenhet={this.state.Tidsenhet}
                       fullført={this.state.Fullført}
                       maxValue={maxValue}
-                      showGraphics={this.state.ShowGraphics}
+                      showGraphics={true}
                       getFullførtString={this.getFullførtString}
                     />
                   );

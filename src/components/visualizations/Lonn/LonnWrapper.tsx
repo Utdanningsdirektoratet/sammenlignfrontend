@@ -91,10 +91,6 @@ class LonnWrapper extends Component<
     };
   }
 
-  //TODO: This must be set when embedding widget!!
-  //Not true when embedding multiple widgets for different UNO_IDs, and true if embedding one with multiple UNO_IDs.
-  showGraphics = true;
-
   onSelectedChoiceClick = (uno_id: string, ssbSektor: string) => {
     this.setState(prevState => {
       return { ssbSektor: { ...prevState.ssbSektor, [uno_id]: ssbSektor } };
@@ -138,7 +134,7 @@ class LonnWrapper extends Component<
   };
 
   render() {
-    const { data, uno_ids } = this.props;
+    const { data, uno_ids, widget } = this.props;
     const { Sektor } = this.state;
 
     let maxValue: number = 0;
@@ -187,12 +183,49 @@ class LonnWrapper extends Component<
       }
     });
 
+    // Render in widget context (without rows and always mobile menue)
+    if (widget) {
+      const uno_id = uno_ids[0];
+      if (!uno_id) return <NoData />;
+      const ssbSektor = this.getSsbSektor(uno_id);
+      const arbeidstid_data = data[uno_id][ssbSektor][Sektor];
+      if (!arbeidstid_data) return <NoData />;
+      return (
+        <div>
+          <VisualizationHeaderLonn
+            config={this.state}
+            setConfig={this.setConfig}
+            onFilterClicked={this.onFilterClicked}
+            widget={true}
+          />
+          <LonnVisualization
+            key={uno_ids[0]}
+            data={arbeidstid_data}
+            arbeidstid={this.state.Arbeidstid}
+            kjønn={this.state.Kjønn}
+            lønn={this.state.Lønn}
+            statistiskMål={this.state.StatistiskMål}
+            tidsenhet={this.state.Tidsenhet}
+            maxValue={maxValue}
+            showGraphics={false}
+          />
+          <LonnSpecificChoice
+            key={uno_id}
+            data={data[uno_id]}
+            onChange={this.onSelectedChoiceClick}
+            unoId={uno_id}
+            selectedChoice={this.getSsbSektor(uno_id)}
+          />
+        </div>
+      );
+    }
     return (
       <div>
         <VisualizationHeaderLonn
           config={this.state}
           setConfig={this.setConfig}
           onFilterClicked={this.onFilterClicked}
+          widget={false}
         />
         <LonnHeaderFilterDesktop
           config={this.state}
@@ -216,7 +249,7 @@ class LonnWrapper extends Component<
                       statistiskMål={this.state.StatistiskMål}
                       tidsenhet={this.state.Tidsenhet}
                       maxValue={maxValue}
-                      showGraphics={this.showGraphics}
+                      showGraphics={true}
                     />
                   );
                 }

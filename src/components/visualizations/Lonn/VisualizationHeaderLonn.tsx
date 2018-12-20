@@ -20,6 +20,7 @@ export type Lønn = "Brutto" | "Med overtid";
 export type StatistiskMål = "Median" | "Gjennomsnitt" | "Median og kvartiler";
 
 type Props = {
+  widget: boolean;
   config: VisualizationHeaderConfigLonn;
   setConfig: (config: VisualizationHeaderConfigLonn) => void;
   onFilterClicked: (event: any, key: string) => void;
@@ -56,13 +57,9 @@ class VisualizationHeaderLonn extends Component<Props, State> {
 
   render() {
     const {
-      Arbeidstid,
-      Sektor,
-      Tidsenhet,
-      Lønn,
-      StatistiskMål,
-      Kjønn,
-    } = this.props.config;
+      config: { Arbeidstid, Sektor, Tidsenhet, Lønn, StatistiskMål, Kjønn },
+      widget,
+    } = this.props;
     let Modal = null;
     if (!this.props.config.Arbeidstid) return null;
     if (this.state.open)
@@ -191,6 +188,10 @@ class VisualizationHeaderLonn extends Component<Props, State> {
             <span
               className={`${
                 styles.visualizationheader_container_header__title_icon
+              } ${
+                widget
+                  ? ""
+                  : styles.visualizationheader_container_header__title_icon_non_widget
               }`}
               onClick={() => this.onFilterButtonClick(true)}
             />

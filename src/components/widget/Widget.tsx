@@ -60,7 +60,8 @@ class Widget extends Component<Props, State> {
         <IsolatedComparisonPart
           data={template.render ? data[uno_id] : data}
           template={template}
-          uno_ids={[uno_id]}
+          uno_ids={uno_id.split(",")}
+          widget={true}
         />
       );
     }

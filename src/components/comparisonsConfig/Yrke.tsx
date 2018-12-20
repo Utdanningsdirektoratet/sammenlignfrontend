@@ -9,17 +9,12 @@ import {
   ArbeidsmarkedYrkeElement,
   ArbeidsmarkedUtdanningElement,
 } from "../../data/ApiTypes";
-import VisualizationHeaderLonn, {
-  VisualizationHeaderConfigLonn,
-} from "../visualizations/Lonn/VisualizationHeaderLonn";
 import LonnWrapper from "../visualizations/Lonn/LonnWrapper";
 import ArbeidsledighetWrapper from "../visualizations/Arbeidsledighet/ArbeidsledighetWrapper";
 import NoData from "../visualizations/Old/NoData";
-import PercentageBar from "../visualizations/Generic/PercentageBar";
 import Translate, { TranslateString } from "../app/Translate";
 import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/EntreprenorskapWrapper";
 import PieChart from "../visualizations/Generic/PieChart";
-import visualizationstyles from "../visualizations/Visualization.module.scss";
 import BarChart from "../visualizations/Generic/BarChart";
 import LenkeVisualizationWrapper from "../visualizations/Lenke/LenkeVisualizationWrapper";
 

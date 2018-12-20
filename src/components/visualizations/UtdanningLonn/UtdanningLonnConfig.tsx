@@ -9,7 +9,6 @@ export type UtdanningLonnConfig = {
   Lønn: Lønn;
   StatistiskMål: StatistiskMål;
   Fullført: FullførtUtdanning;
-  ShowGraphics: boolean;
   ssbSektor: { [uno_id: string]: string };
 };
 

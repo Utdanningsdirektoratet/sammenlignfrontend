@@ -53,12 +53,30 @@ class ArbeidsledighetWrapper extends React.Component<
         return;
     }
   };
-
-  render() {
-    const { data, uno_ids, template } = this.props;
+  renderCell = (uno_id: string) => {
+    const { data } = this.props;
     const config = this.state;
-    if (!data || Object.keys(data).length === 0) return <NoData />;
+    const d = data[uno_id];
+    if (!d) return <NoData key={uno_id} />;
+    const code = Object.keys(d)[0];
+    if (!code) return <NoData key={uno_id} />;
 
+    return (
+      <ArbeidsledighetVisualization
+        key={uno_id}
+        data={d[code]}
+        fullført={config.Fullført}
+        visning={config.Visning}
+      />
+    );
+  };
+  render() {
+    const { data, uno_ids, widget } = this.props;
+    if (!data || Object.keys(data).length === 0) return <NoData />;
+    if (widget) {
+      const uno_id = uno_ids[0];
+      return <div>{this.renderCell(uno_id)}</div>;
+    }
     return (
       <div>
         <Header
@@ -67,23 +85,7 @@ class ArbeidsledighetWrapper extends React.Component<
             <Translate nb="Andel som er registrert som arbeidsledige" />
           }
         />
-        <ComparisonRow>
-          {uno_ids.map(uno_id => {
-            const d = data[uno_id];
-            if (!d) return <NoData key={uno_id} />;
-            const code = Object.keys(d)[0];
-            if (!code) return <NoData key={uno_id} />;
-
-            return (
-              <ArbeidsledighetVisualization
-                key={uno_id}
-                data={d[code]}
-                fullført={config.Fullført}
-                visning={config.Visning}
-              />
-            );
-          })}
-        </ComparisonRow>
+        <ComparisonRow>{uno_ids.map(this.renderCell)}</ComparisonRow>
       </div>
     );
   }
