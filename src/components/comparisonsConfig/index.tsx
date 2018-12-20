@@ -1,5 +1,6 @@
 import Utdanning from "./Utdanning";
 import Yrke from "./Yrke";
+import ExtraWidgets from "./ExtraWidgets";
 
 import { QueryObject } from "../../util/querystring";
 
@@ -7,6 +8,7 @@ export type ComparisonComponentProps<Data> = {
   data: { [uno_id: string]: Data };
   template: SammenligningTemplate;
   uno_ids: string[];
+  widget: boolean;
 };
 
 export interface SammenligningTemplate {
@@ -22,6 +24,7 @@ export interface SammenligningTemplate {
 const exported: { [key: string]: SammenligningTemplate[] } = {
   yrke: Yrke,
   utdanning: Utdanning,
+  extra: ExtraWidgets,
 };
 
 export default exported;

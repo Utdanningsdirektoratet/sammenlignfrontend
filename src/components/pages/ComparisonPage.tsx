@@ -119,6 +119,7 @@ class ComparisonPage extends Component<Props, State> {
                     data={rowData}
                     template={comparison}
                     uno_ids={uno_ids}
+                    widget={false}
                   />
                 );
               }
@@ -131,6 +132,7 @@ class ComparisonPage extends Component<Props, State> {
                         key={uno_id}
                         data={rowData[uno_id]}
                         template={comparison}
+                        widget={false}
                       />
                     ))}
                   </ComparisonRow>

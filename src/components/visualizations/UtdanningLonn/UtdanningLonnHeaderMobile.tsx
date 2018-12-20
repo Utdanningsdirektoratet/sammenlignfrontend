@@ -9,6 +9,7 @@ type Props = {
   config: UtdanningLonnConfig;
   setConfig: (config: UtdanningLonnConfig) => void;
   onFilterClicked: (event: any, key: string) => void;
+  widget: boolean;
 };
 
 type State = {
@@ -41,7 +42,10 @@ class UtdanningLonnHeaderMobile extends Component<Props, State> {
   };
 
   render() {
-    const { Tidsenhet, Lønn, StatistiskMål, Fullført } = this.props.config;
+    const {
+      config: { Tidsenhet, Lønn, StatistiskMål, Fullført },
+      widget,
+    } = this.props;
     let Modal = null;
     if (!this.props.config.Lønn) return null;
 
@@ -131,6 +135,10 @@ class UtdanningLonnHeaderMobile extends Component<Props, State> {
             <span
               className={`${
                 styles.visualizationheader_container_header__title_icon
+              } ${
+                widget
+                  ? ""
+                  : styles.visualizationheader_container_header__title_icon_non_widget
               }`}
               onClick={() => this.onFilterButtonClick(true)}
             />

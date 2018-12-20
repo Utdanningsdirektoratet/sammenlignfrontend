@@ -39,8 +39,10 @@
           }
         }
         &_icon {
-          @media (min-width: $min-not-mobile) {
-            display: none;
+          &_non_widget {
+            @media (min-width: $min-not-mobile) {
+              display: none;
+            }
           }
           cursor: pointer;
           border: 1px solid $color-primary;
@@ -76,10 +78,6 @@
       }
     }
     &_modal {
-      @media (min-width: $min-not-mobile) {
-        display: none;
-      }
-
       position: fixed;
       top: 0;
       left: 0;
