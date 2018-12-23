@@ -61,7 +61,13 @@ const Translate: React.SFC<Props> = ({ nb, nn, replacements }): JSX.Element => {
       Object.keys(replacements)
     );
     return (
-      <>{parts.map(part => (replacements[part] ? replacements[part] : part))}</>
+      <>
+        {parts.map((part, i) => (
+          <Fragment key={i}>
+            {replacements[part] ? replacements[part] : part}
+          </Fragment>
+        ))}
+      </>
     );
   }
   return (TranslateString(
