@@ -9,14 +9,14 @@ import AppContext, { AppState } from "./components/app/AppContext";
 import ComparisonPage from "./components/pages/ComparisonPage";
 import Frontpage from "./components/pages/Frontpage";
 import { getUrlState, parseUrl, setUrlState } from "./util/urlState";
-import D3TestPage from "./components/pages/D3TestPage";
+import ArbeidsmarkedPage from "./components/pages/ArbeidsmarkedPage";
 import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPage";
 import Widget from "./components/widget/Widget";
 import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./config";
 import { MIN_DESKTOP_PX } from "./util/Constants";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
-function render(Component: React.ComponentClass) {
+function render(Component: React.ComponentClass<any>) {
   // This wrapper rendering is required because to ensure a full component unmount/mount cycle
   // when clicking on links. For some reason React-router does not provide this easily
   return (props: any) => <Component {...props} key={props.location.pathname} />;
@@ -164,7 +164,10 @@ class App extends Component<{}, AppState> {
                 path="/sammenligne/:innholdstype"
                 render={render(ComparisonPage)}
               />
-              <Route path="/arbeidsmarked" render={D3TestPage} />
+              <Route
+                path="/arbeidsmarked/:uno_id"
+                render={render(ArbeidsmarkedPage)}
+              />
               <Route path="/search" render={SearchBoxPage} />
               {/* Test route for å utvikle og vise frem widgets, replace before production */}
               <Route

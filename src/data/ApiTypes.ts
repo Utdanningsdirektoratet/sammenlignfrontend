@@ -175,12 +175,25 @@ export interface UtdanningLonnElement {
   [kategori: string]: IUtdanningSektor;
 }
 
-export interface ArbeidsmarkedYrkeElement {
-  utdanningskode_nus_kortnavn: string;
+export interface ArbeidsmarkedElement {
+  antall_13: number;
+  antall_40: number;
+  antall_710: number;
+  antall_kvinner: number;
+  antall_menn: number;
+  antall_offentlig: number;
   antall_personer: number;
+  antall_privat: number;
+  antall_ukjent_kjonn: number;
+  antall_ukjent_sektor: number;
+  tittel: string;
+  uno_id: string;
 }
 
-export interface ArbeidsmarkedUtdanningElement {
+export interface ArbeidsmarkedYrkeElement extends ArbeidsmarkedElement {
+  utdanningskode_nus_kortnavn: string;
+}
+
+export interface ArbeidsmarkedUtdanningElement extends ArbeidsmarkedElement {
   yrkeskode_styrk08_navn: string;
-  antall_personer: number;
 }
