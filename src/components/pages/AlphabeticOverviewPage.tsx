@@ -23,6 +23,7 @@ import ScrollToTop from "../utils/ScrollToTop";
 import { num_compare_sizing } from "../utils/NumCompareSizing";
 import { MIN_DESKTOP_PX } from "../../util/Constants";
 import { isIE } from "../../util/IsIE";
+import UnoIdNivaLine from "./Shared/UnoIdNivaLine";
 
 type State = {
   data: DataList;
@@ -147,6 +148,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       data: { interesser, list, nivåer },
       redirectToHomepage,
     } = this.state;
+
     if (redirectToHomepage) {
       return <Redirect to="/" />;
     }
@@ -169,6 +171,11 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               />
             </div>
           </div>
+          <UnoIdNivaLine
+            innholdstype={innholdstype}
+            data={null}
+            nivåer={this.state.data.list}
+          />
           <div className={`${styles.sticky_header}`}>
             <SelectedCompares innholdstype={innholdstype} />
 

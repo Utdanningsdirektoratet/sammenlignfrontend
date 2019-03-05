@@ -13,6 +13,7 @@ import { API_DOMAIN } from "../../config";
 import { objectToQueryString } from "../../util/querystring";
 import ComparisonRow from "./ComparisonPage/ComparisonRow";
 import SelectedCompares from "./Shared/SelectedCompares";
+import UnoIdNivaLine from "./Shared/UnoIdNivaLine";
 import { Innholdstype } from "../../data/ApiTypes";
 import Translate from "../app/Translate";
 import { Link } from "react-router-dom";
@@ -99,12 +100,20 @@ class ComparisonPage extends Component<Props, State> {
       return <Frontpage innholdstype={innholdstype} />;
     }
 
+    var mainComparison = comparisons.find(x => x.path.includes("main")) as any;
+    var mainPath = mainComparison.path + JSON.stringify(mainComparison.query);
+
     return (
       <PageChrome>
         <SyncUrlState />
         <div className={`${styles.ComparisonPage}`}>
           <Breadcrumb innholdstype={innholdstype} />
           <div className={`${styles.flex_container}`}>
+            <UnoIdNivaLine
+              innholdstype={innholdstype}
+              data={this.state[mainPath]}
+              nivåer={null}
+            />
             <SelectedCompares innholdstype={innholdstype} />
 
             {comparisons.map((comparison, i) => {
