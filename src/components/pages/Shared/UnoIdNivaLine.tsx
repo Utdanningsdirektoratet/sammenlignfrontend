@@ -33,7 +33,7 @@ class UnoIdNivaLine extends Component<AppStateProps & Props> {
       <div className={`${styles.nivåSelection}`}>
         {filtered_uno_id.map((d: any, index: number) => (
           <div className={`${styles.nivåSelection_cell}`} key={index}>
-            {data
+            {data && data[filtered_uno_id[index]]
               ? data[filtered_uno_id[index]].utdanningstype.map((u: any) => (
                   <div>{u}</div>
                 ))
