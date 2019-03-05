@@ -1,8 +1,38 @@
 @import "src/styles/constants.scss";
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
 .container {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+.nivåSelection {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  z-index: 1010;
+  @media (max-width: $max-mobile) {
+    justify-content: center;
+  }
+  &_cell {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Roboto Slab", serif;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    position: relative;
+    flex: 0 0 $column-width - 2;
+    max-width: $column-width - 2;
+    margin-right: 2px;
+    @media (max-width: $max-mobile) {
+      flex: 0 0 $column-width-mobile;
+      max-width: $column-width-mobile;
+      overflow: hidden;
+    }
+  }
 }
 .selection {
   margin: 0;
