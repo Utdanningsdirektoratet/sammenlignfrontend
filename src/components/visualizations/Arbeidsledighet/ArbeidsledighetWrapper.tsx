@@ -10,6 +10,7 @@ import Header from "../Shared/HeaderVisualizations";
 export type VisualizationHeaderConfigArbeidsledighet = {
   Fullført: Fullført[];
   Visning: Visning;
+  Gjennomsnittsledighet: number;
 };
 export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
@@ -24,6 +25,7 @@ class ArbeidsledighetWrapper extends React.Component<
   state: VisualizationHeaderConfigArbeidsledighet = {
     Fullført: ["13", "710", "A"],
     Visning: "Andel",
+    Gjennomsnittsledighet: 3.7,
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -80,9 +82,14 @@ class ArbeidsledighetWrapper extends React.Component<
     return (
       <div>
         <Header
-          mainHeader={<Translate nb="Ledighet" />}
+          mainHeader={<Translate nb="Arbeidsledighet" />}
           secondHeader={
-            <Translate nb="Andel som er registrert som arbeidsledige" />
+            <span>
+              <Translate nb="Hvor stor endel er registrert som arbeidsledige?" />
+              <br />
+              <Translate nb="Gjennomsnittsledigheten er " />
+              {this.state.Gjennomsnittsledighet + "%"}
+            </span>
           }
         />
         <ComparisonRow>{uno_ids.map(this.renderCell)}</ComparisonRow>
