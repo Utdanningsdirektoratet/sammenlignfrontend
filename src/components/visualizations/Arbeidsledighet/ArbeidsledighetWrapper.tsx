@@ -11,9 +11,16 @@ export type VisualizationHeaderConfigArbeidsledighet = {
   Fullført: Fullført[];
   Visning: Visning;
   Gjennomsnittsledighet: number;
+  HøyesteLedighet: number;
+  Ledighetsintervaller: Ledighetsintervall[];
 };
 export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
+export type Ledighetsintervall = {
+  verdi: LedighetsintervallVerdi;
+  text: JSX.Element;
+};
+export type LedighetsintervallVerdi = { fra: number; til: number };
 
 class ArbeidsledighetWrapper extends React.Component<
   ComparisonComponentProps<ArbeidsledighetElement>,
@@ -23,9 +30,36 @@ class ArbeidsledighetWrapper extends React.Component<
     this.setState(config);
   };
   state: VisualizationHeaderConfigArbeidsledighet = {
-    Fullført: ["13", "710", "A"],
+    Fullført: ["13", "A"],
     Visning: "Andel",
     Gjennomsnittsledighet: 3.7,
+    HøyesteLedighet: 12.5,
+    Ledighetsintervaller: [
+      {
+        verdi: { fra: 0.0, til: 0.0 },
+        text: <Translate nb="Vi har ikke tall for ledighet for " />,
+      },
+      {
+        verdi: { fra: 0.0, til: 0.5 },
+        text: <Translate nb="Svært lav ledighet" />,
+      },
+      {
+        verdi: { fra: 0.5, til: 1.0 },
+        text: <Translate nb="Lav ledighet" />,
+      },
+      {
+        verdi: { fra: 1.0, til: 2.5 },
+        text: <Translate nb="Middels ledighet" />,
+      },
+      {
+        verdi: { fra: 2.5, til: 5.0 },
+        text: <Translate nb="Høy ledighet" />,
+      },
+      {
+        verdi: { fra: 5.0, til: 100.0 },
+        text: <Translate nb="Svært høy ledighet" />,
+      },
+    ],
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -69,6 +103,8 @@ class ArbeidsledighetWrapper extends React.Component<
         data={d[code]}
         fullført={config.Fullført}
         visning={config.Visning}
+        høyesteLedighet={config.HøyesteLedighet}
+        ledighetsintervaller={config.Ledighetsintervaller}
       />
     );
   };
