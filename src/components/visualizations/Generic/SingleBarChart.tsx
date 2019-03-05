@@ -12,22 +12,20 @@ type Props = {
   max: number;
   data: Column;
 };
-type CircleProps = {
+type RectangleProps = {
   y: number;
-  fill: boolean;
+  position: "top" | "middle" | "bottom";
 };
 
-function Circle({ y, fill }: CircleProps) {
+function Rectangle({ y, position }: RectangleProps) {
   if (y === 0) return null;
   return (
-    <circle
-      className={`${styles.circle} ${
-        fill ? styles.circle_filled : styles.circle_unfilled
-      }`}
-      strokeWidth="2"
-      cx={20}
-      cy={100 - y + 5}
-      r="4"
+    <rect
+      className={`${styles.rectangle} ${styles.rectangle_filled}`}
+      width="14"
+      height={position === "top" || position == "bottom" ? 2 : 4}
+      x={13}
+      y={100 - y + 1}
     />
   );
 }
@@ -61,9 +59,9 @@ class SingleBarChart extends Component<Props> {
             y={100 - data.max}
           />
 
-          <Circle fill={false} y={data.top} />
-          <Circle fill={false} y={data.bottom} />
-          <Circle fill={true} y={data.middle} />
+          <Rectangle y={data.top} position="top" />
+          <Rectangle y={data.bottom} position="bottom" />
+          <Rectangle y={data.middle} position="middle" />
         </g>
       </svg>
     );

@@ -13,27 +13,21 @@ type Props = {
   male: Column;
   female: Column;
 };
-type CircleProps = {
+type RectangleProps = {
   x: "male" | "female";
   y: number;
-  fill: boolean;
+  position: "top" | "middle" | "bottom";
 };
 
-function Circle({ x, y, fill }: CircleProps) {
+function Rectangle({ x, y, position }: RectangleProps) {
   if (y === 0) return null;
   return (
-    <circle
-      className={`${styles.circle} ${
-        fill
-          ? x === "male"
-            ? styles.circle_filled_male
-            : styles.circle_filled
-          : styles.circle_unfilled
-      } ${x === "female" ? styles.circle_female : ""}`}
-      strokeWidth="2"
-      cx={x === "male" ? 10 : 25}
-      cy={100 - y + 5}
-      r="4"
+    <rect
+      className={`${styles.rectangle} ${styles.rectangle_filled}`}
+      width="14"
+      height={position === "top" || position == "bottom" ? 2 : 4}
+      x={x === "male" ? 3 : 18}
+      y={100 - y + 1}
     />
   );
 }
@@ -109,12 +103,12 @@ class MaleFemaleBarChart extends Component<Props> {
               transform="translate(0 -35.23)"
             />
           </g>
-          <Circle fill={false} x="male" y={male.top} />
-          <Circle fill={false} x="male" y={male.bottom} />
-          <Circle fill={true} x="male" y={male.middle} />
-          <Circle fill={false} x="female" y={female.top} />
-          <Circle fill={false} x="female" y={female.bottom} />
-          <Circle fill={true} x="female" y={female.middle} />
+          <Rectangle x="male" y={male.top} position="top" />
+          <Rectangle x="male" y={male.bottom} position="bottom" />
+          <Rectangle x="male" y={male.middle} position="middle" />
+          <Rectangle x="female" y={female.top} position="top" />
+          <Rectangle x="female" y={female.bottom} position="bottom" />
+          <Rectangle x="female" y={female.middle} position="middle" />
         </g>
       </svg>
     );
