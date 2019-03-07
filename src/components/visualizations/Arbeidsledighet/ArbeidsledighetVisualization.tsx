@@ -105,23 +105,31 @@ class ArbeidsledighetVisualization extends Component<Props> {
             }}
             max={maxValue}
           />
-          {fullført.map(x => {
-            if (dataArr[x] == null) return null;
-            return (
-              <li
-                key={x}
-                className={`${styles.arbeidsledighetvisualization_list}`}
-              >
-                {x == "A" ? <Alle /> : <Nyutdannet />}
-                {x == "A" ? (
-                  <Translate nb="Nyutdanna: " />
-                ) : (
-                  <Translate nb="Alle: " />
-                )}
-                {intervaller[x]}
-              </li>
-            );
-          })}
+          <div>
+            {fullført.map(x => {
+              if (dataArr[x] == null) return null;
+              return (
+                <li
+                  key={x}
+                  className={`${styles.arbeidsledighetvisualization_list}`}
+                >
+                  {x == "A" ? <Alle /> : <Nyutdannet />}
+                  <span
+                    className={`${
+                      styles.arbeidsledighetvisualization_list_text
+                    }`}
+                  >
+                    {x == "A" ? (
+                      <Translate nb="Nyutdanna: " />
+                    ) : (
+                      <Translate nb="Alle: " />
+                    )}
+                    {intervaller[x]}
+                  </span>
+                </li>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

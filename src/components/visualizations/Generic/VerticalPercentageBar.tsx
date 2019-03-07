@@ -56,7 +56,7 @@ class VerticalPercentageBar extends React.Component<Props> {
       values.right.value == null ? 0 : rectHeight + rectY - rightHeight + 0.5;
     return (
       <svg
-        viewBox={`5 0 25 40`}
+        viewBox={`5 0 25 37`}
         xmlns="http://www.w3.org/2000/svg"
         className={`${style.vertical_svg}`}
       >
