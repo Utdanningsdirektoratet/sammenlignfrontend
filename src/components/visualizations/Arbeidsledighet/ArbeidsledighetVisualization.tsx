@@ -120,9 +120,9 @@ class ArbeidsledighetVisualization extends Component<Props> {
                     }`}
                   >
                     {x == "A" ? (
-                      <Translate nb="Nyutdanna: " />
-                    ) : (
                       <Translate nb="Alle: " />
+                    ) : (
+                      <Translate nb="Nyutdanna: " />
                     )}
                     {intervaller[x]}
                   </span>

@@ -121,12 +121,12 @@
   "Gjennomsnittsledigheten er ": null,
   "A": null,
   "N": null,
-  "Nyutdanna:": null,
-  "Alle:": null,
   "Ingen tall": null,
   "Svært lav": null,
   "Lav": null,
   "Middels": null,
   "Høy": null,
-  "Svært høy": null
+  "Svært høy": null,
+  "Alle: ": null,
+  "Nyutdanna: ": null
 }
