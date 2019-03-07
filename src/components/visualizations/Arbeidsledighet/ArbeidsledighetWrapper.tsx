@@ -12,7 +12,6 @@ export type VisualizationHeaderConfigArbeidsledighet = {
   Visning: Visning;
   Gjennomsnittsledighet: number;
   Ledighetsintervaller: Ledighetsintervall[];
-  MaxValue: number;
 };
 export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
@@ -36,30 +35,29 @@ class ArbeidsledighetWrapper extends React.Component<
     Ledighetsintervaller: [
       {
         verdi: { fra: 0.0, til: 0.0 },
-        text: <Translate nb="Vi har ikke tall for ledighet for " />,
+        text: <Translate nb="Ingen tall" />,
       },
       {
         verdi: { fra: 0.0, til: 0.5 },
-        text: <Translate nb="Svært lav ledighet" />,
+        text: <Translate nb="Svært lav" />,
       },
       {
         verdi: { fra: 0.5, til: 1.0 },
-        text: <Translate nb="Lav ledighet" />,
+        text: <Translate nb="Lav" />,
       },
       {
         verdi: { fra: 1.0, til: 2.5 },
-        text: <Translate nb="Middels ledighet" />,
+        text: <Translate nb="Middels" />,
       },
       {
         verdi: { fra: 2.5, til: 5.0 },
-        text: <Translate nb="Høy ledighet" />,
+        text: <Translate nb="Høy" />,
       },
       {
         verdi: { fra: 5.0, til: 100.0 },
-        text: <Translate nb="Svært høy ledighet" />,
+        text: <Translate nb="Svært høy" />,
       },
     ],
-    MaxValue: 0,
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -135,6 +133,18 @@ class ArbeidsledighetWrapper extends React.Component<
     const code = Object.keys(d)[0];
     if (!code) return <NoData key={uno_id} />;
 
+    var values: number[] = [];
+    this.props.uno_ids.forEach(uno_id => {
+      var d = data[uno_id];
+      if (!d) return;
+      var code = Object.keys(d)[0];
+      if (!code) return;
+      this.state.Fullført.forEach(f => {
+        var data = this.getDataQuery(f, d[code]);
+        if (data != null) values.push(+data as number);
+      });
+    });
+
     return (
       <ArbeidsledighetVisualization
         key={uno_id}
@@ -142,7 +152,7 @@ class ArbeidsledighetWrapper extends React.Component<
         fullført={config.Fullført}
         visning={config.Visning}
         ledighetsintervaller={config.Ledighetsintervaller}
-        maxValue={this.state.MaxValue}
+        maxValue={Math.max(...values)}
       />
     );
   };
@@ -151,25 +161,6 @@ class ArbeidsledighetWrapper extends React.Component<
     const { data, uno_ids, widget } = this.props;
 
     if (!data || Object.keys(data).length === 0) return <NoData />;
-
-    if (this.state.MaxValue == 0) {
-      var values: number[] = [];
-      uno_ids.forEach(uno_id => {
-        var d = data[uno_id];
-        if (!d) return;
-        var code = Object.keys(d)[0];
-        if (!code) return;
-        this.state.Fullført.forEach(f => {
-          var data = this.getDataQuery(f, d[code]);
-          if (data != null) values.push(+data as number);
-        });
-      });
-
-      this.setConfig({
-        ...this.state,
-        MaxValue: Math.max(...values),
-      });
-    }
 
     if (widget) {
       const uno_id = uno_ids[0];
