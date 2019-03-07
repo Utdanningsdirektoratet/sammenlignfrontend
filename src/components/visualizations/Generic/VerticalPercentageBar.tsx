@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./VerticalPercentageBar.module.scss";
 import NyUtdannaSvg from "./NyutdannaIcon.svg";
+import { IDictionary } from "../Arbeidsledighet/ArbeidsledighetVisualization";
 
 type Props = {
   values: {
@@ -19,34 +20,51 @@ class VerticalPercentageBar extends React.Component<Props> {
 
     return rectHeight + rectY - height;
   }
+
+  getTextPosition(thisNumber: number, other: number) {
+    if (thisNumber < other) {
+      var diff = thisNumber - other;
+      if (diff > -3) return thisNumber - 3;
+      return thisNumber;
+    } else if (other < thisNumber) {
+      return thisNumber;
+    } else {
+      return thisNumber - 3;
+    }
+  }
   public render() {
     const { values, max } = this.props;
 
     let rectHeight = 30;
     let rectY = 5;
-    let rectX = 15;
-
-    var leftHeightPercentage = (values.left.value / max) * 100;
+    let rectX = 10;
+    if (max == null || max == 0) return null;
+    var leftHeightPercentage = values.left.value
+      ? (values.left.value / max) * 100
+      : 0;
     var leftHeight = (leftHeightPercentage * rectHeight) / 100;
-    var rightHeightPercentage = (values.right.value / max) * 100;
+    var rightHeightPercentage = values.right.value
+      ? (values.right.value / max) * 100
+      : 0;
     var rightHeight = (rightHeightPercentage * rectHeight) / 100;
-    //100% = max
-    //Hvor mange prosent er da values.left.value f.eks //2 / 6 * 100 = 33.33 %
-    //hvis stolpen er 30 høy, hvor ligger da streken? //30 * 30 / 100 = 9.00
     var highestValue = Math.max(...[values.left.value, values.right.value]);
     var lowestValue = Math.min(...[values.left.value, values.right.value]);
 
+    var leftTextHeight =
+      values.left.value == null ? 0 : rectHeight + rectY - leftHeight + 0.5;
+    var rightTextHeight =
+      values.right.value == null ? 0 : rectHeight + rectY - rightHeight + 0.5;
     return (
       <svg
-        viewBox={`5 0 25 105`}
+        viewBox={`5 0 25 40`}
         xmlns="http://www.w3.org/2000/svg"
         className={`${style.vertical_svg}`}
       >
         <defs>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgb(255,0,0)" stopOpacity="100%" />
-            <stop offset="34%" stopColor="rgb(255,255,0)" stopOpacity="100%" />
-            <stop offset="100%" stopColor="rgb(0,255,0)" stopOpacity="100%" />
+            <stop offset="0%" stopColor="#FF0202" stopOpacity="100%" />
+            <stop offset="40%" stopColor="#F6F617" stopOpacity="100%" />
+            <stop offset="100%" stopColor="#04DE04" stopOpacity="100%" />
           </linearGradient>
         </defs>
         <g>
@@ -78,16 +96,6 @@ class VerticalPercentageBar extends React.Component<Props> {
           {values.right.value == null ? (
             ""
           ) : (
-            // <line
-            //   id={`${style.thinline}`}
-            //   y2={rectHeight + rectY - rightHeight}
-            //   x2={rectX + 4}
-            //   y1={rectHeight + rectY - rightHeight}
-            //   x1={rectX - 1}
-            //   strokeWidth="0.5"
-            //   stroke="#000"
-            //   fill="#fff"
-            // />
             <rect
               x={rectX - 1}
               y={rectHeight + rectY - rightHeight}
@@ -127,7 +135,7 @@ class VerticalPercentageBar extends React.Component<Props> {
               fontFamily="'Roboto Slab', serif"
               fontSize="2.3"
               id="svg_6"
-              y={rectHeight + rectY - leftHeight + 0.5 - 3}
+              y={this.getTextPosition(rightTextHeight, leftTextHeight)}
               x={rectX + 5}
               strokeWidth="0"
               stroke="#000"
@@ -146,7 +154,7 @@ class VerticalPercentageBar extends React.Component<Props> {
               fontFamily="'Roboto Slab', serif"
               fontSize="3.5"
               id="svg_7"
-              y={rectHeight + rectY - leftHeight + 0.5 - 3}
+              y={this.getTextPosition(rightTextHeight, leftTextHeight)}
               x={rectX + 7}
               strokeWidth="0"
               stroke="#000"
@@ -166,7 +174,7 @@ class VerticalPercentageBar extends React.Component<Props> {
               x2={rectX + 4 + 0.2}
               y1={rectHeight + rectY - leftHeight}
               x1={rectX - 1 - 0.2}
-              strokeWidth="1.2"
+              strokeWidth="0.8"
               stroke="#000"
               fill="none"
             />
@@ -201,7 +209,7 @@ class VerticalPercentageBar extends React.Component<Props> {
               fontWeight="bold"
               fontSize="2.3"
               id="svg_8"
-              y={rectHeight + rectY - leftHeight + 0.5}
+              y={this.getTextPosition(leftTextHeight, rightTextHeight)}
               x={rectX + 5}
               strokeWidth="0"
               stroke="#000"
@@ -221,7 +229,7 @@ class VerticalPercentageBar extends React.Component<Props> {
               fontWeight="bold"
               fontSize="3.5"
               id="svg_9"
-              y={rectHeight + rectY - leftHeight + 0.5}
+              y={this.getTextPosition(leftTextHeight, rightTextHeight)}
               x={rectX + 7}
               strokeWidth="0"
               stroke="#000"
