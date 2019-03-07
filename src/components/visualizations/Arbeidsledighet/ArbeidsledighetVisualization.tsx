@@ -9,6 +9,9 @@ import { ArbeidsledighetObject } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
 import PercentageBar from "../Generic/PercentageBar";
+import VerticalPercentageBar, {
+  VerticalPercentageBarValue,
+} from "../Generic/VerticalPercentageBar";
 import styles from "./ArbeidsledighetVisualization.module.scss";
 import Translate from "../../app/Translate";
 
@@ -16,11 +19,11 @@ type Props = {
   data: ArbeidsledighetObject;
   fullført: Fullført[];
   visning: Visning;
-  høyesteLedighet: number;
   ledighetsintervaller: Ledighetsintervall[];
+  maxValue: number;
 };
 
-interface IDictionary {
+export interface IDictionary {
   [index: string]: any;
 }
 
@@ -63,12 +66,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
   };
 
   render() {
-    const {
-      fullført,
-      visning,
-      ledighetsintervaller,
-      høyesteLedighet,
-    } = this.props;
+    const { fullført, visning, ledighetsintervaller, maxValue } = this.props;
     var dataArr = {} as IDictionary;
     var emptyResults = 0;
     fullført.map(f => {
@@ -85,7 +83,6 @@ class ArbeidsledighetVisualization extends Component<Props> {
 
     var intervaller = {} as IDictionary;
     for (var i = 0; i < fullført.length; i++) {
-      //console.log(dataArr[fullført[i]]);
       if (fullført[i] === "710") continue;
 
       ledighetsintervaller.forEach(element => {
@@ -101,9 +98,19 @@ class ArbeidsledighetVisualization extends Component<Props> {
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
+          <VerticalPercentageBar
+            values={{
+              left: { value: dataArr["A"], text: <Translate nb="A" /> },
+              right: {
+                value: dataArr["13"],
+                text: <Translate nb="N" />,
+              },
+            }}
+            max={maxValue}
+          />
           {fullført.map(x => {
             return (
-              <li>
+              <li key={x}>
                 {intervaller[x]} <Translate nb="for" />{" "}
                 {x === "A" ? (
                   <Translate nb="alle totalt" />

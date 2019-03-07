@@ -11,8 +11,8 @@ export type VisualizationHeaderConfigArbeidsledighet = {
   Fullført: Fullført[];
   Visning: Visning;
   Gjennomsnittsledighet: number;
-  HøyesteLedighet: number;
   Ledighetsintervaller: Ledighetsintervall[];
+  MaxValue: number;
 };
 export type Fullført = "710" | "13" | "A";
 export type Visning = "Andel" | "Antall";
@@ -33,7 +33,6 @@ class ArbeidsledighetWrapper extends React.Component<
     Fullført: ["13", "A"],
     Visning: "Andel",
     Gjennomsnittsledighet: 3.7,
-    HøyesteLedighet: 12.5,
     Ledighetsintervaller: [
       {
         verdi: { fra: 0.0, til: 0.0 },
@@ -60,6 +59,7 @@ class ArbeidsledighetWrapper extends React.Component<
         text: <Translate nb="Svært høy ledighet" />,
       },
     ],
+    MaxValue: 0,
   };
 
   onFilterClicked = (event: any, key: string) => {
@@ -89,6 +89,44 @@ class ArbeidsledighetWrapper extends React.Component<
         return;
     }
   };
+
+  getDataQuery = (fullført: Fullført, data: any) => {
+    let qry = "arbeidsledige";
+
+    switch (this.state.Visning) {
+      case "Andel":
+        qry += "_andel";
+        break;
+      case "Antall":
+        qry += "_antall";
+        break;
+      default:
+        break;
+    }
+
+    switch (fullført) {
+      case "710":
+        qry += fullført;
+        break;
+      case "13":
+        qry += fullført;
+        break;
+      case "A":
+        break;
+    }
+
+    let num = (data as any)[qry];
+    if (!num) return null;
+
+    if (this.state.Visning === "Andel") {
+      num = num * 100;
+
+      num = num.toFixed(2);
+    }
+
+    return num;
+  };
+
   renderCell = (uno_id: string) => {
     const { data } = this.props;
     const config = this.state;
@@ -103,14 +141,36 @@ class ArbeidsledighetWrapper extends React.Component<
         data={d[code]}
         fullført={config.Fullført}
         visning={config.Visning}
-        høyesteLedighet={config.HøyesteLedighet}
         ledighetsintervaller={config.Ledighetsintervaller}
+        maxValue={this.state.MaxValue}
       />
     );
   };
+
   render() {
     const { data, uno_ids, widget } = this.props;
+
     if (!data || Object.keys(data).length === 0) return <NoData />;
+
+    if (this.state.MaxValue == 0) {
+      var values: number[] = [];
+      uno_ids.forEach(uno_id => {
+        var d = data[uno_id];
+        if (!d) return;
+        var code = Object.keys(d)[0];
+        if (!code) return;
+        this.state.Fullført.forEach(f => {
+          var data = this.getDataQuery(f, d[code]);
+          if (data != null) values.push(+data as number);
+        });
+      });
+
+      this.setConfig({
+        ...this.state,
+        MaxValue: Math.max(...values),
+      });
+    }
+
     if (widget) {
       const uno_id = uno_ids[0];
       return <div>{this.renderCell(uno_id)}</div>;
