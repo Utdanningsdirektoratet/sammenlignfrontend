@@ -74,21 +74,116 @@ class VerticalPercentageBar extends React.Component<Props> {
             strokeWidth="0"
             fill="#fff"
           />
+          {/* Thin line */}
+          {values.right.value == null ? (
+            ""
+          ) : (
+            // <line
+            //   id={`${style.thinline}`}
+            //   y2={rectHeight + rectY - rightHeight}
+            //   x2={rectX + 4}
+            //   y1={rectHeight + rectY - rightHeight}
+            //   x1={rectX - 1}
+            //   strokeWidth="0.5"
+            //   stroke="#000"
+            //   fill="#fff"
+            // />
+            <rect
+              x={rectX - 1}
+              y={rectHeight + rectY - rightHeight}
+              height="0.5"
+              width={5}
+              fill="#000"
+              strokeWidth="0.2"
+              stroke="#000"
+            />
+          )}
+          {/* Thin half line right */}
+          {values.right.value == null ? (
+            ""
+          ) : (
+            <rect
+              x={rectX - 1 - 0.4 + 2.5}
+              y={rectHeight + rectY - rightHeight + 0.1}
+              height="0.3"
+              width={5 + 0.4}
+              fill="#fff"
+            />
+          )}
+
+          {/* Thin line icon */}
+          {values.right.value == null ? (
+            ""
+          ) : (
+            //         <g transform={`translate(21.5 83) scale(0.6)`}>
+            //           <path
+            //             transform="translate(-19.63)"
+            //             d="M305.3,367.7l15.4,9.3l-4.1-17.5l13.6-11.8l-17.9-1.5l-7-16.5l-7,16.5l-17.9,1.5l13.6,11.8l-4.1,17.5L305.3,367.7z
+            //  M305.3,367.7"
+            //           />
+            //         </g>
+            <text
+              textAnchor="start"
+              fontFamily="'Roboto Slab', serif"
+              fontSize="2.3"
+              id="svg_6"
+              y={rectHeight + rectY - leftHeight + 0.5 - 3}
+              x={rectX + 5}
+              strokeWidth="0"
+              stroke="#000"
+              fill="#000000"
+            >
+              {values.right.text}
+            </text>
+          )}
+
+          {/* Thin line text*/}
+          {values.right.value == null ? (
+            ""
+          ) : (
+            <text
+              textAnchor="start"
+              fontFamily="'Roboto Slab', serif"
+              fontSize="3.5"
+              id="svg_7"
+              y={rectHeight + rectY - leftHeight + 0.5 - 3}
+              x={rectX + 7}
+              strokeWidth="0"
+              stroke="#000"
+              fill="#000000"
+            >
+              <tspan>{values.right.value}</tspan>
+              <tspan fontSize="2.3">%</tspan>
+            </text>
+          )}
+          {/* Thick line */}
           {values.left.value == null ? (
             ""
           ) : (
             <line
               id={`${style.boldline}`}
               y2={rectHeight + rectY - leftHeight}
-              x2={rectX + 4}
+              x2={rectX + 4 + 0.2}
               y1={rectHeight + rectY - leftHeight}
-              x1={rectX - 1}
+              x1={rectX - 1 - 0.2}
               strokeWidth="1.2"
               stroke="#000"
               fill="none"
             />
           )}
-
+          {/* Thin half line left */}
+          {values.right.value == null ? (
+            ""
+          ) : (
+            <rect
+              x={rectX - 1 - 0.4}
+              y={rectHeight + rectY - rightHeight + 0.1}
+              height="0.3"
+              width={2.5 + 0.4}
+              fill="#fff"
+            />
+          )}
+          {/* Thick line icon */}
           {values.left.value == null ? (
             ""
           ) : (
@@ -116,6 +211,7 @@ class VerticalPercentageBar extends React.Component<Props> {
             </text>
           )}
 
+          {/* Thick line text*/}
           {values.left.value == null ? (
             ""
           ) : (
@@ -132,65 +228,6 @@ class VerticalPercentageBar extends React.Component<Props> {
               fill="#000000"
             >
               <tspan>{values.left.value}</tspan>
-              <tspan fontSize="2.3">%</tspan>
-            </text>
-          )}
-
-          {values.right.value == null ? (
-            ""
-          ) : (
-            <line
-              id={`${style.thinline}`}
-              y2={rectHeight + rectY - rightHeight}
-              x2={rectX + 4}
-              y1={rectHeight + rectY - rightHeight}
-              x1={rectX - 1}
-              strokeWidth="0.5"
-              stroke="#000"
-              fill="none"
-            />
-          )}
-
-          {values.right.value == null ? (
-            ""
-          ) : (
-            //         <g transform={`translate(21.5 83) scale(0.6)`}>
-            //           <path
-            //             transform="translate(-19.63)"
-            //             d="M305.3,367.7l15.4,9.3l-4.1-17.5l13.6-11.8l-17.9-1.5l-7-16.5l-7,16.5l-17.9,1.5l13.6,11.8l-4.1,17.5L305.3,367.7z
-            //  M305.3,367.7"
-            //           />
-            //         </g>
-            <text
-              textAnchor="start"
-              fontFamily="'Roboto Slab', serif"
-              fontSize="2.3"
-              id="svg_6"
-              y={rectHeight + rectY - leftHeight + 0.5 - 3}
-              x={rectX + 5}
-              strokeWidth="0"
-              stroke="#000"
-              fill="#000000"
-            >
-              {values.right.text}
-            </text>
-          )}
-
-          {values.right.value == null ? (
-            ""
-          ) : (
-            <text
-              textAnchor="start"
-              fontFamily="'Roboto Slab', serif"
-              fontSize="3.5"
-              id="svg_7"
-              y={rectHeight + rectY - leftHeight + 0.5 - 3}
-              x={rectX + 7}
-              strokeWidth="0"
-              stroke="#000"
-              fill="#000000"
-            >
-              <tspan>{values.right.value}</tspan>
               <tspan fontSize="2.3">%</tspan>
             </text>
           )}
