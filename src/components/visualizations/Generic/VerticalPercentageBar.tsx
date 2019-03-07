@@ -92,28 +92,12 @@ class VerticalPercentageBar extends React.Component<Props> {
           {values.left.value == null ? (
             ""
           ) : (
-            //         <g transform={`translate(21.5 83) scale(0.6)`}>
-            //           <path
-            //             transform="translate(-19.63)"
-            //             d="M305.3,367.7l15.4,9.3l-4.1-17.5l13.6-11.8l-17.9-1.5l-7-16.5l-7,16.5l-17.9,1.5l13.6,11.8l-4.1,17.5L305.3,367.7z
-            //  M305.3,367.7"
-            //           />
-            //         </g>
-
-            <text
-              textAnchor="start"
-              fontFamily="'Roboto Slab', serif"
-              fontWeight="bold"
-              fontSize="2.3"
-              id="svg_8"
-              y={rectHeight + rectY - leftHeight + 0.5}
-              x={rectX + 5}
-              strokeWidth="0"
-              stroke="#000"
-              fill="#000000"
-            >
-              {values.left.text}
-            </text>
+            <svg y={rectHeight + rectY - leftHeight - 1.6} x={rectX + 5}>
+              <g transform="translate(0 0) scale(0.04)">
+                <path d="M27.8,0A27.8,27.8,0,1,0,55.6,27.8,27.8,27.8,0,0,0,27.8,0ZM43.4,42.9H32.3V39l2.3-.4-1.4-4.5H22.6l-1.4,4.5,2.3.4v3.9H12.4V39l2.3-.3,10-28.4h6.7l9.9,28.4,2.3.3v3.9Z" />
+                <polygon points="27.8 17.7 24.1 29.2 31.6 29.2 27.9 17.7 27.8 17.7" />
+              </g>
+            </svg>
           )}
 
           {values.left.value == null ? (
@@ -154,26 +138,11 @@ class VerticalPercentageBar extends React.Component<Props> {
           {values.right.value == null ? (
             ""
           ) : (
-            //         <g transform={`translate(21.5 83) scale(0.6)`}>
-            //           <path
-            //             transform="translate(-19.63)"
-            //             d="M305.3,367.7l15.4,9.3l-4.1-17.5l13.6-11.8l-17.9-1.5l-7-16.5l-7,16.5l-17.9,1.5l13.6,11.8l-4.1,17.5L305.3,367.7z
-            //  M305.3,367.7"
-            //           />
-            //         </g>
-            <text
-              textAnchor="start"
-              fontFamily="'Roboto Slab', serif"
-              fontSize="2.3"
-              id="svg_6"
-              y={rectHeight + rectY - leftHeight + 0.5 - 3}
-              x={rectX + 5}
-              strokeWidth="0"
-              stroke="#000"
-              fill="#000000"
-            >
-              {values.right.text}
-            </text>
+            <svg y={rectHeight + rectY - leftHeight - 4.6} x={rectX + 5}>
+              <g transform="translate(0 0) scale(0.045)">
+                <path d="M24.9,38l15.4,9.3L36.2,29.8,49.8,18,31.9,16.5,24.9,0l-7,16.5L0,18,13.6,29.8,9.5,47.3Z" />
+              </g>
+            </svg>
           )}
 
           {values.right.value == null ? (
