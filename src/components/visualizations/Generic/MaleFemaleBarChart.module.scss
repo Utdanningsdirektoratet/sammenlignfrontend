@@ -1,16 +1,9 @@
-.circle {
+.rectangle {
   stroke: black;
   &_filled {
-    fill: #fff;
-    &_male {
-      fill: black;
-    }
-  }
-  &_unfilled {
-    fill: none;
-  }
-  &_female {
-    stroke: #fff;
+    fill: black;
+    stroke-width: 1;
+    stroke: white;
   }
 }
 
