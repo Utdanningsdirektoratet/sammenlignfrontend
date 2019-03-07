@@ -34,14 +34,16 @@ class UnoIdNivaLine extends Component<AppStateProps & Props> {
         {filtered_uno_id.map((d: any, index: number) => (
           <div className={`${styles.nivåSelection_cell}`} key={index}>
             {data && data[filtered_uno_id[index]]
-              ? data[filtered_uno_id[index]].utdanningstype.map((u: any) => (
-                  <div>{u}</div>
-                ))
+              ? data[filtered_uno_id[index]].utdanningstype.map(
+                  (u: any, i: number) => <div key={i}>{u}</div>
+                )
               : nivåer &&
                 (nivåer as any[]).find(x => x.uno_id === filtered_uno_id[index])
               ? (nivåer as any[])
                   .find(x => x.uno_id === filtered_uno_id[index])
-                  .utdanningstype.map((u: any) => <div>{u}</div>)
+                  .utdanningstype.map((u: any, i: number) => (
+                    <div key={i}>{u}</div>
+                  ))
               : ""}
           </div>
         ))}
@@ -54,14 +56,16 @@ class UnoIdNivaLine extends Component<AppStateProps & Props> {
         nivåBoxes.push(
           <div className={`${styles.nivåSelection_cell}`} key={i}>
             {data
-              ? data[filtered_uno_id[i]].utdanningstype.map((u: any) => (
-                  <div>{u}</div>
-                ))
+              ? data[filtered_uno_id[i]].utdanningstype.map(
+                  (u: any, i: number) => <div key={i}>{u}</div>
+                )
               : nivåer &&
                 (nivåer as any[]).find(x => x.uno_id === filtered_uno_id[i])
               ? (nivåer as any[])
                   .find(x => x.uno_id === filtered_uno_id[i])
-                  .utdanningstype.map((u: any) => <div>{u}</div>)
+                  .utdanningstype.map((u: any, i: number) => (
+                    <div key={i}>{u}</div>
+                  ))
               : ""}
           </div>
         );
