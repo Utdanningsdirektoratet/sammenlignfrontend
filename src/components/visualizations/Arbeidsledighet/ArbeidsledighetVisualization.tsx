@@ -1,18 +1,33 @@
 import React, { Component } from "react";
 
-import { Fullført, Visning } from "./ArbeidsledighetWrapper";
+import {
+  Fullført,
+  Visning,
+  Ledighetsintervall,
+} from "./ArbeidsledighetWrapper";
 import { ArbeidsledighetObject } from "../../../data/ApiTypes";
 import NoData from "../Old/NoData";
 import visualizationstyles from "../Visualization.module.scss";
 import PercentageBar from "../Generic/PercentageBar";
+import VerticalPercentageBar, {
+  VerticalPercentageBarValue,
+} from "../Generic/VerticalPercentageBar";
 import styles from "./ArbeidsledighetVisualization.module.scss";
 import Translate from "../../app/Translate";
+import { ReactComponent as Alle } from "../Generic/AlleIcon.svg";
+import { ReactComponent as Nyutdannet } from "../Generic/NyutdannaIcon.svg";
 
 type Props = {
   data: ArbeidsledighetObject;
   fullført: Fullført[];
   visning: Visning;
+  ledighetsintervaller: Ledighetsintervall[];
+  maxValue: number;
 };
+
+export interface IDictionary {
+  [index: string]: any;
+}
 
 class ArbeidsledighetVisualization extends Component<Props> {
   getDataQuery = (fullført: Fullført) => {
@@ -53,75 +68,68 @@ class ArbeidsledighetVisualization extends Component<Props> {
   };
 
   render() {
-    const { fullført, visning } = this.props;
-    let fullfortArray: Fullført[] = [];
-    let dataArr: any[] = [];
-    if (fullført.some(f => f === "A")) fullfortArray[0] = "A";
+    const { fullført, visning, ledighetsintervaller, maxValue } = this.props;
+    var dataArr = {} as IDictionary;
+    var emptyResults = 0;
     fullført.map(f => {
-      if (f !== "A") fullfortArray.push(f);
-      dataArr.push(this.getDataQuery(f));
+      dataArr[f] = this.getDataQuery(f);
+      if (dataArr[f] == null) emptyResults++;
     });
-    if (dataArr.every(d => d === null)) return <NoData />;
+
+    if (emptyResults == fullført.length) return <NoData />;
+
+    var intervaller = {} as IDictionary;
+    for (var i = 0; i < fullført.length; i++) {
+      var foundIntervals = 0;
+      ledighetsintervaller.forEach(element => {
+        if (foundIntervals == fullført.length) return;
+        if (
+          dataArr[fullført[i]] >= element.verdi.fra &&
+          dataArr[fullført[i]] < element.verdi.til
+        ) {
+          intervaller[fullført[i]] = element.text;
+        }
+      });
+    }
 
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
-          {fullfortArray.map(f => {
-            let data = this.getDataQuery(f);
-            return (
-              <div key={f}>
-                <div className={`${styles.arbeidsledighetvisualization_text}`}>
-                  {f === "A" ? (
-                    <Translate nb="totalt" />
-                  ) : f === "13" ? (
-                    <Translate nb="utdannet 1-3 år siden" />
-                  ) : (
-                    <Translate nb="utdannet 7-10 år siden" />
-                  )}
-                </div>
-                {visning === "Andel" ? (
-                  !data ? (
-                    <div
-                      className={`${
-                        styles.arbeidsledighetvisualization_noData
-                      }`}
-                    >
-                      <Translate nb="Ingen data" />
-                    </div>
-                  ) : (
-                    <div
-                      className={`${
-                        styles.arbeidsledighetvisualization_percentage
-                      }`}
-                    >
-                      <PercentageBar
-                        value={data}
-                        maxPercentageEqualsTen={true}
-                      />
-                    </div>
-                  )
-                ) : (
-                  <div
-                    className={`${styles.arbeidsledighetvisualization_kjonn}`}
+          <VerticalPercentageBar
+            values={{
+              left: { value: dataArr["A"], text: <Translate nb="A" /> },
+              right: {
+                value: dataArr["13"],
+                text: <Translate nb="N" />,
+              },
+            }}
+            max={maxValue}
+          />
+          <div>
+            {fullført.map(x => {
+              if (dataArr[x] == null) return null;
+              return (
+                <li
+                  key={x}
+                  className={`${styles.arbeidsledighetvisualization_list}`}
+                >
+                  {x == "A" ? <Alle /> : <Nyutdannet />}
+                  <span
+                    className={`${
+                      styles.arbeidsledighetvisualization_list_text
+                    }`}
                   >
-                    <div
-                      className={
-                        styles.arbeidsledighetvisualization_kjonn_container
-                      }
-                    >
-                      <div
-                        className={
-                          styles.arbeidsledighetvisualization_kjonn_container_text
-                        }
-                      >
-                        {data === null ? <Translate nb="Ingen data" /> : data}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                    {x == "A" ? (
+                      <Translate nb="Alle: " />
+                    ) : (
+                      <Translate nb="Nyutdanna: " />
+                    )}
+                    {intervaller[x]}
+                  </span>
+                </li>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

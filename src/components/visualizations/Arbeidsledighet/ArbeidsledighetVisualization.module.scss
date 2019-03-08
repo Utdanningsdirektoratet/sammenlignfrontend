@@ -33,4 +33,17 @@
       }
     }
   }
+  &_list {
+    list-style: none;
+    vertical-align: middle;
+    display: flex;
+    svg {
+      height: 30px;
+      width: 25px;
+    }
+    &_text {
+      margin-top: 1px;
+      margin-left: 2px;
+    }
+  }
 }
