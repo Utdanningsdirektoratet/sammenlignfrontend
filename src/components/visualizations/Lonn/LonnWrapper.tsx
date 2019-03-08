@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, RefObject } from "react";
 import { LonnElement } from "../../../data/ApiTypes";
 import VisualizationHeaderLonn, {
   VisualizationHeaderConfigLonn,
@@ -12,6 +12,8 @@ import LonnSpecificChoice from "./LonnSpecificChoice";
 import { ComparisonComponentProps } from "../../comparisonsConfig";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
+import HeaderLonnFilters from "./HeaderLonnFilters";
+import styles from "./LonnWrapper.module.scss";
 
 export function getTimeUnit(wageCalc: number, tidsenhet: Tidsenhet) {
   switch (tidsenhet) {
@@ -73,7 +75,6 @@ export function getMaxValue(
 
   return Math.round(wageCalc);
 }
-
 class LonnWrapper extends Component<
   ComparisonComponentProps<LonnElement>,
   VisualizationHeaderConfigLonn
@@ -88,7 +89,32 @@ class LonnWrapper extends Component<
       StatistiskMål: "Median og kvartiler",
       Kjønn: "A",
       ssbSektor: {},
+      widgetShowMobileMenu: false,
+      lonnDivRef: React.createRef(),
     };
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+
+  updateDimensions() {
+    if (this.state.lonnDivRef && this.state.lonnDivRef.current) {
+      if (this.state.lonnDivRef.current.offsetWidth < 685) {
+        this.setState(prevState => {
+          return { widgetShowMobileMenu: true };
+        });
+      } else {
+        this.setState(prevState => {
+          return { widgetShowMobileMenu: false };
+        });
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   onSelectedChoiceClick = (uno_id: string, ssbSektor: string) => {
@@ -135,7 +161,7 @@ class LonnWrapper extends Component<
 
   render() {
     const { data, uno_ids, widget } = this.props;
-    const { Sektor } = this.state;
+    const { Sektor, widgetShowMobileMenu, lonnDivRef } = this.state;
 
     let maxValue: number = 0;
 
@@ -183,21 +209,15 @@ class LonnWrapper extends Component<
       }
     });
 
-    // Render in widget context (without rows and always mobile menue)
-    if (widget) {
+    // Render in widget context (without rows)
+    if (true) {
       const uno_id = uno_ids[0];
       if (!uno_id) return <NoData />;
       const ssbSektor = this.getSsbSektor(uno_id);
       const arbeidstid_data = data[uno_id][ssbSektor][Sektor];
       if (!arbeidstid_data) return <NoData />;
       return (
-        <div>
-          <VisualizationHeaderLonn
-            config={this.state}
-            setConfig={this.setConfig}
-            onFilterClicked={this.onFilterClicked}
-            widget={true}
-          />
+        <div ref={lonnDivRef}>
           <LonnVisualization
             key={uno_ids[0]}
             data={arbeidstid_data}
@@ -209,6 +229,16 @@ class LonnWrapper extends Component<
             maxValue={maxValue}
             showGraphics={false}
           />
+          {widgetShowMobileMenu ? null : ( //TODO: Insert mobile menu
+            <div className={`${styles.widget_header_container}`}>
+              <HeaderLonnFilters
+                config={this.state}
+                onFilterClicked={this.onFilterClicked}
+                showHeaders={true}
+                showHeaderHelpText={true}
+              />
+            </div>
+          )}
           <LonnSpecificChoice
             key={uno_id}
             data={data[uno_id]}

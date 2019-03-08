@@ -134,6 +134,9 @@
           input {
             margin-right: 5px;
           }
+          label {
+            word-break: break-all;
+          }
         }
         &_header {
           font-weight: 600;

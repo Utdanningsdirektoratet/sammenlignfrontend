@@ -13,6 +13,8 @@ export type VisualizationHeaderConfigLonn = {
   StatistiskMål: StatistiskMål;
   Kjønn: Kjønn;
   ssbSektor: { [uno_id: string]: string };
+  widgetShowMobileMenu: boolean;
+  lonnDivRef: any;
 };
 
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
