@@ -80,8 +80,10 @@
         &_widget {
           text-transform: unset;
           display: inline-flex;
-          p {
-            margin-top: 24px;
+          margin-left: 0px;
+          p,
+          span {
+            margin-top: 0px;
           }
         }
       }
