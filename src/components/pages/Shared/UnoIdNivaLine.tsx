@@ -5,6 +5,10 @@ import { NUM_COMPARES_MOBILE } from "../../../config";
 import { with_app_state, AppStateProps } from "../../app/AppContext";
 import { Innholdstype } from "../../../data/ApiTypes";
 import { MIN_DESKTOP_PX } from "../../../util/Constants";
+import {
+  num_compare_sizing,
+  ScreenSizeProps,
+} from "../../utils/NumCompareSizing";
 
 type Props = {
   innholdstype: Innholdstype;
@@ -12,7 +16,7 @@ type Props = {
   nivåer: any;
 };
 
-class UnoIdNivaLine extends Component<AppStateProps & Props> {
+class UnoIdNivaLine extends Component<AppStateProps & Props & ScreenSizeProps> {
   render() {
     const {
       appState: { selected_uno_id },
@@ -59,21 +63,21 @@ class UnoIdNivaLine extends Component<AppStateProps & Props> {
     if (innerWidth < MIN_DESKTOP_PX) {
       var nivåBoxes = [];
       for (var i = 0; i < NUM_COMPARES_MOBILE; i++) {
+        var nivåCheck = nivåer
+          ? (nivåer as any[]).find(x => x.uno_id === filtered_uno_id[i])
+          : null;
         nivåBoxes.push(
           <div className={`${styles.nivåSelection_cell}`} key={i}>
-            {data && data[filtered_uno_id[i]]
+            {data &&
+            data[filtered_uno_id[i]] &&
+            data[filtered_uno_id[i]].utdanningstype
               ? data[filtered_uno_id[i]].utdanningstype.map(
                   (u: any, i: number) => <div key={i}>{u}</div>
                 )
-              : nivåer &&
-                (nivåer as any[]).find(x => x.uno_id === filtered_uno_id[i]) &&
-                (nivåer as any[]).find(x => x.uno_id === filtered_uno_id[i])
-                  .utdanningstype !== undefined
-              ? (nivåer as any[])
-                  .find(x => x.uno_id === filtered_uno_id[i])
-                  .utdanningstype.map((u: any, i: number) => (
-                    <div key={i}>{u}</div>
-                  ))
+              : nivåCheck && nivåCheck.utdanningstype !== undefined
+              ? nivåCheck.utdanningstype.map((u: any, i: number) => (
+                  <div key={i}>{u}</div>
+                ))
               : ""}
           </div>
         );
@@ -85,4 +89,6 @@ class UnoIdNivaLine extends Component<AppStateProps & Props> {
   }
 }
 
-export default with_app_state<Props>(UnoIdNivaLine);
+export default with_app_state<Props>(
+  num_compare_sizing<AppStateProps>(UnoIdNivaLine)
+);
