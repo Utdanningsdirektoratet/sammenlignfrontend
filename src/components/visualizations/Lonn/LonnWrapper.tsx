@@ -14,6 +14,7 @@ import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 import LonnHeaderFilterDesktop from "./LonnHeaderFilterDesktop";
 import HeaderLonnFilters from "./HeaderLonnFilters";
 import styles from "./LonnWrapper.module.scss";
+import Translate from "../../app/Translate";
 
 export function getTimeUnit(wageCalc: number, tidsenhet: Tidsenhet) {
   switch (tidsenhet) {
@@ -210,7 +211,7 @@ class LonnWrapper extends Component<
     });
 
     // Render in widget context (without rows)
-    if (true) {
+    if (widget) {
       const uno_id = uno_ids[0];
       if (!uno_id) return <NoData />;
       const ssbSektor = this.getSsbSektor(uno_id);
@@ -218,6 +219,9 @@ class LonnWrapper extends Component<
       if (!arbeidstid_data) return <NoData />;
       return (
         <div ref={lonnDivRef}>
+          <h2 style={{ marginLeft: "50px" }}>
+            <Translate nb="Lønn" />
+          </h2>
           <LonnVisualization
             key={uno_ids[0]}
             data={arbeidstid_data}
@@ -229,7 +233,14 @@ class LonnWrapper extends Component<
             maxValue={maxValue}
             showGraphics={false}
           />
-          {widgetShowMobileMenu ? null : ( //TODO: Insert mobile menu
+          {widgetShowMobileMenu ? (
+            <VisualizationHeaderLonn
+              config={this.state}
+              setConfig={this.setConfig}
+              onFilterClicked={this.onFilterClicked}
+              widget={true}
+            />
+          ) : (
             <div className={`${styles.widget_header_container}`}>
               <HeaderLonnFilters
                 config={this.state}

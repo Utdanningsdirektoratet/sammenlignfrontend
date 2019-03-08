@@ -2,10 +2,12 @@
 .visualizationheader {
   &_container {
     position: relative;
+    &_widget {
+      text-align: center;
+    }
     &_header {
       background-color: white;
       &__title {
-        text-align: center;
         text-transform: uppercase;
         display: flex;
         margin-left: 20px;
@@ -73,6 +75,13 @@
           &:after {
             margin: auto 2px;
             height: 2px;
+          }
+        }
+        &_widget {
+          text-transform: unset;
+          display: inline-flex;
+          p {
+            margin-top: 24px;
           }
         }
       }
@@ -153,6 +162,8 @@
             padding: 10px;
             border: 1px solid black;
             font-size: 0.9em;
+            z-index: 1000;
+            color: black;
             &_content {
               width: 80%;
               word-break: break-word;
