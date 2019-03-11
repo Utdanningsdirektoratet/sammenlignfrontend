@@ -1,0 +1,23 @@
+.widget {
+  &_header {
+    &_container {
+      padding: 10px;
+      padding-left: 20px;
+      padding-top: 0;
+
+      & > div:first-child {
+        display: flex;
+        justify-content: center;
+      }
+      ul {
+        width: 16%;
+      }
+
+      &_arbeidsledighet {
+        ul {
+          width: 30%;
+        }
+      }
+    }
+  }
+}

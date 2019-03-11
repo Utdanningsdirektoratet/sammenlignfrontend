@@ -13,6 +13,8 @@ export type VisualizationHeaderConfigLonn = {
   StatistiskMål: StatistiskMål;
   Kjønn: Kjønn;
   ssbSektor: { [uno_id: string]: string };
+  widgetShowMobileMenu: boolean;
+  lonnDivRef: any;
 };
 
 export type Tidsenhet = "Årlig" | "Månedlig" | "Ca. timelønn";
@@ -96,95 +98,115 @@ class VisualizationHeaderLonn extends Component<Props, State> {
             config={this.props.config}
             onFilterClicked={this.props.onFilterClicked}
             showHelpText={true}
+            showHeaders={true}
+            showHeaderHelpText={true}
           />
         </ClickOutsideListener>
       );
 
     return (
       <div>
-        <div className={`${styles.visualizationheader_container}`}>
+        <div
+          className={`${styles.visualizationheader_container} ${
+            widget ? styles.visualizationheader_container_widget : ""
+          }`}
+        >
           <div className={`${styles.visualizationheader_container_header}`} />
           <div
-            className={`${styles.visualizationheader_container_header__title}`}
+            className={`${styles.visualizationheader_container_header__title} ${
+              widget
+                ? styles.visualizationheader_container_header__title_widget
+                : ""
+            }`}
           >
-            <h2>
-              <Translate nb="Lønn" />{" "}
-            </h2>
+            {widget ? (
+              <p>
+                <Translate nb="Endre visning" />
+              </p>
+            ) : (
+              <h2>
+                <Translate nb="Lønn" />{" "}
+              </h2>
+            )}
+            {widget ? (
+              ""
+            ) : (
+              <span
+                className={`${
+                  styles.visualizationheader_container_header__title_filter
+                }`}
+              >
+                <ul>
+                  (
+                  <li>
+                    {Arbeidstid === "A" ? (
+                      <span>
+                        <Translate nb="Begge" />
+                        {","}
+                      </span>
+                    ) : Arbeidstid === "D" ? (
+                      <span>
+                        <Translate nb="Deltid" />
+                        {","}
+                      </span>
+                    ) : (
+                      <span key={Arbeidstid}>
+                        <Translate nb="Heltid" />
+                        {","}
+                      </span>
+                    )}
+                  </li>
+                  <li>
+                    {Sektor === "A" ? (
+                      <span>
+                        <Translate nb="Alle" />
+                        {","}
+                      </span>
+                    ) : Sektor === "K" ? (
+                      <span>
+                        <Translate nb="Kommunal" />
+                        {","}
+                      </span>
+                    ) : Sektor === "P" ? (
+                      <span>
+                        <Translate nb="Privat" />
+                        {","}
+                      </span>
+                    ) : (
+                      <span>
+                        <Translate nb="Statlig" />
+                        {","}
+                      </span>
+                    )}
+                  </li>
+                  <li>
+                    {LonnTranslations[Lønn]}
+                    {","}
+                  </li>
+                  <li>
+                    {StatistiskMålTranslations[StatistiskMål]}
+                    {","}
+                  </li>
+                  <li>
+                    {TidsenhetTranslations[Tidsenhet]}
+                    {","}
+                  </li>
+                  <li>
+                    {Kjønn === "A" ? (
+                      <span>
+                        <Translate nb="Alle" />
+                      </span>
+                    ) : (
+                      <span>
+                        <Translate nb="Kvinner og menn" />
+                      </span>
+                    )}
+                  </li>
+                  )
+                </ul>
+              </span>
+            )}
 
-            <span
-              className={`${
-                styles.visualizationheader_container_header__title_filter
-              }`}
-            >
-              <ul>
-                (
-                <li>
-                  {Arbeidstid === "A" ? (
-                    <span>
-                      <Translate nb="Begge" />
-                      {","}
-                    </span>
-                  ) : Arbeidstid === "D" ? (
-                    <span>
-                      <Translate nb="Deltid" />
-                      {","}
-                    </span>
-                  ) : (
-                    <span key={Arbeidstid}>
-                      <Translate nb="Heltid" />
-                      {","}
-                    </span>
-                  )}
-                </li>
-                <li>
-                  {Sektor === "A" ? (
-                    <span>
-                      <Translate nb="Alle" />
-                      {","}
-                    </span>
-                  ) : Sektor === "K" ? (
-                    <span>
-                      <Translate nb="Kommunal" />
-                      {","}
-                    </span>
-                  ) : Sektor === "P" ? (
-                    <span>
-                      <Translate nb="Privat" />
-                      {","}
-                    </span>
-                  ) : (
-                    <span>
-                      <Translate nb="Statlig" />
-                      {","}
-                    </span>
-                  )}
-                </li>
-                <li>
-                  {LonnTranslations[Lønn]}
-                  {","}
-                </li>
-                <li>
-                  {StatistiskMålTranslations[StatistiskMål]}
-                  {","}
-                </li>
-                <li>
-                  {TidsenhetTranslations[Tidsenhet]}
-                  {","}
-                </li>
-                <li>
-                  {Kjønn === "A" ? (
-                    <span>
-                      <Translate nb="Alle" />
-                    </span>
-                  ) : (
-                    <span>
-                      <Translate nb="Kvinner og menn" />
-                    </span>
-                  )}
-                </li>
-                )
-              </ul>
-            </span>
             <span
               className={`${
                 styles.visualizationheader_container_header__title_icon
@@ -196,6 +218,7 @@ class VisualizationHeaderLonn extends Component<Props, State> {
               onClick={() => this.onFilterButtonClick(true)}
             />
           </div>
+
           {Modal}
         </div>
         {this.props.children}
