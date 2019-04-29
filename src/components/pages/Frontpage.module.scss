@@ -3,6 +3,12 @@
   &_header {
     text-align: center;
     color: gray;
+
+    p{
+      margin-top: 0;
+      margin-bottom:0;
+      color: $color-primary;
+    }
   }
   &_options {
     display: flex;
@@ -16,6 +22,7 @@
       width: 20em;
       @media (max-width: $max-mobile) {
         width: 90%;
+        //width:95%;
         margin: auto;
         margin-bottom: 15px;
       }
@@ -24,6 +31,7 @@
       margin: 2%;
       @media (max-width: $max-mobile) {
         width: 80%;
+        // width: 95%;
         margin: auto;
         margin-top: 10px;
         padding: 10px;

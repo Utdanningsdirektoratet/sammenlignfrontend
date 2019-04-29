@@ -2,14 +2,16 @@
 .searchbox {
   position: relative;
   font-size: 1.2em;
-
   &_container {
+    margin-top:10px;
     &_input {
-      height: 1.9em;
+      // height: 1.9em;
+      height:2.24em;
       border-radius: 22px;
       border: 1px solid #dedede;
-      padding: 4px 15px;
-      width: 100%;
+      // padding: 4px 15px;
+      padding: 10px 15px;
+       width: 100%;
       font-size: inherit;
       &:focus {
         outline: none;
@@ -18,9 +20,12 @@
     }
     svg {
       position: absolute;
-      height: 1.3em;
-      width: 1.3em;
-      top: 5px;
+      // height: 1.3em;
+      // width: 1.3em;
+      height: 1.7em;
+      width: 1.7em;
+      // top: 5px;
+      top:15px;
       right: 8px;
       cursor: pointer;
     }
