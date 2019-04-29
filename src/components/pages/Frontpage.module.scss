@@ -21,8 +21,8 @@
       margin: 2%;
       width: 20em;
       @media (max-width: $max-mobile) {
-        width: 90%;
-        //width:95%;
+        //width: 90%;
+        width:95%;
         margin: auto;
         margin-bottom: 15px;
       }
@@ -30,8 +30,8 @@
     a {
       margin: 2%;
       @media (max-width: $max-mobile) {
-        width: 80%;
-        // width: 95%;
+        // width: 80%;
+        width: 95%;
         margin: auto;
         margin-top: 10px;
         padding: 10px;

@@ -10,6 +10,12 @@ import { num_compare_sizing, ScreenSizeProps } from "../utils/NumCompareSizing";
 import { Innholdstype } from "../../data/ApiTypes";
 import { MIN_DESKTOP_PX } from "../../util/Constants";
 
+
+// testing start 
+import AlphabeticOverviewPage from "./AlphabeticOverviewPage";
+import TestButton from "./TestButton";
+// testing end 
+
 type Props = {
   innholdstype?: Innholdstype;
 };
@@ -19,17 +25,15 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
     if (!this.props.innholdstype) {
       return (
         <div className={`${styles.frontpage_options}`}>
-          {/* <SearchBox
-            className={`${styles.frontpage_options_searchbox}`}
-            focusOnMount={innerWidth >= MIN_DESKTOP_PX}
-          /> */}
-          <Button to="/liste/yrke" type="light">
+          {/* <Button to="/liste/yrke" type="light"> */}
+          {/* <Button to="" type="light">
             {innerWidth < MIN_DESKTOP_PX ? (
               <Translate nb="Yrker" />
             ) : (
                 <Translate nb="Se oversikt over alle yrker" />
               )}
-          </Button>
+          </Button> */}
+          <TestButton />
           <Button to="/liste/utdanning" type="light">
             {innerWidth < MIN_DESKTOP_PX ? (
               <Translate nb="Utdanninger" />
