@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 
-export default class TestButton extends Component {
 
-    handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        console.log(e);
+type Props = {
+    handleClick?: any
+}
+
+export default class TestButton extends Component<Props> {
+
+    handleClick = () => {
+        //console.log(e);
+        this.props.handleClick();
     }
 
+
     render() {
+
         return (
-            <button onClick={this.handleClick}>Yrker</button>
+            <button onClick={() => this.handleClick}> Yrker</button >
         )
     }
 }
