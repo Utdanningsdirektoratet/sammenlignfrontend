@@ -8,7 +8,6 @@ type Props = {
 export default class TestButton extends Component<Props> {
 
     handleClick = () => {
-        //console.log(e);
         this.props.handleClick();
     }
 
@@ -16,7 +15,7 @@ export default class TestButton extends Component<Props> {
     render() {
 
         return (
-            <button onClick={() => this.handleClick}> Yrker</button >
+            <button onClick={() => this.handleClick()}> Yrker</button >
         )
     }
 }

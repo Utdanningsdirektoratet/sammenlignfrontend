@@ -15,6 +15,7 @@
     border-bottom: none;
     margin-bottom: 0;
     h3 {
+      display:none;     // Hides the alphabet letters on mobile view
       margin-bottom: 6px;
     }
   }
@@ -164,11 +165,15 @@
 }
 
 .mobile_search {
-  width: 80%;
+  // width: 80%;
+  width:95%;
   padding-bottom: 20px;
   margin: auto;
   @media (min-width: $min-not-mobile) {
     display: none;
+  }
+  svg{
+    top:5px !important;
   }
 }
 .sticky_header {

@@ -27,15 +27,21 @@ type Props = {
   toggleSelectedNivå: Function;
   toggleSelectedInterest: Function;
   toggleSelectedInterests: Function;
+  onClick: Function;
 };
 
 class InterestsHeader extends Component<Props, State> {
   state: State = { showInterestFilter: false, showNivåFilter: false };
 
-  handleToggleInterestFilter = () => {
+  handleToggleInterestFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setState(prevState => ({
       showInterestFilter: !prevState.showInterestFilter,
     }));
+    // if (e.currentTarget.classList.contains("open")) {
+    //   e.currentTarget.classList.remove("open");       // Testing setting open class with js. 
+    // } else {
+    //   e.currentTarget.classList.add("open");
+    // }
   };
 
   handleToggleNivåFilter = () => {
@@ -66,7 +72,7 @@ class InterestsHeader extends Component<Props, State> {
       toggleSelectedInterests,
       removeAllSelectedInterests,
     } = this.props;
-
+    let buttonOpen = this.state.showInterestFilter ? `${style.btn_open}` : ""; // If interests button is open, we add special class
     return (
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
@@ -79,12 +85,13 @@ class InterestsHeader extends Component<Props, State> {
           <div className={`${style.filterContainer}`}>
             <div className={`${style.dropdown_container}`}>
               <ClickOutsideListener onOutsideClick={this.handleNivåBlur}>
-                <button
+                {/* Test - Only renders the nivå filter dropdown if innholdstype is utdanning  */}
+                {innholdstype !== "yrke" && <button
                   onKeyDown={this.handleArrowClickOnNivå}
                   onClick={this.handleToggleNivåFilter}
                   className={`${style.btn} ${
                     this.state.showInterestFilter ? style.unselected : ""
-                  }`}
+                    }`}
                 >
                   {selectedNivåer.length > 0 ? (
                     selectedNivåer.length === 1 ? (
@@ -95,19 +102,19 @@ class InterestsHeader extends Component<Props, State> {
                         }}
                       />
                     ) : (
-                      <Translate
-                        nb="%number% nivåer"
-                        replacements={{
-                          "%number%": selectedNivåer.length.toString(),
-                        }}
-                      />
-                    )
+                        <Translate
+                          nb="%number% nivåer"
+                          replacements={{
+                            "%number%": selectedNivåer.length.toString(),
+                          }}
+                        />
+                      )
                   ) : (
-                    <Translate nb="Alle nivåer" />
-                  )}
+                      <Translate nb="Alle nivåer" />
+                    )}
 
                   {this.state.showNivåFilter ? <ChevronUp /> : <ChevronDown />}
-                </button>
+                </button>}
                 {this.state.showNivåFilter ? (
                   <div className={`${style.dropdown}`}>
                     <NivåFilter
@@ -123,7 +130,7 @@ class InterestsHeader extends Component<Props, State> {
 
             <button
               onClick={this.handleToggleInterestFilter}
-              className={`${style.btn} ${style.btn_interests}`}
+              className={`${style.btn} ${style.btn_interests} ${buttonOpen}`}
             >
               <Translate nb="Interesser" />{" "}
               {this.state.showInterestFilter ? <ChevronUp /> : <ChevronDown />}

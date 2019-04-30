@@ -1,0 +1,17 @@
+@import "src/styles/_constants.scss";
+
+.ost{
+    position: relative;
+    width:95%;
+    background-color:transparent;
+    border-radius: 22px;
+    height:2.24em;
+    border: 2px solid $color-primary;
+    padding:10px;
+    font-size:1em;
+    margin: 10px auto auto auto;
+    height:100%;
+    font-weight:600;
+    text-transform: uppercase;
+    color: #E7772E;  // Change this
+}

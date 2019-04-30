@@ -4,6 +4,12 @@ import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
 import styles from "./AlphabeticOverviewPage.module.scss";
 
+//Testing
+import stylez from "./Frontpage.module.scss";
+import Button from "../ui/Button";
+import InnholdButton from "../ui/InnholdButton";
+//Testing
+
 import PageChrome from "./PageChrome/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppStateProps } from "../app/AppContext";
@@ -137,6 +143,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     }
   };
 
+  handleClick = () => {
+
+  }
+
   render() {
     const { innholdstype } = this.props.match.params;
     const {
@@ -152,15 +162,26 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       return <Redirect to="/" />;
     }
     return (
+
       <PageChrome>
         <SyncUrlState />
         <CompareSelection innholdstype={innholdstype} />
         <div>
           <div>
             <div className={`${styles.mobile_row}`}>
-              <Link to={"/"} className={`${styles.mobile_back_btn}`}>
+              {/* <Link to={"/"} className={`${styles.mobile_back_btn}`}>
                 <Translate nb="< Start på nytt" />
-              </Link>
+              </Link> */}
+              <h1 className={`${stylez.frontpage_header}`}>
+                <Translate nb="Jeg vil sammenligne" />{" "}
+              </h1>
+
+              {/* <Translate nb="yrker" />    // Sett knappen på disse. Custom component for denne type knapp? */}
+
+
+            </div>
+            <div className={`${styles.mobile_row}`}>
+              <InnholdButton innholdstype={innholdstype} />
             </div>
             <div className={`${styles.mobile_search}`}>
               <SearchBox
@@ -169,12 +190,12 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               />
             </div>
           </div>
-          <UnoIdNivaLine
+          {/* <UnoIdNivaLine
             innholdstype={innholdstype}
             data={null}
             nivåer={this.state.data.list}
-          />
-          <div className={`${styles.sticky_header}`}>
+          /> */}
+          {/* <div className={`${styles.sticky_header}`}>
             <SelectedCompares innholdstype={innholdstype} />
 
             {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) &&
@@ -213,7 +234,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
                   )}
               </div>
             ) : null}
-          </div>
+          </div> */}
 
           <InterestsHeader
             innholdstype={innholdstype}
@@ -225,11 +246,13 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             toggleSelectedNivå={this.props.appState.toggleNivå}
             toggleSelectedInterests={this.props.appState.toggleInterests}
             removeAllSelectedInterests={this.props.appState.clearInterest}
+            onClick={this.handleClick} //Test 
           />
-          <AlphabetFilter
+
+          {/* <AlphabetFilter
             list={this.getFilteredList()}
             onLetterClicked={this.onLetterClicked}
-          />
+          /> */}
           <ul className={`${styles.alphabetic}`}>
             <AlphabeticList
               list={this.getFilteredList()}

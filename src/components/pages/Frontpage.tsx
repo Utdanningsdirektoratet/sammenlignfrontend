@@ -21,24 +21,17 @@ type Props = {
 };
 
 class Frontpage extends React.Component<Props & ScreenSizeProps> {
-
-  handleClick = (kake: any) => {
-    console.log("hei");
-  }
-
   getFrontpageOptions = () => {
     if (!this.props.innholdstype) {
       return (
         <div className={`${styles.frontpage_options}`}>
-          {/* <Button to="/liste/yrke" type="light"> */}
-          {/* <Button to="" type="light">
+          <Button to="/liste/yrke" type="light">
             {innerWidth < MIN_DESKTOP_PX ? (
               <Translate nb="Yrker" />
             ) : (
                 <Translate nb="Se oversikt over alle yrker" />
               )}
-          </Button> */}
-          <TestButton handleClick={() => this.handleClick()} />
+          </Button>
           <Button to="/liste/utdanning" type="light">
             {innerWidth < MIN_DESKTOP_PX ? (
               <Translate nb="Utdanninger" />
