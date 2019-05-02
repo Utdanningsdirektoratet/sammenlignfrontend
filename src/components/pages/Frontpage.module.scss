@@ -2,7 +2,8 @@
 .frontpage {
   &_header {
     text-align: center;
-    color: gray;
+    text-transform: uppercase;  // test
+    font-weight: 500; // test
 
     p{
       margin-top: 0;

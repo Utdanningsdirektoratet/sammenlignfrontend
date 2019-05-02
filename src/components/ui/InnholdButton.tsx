@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
 import styles from "./InnholdButton.module.scss";
 
@@ -8,9 +9,20 @@ type Props = {
     innholdstype?: string
 }
 
-export default class InnHoldButton extends Component<Props> {
+type State = {
+    isActive: boolean
+}
 
-    handleClick = () => {
+export default class InnHoldButton extends Component<Props> {
+    state = {
+        isActive: false
+    };
+
+    toggleButton = () => {
+        this.setState({ isActive: !this.state.isActive });          // Toggle button active class, If active, the button is displayed absolute. 
+    }
+    handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        this.toggleButton();
         /*
         TODO 
         Klikk på knappen skal åpne en liste med options
@@ -26,8 +38,15 @@ export default class InnHoldButton extends Component<Props> {
         Endringen må endre innholdstypen, vi må altså rerendere AlphabeticOverviewPage, for å få med oss endringene. Dette krever at innholdstype er en del av alpha.. sin state. 
         
         */
+    }
 
-
+    handleInnholdClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
+        if (e.currentTarget.innerHTML === "Yrker") {
+            // Set innholdstype to yrker
+        } else if (e.currentTarget.innerHTML === "Utdanninger") {
+            // Set innholdstype to utdanninger
+        }
+        this.toggleButton();
     }
 
     doPlural = (innholdstype: string | any) => {
@@ -40,8 +59,52 @@ export default class InnHoldButton extends Component<Props> {
     }
 
     render() {
-        return (
-            <button className={`${styles.ost}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
-        )
+        let showActive = this.state.isActive ? `${styles.selection_button_active}` : "";
+        if (!this.state.isActive) {
+            return (
+                <button className={`${styles.selection_button} ${showActive}`} onClick={this.handleClick}>{this.doPlural(this.props.innholdstype)}</button>
+            )
+        } else {
+            if (this.props.innholdstype === "yrke") {
+                return (
+                    // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
+                    <div className={`${styles.selection_button}`} >
+                        <p onClick={this.handleInnholdClick}>Yrker</p>
+                        <p><Link to={"/liste/utdanning"}>
+                            <Translate nb="Utdanninger" />
+                        </Link></p>
+                        {/* <p onClick={this.handleInnholdClick}>Yrker</p> */}
+                        {/* <p onClick={this.handleInnholdClick}>Utdanninger</p> */}
+                    </ div>
+                )
+            } else if (this.props.innholdstype === "utdanning") {
+                return (
+                    // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
+                    <div className={`${styles.selection_button}`} >
+                        <p onClick={this.handleInnholdClick}>Utdanninger</p>
+                        <p><Link to={"/liste/yrke"}>
+                            <Translate nb="Yrker" />
+                        </Link></p>
+                        {/* <p onClick={this.handleInnholdClick}>Yrker</p> */}
+                        {/* <p onClick={this.handleInnholdClick}>Utdanninger</p> */}
+                    </ div>
+                )
+            }
+            // return (
+            //     // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
+            //     <div className={`${styles.selection_button}`} >
+            //         <Link to={"/liste/yrke"}>
+            //             Yrker
+            //         </Link>
+            //         {/* <p onClick={this.handleInnholdClick}>Yrker</p> */}
+            //         {/* <p onClick={this.handleInnholdClick}>Utdanninger</p> */}
+            //     </ div>
+            // )
+        }
     }
 }
+
+
+/* <Link to={"/"} className={`${styles.mobile_back_btn}`}>
+                <Translate nb="< Start på nytt" />
+              </Link> */

@@ -180,7 +180,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
 
             </div>
-            <div className={`${styles.mobile_row}`}>
+            {/* <div className={`${styles.mobile_row}`}> */}
+            <div className={`${styles.header_content}`}>
               <InnholdButton innholdstype={innholdstype} />
             </div>
             <div className={`${styles.mobile_search}`}>

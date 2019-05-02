@@ -4,6 +4,7 @@
   list-style: none;
   padding: 0;
   margin: 2em;
+  margin-top: 1em; // test
 }
 
 .alphabetic_headers {
@@ -15,10 +16,15 @@
     border-bottom: none;
     margin-bottom: 0;
     h3 {
-      display:none;     // Hides the alphabet letters on mobile view
+      //display:none;     // Hides the alphabet letters on mobile view
+      
       margin-bottom: 6px;
     }
   }
+}
+
+.alphabetic_header[data-letter="A"]{    // Hides the letter A. 
+  display:none;
 }
 .alphabetic_header {
   display: flex;
@@ -132,6 +138,7 @@
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-bottom: 0px;// test
   @media (min-width: $min-not-mobile) {
     display: none;
   }
@@ -180,4 +187,8 @@
   position: sticky;
   top: 0px;
   z-index: 1010;
+}
+
+.header_content{
+  display:flex;
 }

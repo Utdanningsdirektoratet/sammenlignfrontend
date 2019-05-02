@@ -21,6 +21,9 @@
       display: flex;
       // flex-flow: row wrap;
       flex-direction: column;
+      @media only screen and (max-width: 500px){  // test 
+        flex-direction: row;
+      }
       flex-wrap: wrap;
       align-content: center;
       padding-bottom: 10px;
