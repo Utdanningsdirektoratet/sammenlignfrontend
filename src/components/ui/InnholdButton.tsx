@@ -4,6 +4,7 @@ import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 import styles from "./InnholdButton.module.scss";
 
 import Translate from "../app/Translate";
+import { ReactComponent as ArrowDown } from "../../fontawesome/solid/angle-down.svg";
 
 type Props = {
     innholdstype?: string
@@ -13,7 +14,7 @@ type State = {
     isActive: boolean
 }
 
-export default class InnHoldButton extends Component<Props> {
+export default class InnHoldButton extends Component<Props, State> {
     state = {
         isActive: false
     };
@@ -21,7 +22,7 @@ export default class InnHoldButton extends Component<Props> {
     toggleButton = () => {
         this.setState({ isActive: !this.state.isActive });          // Toggle button active class, If active, the button is displayed absolute. 
     }
-    handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    handleClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
         this.toggleButton();
         /*
         TODO 
@@ -41,11 +42,6 @@ export default class InnHoldButton extends Component<Props> {
     }
 
     handleInnholdClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
-        if (e.currentTarget.innerHTML === "Yrker") {
-            // Set innholdstype to yrker
-        } else if (e.currentTarget.innerHTML === "Utdanninger") {
-            // Set innholdstype to utdanninger
-        }
         this.toggleButton();
     }
 
@@ -62,31 +58,33 @@ export default class InnHoldButton extends Component<Props> {
         let showActive = this.state.isActive ? `${styles.selection_button_active}` : "";
         if (!this.state.isActive) {
             return (
-                <button className={`${styles.selection_button} ${showActive}`} onClick={this.handleClick}>{this.doPlural(this.props.innholdstype)}</button>
+                // <button className={`${styles.selection_button} ${showActive}`} onClick={this.handleClick}>{this.doPlural(this.props.innholdstype)}{<ArrowDown />}</button>
+                <div className={`${styles.selection_button} ${showActive}`} >
+                    <p onClick={this.handleInnholdClick}>{this.props.innholdstype}</p>
+                    {<ArrowDown />}
+                </div>
+                // <p className={`${styles.selection_button} ${showActive}`} onClick={this.handleClick}>{this.doPlural(this.props.innholdstype)}{<ArrowDown />}</p>
             )
         } else {
             if (this.props.innholdstype === "yrke") {
                 return (
                     // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
-                    <div className={`${styles.selection_button}`} >
-                        <p onClick={this.handleInnholdClick}>Yrker</p>
+                    <div className={`${styles.selection_button} ${showActive}`} >
+                        <p onClick={this.handleInnholdClick}>Yrker </p>
+                        {<ArrowDown />}
                         <p><Link to={"/liste/utdanning"}>
                             <Translate nb="Utdanninger" />
                         </Link></p>
-                        {/* <p onClick={this.handleInnholdClick}>Yrker</p> */}
-                        {/* <p onClick={this.handleInnholdClick}>Utdanninger</p> */}
                     </ div>
                 )
             } else if (this.props.innholdstype === "utdanning") {
                 return (
                     // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
-                    <div className={`${styles.selection_button}`} >
-                        <p onClick={this.handleInnholdClick}>Utdanninger</p>
+                    <div className={`${styles.selection_button} ${showActive}`} >
+                        <p onClick={this.handleInnholdClick}>Utdanninger {<ArrowDown />}</p>
                         <p><Link to={"/liste/yrke"}>
                             <Translate nb="Yrker" />
                         </Link></p>
-                        {/* <p onClick={this.handleInnholdClick}>Yrker</p> */}
-                        {/* <p onClick={this.handleInnholdClick}>Utdanninger</p> */}
                     </ div>
                 )
             }
@@ -103,8 +101,3 @@ export default class InnHoldButton extends Component<Props> {
         }
     }
 }
-
-
-/* <Link to={"/"} className={`${styles.mobile_back_btn}`}>
-                <Translate nb="< Start på nytt" />
-              </Link> */

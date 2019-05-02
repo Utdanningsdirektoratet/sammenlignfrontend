@@ -15,11 +15,21 @@
     text-transform: uppercase;
     color: #E7772E;  // Change this
     display:flex;
-    flex-direction: column;
+    // flex-direction: column;
+    
+
+    svg{
+        // vertical-align: middle;
+        display:inline-block;
+        width:20px;
+        height:20px;
+    }
 
     p{
         margin-left:auto;
         margin-right:auto;
+        margin-bottom:0;
+        margin-top: 0;
         cursor: pointer;
         a{
             text-decoration: none;
@@ -30,7 +40,20 @@
 
 .selection_button_active{
     position:absolute;
-    height: 4em;
+    height: 5em;
     z-index: 1;
-    clear:both;
+    background-color:white;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    flex-direction: column;
+
+    svg{
+        
+        transform: rotate(180deg);
+        width:20px;
+        height:20px;
+    }
 }
+
