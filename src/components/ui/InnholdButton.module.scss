@@ -14,9 +14,13 @@
     font-weight:600;
     text-transform: uppercase;
     color: #E7772E;  // Change this
-    display:flex;
+    // display:flex;
     // flex-direction: column;
     
+    .innhold_options{
+        margin-bottom:0;
+        display:flex;
+    }
 
     svg{
         // vertical-align: middle;
@@ -47,13 +51,21 @@
     right:0;
     margin-left:auto;
     margin-right:auto;
-    flex-direction: column;
+    //flex-direction: column;
+
+    .innhold_options{
+        display:flex;
+        margin-bottom:10px;
+    }    
 
     svg{
-        
         transform: rotate(180deg);
         width:20px;
         height:20px;
     }
 }
+
+
+
+
 

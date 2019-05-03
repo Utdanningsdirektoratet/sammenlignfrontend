@@ -9,6 +9,7 @@ type Props = {
   toggleSelected: Function;
   toggleSelectedItems: Function;
   removeAllSelected: Function;
+  onClick: Function;
 };
 
 class InteresserFilter extends React.Component<Props> {
@@ -16,6 +17,11 @@ class InteresserFilter extends React.Component<Props> {
     const interestIndex = this.props.selected.indexOf(i);
     return interestIndex > -1;
   };
+
+  handleFilterCloseClick = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    console.log(e);
+    this.props.onClick();
+  }
 
   public render() {
     const {
@@ -48,7 +54,11 @@ class InteresserFilter extends React.Component<Props> {
             <CloseIcon />
           </div>
         </div>
+        <div className={`${styles.interessefilter_container_title}`}>
+          <h3><Translate nb="Velg interesser"></Translate></h3>
+        </div>
         <div className={`${styles.interessefilter_container_items}`}>
+
           {interesser.map((itrest: string, i: number) => (
             <div
               className={`${styles.interessefilter_container_items__item}`}
@@ -65,6 +75,9 @@ class InteresserFilter extends React.Component<Props> {
               </label>
             </div>
           ))}
+        </div>
+        <div className={`${styles.interessefilter_container_close}`}>
+          <h3 onClick={this.handleFilterCloseClick}>LUKK</h3>
         </div>
       </div>
     );

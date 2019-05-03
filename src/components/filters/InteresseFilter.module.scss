@@ -4,6 +4,7 @@
       display: flex;
       margin-bottom: 10px;
       margin-top: 10px;
+      display:none; // test
       &_nullstill {
         margin-left: auto;
         cursor: pointer;
@@ -17,7 +18,20 @@
         }
       }
     }
+    &_title{                    // test hele greia
+      border:1px solid red;
+      margin-top:50px;
+      color: white;           
+    }
+
+    &_close{
+      display:flex;
+      justify-content: center;
+      color:white;
+      
+    }
     &_items {
+
       display: flex;
       // flex-flow: row wrap;
       flex-direction: column;

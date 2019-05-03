@@ -52,6 +52,7 @@ class Modal extends Component<Props> {
             toggleSelected={toggleSelected}
             toggleSelectedItems={toggleSelectedItems}
             removeAllSelected={removeAllSelected}
+            onClick={function () { }}
           />
         </ReactModal>
       </>

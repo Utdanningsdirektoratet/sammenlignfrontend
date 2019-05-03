@@ -37,11 +37,6 @@ class InterestsHeader extends Component<Props, State> {
     this.setState(prevState => ({
       showInterestFilter: !prevState.showInterestFilter,
     }));
-    // if (e.currentTarget.classList.contains("open")) {
-    //   e.currentTarget.classList.remove("open");       // Testing setting open class with js. 
-    // } else {
-    //   e.currentTarget.classList.add("open");
-    // }
   };
 
   handleToggleNivåFilter = () => {
@@ -59,6 +54,11 @@ class InterestsHeader extends Component<Props, State> {
       this.handleToggleNivåFilter();
     }
   };
+
+  handleCloseInterest = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    console.log("hez");
+    // this.handleToggleInterestFilter();
+  }
 
   render() {
     const {
@@ -146,6 +146,7 @@ class InterestsHeader extends Component<Props, State> {
               toggleSelected={toggleSelectedInterest}
               toggleSelectedItems={toggleSelectedInterests}
               removeAllSelected={removeAllSelectedInterests}
+              onClick={this.handleCloseInterest}
             />
           </div>
         ) : null}

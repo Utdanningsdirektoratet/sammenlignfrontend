@@ -20,25 +20,16 @@ export default class InnHoldButton extends Component<Props, State> {
     };
 
     toggleButton = () => {
+        let el = document.getElementById('test');
+        if (el && this.state.isActive)
+            el.style.marginTop = "0px";
+        else if (el && !this.state.isActive)
+            el.style.marginTop = "64px";
+
         this.setState({ isActive: !this.state.isActive });          // Toggle button active class, If active, the button is displayed absolute. 
     }
     handleClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
         this.toggleButton();
-        /*
-        TODO 
-        Klikk på knappen skal åpne en liste med options
-        I dette tilfellet blir det kun 2
-
-        Valgt: yrke. Klikk.
-
-        ----------------|
-        | Yrker(Bold) /\|   Boksen skal være en overlay, altså absolute(maybe not faktisk) posisjonering med z-index høyere enn bakgrunnen. Bredde like stor som før klikk. Høyde må selvsagt utvides. 
-        | Utdanninger   |
-        |---------------|
-        
-        Endringen må endre innholdstypen, vi må altså rerendere AlphabeticOverviewPage, for å få med oss endringene. Dette krever at innholdstype er en del av alpha.. sin state. 
-        
-        */
     }
 
     handleInnholdClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
@@ -58,46 +49,43 @@ export default class InnHoldButton extends Component<Props, State> {
         let showActive = this.state.isActive ? `${styles.selection_button_active}` : "";
         if (!this.state.isActive) {
             return (
-                // <button className={`${styles.selection_button} ${showActive}`} onClick={this.handleClick}>{this.doPlural(this.props.innholdstype)}{<ArrowDown />}</button>
                 <div className={`${styles.selection_button} ${showActive}`} >
-                    <p onClick={this.handleInnholdClick}>{this.props.innholdstype}</p>
-                    {<ArrowDown />}
+                    <div className={`${styles.innhold_options}`}>
+                        <p onClick={this.handleInnholdClick}>{this.doPlural(this.props.innholdstype)}</p>
+                        {<ArrowDown />}
+                    </div>
                 </div>
-                // <p className={`${styles.selection_button} ${showActive}`} onClick={this.handleClick}>{this.doPlural(this.props.innholdstype)}{<ArrowDown />}</p>
             )
         } else {
             if (this.props.innholdstype === "yrke") {
                 return (
-                    // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
                     <div className={`${styles.selection_button} ${showActive}`} >
-                        <p onClick={this.handleInnholdClick}>Yrker </p>
-                        {<ArrowDown />}
-                        <p><Link to={"/liste/utdanning"}>
-                            <Translate nb="Utdanninger" />
-                        </Link></p>
+                        <div className={`${styles.innhold_options}`}>
+                            <p onClick={this.handleInnholdClick}>{this.doPlural(this.props.innholdstype)} </p>
+                            {<ArrowDown />}
+                        </div>
+                        <div className={`${styles.innhold_options}`}>
+                            <p><Link to={"/liste/utdanning"}>
+                                <Translate nb="Utdanninger" />
+                            </Link></p>
+                        </div>
                     </ div>
                 )
             } else if (this.props.innholdstype === "utdanning") {
                 return (
-                    // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
                     <div className={`${styles.selection_button} ${showActive}`} >
-                        <p onClick={this.handleInnholdClick}>Utdanninger {<ArrowDown />}</p>
-                        <p><Link to={"/liste/yrke"}>
-                            <Translate nb="Yrker" />
-                        </Link></p>
+                        <div className={`${styles.innhold_options}`}>
+                            <p onClick={this.handleInnholdClick}>{this.doPlural(this.props.innholdstype)}</p>
+                            {<ArrowDown />}
+                        </div>
+                        <div className={`${styles.innhold_options}`}>
+                            <p><Link to={"/liste/yrke"}>
+                                <Translate nb="Yrker" />
+                            </Link></p>
+                        </div>
                     </ div>
                 )
             }
-            // return (
-            //     // <button className={`${styles.selection_button} ${showActive}`} onClick={() => this.handleClick()}>{this.doPlural(this.props.innholdstype)}</button>
-            //     <div className={`${styles.selection_button}`} >
-            //         <Link to={"/liste/yrke"}>
-            //             Yrker
-            //         </Link>
-            //         {/* <p onClick={this.handleInnholdClick}>Yrker</p> */}
-            //         {/* <p onClick={this.handleInnholdClick}>Utdanninger</p> */}
-            //     </ div>
-            // )
         }
     }
 }
