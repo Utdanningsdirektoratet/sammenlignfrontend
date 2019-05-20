@@ -73,6 +73,7 @@ class InterestsHeader extends Component<Props, State> {
       removeAllSelectedInterests,
     } = this.props;
     let buttonOpen = this.state.showInterestFilter ? `${style.btn_open}` : ""; // If interests button is open, we add special class
+    let nivaOpen = this.state.showNivåFilter ? `${style.btn_open}` : "";
     return (
       <div className={`${style.selection}`}>
         <div className={`${style.selection_row}`}>
@@ -89,9 +90,8 @@ class InterestsHeader extends Component<Props, State> {
                 {innholdstype !== "yrke" && <button
                   onKeyDown={this.handleArrowClickOnNivå}
                   onClick={this.handleToggleNivåFilter}
-                  className={`${style.btn} ${
-                    this.state.showInterestFilter ? style.unselected : ""
-                    }`}
+                  className={`${style.btn} 
+                     ${nivaOpen}`}
                 >
                   {selectedNivåer.length > 0 ? (
                     selectedNivåer.length === 1 ? (

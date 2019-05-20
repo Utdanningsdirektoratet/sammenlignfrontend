@@ -65,6 +65,7 @@
     color:white;
     border: none;
     z-index:1;
+    position: relative;
   }
 }
 
@@ -102,13 +103,22 @@
     }
     .dropdown {
       position: absolute;
-      width: 300px;
-      background-color: white;
-      z-index: 1020;
+      // width: 300px
+      width:95%; // test 
+      // background-color: white; 
+      background-color:#363636; // test 
+      // z-index: 1020;
+     
+      margin-top:-54px;
 
       @media (max-width: $max-mobile) {
         left: 0;
         width: 100%;
+        width: 95%; // test
+        margin:auto;
+        left:0;
+        right:0;
+        margin-top: -54px;
       }
     }
   }

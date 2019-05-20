@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./NivåFilter.module.scss";
+import Translate from "../app/Translate";
 
 type Props = {
   nivåer: string[];
@@ -29,6 +30,9 @@ class NivåFilter extends React.Component<Props> {
     return (
       <div className={`${styles.container}`}>
         <div>
+          <div className={`${styles.container_title}`}>
+            <h3><Translate nb="Velg nivå"></Translate></h3>
+          </div>
           {nivåer.map((nivå: string, i: number) => (
             <label key={i}>
               <input
