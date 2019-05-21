@@ -24,25 +24,32 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
   getFrontpageOptions = () => {
     if (!this.props.innholdstype) {
       return (
-        <div className={`${styles.frontpage_options}`}>
-          <Button to="/liste/yrke" type="light">
-            {innerWidth < MIN_DESKTOP_PX ? (
-              <Translate nb="Yrker" />
-            ) : (
-                <Translate nb="Se oversikt over alle yrker" />
-              )}
-          </Button>
-          <Button to="/liste/utdanning" type="light">
-            {innerWidth < MIN_DESKTOP_PX ? (
-              <Translate nb="Utdanninger" />
-            ) : (
-                <Translate nb="Se oversikt over alle utdanninger" />
-              )}
-          </Button>
-          <SearchBox
+        <div className={`${styles.container}`}>
+          <div className={`${styles.frontpage_options}`}>
+            <Button to="/liste/yrke" type="light">
+              {innerWidth < MIN_DESKTOP_PX ? (
+                <Translate nb="Yrker" />
+              ) : (
+                  <Translate nb="yrker" />
+                )}
+            </Button>
+            <Button to="/liste/utdanning" type="light">
+              {innerWidth < MIN_DESKTOP_PX ? (
+                <Translate nb="Utdanninger" />
+              ) : (
+                  <Translate nb="utdanninger" />
+                )}
+            </Button>
+            {/* <SearchBox
             className={`${styles.frontpage_options_searchbox}`}
             focusOnMount={innerWidth >= MIN_DESKTOP_PX}
-          />
+          /> */}
+          </div>
+          <div className={`${styles.container_searchcontainer}`}>
+            <SearchBox
+              className={`${styles.frontpage_options_searchbox}`}
+              focusOnMount={innerWidth >= MIN_DESKTOP_PX} />
+          </div>
         </div>
       );
     } else {
@@ -59,14 +66,14 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                 {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Yrker" />
                 ) : (
-                    <Translate nb="Se oversikt over alle yrker" />
+                    <Translate nb="yrker" />
                   )}
               </Button>
               <Button to="/sammenligne/utdanning" type="light" selected>
                 {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Utdanninger" />
                 ) : (
-                    <Translate nb="Bytt til å se på utdanninger" />
+                    <Translate nb="utdanninger" />
                   )}
               </Button>
             </div>
@@ -83,14 +90,14 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                 {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Utdanninger" />
                 ) : (
-                    <Translate nb="Se oversikt over alle utdanninger" />
+                    <Translate nb="utdanninger" />
                   )}
               </Button>
               <Button to="/sammenligne/yrke" type="light" selected>
                 {innerWidth < MIN_DESKTOP_PX ? (
                   <Translate nb="Yrker" />
                 ) : (
-                    <Translate nb="Bytt til å se på yrker" />
+                    <Translate nb="yrker" />
                   )}
               </Button>
             </div>
@@ -101,6 +108,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
 
   public render() {
     const { innerWidth, innholdstype } = this.props;
+    let isDesk = innerWidth >= MIN_DESKTOP_PX ? `${styles.frontpage_undertitle}` : "";
     return (
       <PageChrome>
         <h1 className={`${styles.frontpage_header}`}>
@@ -114,7 +122,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                   innholdstype
                 )
           ) : (
-              <p>mine muligheter</p>
+              <p className={`${isDesk}`}>mine muligheter</p>
             )}
         </h1>
         {this.getFrontpageOptions()}

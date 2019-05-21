@@ -45,16 +45,16 @@
       padding-bottom: 10px;
 
       @media only screen and (min-width: 900.5px) {
-        height: 600px;
+        // height: 600px; // fjerna for test 
       }
       @media only screen and (max-width: 900px) {
-        height: 800px;
+        // height: 800px; // fjerna for test                Disse e for liten høyde. content vises utenfor. Gi den høyden den trenger. 
       }
       @media only screen and (max-width: 600px) {
-        height: 1075px;
+        // height: 1075px; // fjerna for test
       }
       @media only screen and (max-width: 500px) {
-        height: 2010px;
+        // height: 2010px; // fjerna for test
       }
 
       &__item {

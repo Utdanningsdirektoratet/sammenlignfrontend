@@ -49,9 +49,9 @@ export default class InnHoldButton extends Component<Props, State> {
         let showActive = this.state.isActive ? `${styles.selection_button_active}` : "";
         if (!this.state.isActive) {
             return (
-                <div className={`${styles.selection_button} ${showActive}`} >
+                <div className={`${styles.selection_button} ${showActive}`} onClick={this.handleInnholdClick}>
                     <div className={`${styles.innhold_options}`}>
-                        <p onClick={this.handleInnholdClick}>{this.doPlural(this.props.innholdstype)}</p>
+                        <p>{this.doPlural(this.props.innholdstype)}</p>
                         {<ArrowDown />}
                     </div>
                 </div>
@@ -59,9 +59,9 @@ export default class InnHoldButton extends Component<Props, State> {
         } else {
             if (this.props.innholdstype === "yrke") {
                 return (
-                    <div className={`${styles.selection_button} ${showActive}`} >
+                    <div className={`${styles.selection_button} ${showActive}`} onClick={this.handleInnholdClick} >
                         <div className={`${styles.innhold_options}`}>
-                            <p onClick={this.handleInnholdClick}>{this.doPlural(this.props.innholdstype)} </p>
+                            <p>{this.doPlural(this.props.innholdstype)} </p>
                             {<ArrowDown />}
                         </div>
                         <div className={`${styles.innhold_options}`}>
@@ -73,9 +73,9 @@ export default class InnHoldButton extends Component<Props, State> {
                 )
             } else if (this.props.innholdstype === "utdanning") {
                 return (
-                    <div className={`${styles.selection_button} ${showActive}`} >
+                    <div className={`${styles.selection_button} ${showActive}`} onClick={this.handleInnholdClick} >
                         <div className={`${styles.innhold_options}`}>
-                            <p onClick={this.handleInnholdClick}>{this.doPlural(this.props.innholdstype)}</p>
+                            <p>{this.doPlural(this.props.innholdstype)}</p>
                             {<ArrowDown />}
                         </div>
                         <div className={`${styles.innhold_options}`}>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Translate from "../../app/Translate";
 import styles from "./CompareSelection.module.scss";
 import { Innholdstype } from "../../../data/ApiTypes";
+import InnholdButton from "../../ui/InnholdButton";
 
 type Props = {
   innholdstype?: Innholdstype;
@@ -19,10 +20,11 @@ class CompareSelection extends Component<Props> {
           {innholdstype === "utdanning" ? (
             <Translate nb="utdanninger" />
           ) : innholdstype === "yrke" ? (
-            <Translate nb="yrker" />
+            // <Translate nb="yrker" />
+            <InnholdButton innholdstype={this.props.innholdstype} />
           ) : (
-            innholdstype
-          )}
+                innholdstype
+              )}
         </h1>
         <div className={`${styles.button_row}`}>
           <div className={`${styles.button_row_content}`}>
@@ -30,7 +32,7 @@ class CompareSelection extends Component<Props> {
               to="/liste/utdanning"
               className={`${styles.btn} ${styles.btn_primary} ${
                 innholdstype == "utdanning" ? styles.btn_selected : ""
-              }`}
+                }`}
             >
               <Translate nb="Utdanninger" />
             </Link>
@@ -38,7 +40,7 @@ class CompareSelection extends Component<Props> {
               to="/liste/yrke"
               className={`${styles.btn} ${styles.btn_primary} ${
                 innholdstype == "yrke" ? styles.btn_selected : ""
-              }`}
+                }`}
             >
               <Translate nb="Yrker" />
             </Link>
