@@ -18,9 +18,8 @@ class InteresserFilter extends React.Component<Props> {
     return interestIndex > -1;
   };
 
-  handleFilterCloseClick = (e: React.MouseEvent<HTMLHeadingElement>) => {
-    console.log(e);
-    this.props.onClick();
+  handleChecked = (itrest: string) => {
+    return this.checkIsChecked(itrest);
   }
 
   public render() {
@@ -70,14 +69,21 @@ class InteresserFilter extends React.Component<Props> {
                   value={itrest}
                   checked={this.checkIsChecked(itrest)}
                   onChange={() => toggleSelected(itrest)}
-                />{" "}
+                />
+                {this.handleChecked(itrest) == true &&
+                  <span className={`${styles.interessefilter_container_items__item_radio} ${styles.interessefilter_container_items__item_radio_checked}`}></span>
+                }
+                {this.handleChecked(itrest) != true &&
+                  <span className={`${styles.interessefilter_container_items__item_radio}`}></span>
+                }
+                {" "}
                 {itrest.charAt(0).toUpperCase() + itrest.slice(1)}
               </label>
             </div>
           ))}
         </div>
         <div className={`${styles.interessefilter_container_close}`}>
-          <h3 onClick={this.handleFilterCloseClick}>LUKK</h3>
+          <h3 onClick={() => this.props.onClick()}>LUKK</h3>
         </div>
       </div>
     );

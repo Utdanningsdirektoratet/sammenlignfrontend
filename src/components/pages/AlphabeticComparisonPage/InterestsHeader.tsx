@@ -5,7 +5,7 @@ import SearchBox from "../../ui/SearchBox";
 import { Innholdstype } from "../../../data/ApiTypes";
 
 import { ReactComponent as ChevronDown } from "../../../fontawesome/solid/chevron-down.svg";
-import { ReactComponent as ChevronUp } from "../../../fontawesome/solid/chevron-up.svg";
+import { ReactComponent as ChevronUp } from "../../../fontawesome/solid/chevron-up-white.svg";
 
 import style from "./InterestsHeader.module.scss";
 import InteresserFilter from "../../filters/InteresseFilter";
@@ -56,8 +56,7 @@ class InterestsHeader extends Component<Props, State> {
   };
 
   handleCloseInterest = (e: React.MouseEvent<HTMLHeadingElement>) => {
-    console.log("hez");
-    // this.handleToggleInterestFilter();
+    if (this.state.showInterestFilter) this.setState({ showInterestFilter: false });
   }
 
   render() {

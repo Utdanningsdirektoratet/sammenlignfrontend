@@ -29,6 +29,9 @@
       color:white;
       margin-top:20px;
       
+      h3{
+        cursor: pointer;
+      }
     }
     &_items {
       display: flex;
@@ -38,7 +41,7 @@
         flex-direction: row;
       }
       flex-wrap: wrap;
-      align-content: center;
+      //align-content: center; commented out for test
       padding-bottom: 10px;
 
       @media only screen and (min-width: 900.5px) {
@@ -56,6 +59,8 @@
 
       &__item {
         color:white;
+        margin-bottom:10px;
+        position: relative;
         width: 20%;
         @media only screen and (min-width: 900.5px) {
           width: 25%;
@@ -71,8 +76,29 @@
         }
         word-break: break-word;
         padding-right: 1em;
+
+        &_radio{
+          background-color:white;
+          height:16px;
+          width:16px;
+          position:absolute;
+          border-radius: 50%;
+          left:0;          
+
+          &_checked{
+            background-color:#E7772E;
+          }
+        }
         label {
           cursor: pointer;
+          padding-left:30px;
+          input{
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            left:0;   
+          }
         }
       }
     }

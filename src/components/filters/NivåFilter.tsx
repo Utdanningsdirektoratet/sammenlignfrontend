@@ -41,10 +41,20 @@ class NivåFilter extends React.Component<Props> {
                 checked={this.checkIsChecked(nivå)}
                 onChange={() => toggleSelected(nivå)}
                 onKeyDown={this.handleArrowClick}
-              />{" "}
+              />
+              {this.checkIsChecked(nivå) == true &&
+                <span className={`${styles.container_radio} ${styles.container_checked}`}></span>
+              }
+              {this.checkIsChecked(nivå) != true &&
+                <span className={`${styles.container_radio}`}></span>
+              }
+              {" "}
               {nivå.charAt(0).toUpperCase() + nivå.slice(1)}
             </label>
           ))}
+        </div>
+        <div className={`${styles.container_close}`}>
+          <h3 onClick={() => this.props.closeDropdown()}>LUKK</h3>
         </div>
       </div>
     );

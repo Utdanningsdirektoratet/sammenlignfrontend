@@ -41,6 +41,7 @@
     width: 1.5em;
     text-align: center;
     font-weight: 400;
+    padding-top:2px; // test 
   }
 }
 
@@ -87,6 +88,8 @@
         margin-bottom: 4px;
         padding-top: 4px;
         padding-bottom: 4px;
+        padding-top:10px;     // test 
+        padding-bottom:10px; // test
 
         input {
           visibility: hidden;
