@@ -73,8 +73,9 @@ class InterestsHeader extends Component<Props, State> {
     } = this.props;
     let buttonOpen = this.state.showInterestFilter ? `${style.btn_open}` : ""; // If interests button is open, we add special class
     let nivaOpen = this.state.showNivåFilter ? `${style.btn_open}` : "";
+    let desktop = innerWidth >= MIN_DESKTOP_PX ? `${style.selection_desk}` : "";
     return (
-      <div className={`${style.selection}`}>
+      <div className={`${style.selection} ${desktop}`}>
         <div className={`${style.selection_row}`}>
           <div className={`${style.searchbox}`}>
             <SearchBox

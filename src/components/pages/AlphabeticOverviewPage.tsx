@@ -182,7 +182,10 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             </div>
             {/* <div className={`${styles.mobile_row}`}> */}
             <div className={`${styles.header_content}`}>
-              <InnholdButton innholdstype={innholdstype} />
+              {/* < InnholdButton innholdstype={innholdstype} /> */}
+              {innerWidth < MIN_DESKTOP_PX &&
+                < InnholdButton innholdstype={innholdstype} />
+              }
             </div>
             <div className={`${styles.mobile_search}`} id="test">
               <SearchBox
