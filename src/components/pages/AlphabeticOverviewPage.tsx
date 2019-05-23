@@ -112,7 +112,11 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   };
   handleItemClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
-    if (key) this.props.appState.toggleUnoId(key);
+    if (key) {
+      this.props.appState.toggleUnoId(key);
+
+
+    }
   };
 
   isInterestSelected = (interests: string[] | undefined) => {
@@ -143,10 +147,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
     }
   };
 
-  handleClick = () => {
-
-  }
-
   render() {
     const { innholdstype } = this.props.match.params;
     const {
@@ -162,7 +162,6 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       return <Redirect to="/" />;
     }
     return (
-
       <PageChrome>
         <SyncUrlState />
         <CompareSelection innholdstype={innholdstype} />
@@ -198,8 +197,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             innholdstype={innholdstype}
             data={null}
             nivåer={this.state.data.list}
-          /> */}
-          {/* <div className={`${styles.sticky_header}`}>
+          />
+          <div className={`${styles.sticky_header}`}>
             <SelectedCompares innholdstype={innholdstype} />
 
             {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) &&
@@ -250,13 +249,15 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             toggleSelectedNivå={this.props.appState.toggleNivå}
             toggleSelectedInterests={this.props.appState.toggleInterests}
             removeAllSelectedInterests={this.props.appState.clearInterest}
-            onClick={this.handleClick} //Test 
+            onClick={this.props.appState.toggleUnoId} //Test 
+            selected_uno_id={this.props.appState.selected_uno_id} // test
           />
-
-          {/* <AlphabetFilter
-            list={this.getFilteredList()}
-            onLetterClicked={this.onLetterClicked}
-          /> */}
+          {innerWidth >= MIN_DESKTOP_PX &&
+            <AlphabetFilter
+              list={this.getFilteredList()}
+              onLetterClicked={this.onLetterClicked}
+            />
+          }
           <ul className={`${styles.alphabetic}`}>
             <AlphabeticList
               list={this.getFilteredList()}

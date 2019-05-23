@@ -11,6 +11,7 @@ import style from "./InterestsHeader.module.scss";
 import InteresserFilter from "../../filters/InteresseFilter";
 import Translate from "../../app/Translate";
 import NivåFilter from "../../filters/NivåFilter";
+import ResetButton from "../../ui/ResetButton";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
 import { num_compare_sizing } from "../../utils/NumCompareSizing";
 import { MIN_DESKTOP_PX } from "../../../util/Constants";
@@ -28,6 +29,7 @@ type Props = {
   toggleSelectedInterest: Function;
   toggleSelectedInterests: Function;
   onClick: Function;
+  selected_uno_id: string[];
 };
 
 class InterestsHeader extends Component<Props, State> {
@@ -83,6 +85,7 @@ class InterestsHeader extends Component<Props, State> {
               focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
           </div>
+          <ResetButton toggleuno={this.props.onClick} selected_uno_id={this.props.selected_uno_id} />
           <div className={`${style.filterContainer}`}>
             <div className={`${style.dropdown_container}`}>
               <ClickOutsideListener onOutsideClick={this.handleNivåBlur}>

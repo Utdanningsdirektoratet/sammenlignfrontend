@@ -6,6 +6,7 @@ import styles from "./InnholdButton.module.scss";
 import Translate from "../app/Translate";
 import { ReactComponent as ArrowDown } from "../../fontawesome/solid/angle-down.svg";
 import { MIN_DESKTOP_PX } from "../../util/Constants";
+import { active } from "d3";
 
 type Props = {
     innholdstype?: string
@@ -53,10 +54,14 @@ export default class InnHoldButton extends Component<Props, State> {
         if (this.state.isActive && innerWidth >= MIN_DESKTOP_PX) {
             showActive = `${styles.selection_buttondesktop_active}`;
         } else if (this.state.isActive && !(innerWidth >= MIN_DESKTOP_PX)) {
-            showActive = `${styles.selection_buttonmobile_active}`
+            showActive = `${styles.selection_buttonmobile_active}`;
         }
         let desktop = innerWidth >= MIN_DESKTOP_PX ? `${styles.selection_buttondesktop}` : `${styles.selection_buttonmobile}`;
         let options = innerWidth >= MIN_DESKTOP_PX ? `${styles.selection_buttondesktop_options}` : `${styles.selection_buttonmobile_options}`;
+        let activeOptions = "";
+        if (this.state.isActive) {
+            activeOptions = innerWidth >= MIN_DESKTOP_PX ? `${styles.selection_buttondesktop_options}` : `${styles.selection_buttonmobile_active_options}`; // Rewrite this sometime
+        }
         if (!this.state.isActive) {
             return (
                 // <div className={`${styles.selection_button} ${showActive}`} onClick={this.handleInnholdClick}>
@@ -74,7 +79,7 @@ export default class InnHoldButton extends Component<Props, State> {
                     // <div className={`${styles.selection_button} ${showActive}`} onClick={this.handleInnholdClick} >
                     <div className={`${desktop} ${showActive}`} onClick={this.handleInnholdClick} >
                         {/* <div className={`${styles.innhold_options}`}> */}
-                        <div className={`${options}`}>
+                        <div className={`${options} ${activeOptions}`}>
                             <p>{this.doPlural(this.props.innholdstype)} </p>
                             {<ArrowDown />}
                         </div>
@@ -91,7 +96,7 @@ export default class InnHoldButton extends Component<Props, State> {
                     // <div className={`${styles.selection_button} ${showActive}`} onClick={this.handleInnholdClick} >
                     <div className={`${desktop} ${showActive}`} onClick={this.handleInnholdClick} >
                         {/* <div className={`${styles.innhold_options}`}> */}
-                        <div className={`${options}`}>
+                        <div className={`${options} ${activeOptions}`}>
                             <p>{this.doPlural(this.props.innholdstype)}</p>
                             {<ArrowDown />}
                         </div>

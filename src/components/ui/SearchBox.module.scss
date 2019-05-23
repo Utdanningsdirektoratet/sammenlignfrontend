@@ -3,7 +3,10 @@
   position: relative;
   font-size: 1.2em;
   &_container {
-    margin-top:10px;
+    // margin-top:10px; fjernetfor testing
+    @media (max-width:$max-mobile){
+      margin-top:10px;
+    }
     &_input {
       // height: 1.9em;
       height:2.24em;

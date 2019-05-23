@@ -29,7 +29,7 @@
 
     @media (min-width: 992px) {
       // display: flex;
-      flex-flow: row wrap;
+      // flex-flow: row wrap; // removed for test
       align-content: center;
       // justify-content: space-between;
     }
@@ -61,8 +61,12 @@
     color:white;
   }
   &_interests {
-    margin-left: 20px;
-    margin-left:auto; //test 
+    // margin-left: 20px; removed for test
+    // margin-left:auto; //test 
+    margin: auto 0 auto 0;
+    @media (max-width: $max-mobile){
+      margin-left:auto;
+    }
   }
 
   &_open {    //test 
@@ -101,10 +105,18 @@
 .filterContainer {
   width:95%; // test, var ingenting her før
   display: flex;
+  @media (min-width: $max-mobile){
+    justify-content: flex-end;
+  }
   .dropdown_container {
     position: relative;
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-right:40px;
     @media (max-width: $max-mobile) {
       position: unset;
+      margin-right:0;
+
     }
     .dropdown {
       position: absolute;

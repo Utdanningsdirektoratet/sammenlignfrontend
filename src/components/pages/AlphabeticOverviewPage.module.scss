@@ -5,6 +5,9 @@
   padding: 0;
   margin: 2em;
   margin-top: 1em; // test
+  @media (min-width: $max-mobile){
+    width: 100%; // test
+  } 
 }
 
 .alphabetic_headers {
@@ -24,7 +27,9 @@
 }
 
 .alphabetic_header[data-letter="A"]{    // Hides the letter A. 
-  display:none;
+  @media (max-width: $max-mobile){
+    display:none;
+  }
 }
 .alphabetic_header {
   display: flex;
@@ -50,9 +55,14 @@
   flex-flow: row wrap;
   align-content: center;
   margin-bottom: 10px;
-
   &_container {
     justify-content: center;
+
+    @media (min-width: $max-mobile){
+      margin-left:auto;   // test 
+      margin-right:auto;  // test 
+      width:70%;          // test
+    } 
   }
 
   &__item {

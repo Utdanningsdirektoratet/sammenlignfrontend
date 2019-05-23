@@ -42,6 +42,10 @@
   margin-top:5px;
   grid-template-columns: 50% 50%;
 
+  @media (max-width: $max-mobile){
+    display:none;
+  }
+
 }
 
 .compare_buttoncontainer{

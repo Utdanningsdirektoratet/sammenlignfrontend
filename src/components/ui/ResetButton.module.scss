@@ -1,0 +1,11 @@
+.container{
+    position: relative;
+    display:flex;
+    width: 10%;
+    &_button{
+        cursor: pointer;
+        border:2px solid #E7772E;
+        border-radius: 22px;
+        width:100%;
+    }
+}

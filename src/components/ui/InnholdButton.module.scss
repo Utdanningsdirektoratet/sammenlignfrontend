@@ -1,6 +1,5 @@
 @import "src/styles/_constants.scss";
 
-
 .selection_buttondesktop, .selection_buttonmobile{
     position: relative;
     width:95%;
@@ -23,7 +22,6 @@
     border: 2px solid $color-primary;
     font-size:1em;
     padding:2px 10px 0px 10px;
-    // height: 2.24em;
     height: 1.4em;
     height:3.1em;
     border-radius: 22px;
@@ -34,7 +32,6 @@
     display:inline-block;
     margin-top:0;
     svg{
-        // vertical-align: middle;
         display:inline-block;
         width:20px;
         height:20px;
@@ -52,24 +49,23 @@
        position:absolute;
        height: 5em;
        z-index: 1;
-    background-color:white;
-    top:0;
+        background-color:white;
+        top:0;
     //left:0;
     //right:0;
     //margin-left:auto;
     //margin-right:auto;
 
        .innhold_options{
-        display:flex;
-        margin-bottom:10px;
-    }    
+            display:flex;
+            margin-bottom:10px;
+        }       
 
        svg{
-        transform: rotate(180deg);
-        width:20px;
-        height:20px;
-    }
-       
+            transform: rotate(180deg);
+            width:20px;
+            height:20px;
+        }       
     }
 
     p{
@@ -132,71 +128,67 @@
     }
 }
 
-.selection_button{
-    position: relative;
-    width:95%;
-    background-color:transparent;
-    border-radius: 22px;
-    height:2.24em;
-    border: 2px solid $color-primary;
-    padding:10px;
-    font-size:1em;
-    margin: 10px auto auto auto;
-    height:100%;
-    font-weight:600;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #E7772E;  // Change this
-    // display:flex;
-    // flex-direction: column;
+// .selection_button{
+//     position: relative;
+//     width:95%;
+//     background-color:transparent;
+//     border-radius: 22px;
+//     height:2.24em;
+//     border: 2px solid $color-primary;
+//     padding:10px;
+//     font-size:1em;
+//     margin: 10px auto auto auto;
+//     height:100%;
+//     font-weight:600;
+//     text-transform: uppercase;
+//     cursor: pointer;
+//     color: #E7772E;  
     
-    .innhold_options{
-        margin-bottom:0;
-        display:flex;
-    }
+//     .innhold_options{
+//         margin-bottom:0;
+//         display:flex;
+//     }
 
-    svg{
-        // vertical-align: middle;
-        display:inline-block;
-        width:20px;
-        height:20px;
-    }
+//     svg{
+//         display:inline-block;
+//         width:20px;
+//         height:20px;
+//     }
 
-    p{
-        margin-left:auto;
-        margin-right:auto;
-        margin-bottom:0;
-        margin-top: 0;
-        cursor: pointer;
-        a{
-            text-decoration: none;
-            color: #E7772E;
-        }
-    }
-}
+//     p{
+//         margin-left:auto;
+//         margin-right:auto;
+//         margin-bottom:0;
+//         margin-top: 0;
+//         cursor: pointer;
+//         a{
+//             text-decoration: none;
+//             color: #E7772E;
+//         }
+//     }
+// }
 
-.selection_button_active{
-    position:absolute;
-    height: 5em;
-    z-index: 1;
-    background-color:white;
-    left:0;
-    right:0;
-    margin-left:auto;
-    margin-right:auto;
-    //flex-direction: column;
+// .selection_button_active{
+//     position:absolute;
+//     height: 5em;
+//     z-index: 1;
+//     background-color:white;
+//     left:0;
+//     right:0;
+//     margin-left:auto;
+//     margin-right:auto;
 
-    .innhold_options{
-        display:flex;
-        margin-bottom:10px;
-    }    
+//     .innhold_options{
+//         display:flex;
+//         margin-bottom:10px;
+//     }    
 
-    svg{
-        transform: rotate(180deg);
-        width:20px;
-        height:20px;
-    }
-}
+//     svg{
+//         transform: rotate(180deg);
+//         width:20px;
+//         height:20px;
+//     }
+// }
 
 
 
