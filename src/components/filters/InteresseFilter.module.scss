@@ -1,3 +1,5 @@
+@import "src/styles/_constants.scss";
+
 .interessefilter {
   &_container {
     &_filters {
@@ -37,6 +39,9 @@
       display: flex;
       // flex-flow: row wrap;
       flex-direction: column;
+      @media (min-width:$max-mobile){
+        flex-direction: row;
+      }
       @media only screen and (max-width: 500px){  // test 
         flex-direction: row;
       }

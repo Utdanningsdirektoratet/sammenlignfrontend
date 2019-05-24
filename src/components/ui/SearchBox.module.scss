@@ -7,6 +7,10 @@
     @media (max-width:$max-mobile){
       margin-top:10px;
     }
+    @media (min-width: $max-mobile){
+      display:flex;
+      align-items: center;
+    }
     &_input {
       // height: 1.9em;
       height:2.24em;
@@ -28,7 +32,10 @@
       height: 1.7em;
       width: 1.7em;
       // top: 5px;
-      top:15px;
+      @media (max-width: $max-mobile){
+        top:15px;
+      }
+      
       right: 8px;
       cursor: pointer;
     }

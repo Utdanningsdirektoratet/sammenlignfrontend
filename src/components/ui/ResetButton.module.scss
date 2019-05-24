@@ -1,11 +1,23 @@
+@import "src/styles/_constants.scss";
+
 .container{
     position: relative;
     display:flex;
+
+    @media (max-width: $max-mobile){
+        display:none;
+    }
+
     width: 10%;
+    height:100%;
     &_button{
+        margin-top:auto;
+        margin-bottom:auto;
+        height: 45px;
         cursor: pointer;
         border:2px solid #E7772E;
         border-radius: 22px;
         width:100%;
+        background-color: white;
     }
 }

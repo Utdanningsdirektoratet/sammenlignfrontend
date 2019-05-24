@@ -41,7 +41,7 @@
   display:grid;
   margin-top:5px;
   grid-template-columns: 50% 50%;
-
+  margin-bottom: 10px;
   @media (max-width: $max-mobile){
     display:none;
   }
