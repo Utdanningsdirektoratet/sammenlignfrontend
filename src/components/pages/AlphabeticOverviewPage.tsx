@@ -193,7 +193,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
               />
             </div>
           </div>
-          {/* <UnoIdNivaLine
+          <UnoIdNivaLine
             innholdstype={innholdstype}
             data={null}
             nivåer={this.state.data.list}
@@ -237,7 +237,7 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
                   )}
               </div>
             ) : null}
-          </div> */}
+          </div>
 
           <InterestsHeader
             innholdstype={innholdstype}

@@ -10,6 +10,8 @@ import { active } from "d3";
 import { with_app_state, AppStateProps } from "../app/AppContext";
 import { DataList, MainElement, Innholdstype } from "../../data/ApiTypes";
 
+import { ReactComponent as Icon } from "../ui/SearchIcon.svg";
+
 type Props = {
     selected_uno_id: string[];
     toggleuno: Function;

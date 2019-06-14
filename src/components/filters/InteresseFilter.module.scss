@@ -95,7 +95,11 @@
           }
         }
         label {
-          cursor: pointer;
+          
+          &:hover{
+            text-decoration: underline;
+          }
+            cursor: pointer;
           padding-left:30px;
           input{
             position: absolute;

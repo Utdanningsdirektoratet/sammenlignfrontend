@@ -31,15 +31,15 @@ class Breadcrumb extends Component<Props> {
               {innerWidth < MIN_DESKTOP_PX ? (
                 <Translate nb="Oversikt over alle yrker" />
               ) : (
-                <Translate nb="Se oversikt over alle yrker" />
-              )}
+                  <Translate nb="Se oversikt over alle yrker" />
+                )}
             </Button>
             <Button to={"/sammenligne/utdanning"} type="light" selected>
               {innerWidth < MIN_DESKTOP_PX ? (
                 <Translate nb="Se utdanninger" />
               ) : (
-                <Translate nb="Bytt til å se på utdanninger" />
-              )}
+                  <Translate nb="Bytt til å se på utdanninger" />
+                )}
             </Button>
           </div>
         );
@@ -55,15 +55,15 @@ class Breadcrumb extends Component<Props> {
               {innerWidth < MIN_DESKTOP_PX ? (
                 <Translate nb="Oversikt over alle utdanninger" />
               ) : (
-                <Translate nb="Se oversikt over alle utdanninger" />
-              )}
+                  <Translate nb="Alle utdanninger" />
+                )}
             </Button>
             <Button to={"/sammenligne/yrke"} type="light" selected>
               {innerWidth < MIN_DESKTOP_PX ? (
                 <Translate nb="Se yrker" />
               ) : (
-                <Translate nb="Bytt til å se på yrker" />
-              )}
+                  <Translate nb="Bytt til å se på yrker" />
+                )}
             </Button>
           </div>
         );

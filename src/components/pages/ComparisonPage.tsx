@@ -23,6 +23,8 @@ import IsolatedComparisonPart from "./ComparisonPage/IsolatedComparisonPart";
 import Breadcrumb from "./ComparisonPage/Breadcrumb";
 import Frontpage from "./Frontpage";
 
+import { SmallVisual, LargeVisual } from 'job-market-visuals';
+
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
   AppStateProps;

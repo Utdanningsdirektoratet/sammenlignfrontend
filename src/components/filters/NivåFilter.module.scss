@@ -23,12 +23,15 @@
     position: relative;
     margin-bottom:10px;
     cursor: pointer;
+    
     &:last-child {
       //border-bottom: 1px solid black;
     }
 
     
-
+    &:hover{
+      text-decoration: underline;
+    }
     input{
       height: 0;
       left:0;

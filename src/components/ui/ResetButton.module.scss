@@ -1,5 +1,9 @@
 @import "src/styles/_constants.scss";
 
+.placeholderIcon{
+    content:'';
+}
+
 .container{
     position: relative;
     display:flex;

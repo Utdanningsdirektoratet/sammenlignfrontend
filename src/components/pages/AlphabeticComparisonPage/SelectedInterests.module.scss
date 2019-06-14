@@ -1,4 +1,7 @@
+@import "src/styles/_constants.scss";
+
 .selection {
+  display: none;
   width: 100%;
   ul {
     padding: 0;
@@ -67,5 +70,11 @@
       padding-right: 10px;
       margin-bottom: 10px;
     }
+  }
+}
+
+@media (min-width:$max-mobile){
+  .selection{
+    
   }
 }
