@@ -29,7 +29,7 @@ export default class InnHoldButton extends Component<Props> {
     render() {
         return (
             <div className={`${styles.container}`}>
-                <button className={`${styles.container_button}`} onClick={this.handleClick}><Translate nb="Nullstill" /></button>
+                <button className={`${styles.container_button}`} onClick={this.handleClick}><span><Translate nb="Nullstill" /></span><span><Icon /></span></button>
             </div>
         )
     }

@@ -67,6 +67,32 @@ class ArbeidsledighetVisualization extends Component<Props> {
     return num;
   };
 
+  renderOption = (x: string, dataArr: any, intervaller: any) => {
+    if (x === "A") {
+      return (
+        <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
+          <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
+            <Translate nb="Alle totalt: "></Translate>
+          </h3>
+          <p className={`${styles.arbeidsledighetvisualization_percentageText}`}>{dataArr[x]}</p>
+          <p className={`${styles.arbeidsledighetvisualization_percentageSign}`}>%</p>
+          <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
+        </div>
+      )
+    } else {
+      return (
+        <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
+          <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
+            <Translate nb="Nyutdanna: "></Translate>
+          </h3>
+          <p className={`${styles.arbeidsledighetvisualization_percentageText}`}>{dataArr[x]}</p>
+          <p className={`${styles.arbeidsledighetvisualization_percentageSign}`}>%</p>
+          <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
+        </div>
+      )
+    }
+  }
+
   render() {
     const { fullført, visning, ledighetsintervaller, maxValue } = this.props;
     var dataArr = {} as IDictionary;
@@ -91,11 +117,11 @@ class ArbeidsledighetVisualization extends Component<Props> {
         }
       });
     }
-
+    console.log(intervaller);
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
-          <VerticalPercentageBar
+          {/* <VerticalPercentageBar
             values={{
               left: { value: dataArr["A"], text: <Translate nb="A" /> },
               right: {
@@ -104,7 +130,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
               },
             }}
             max={maxValue}
-          />
+          /> */}
           <div>
             {fullført.map(x => {
               if (dataArr[x] == null) return null;
@@ -113,19 +139,29 @@ class ArbeidsledighetVisualization extends Component<Props> {
                   key={x}
                   className={`${styles.arbeidsledighetvisualization_list}`}
                 >
-                  {x == "A" ? <Alle /> : <Nyutdannet />}
-                  <span
+                  {/* {x == "A" ? <Alle /> : <Nyutdannet />} */}
+                  {/* <span
                     className={`${
                       styles.arbeidsledighetvisualization_list_text
-                    }`}
+                      }`}
                   >
-                    {x == "A" ? (
+                    {x == "A" &&
                       <Translate nb="Alle: " />
-                    ) : (
+                      && dataArr["A"]
+                    }
+                    {x != "A" &&
                       <Translate nb="Nyutdanna: " />
-                    )}
-                    {intervaller[x]}
-                  </span>
+                      && dataArr["13"]
+                    } */}
+                  {this.renderOption(x, dataArr, intervaller)}
+                  {/* {x == "A" ? (
+                      <Translate nb="Alle: " />
+
+                    ) : (
+                        <Translate nb="Nyutdanna: " />
+                      )} */}
+                  {/* {dataArr["13"]} */}
+                  {/* </span> */}
                 </li>
               );
             })}

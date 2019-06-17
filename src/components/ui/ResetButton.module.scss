@@ -12,9 +12,18 @@
         display:none;
     }
 
-    width: 10%;
+    width: 15%;
     height:100%;
     &_button{
+        span{
+            display:inline-block;
+            vertical-align: middle;
+        }
+        svg{
+            width:24px;
+            height:24px;
+            margin-left: 10px;
+        }
         margin-top:auto;
         margin-bottom:auto;
         height: 45px;
