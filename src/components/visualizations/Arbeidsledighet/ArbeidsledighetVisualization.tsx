@@ -68,29 +68,38 @@ class ArbeidsledighetVisualization extends Component<Props> {
   };
 
   renderOption = (x: string, dataArr: any, intervaller: any) => {
-    if (x === "A") {
-      return (
-        <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
-          <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
-            <Translate nb="Alle totalt: "></Translate>
-          </h3>
-          <p className={`${styles.arbeidsledighetvisualization_percentageText}`}>{dataArr[x]}</p>
-          <p className={`${styles.arbeidsledighetvisualization_percentageSign}`}>%</p>
-          <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
-        </div>
-      )
-    } else {
-      return (
-        <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
-          <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
-            <Translate nb="Nyutdanna: "></Translate>
-          </h3>
-          <p className={`${styles.arbeidsledighetvisualization_percentageText}`}>{dataArr[x]}</p>
-          <p className={`${styles.arbeidsledighetvisualization_percentageSign}`}>%</p>
-          <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
-        </div>
-      )
+    let riskClass = "";
+    switch (intervaller[x].props.nb) {    // need to chane .nb to a variable which knows what language we should use. Currently it only works with nb.
+      case "Lav":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_low}`;
+        break;
+      case "Middels":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_medium}`;
+        break;
+      case "Høy":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_high}`;
+        break;
+      case "Svært høy":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_vHigh}`;
+        break;
+      case "Svært lav":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_vLow}`;
+        break;
+      case "Ingen tall":
+        riskClass = "";
+        break;
+      default:
+        break;
     }
+    return (
+      <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
+        <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
+          {x === "A" ? <Translate nb="Alle totalt: "></Translate> : <Translate nb="Nyutdanna: "></Translate>}
+        </h3>
+        <p className={`${styles.arbeidsledighetvisualization_percentageText} ${riskClass}`}>{dataArr[x]}</p>
+        <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
+      </div>
+    )
   }
 
   render() {
@@ -117,7 +126,6 @@ class ArbeidsledighetVisualization extends Component<Props> {
         }
       });
     }
-    console.log(intervaller);
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
