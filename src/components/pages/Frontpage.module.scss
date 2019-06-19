@@ -1,11 +1,10 @@
 @import "src/styles/_constants.scss";
-.container{
+.frontpage { 
   &_searchcontainer{
     display:flex;
     justify-content: center;
   }
-}
-.frontpage {
+   
   &_undertitle{
     display:inline-block;
   }
@@ -42,7 +41,9 @@
     a {
       margin: 2%;
       // Fullscreen here
-      width:12%;
+      width:12%; 
+      width:100%;
+      max-width:340px;
       padding:12px;
       font-size:1.5em;
       text-transform: uppercase;

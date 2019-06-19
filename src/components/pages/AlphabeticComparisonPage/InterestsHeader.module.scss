@@ -5,12 +5,15 @@
   background-color: #e4e4e4;
   background-color:transparent;
   &_row {
+    padding-left:5px;
+    padding-right:5px;
     display: flex;
     justify-content: space-between;
+    justify-content: center;
     height:100%;
     width:80%;
     width:55%;
-    
+    width:100%;
     margin: auto;
     padding-top: 20px; 
     padding-bottom: 20px;
@@ -110,7 +113,12 @@
 }
 
 .filterContainer {
-  width:95%; // test, var ingenting her før
+ // width:95%; // test, var ingenting her før
+  margin-left:8%;
+
+  @media (max-width: 850px){
+    margin-left:15px;
+  }
   display: flex;
   @media (min-width: $max-mobile){
     // justify-content: flex-end;

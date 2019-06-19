@@ -39,9 +39,12 @@
       display: flex;
       // flex-flow: row wrap;
       flex-direction: column;
+      flex-direction: row;
       @media (min-width:$max-mobile){
-        flex-direction: row;
+        //flex-direction: row;
       }
+
+
       @media only screen and (max-width: 500px){  // test 
         flex-direction: row;
       }
@@ -67,13 +70,21 @@
         margin-bottom:10px;
         position: relative;
         width: 20%;
+
+       
+
         @media only screen and (min-width: 900.5px) {
           width: 25%;
         }
+        
+        @media only screen and (max-width: 920px) {
+          width: 26%;
+        }
+
         @media only screen and (max-width: 900px) {
           width: 32%;
         }
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 721px) {
           width: 50%;
         }
         @media only screen and (max-width: 500px) {

@@ -62,16 +62,49 @@
       margin-left:auto;   // test 
       margin-right:auto;  // test 
       width:70%;          // test
+      @media only screen and (min-width:768px) and (max-width:1334px){
+        width:95%;
+        margin-left:0;
+      }
     } 
   }
 
   &__item {
     width: 20%;
-    @media only screen and (min-width: 1000px) {
-      width: 20%;
+
+    @media only screen and (min-width:1800px) and (max-width:2002px){
+      width:21%;
     }
+
+    @media only screen and (min-width:1800px) and (max-width:1906px){
+      width:22%;
+    }
+
+    @media only screen and (min-width:900px) and (max-width:1819px){
+      width:30%;
+    }
+
+    @media only screen and (min-width:900px) and (max-width:984px){
+     // width:35%;
+    }
+
+    @media only screen and (min-width:769px) and (max-width:984px){
+      width:48%;
+    }
+
+    // @media only screen and (min-width:900px) and (max-width:1291px){
+     // width:35%;
+    // }
+    // @media only screen and (min-width: 1800px) {
+    //   width: 21%;
+    // }
+
+    // @media only screen and (min-width: 1000px) {
+    //   width: 20%;
+    // }
     @media only screen and (max-width: 900px) {
       width: 30%;
+      width:47%;
     }
     @media only screen and (max-width: 600px) {
       width: 60%;

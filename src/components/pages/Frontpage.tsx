@@ -24,9 +24,10 @@ type Props = {
 
 class Frontpage extends React.Component<Props & ScreenSizeProps> {
   getFrontpageOptions = () => {
+    console.log(styles);
     if (!this.props.innholdstype) {
       return (
-        <div className={`${styles.container}`}>
+        <div>
           <div className={`${styles.frontpage_options}`}>
             <Button to="/liste/yrke" type="light">
               {innerWidth < MIN_DESKTOP_PX ? (
@@ -47,7 +48,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
             focusOnMount={innerWidth >= MIN_DESKTOP_PX}
           /> */}
           </div>
-          <div className={`${styles.container_searchcontainer}`}>
+          <div className={`${styles.frontpage_searchcontainer}`}>
             <SearchBox
               className={`${styles.frontpage_options_searchbox}`}
               focusOnMount={innerWidth >= MIN_DESKTOP_PX} />
