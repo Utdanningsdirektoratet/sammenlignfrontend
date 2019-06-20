@@ -85,6 +85,10 @@
     border: none;
     z-index:1021;
     position: relative;
+    @media only screen and (max-width:975px){
+      margin-right:20px;
+    }
+   // margin-right:20px;
   }
 }
 
@@ -144,6 +148,11 @@
      
       margin-top:-54px;
       margin-top:-32px;
+
+      @media (min-width: $max-mobile){
+        width:300px;
+        height:400px;
+      }
 
       @media (max-width: $max-mobile) {
         left: 0;
