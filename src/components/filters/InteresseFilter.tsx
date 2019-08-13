@@ -9,6 +9,7 @@ type Props = {
   toggleSelected: Function;
   toggleSelectedItems: Function;
   removeAllSelected: Function;
+  onClick: Function;
 };
 
 class InteresserFilter extends React.Component<Props> {
@@ -16,6 +17,10 @@ class InteresserFilter extends React.Component<Props> {
     const interestIndex = this.props.selected.indexOf(i);
     return interestIndex > -1;
   };
+
+  handleChecked = (itrest: string) => {
+    return this.checkIsChecked(itrest);
+  }
 
   public render() {
     const {
@@ -48,7 +53,11 @@ class InteresserFilter extends React.Component<Props> {
             <CloseIcon />
           </div>
         </div>
+        <div className={`${styles.interessefilter_container_title}`}>
+          <h3><Translate nb="Velg interesser"></Translate></h3>
+        </div>
         <div className={`${styles.interessefilter_container_items}`}>
+
           {interesser.map((itrest: string, i: number) => (
             <div
               className={`${styles.interessefilter_container_items__item}`}
@@ -60,11 +69,21 @@ class InteresserFilter extends React.Component<Props> {
                   value={itrest}
                   checked={this.checkIsChecked(itrest)}
                   onChange={() => toggleSelected(itrest)}
-                />{" "}
+                />
+                {this.handleChecked(itrest) == true &&
+                  <span className={`${styles.interessefilter_container_items__item_radio} ${styles.interessefilter_container_items__item_radio_checked}`}></span>
+                }
+                {this.handleChecked(itrest) != true &&
+                  <span className={`${styles.interessefilter_container_items__item_radio}`}></span>
+                }
+                {" "}
                 {itrest.charAt(0).toUpperCase() + itrest.slice(1)}
               </label>
             </div>
           ))}
+        </div>
+        <div className={`${styles.interessefilter_container_close}`}>
+          <h3 onClick={() => this.props.onClick()}>LUKK</h3>
         </div>
       </div>
     );

@@ -1,5 +1,10 @@
 @import "src/styles/_constants.scss";
 .breadcrumb {
+  @media(min-width: $max-mobile){
+    a {
+      font-size: 1.5em;
+    }
+  }
   display: flex;
   justify-content: center;
   > * {

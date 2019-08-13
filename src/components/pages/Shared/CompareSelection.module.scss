@@ -36,10 +36,37 @@
   }
 }
 
+.compare_container{
+  width:100%;
+  display:grid;
+  margin-top:5px;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 10px;
+  @media (max-width: $max-mobile){
+    display:none;
+  }
+
+}
+
+.compare_buttoncontainer{
+  position: relative;
+  height:3.1em;
+}
+
+.compare_titlecontainer{
+  border:none;
+  
+}
+
 .compare_title {
   margin: auto;
-  text-align: center;
-  margin-top: 40px;
+  margin-right:0; // test
+  // text-align: center;
+  text-align: end; // test 
+  // margin-top: 40px; removed for test
+  margin-top: 5px;
+  margin-right:10px;
+  text-transform:uppercase;
 
   @media (max-width: $max-mobile) {
     display: none;

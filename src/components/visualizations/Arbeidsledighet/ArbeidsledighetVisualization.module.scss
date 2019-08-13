@@ -1,5 +1,70 @@
 .arbeidsledighetvisualization {
-  height: 360px;
+  // height: 360px;
+  height: 250px;
+
+  &_heading {
+    font-size: 14px;
+    margin-bottom:0;
+    text-transform: uppercase;
+    display:flex;
+    justify-content: center;
+    font-weight: 500;
+  }
+
+  &_percentageText{
+    font-size:30px;
+    display:inline-block;
+    margin-top:5px;
+    margin-bottom:5px;
+
+    display:flex;
+    justify-content: center;
+    
+    &_vLow{
+      color: #14DF05;
+    }
+
+    &_low{
+      color: #9AEC0F;
+    }
+
+    &_medium{
+      color: #F6EE16;
+    }
+
+    &_high{
+      color: #FA840D;
+    }
+
+    &_vHigh{
+      color: #FE1403;
+    }
+
+    &::after{
+      content:'%';
+      font-size:21px;
+      margin-top:7px;
+      margin-left: 4px;
+    }
+  }
+
+  &_percentageSign{
+    font-size:20px;
+    display:inline-block;
+    margin:0;
+    color:#333;
+    
+  }
+
+  &_percentageRisk{
+    margin:0;
+    margin-bottom:12px;
+    font-size:20px;
+    display:flex;
+    justify-content: center;
+    font-weight: bold;
+  }
+
   &_text {
     font-weight: 600;
   }
@@ -37,6 +102,10 @@
     list-style: none;
     vertical-align: middle;
     display: flex;
+
+    div{
+      width:100%;
+    }
     svg {
       height: 30px;
       width: 25px;

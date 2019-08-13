@@ -1,9 +1,12 @@
+@import "src/styles/_constants.scss";
+
 .interessefilter {
   &_container {
     &_filters {
       display: flex;
       margin-bottom: 10px;
       margin-top: 10px;
+      display:none; // test
       &_nullstill {
         margin-left: auto;
         cursor: pointer;
@@ -17,36 +20,71 @@
         }
       }
     }
+    &_title{                    // test hele greia
+      margin-top:70px;
+      color: white;           
+    }
+
+    &_close{
+      display:flex;
+      justify-content: center;
+      color:white;
+      margin-top:20px;
+      
+      h3{
+        cursor: pointer;
+      }
+    }
     &_items {
       display: flex;
       // flex-flow: row wrap;
       flex-direction: column;
+      flex-direction: row;
+      @media (min-width:$max-mobile){
+        //flex-direction: row;
+      }
+
+
+      @media only screen and (max-width: 500px){  // test 
+        flex-direction: row;
+      }
       flex-wrap: wrap;
-      align-content: center;
+      //align-content: center; commented out for test
       padding-bottom: 10px;
 
       @media only screen and (min-width: 900.5px) {
-        height: 600px;
+        // height: 600px; // fjerna for test 
       }
       @media only screen and (max-width: 900px) {
-        height: 800px;
+        // height: 800px; // fjerna for test                Disse e for liten høyde. content vises utenfor. Gi den høyden den trenger. 
       }
       @media only screen and (max-width: 600px) {
-        height: 1075px;
+        // height: 1075px; // fjerna for test
       }
       @media only screen and (max-width: 500px) {
-        height: 2010px;
+        // height: 2010px; // fjerna for test
       }
 
       &__item {
+        color:white;
+        margin-bottom:10px;
+        position: relative;
         width: 20%;
+
+       
+
         @media only screen and (min-width: 900.5px) {
           width: 25%;
         }
+        
+        @media only screen and (max-width: 920px) {
+          width: 26%;
+        }
+
         @media only screen and (max-width: 900px) {
           width: 32%;
         }
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 721px) {
           width: 50%;
         }
         @media only screen and (max-width: 500px) {
@@ -54,8 +92,33 @@
         }
         word-break: break-word;
         padding-right: 1em;
+
+        &_radio{
+          background-color:white;
+          height:16px;
+          width:16px;
+          position:absolute;
+          border-radius: 50%;
+          left:0;          
+
+          &_checked{
+            background-color:#E7772E;
+          }
+        }
         label {
-          cursor: pointer;
+          
+          &:hover{
+            text-decoration: underline;
+          }
+            cursor: pointer;
+          padding-left:30px;
+          input{
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            left:0;   
+          }
         }
       }
     }

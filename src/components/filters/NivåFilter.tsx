@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./NivåFilter.module.scss";
+import Translate from "../app/Translate";
 
 type Props = {
   nivåer: string[];
@@ -29,6 +30,9 @@ class NivåFilter extends React.Component<Props> {
     return (
       <div className={`${styles.container}`}>
         <div>
+          <div className={`${styles.container_title}`}>
+            <h3><Translate nb="Velg nivå"></Translate></h3>
+          </div>
           {nivåer.map((nivå: string, i: number) => (
             <label key={i}>
               <input
@@ -37,10 +41,20 @@ class NivåFilter extends React.Component<Props> {
                 checked={this.checkIsChecked(nivå)}
                 onChange={() => toggleSelected(nivå)}
                 onKeyDown={this.handleArrowClick}
-              />{" "}
+              />
+              {this.checkIsChecked(nivå) == true &&
+                <span className={`${styles.container_radio} ${styles.container_checked}`}></span>
+              }
+              {this.checkIsChecked(nivå) != true &&
+                <span className={`${styles.container_radio}`}></span>
+              }
+              {" "}
               {nivå.charAt(0).toUpperCase() + nivå.slice(1)}
             </label>
           ))}
+        </div>
+        <div className={`${styles.container_close}`}>
+          <h3 onClick={() => this.props.closeDropdown()}>LUKK</h3>
         </div>
       </div>
     );

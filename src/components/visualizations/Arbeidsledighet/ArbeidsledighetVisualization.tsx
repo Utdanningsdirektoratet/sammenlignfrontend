@@ -67,6 +67,41 @@ class ArbeidsledighetVisualization extends Component<Props> {
     return num;
   };
 
+  renderOption = (x: string, dataArr: any, intervaller: any) => {
+    let riskClass = "";
+    switch (intervaller[x].props.nb) {    // need to chane .nb to a variable which knows what language we should use. Currently it only works with nb.
+      case "Lav":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_low}`;
+        break;
+      case "Middels":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_medium}`;
+        break;
+      case "Høy":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_high}`;
+        break;
+      case "Svært høy":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_vHigh}`;
+        break;
+      case "Svært lav":
+        riskClass = `${styles.arbeidsledighetvisualization_percentageText_vLow}`;
+        break;
+      case "Ingen tall":
+        riskClass = "";
+        break;
+      default:
+        break;
+    }
+    return (
+      <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
+        <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
+          {x === "A" ? <Translate nb="Alle totalt: "></Translate> : <Translate nb="Nyutdanna: "></Translate>}
+        </h3>
+        <p className={`${styles.arbeidsledighetvisualization_percentageText} ${riskClass}`}>{dataArr[x]}</p>
+        <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
+      </div>
+    )
+  }
+
   render() {
     const { fullført, visning, ledighetsintervaller, maxValue } = this.props;
     var dataArr = {} as IDictionary;
@@ -91,11 +126,10 @@ class ArbeidsledighetVisualization extends Component<Props> {
         }
       });
     }
-
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
-          <VerticalPercentageBar
+          {/* <VerticalPercentageBar
             values={{
               left: { value: dataArr["A"], text: <Translate nb="A" /> },
               right: {
@@ -104,7 +138,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
               },
             }}
             max={maxValue}
-          />
+          /> */}
           <div>
             {fullført.map(x => {
               if (dataArr[x] == null) return null;
@@ -113,19 +147,29 @@ class ArbeidsledighetVisualization extends Component<Props> {
                   key={x}
                   className={`${styles.arbeidsledighetvisualization_list}`}
                 >
-                  {x == "A" ? <Alle /> : <Nyutdannet />}
-                  <span
+                  {/* {x == "A" ? <Alle /> : <Nyutdannet />} */}
+                  {/* <span
                     className={`${
                       styles.arbeidsledighetvisualization_list_text
-                    }`}
+                      }`}
                   >
-                    {x == "A" ? (
+                    {x == "A" &&
                       <Translate nb="Alle: " />
-                    ) : (
+                      && dataArr["A"]
+                    }
+                    {x != "A" &&
                       <Translate nb="Nyutdanna: " />
-                    )}
-                    {intervaller[x]}
-                  </span>
+                      && dataArr["13"]
+                    } */}
+                  {this.renderOption(x, dataArr, intervaller)}
+                  {/* {x == "A" ? (
+                      <Translate nb="Alle: " />
+
+                    ) : (
+                        <Translate nb="Nyutdanna: " />
+                      )} */}
+                  {/* {dataArr["13"]} */}
+                  {/* </span> */}
                 </li>
               );
             })}

@@ -1,20 +1,33 @@
 @import "src/styles/_constants.scss";
+
 .selection {
   width: 100%;
   background-color: #e4e4e4;
+  background-color:transparent;
   &_row {
+    padding-left:5px;
+    padding-right:5px;
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    justify-content: center;
+    height:100%;
+    width:80%;
+    width:55%;
+    width:100%;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 20px; 
     padding-bottom: 20px;
+    padding-top: 0px;    // test 
+    padding-bottom: 0px; // test
     @media (max-width: $max-mobile) {
       justify-content: center;
       width: 100%;
       position: relative;
     }
     .searchbox {
+      margin-top:auto;
+      margin-bottom:auto;
+      margin-right:15px;
       @media (max-width: $max-mobile) {
         display: none;
       }
@@ -25,10 +38,15 @@
 
     @media (min-width: 992px) {
       // display: flex;
-      flex-flow: row wrap;
+      // flex-flow: row wrap; // removed for test
       align-content: center;
       // justify-content: space-between;
     }
+  }
+
+  &_desk{
+    height:4.5em;
+    background-color: #EFEFEF;
   }
 }
 
@@ -40,7 +58,7 @@
   background-color: white;
 
   color: black;
-  border: solid 1px black;
+  border: solid 1px $color-primary;
   font-size: 1em;
   width: 10em;
   text-align: center;
@@ -50,40 +68,101 @@
     height: 1.2em;
     width: 1.2em;
     float: right;
+    color:white;
   }
   &_interests {
-    margin-left: 20px;
+    // margin-left: 20px; removed for test
+    // margin-left:auto; //test 
+    margin: auto 0 auto 0;
+    @media (max-width: $max-mobile){
+      margin-left:auto;
+    }
+  }
+
+  &_open {    //test 
+    background-color: transparent;
+    color:white;
+    border: none;
+    z-index:1021;
+    position: relative;
+    @media only screen and (max-width:975px){
+      margin-right:20px;
+    }
+   // margin-right:20px;
   }
 }
 
+
 .notdropdown {
   width: 80%;
+  width:95%; // test
   margin: auto;
   border-top: solid 1px black;
   border-bottom: solid 1px black;
   margin-bottom: 5px;
+  background-color: #363636; 
+  margin-top:-54px; // test 
+  position: absolute;//test
+  left:0;//test
+  right:0;//test
+  margin-left:auto;//test
+  margin-right:auto; // test 
+  padding-left:10px; // test
 }
+
+
 
 .unselected {
   background-color: lightgray;
 }
 
 .filterContainer {
+ // width:95%; // test, var ingenting her før
+  margin-left:8%;
+
+  @media (max-width: 850px){
+    margin-left:15px;
+  }
   display: flex;
+  @media (min-width: $max-mobile){
+    // justify-content: flex-end;
+    justify-content: center;
+  }
   .dropdown_container {
     position: relative;
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-right:40px;
     @media (max-width: $max-mobile) {
       position: unset;
+      margin-right:0;
+
     }
     .dropdown {
       position: absolute;
-      width: 300px;
-      background-color: white;
+      // width: 300px
+      width:95%; // test 
+      // background-color: white; 
+      background-color:#363636; // test 
       z-index: 1020;
+     
+      margin-top:-54px;
+      margin-top:-32px;
+
+      @media (min-width: $max-mobile){
+        width:300px;
+        height:400px;
+      }
 
       @media (max-width: $max-mobile) {
         left: 0;
         width: 100%;
+        width: 95%; // test
+        margin:auto;
+        left:0;
+        right:0;
+        margin-top: -54px;
+        margin-top:-34px;
       }
     }
   }

@@ -64,14 +64,14 @@ class SearchBoxInternal extends Component<Props, State> {
 
     fetch(
       API_DOMAIN +
-        "/rest/suggest?" +
-        objectToQueryString({
-          q: value,
-          innholdstype:
-            innholdstype == "utdanning"
-              ? "utdanningsbeskrivelse"
-              : innholdstype,
-        })
+      "/rest/suggest?" +
+      objectToQueryString({
+        q: value,
+        innholdstype:
+          innholdstype == "utdanning"
+            ? "utdanningsbeskrivelse"
+            : innholdstype,
+      })
     )
       .then(resp => resp.json())
       .then((data: Suggest) => {
@@ -206,7 +206,7 @@ class SearchBoxInternal extends Component<Props, State> {
         <div
           className={`${styles.searchbox_dropdown} ${
             inlineSuggestions ? styles.searchbox_dropdown_inline : ""
-          }`}
+            }`}
         >
           <div className={`${styles.searchbox_dropdown_help}`}>
             {innholdstyper.length > 0 ? (
@@ -217,8 +217,8 @@ class SearchBoxInternal extends Component<Props, State> {
                 }}
               />
             ) : (
-              <Translate nb="Ingen resultater" />
-            )}
+                <Translate nb="Ingen resultater" />
+              )}
           </div>
           {innholdstyper.map(type => (
             <Fragment key={type}>
@@ -255,17 +255,17 @@ class SearchBoxInternal extends Component<Props, State> {
               placeholder
                 ? placeholder
                 : this.props.innholdstype
-                ? TranslateString("Søk etter %hva%", {
+                  ? TranslateString("Søk etter %hva%", {
                     "%hva%": this.props.innholdstype as string,
                   })
-                : TranslateString("Søk etter utdanning eller yrke")
+                  : TranslateString("Søk etter utdanning eller yrke")
             }
           />
           {searchString !== "" ? (
             <Times onClick={() => this.resetState("")} />
           ) : (
-            <Search />
-          )}
+              <Search />
+            )}
         </div>
         {suggestionsDom}
       </ClickOutsideListener>

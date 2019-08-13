@@ -1,8 +1,24 @@
 @import "src/styles/_constants.scss";
-.frontpage {
+.frontpage { 
+  &_searchcontainer{
+    display:flex;
+    justify-content: center;
+  }
+   
+  &_undertitle{
+    display:inline-block;
+  }
   &_header {
     text-align: center;
-    color: gray;
+    text-transform: uppercase;  // test
+    font-weight: 500; // test
+    margin-bottom:0;
+  
+    p{
+      margin-top: 0;
+      margin-bottom:0;
+      color: $color-primary;
+    }
   }
   &_options {
     display: flex;
@@ -14,16 +30,26 @@
     &_searchbox {
       margin: 2%;
       width: 20em;
+      margin-top:0;
       @media (max-width: $max-mobile) {
-        width: 90%;
+        //width: 90%;
+        width:95%;
         margin: auto;
         margin-bottom: 15px;
       }
     }
     a {
       margin: 2%;
+      // Fullscreen here
+      width:12%; 
+      width:100%;
+      max-width:340px;
+      padding:12px;
+      font-size:1.5em;
+      text-transform: uppercase;
       @media (max-width: $max-mobile) {
-        width: 80%;
+        // width: 80%;
+        width: 95%;
         margin: auto;
         margin-top: 10px;
         padding: 10px;

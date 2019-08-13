@@ -1,13 +1,58 @@
 .container {
+  padding:0 10px 0 10px;
+  &_radio{
+    position: absolute;
+    width:16px;
+    height:16px;
+    background-color: white;
+    left:0;
+    border-radius: 50%;
+  }
+
+  &_checked{
+    background-color: #E7772E;
+  }
   label {
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    padding: 0.6em;
+    // border-top: 1px solid black;
+    // border-left: 1px solid black; kommentert ut pga testing.
+    // border-right: 1px solid black; 
+    //padding: 0.6em; uncommented for test
     display: block;
+    color:white;
+    padding-left:30px;
+    position: relative;
+    margin-bottom:10px;
     cursor: pointer;
+    
     &:last-child {
-      border-bottom: 1px solid black;
+      //border-bottom: 1px solid black;
     }
+
+    
+    &:hover{
+      text-decoration: underline;
+    }
+    input{
+      height: 0;
+      left:0;
+      opacity: 0;
+      position:absolute;
+      width: 0;
+    }
+  }
+
+  &_title{
+    margin-top:70px;
+    color: white; 
+  }
+
+  &_close{
+    color:white;
+    display:flex;
+    justify-content: center;
+    h3{
+      cursor: pointer;
+    }
+    
   }
 }

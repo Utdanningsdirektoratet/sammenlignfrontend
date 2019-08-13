@@ -4,6 +4,12 @@ import { Link, RouteComponentProps, Redirect } from "react-router-dom";
 
 import styles from "./AlphabeticOverviewPage.module.scss";
 
+//Testing
+import stylez from "./Frontpage.module.scss";
+import Button from "../ui/Button";
+import InnholdButton from "../ui/InnholdButton";
+//Testing
+
 import PageChrome from "./PageChrome/PageChrome";
 import { getUtdanning, getYrke, getStudium } from "../../data/main";
 import { with_app_state, AppStateProps } from "../app/AppContext";
@@ -81,8 +87,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
 
       let hasInterests = l.interesser
         ? l.interesser.some(i => {
-            return interesserSelected.indexOf(i) > -1;
-          })
+          return interesserSelected.indexOf(i) > -1;
+        })
         : false;
       if (
         hasInterests &&
@@ -96,8 +102,8 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       let hasNivåer =
         l.utdanningstype && typeof l.utdanningstype !== "string"
           ? l.utdanningstype.some((u: string) => {
-              return nivåerSelected.indexOf(u) > -1;
-            })
+            return nivåerSelected.indexOf(u) > -1;
+          })
           : false;
 
       if (!hasNivåer && nivåerSelected.length > 0) return false;
@@ -106,7 +112,11 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
   };
   handleItemClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const key = e.currentTarget.getAttribute("data-key");
-    if (key) this.props.appState.toggleUnoId(key);
+    if (key) {
+      this.props.appState.toggleUnoId(key);
+
+
+    }
   };
 
   isInterestSelected = (interests: string[] | undefined) => {
@@ -148,11 +158,9 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
       data: { interesser, list, nivåer },
       redirectToHomepage,
     } = this.state;
-
     if (redirectToHomepage) {
       return <Redirect to="/" />;
     }
-
     return (
       <PageChrome>
         <SyncUrlState />
@@ -160,11 +168,25 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
         <div>
           <div>
             <div className={`${styles.mobile_row}`}>
-              <Link to={"/"} className={`${styles.mobile_back_btn}`}>
+              {/* <Link to={"/"} className={`${styles.mobile_back_btn}`}>
                 <Translate nb="< Start på nytt" />
-              </Link>
+              </Link> */}
+              <h1 className={`${stylez.frontpage_header}`}>
+                <Translate nb="Jeg vil sammenligne" />{" "}
+              </h1>
+
+              {/* <Translate nb="yrker" />    // Sett knappen på disse. Custom component for denne type knapp? */}
+
+
             </div>
-            <div className={`${styles.mobile_search}`}>
+            {/* <div className={`${styles.mobile_row}`}> */}
+            <div className={`${styles.header_content}`}>
+              {/* < InnholdButton innholdstype={innholdstype} /> */}
+              {innerWidth < MIN_DESKTOP_PX &&
+                < InnholdButton innholdstype={innholdstype} />
+              }
+            </div>
+            <div className={`${styles.mobile_search}`} id="test">
               <SearchBox
                 innholdstype={innholdstype}
                 focusOnMount={innerWidth >= MIN_DESKTOP_PX}
@@ -180,39 +202,39 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             <SelectedCompares innholdstype={innholdstype} />
 
             {selected_uno_id.some(uno_id => uno_id[0] === innholdstype[0]) &&
-            innerWidth > MIN_DESKTOP_PX ? (
-              <div className={`${styles.compare_section_row}`}>
-                <Link
-                  to={"/sammenligne/" + innholdstype}
-                  className={`${styles.compare_section_row_item}`}
-                >
-                  <BalanceScale />
-                  <Translate nb="Sammenlign" />
-                </Link>
-              </div>
-            ) : null}
+              innerWidth > MIN_DESKTOP_PX ? (
+                <div className={`${styles.compare_section_row}`}>
+                  <Link
+                    to={"/sammenligne/" + innholdstype}
+                    className={`${styles.compare_section_row_item}`}
+                  >
+                    <BalanceScale />
+                    <Translate nb="Sammenlign" />
+                  </Link>
+                </div>
+              ) : null}
             {innerWidth < MIN_DESKTOP_PX ? (
               <div className={`${styles.compare_section_row}`}>
                 {selected_uno_id.some(
                   uno_id => uno_id[0] === innholdstype[0]
                 ) ? (
-                  <Link
-                    to={"/sammenligne/" + innholdstype}
-                    className={`${styles.mobile_sammenlign_btn} `}
-                  >
-                    <BalanceScale />
-                    <Translate nb="Sammenlign" />
-                  </Link>
-                ) : (
-                  <div
-                    className={`${styles.mobile_sammenlign_btn} ${
-                      styles.mobile_sammenlign_btn_disabled
-                    }`}
-                  >
-                    <BalanceScale />
-                    <Translate nb="Sammenlign" />
-                  </div>
-                )}
+                    <Link
+                      to={"/sammenligne/" + innholdstype}
+                      className={`${styles.mobile_sammenlign_btn} `}
+                    >
+                      <BalanceScale />
+                      <Translate nb="Sammenlign" />
+                    </Link>
+                  ) : (
+                    <div
+                      className={`${styles.mobile_sammenlign_btn} ${
+                        styles.mobile_sammenlign_btn_disabled
+                        }`}
+                    >
+                      <BalanceScale />
+                      <Translate nb="Sammenlign" />
+                    </div>
+                  )}
               </div>
             ) : null}
           </div>
@@ -227,11 +249,15 @@ class AlphabeticOverviewPage extends React.Component<Props, State> {
             toggleSelectedNivå={this.props.appState.toggleNivå}
             toggleSelectedInterests={this.props.appState.toggleInterests}
             removeAllSelectedInterests={this.props.appState.clearInterest}
+            onClick={this.props.appState.toggleUnoId} //Test 
+            selected_uno_id={this.props.appState.selected_uno_id} // test
           />
-          <AlphabetFilter
-            list={this.getFilteredList()}
-            onLetterClicked={this.onLetterClicked}
-          />
+          {innerWidth >= MIN_DESKTOP_PX &&
+            <AlphabetFilter
+              list={this.getFilteredList()}
+              onLetterClicked={this.onLetterClicked}
+            />
+          }
           <ul className={`${styles.alphabetic}`}>
             <AlphabeticList
               list={this.getFilteredList()}

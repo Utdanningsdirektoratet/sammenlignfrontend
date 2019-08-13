@@ -5,12 +5,13 @@ import SearchBox from "../../ui/SearchBox";
 import { Innholdstype } from "../../../data/ApiTypes";
 
 import { ReactComponent as ChevronDown } from "../../../fontawesome/solid/chevron-down.svg";
-import { ReactComponent as ChevronUp } from "../../../fontawesome/solid/chevron-up.svg";
+import { ReactComponent as ChevronUp } from "../../../fontawesome/solid/chevron-up-white.svg";
 
 import style from "./InterestsHeader.module.scss";
 import InteresserFilter from "../../filters/InteresseFilter";
 import Translate from "../../app/Translate";
 import NivåFilter from "../../filters/NivåFilter";
+import ResetButton from "../../ui/ResetButton";
 import ClickOutsideListener from "../../utils/ClickOutsideListner";
 import { num_compare_sizing } from "../../utils/NumCompareSizing";
 import { MIN_DESKTOP_PX } from "../../../util/Constants";
@@ -27,12 +28,14 @@ type Props = {
   toggleSelectedNivå: Function;
   toggleSelectedInterest: Function;
   toggleSelectedInterests: Function;
+  onClick: Function;
+  selected_uno_id: string[];
 };
 
 class InterestsHeader extends Component<Props, State> {
   state: State = { showInterestFilter: false, showNivåFilter: false };
 
-  handleToggleInterestFilter = () => {
+  handleToggleInterestFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setState(prevState => ({
       showInterestFilter: !prevState.showInterestFilter,
     }));
@@ -54,6 +57,10 @@ class InterestsHeader extends Component<Props, State> {
     }
   };
 
+  handleCloseInterest = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    if (this.state.showInterestFilter) this.setState({ showInterestFilter: false });
+  }
+
   render() {
     const {
       innholdstype,
@@ -66,9 +73,11 @@ class InterestsHeader extends Component<Props, State> {
       toggleSelectedInterests,
       removeAllSelectedInterests,
     } = this.props;
-
+    let buttonOpen = this.state.showInterestFilter ? `${style.btn_open}` : ""; // If interests button is open, we add special class
+    let nivaOpen = this.state.showNivåFilter ? `${style.btn_open}` : "";
+    let desktop = innerWidth >= MIN_DESKTOP_PX ? `${style.selection_desk}` : "";
     return (
-      <div className={`${style.selection}`}>
+      <div className={`${style.selection} ${desktop}`}>
         <div className={`${style.selection_row}`}>
           <div className={`${style.searchbox}`}>
             <SearchBox
@@ -76,15 +85,16 @@ class InterestsHeader extends Component<Props, State> {
               focusOnMount={innerWidth >= MIN_DESKTOP_PX}
             />
           </div>
+          <ResetButton toggleuno={this.props.onClick} selected_uno_id={this.props.selected_uno_id} />
           <div className={`${style.filterContainer}`}>
             <div className={`${style.dropdown_container}`}>
               <ClickOutsideListener onOutsideClick={this.handleNivåBlur}>
-                <button
+                {/* Test - Only renders the nivå filter dropdown if innholdstype is utdanning  */}
+                {innholdstype !== "yrke" && <button
                   onKeyDown={this.handleArrowClickOnNivå}
                   onClick={this.handleToggleNivåFilter}
-                  className={`${style.btn} ${
-                    this.state.showInterestFilter ? style.unselected : ""
-                  }`}
+                  className={`${style.btn} 
+                     ${nivaOpen}`}
                 >
                   {selectedNivåer.length > 0 ? (
                     selectedNivåer.length === 1 ? (
@@ -95,19 +105,19 @@ class InterestsHeader extends Component<Props, State> {
                         }}
                       />
                     ) : (
-                      <Translate
-                        nb="%number% nivåer"
-                        replacements={{
-                          "%number%": selectedNivåer.length.toString(),
-                        }}
-                      />
-                    )
+                        <Translate
+                          nb="%number% nivåer"
+                          replacements={{
+                            "%number%": selectedNivåer.length.toString(),
+                          }}
+                        />
+                      )
                   ) : (
-                    <Translate nb="Alle nivåer" />
-                  )}
+                      <Translate nb="Alle nivåer" />
+                    )}
 
                   {this.state.showNivåFilter ? <ChevronUp /> : <ChevronDown />}
-                </button>
+                </button>}
                 {this.state.showNivåFilter ? (
                   <div className={`${style.dropdown}`}>
                     <NivåFilter
@@ -123,7 +133,7 @@ class InterestsHeader extends Component<Props, State> {
 
             <button
               onClick={this.handleToggleInterestFilter}
-              className={`${style.btn} ${style.btn_interests}`}
+              className={`${style.btn} ${style.btn_interests} ${buttonOpen}`}
             >
               <Translate nb="Interesser" />{" "}
               {this.state.showInterestFilter ? <ChevronUp /> : <ChevronDown />}
@@ -139,6 +149,7 @@ class InterestsHeader extends Component<Props, State> {
               toggleSelected={toggleSelectedInterest}
               toggleSelectedItems={toggleSelectedInterests}
               removeAllSelected={removeAllSelectedInterests}
+              onClick={this.handleCloseInterest}
             />
           </div>
         ) : null}

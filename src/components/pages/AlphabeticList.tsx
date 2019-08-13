@@ -11,6 +11,16 @@ type Props = {
 };
 
 class AlphabeticList extends React.Component<Props> {
+
+  filteredTitle = (title: string) => {
+    let maxLength = 30;
+    if (title.length > maxLength) {
+      return title.substr(0, maxLength) + "...";
+    } else {
+      return title;
+    }
+  }
+
   public render() {
     const { list, handleItemClicked, selected_uno_id } = this.props;
     const alphabetizedList = alphabetize(list, 5);
@@ -41,12 +51,12 @@ class AlphabeticList extends React.Component<Props> {
                       <label
                         className={`${
                           selected_uno_id &&
-                          selected_uno_id.indexOf(o.uno_id) !== -1
+                            selected_uno_id.indexOf(o.uno_id) !== -1
                             ? styles.alphabetic_list__item_label +
-                              " " +
-                              styles.alphabetic_list__item_label_selected
+                            " " +
+                            styles.alphabetic_list__item_label_selected
                             : styles.alphabetic_list__item_label
-                        }`}
+                          }`}
                       >
                         <input
                           type="checkbox"
@@ -57,7 +67,8 @@ class AlphabeticList extends React.Component<Props> {
                           }
                           onChange={handleItemClicked}
                         />
-                        {o.tittel}
+                        {/* {o.tittel} */}
+                        {this.filteredTitle(o.tittel)}
                       </label>
                     </div>
                   ))}
