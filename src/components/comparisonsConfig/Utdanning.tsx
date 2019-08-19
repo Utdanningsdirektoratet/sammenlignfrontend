@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { SammenligningTemplate } from "./index";
 import {
@@ -14,6 +14,8 @@ import { SektorConfig } from "../visualizations/Sektor/SektorConfig";
 import BarChart from "../visualizations/Generic/BarChart";
 import LenkeVisualizationWrapper from "../visualizations/Lenke/LenkeVisualizationWrapper";
 import UtdanningLonnWrapper from "../visualizations/UtdanningLonn/UtdanningLonnWrapper";
+
+import ComparisonPageVisualization from "../ui/ComparisonPageVisualization";
 
 const Utdanning: SammenligningTemplate[] = [
   {
@@ -67,8 +69,8 @@ const Utdanning: SammenligningTemplate[] = [
       return SektorConfig.chartType === "pie" ? (
         <PieChart values={SektorConfig.values} element={element} />
       ) : (
-        <BarChart values={SektorConfig.values} element={element} />
-      );
+          <BarChart values={SektorConfig.values} element={element} />
+        );
     },
   },
   {
@@ -77,11 +79,9 @@ const Utdanning: SammenligningTemplate[] = [
     widget_id: "arbeidsmarkedUtdanning",
     path: "/rest/utdanning2yrke",
     render: (element: ArbeidsmarkedUtdanningElement[]) => {
-      let values = element.map(e => {
-        return { label: e.yrkeskode_styrk08_navn, value: e.antall_personer };
-      });
-
-      return <BarChart values={values} element={element} />;
+      return (
+        <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke"></ComparisonPageVisualization>
+      )
     },
   },
   {

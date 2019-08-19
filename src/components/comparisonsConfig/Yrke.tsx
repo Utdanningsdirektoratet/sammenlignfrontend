@@ -17,6 +17,9 @@ import EntreprenorskapWrapper from "../visualizations/Entreprenorskap/Entrepreno
 import PieChart from "../visualizations/Generic/PieChart";
 import BarChart from "../visualizations/Generic/BarChart";
 import LenkeVisualizationWrapper from "../visualizations/Lenke/LenkeVisualizationWrapper";
+import { Visualization } from "job-market-visuals";
+import ComparisonPageVisualization from "../ui/ComparisonPageVisualization";
+
 
 const Yrke: SammenligningTemplate[] = [
   {
@@ -71,8 +74,8 @@ const Yrke: SammenligningTemplate[] = [
       return SektorConfig.chartType === "pie" ? (
         <PieChart values={SektorConfig.values} element={element} />
       ) : (
-        <BarChart values={SektorConfig.values} element={element} />
-      );
+          <BarChart values={SektorConfig.values} element={element} />
+        );
     },
   },
   {
@@ -81,11 +84,9 @@ const Yrke: SammenligningTemplate[] = [
     widget_id: "arbeidsmarkedUtdanning",
     path: "/rest/utdanning2yrke",
     render: (element: ArbeidsmarkedUtdanningElement[]) => {
-      let values = element.map(e => {
-        return { label: e.yrkeskode_styrk08_navn, value: e.antall_personer };
-      });
+      // return <Visualization unoId={element} direction="yrke2utdanning" limit={5} />
+      return <ComparisonPageVisualization uno_id={element} direction="yrke2utdanning" />
 
-      return <BarChart values={values} element={element} />;
     },
   },
   {
@@ -94,14 +95,13 @@ const Yrke: SammenligningTemplate[] = [
     widget_id: "arbeidsmarkedYrke",
     path: "/rest/yrke2utdanning",
     render: (element: ArbeidsmarkedYrkeElement[]) => {
-      let values = element.map(e => {
-        return {
-          label: e.utdanningskode_nus_kortnavn,
-          value: e.antall_personer,
-        };
-      });
-
-      return <BarChart values={values} element={element} />;
+      // return <Visualization
+      //   unoId={element}
+      //   limit={8}
+      //   layout="bars"
+      //   direction="yrke2utdanning"
+      // />
+      return <ComparisonPageVisualization uno_id={element} direction="yrke2utdanning" />
     },
   },
   {
