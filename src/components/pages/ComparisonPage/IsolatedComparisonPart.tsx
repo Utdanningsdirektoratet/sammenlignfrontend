@@ -3,7 +3,6 @@ import { SammenligningTemplate } from "../../comparisonsConfig";
 
 import visualizationStyles from "../../visualizations/Visualization.module.scss";
 
-// import styles from "./IsolatedComparisonPart.module.scss";
 import NoData from "../../visualizations/Old/NoData";
 
 type Props = {
@@ -11,6 +10,7 @@ type Props = {
   template: SammenligningTemplate;
   uno_ids?: string[];
   widget: boolean;
+  uno_idsz?: string;
 };
 
 type State = { error: boolean };
@@ -25,7 +25,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
   }
 
   render() {
-    const { data, template, uno_ids, widget } = this.props;
+    const { data, template, uno_ids, widget, uno_idsz } = this.props;
     if (this.state.error) {
       return <div>Error {template.title}</div>;
     }
@@ -48,7 +48,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
     try {
       return (
         <div className={`${visualizationStyles.visualization_container}`}>
-          {template.render(data)}
+          {template.render(uno_idsz)}
         </div>
       );
     } catch (error) {

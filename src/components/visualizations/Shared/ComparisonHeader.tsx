@@ -16,7 +16,7 @@ class ComparisonHeader extends Component<Props> {
         <h2
           className={`${styles.flex_item} ${styles.item_title} ${
             comparison.description ? styles.item_title_withDesc : null
-          }`}
+            }`}
         >
           {comparison.title}
         </h2>

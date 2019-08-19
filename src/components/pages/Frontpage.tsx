@@ -10,14 +10,6 @@ import { num_compare_sizing, ScreenSizeProps } from "../utils/NumCompareSizing";
 import { Innholdstype } from "../../data/ApiTypes";
 import { MIN_DESKTOP_PX } from "../../util/Constants";
 
-
-
-
-// testing start 
-import AlphabeticOverviewPage from "./AlphabeticOverviewPage";
-import TestButton from "./TestButton";
-// testing end 
-
 type Props = {
   innholdstype?: Innholdstype;
 };
@@ -29,6 +21,7 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
       return (
         <div>
           <div className={`${styles.frontpage_options}`}>
+
             <Button to="/liste/yrke" type="light">
               {innerWidth < MIN_DESKTOP_PX ? (
                 <Translate nb="Yrker" />
@@ -43,10 +36,6 @@ class Frontpage extends React.Component<Props & ScreenSizeProps> {
                   <Translate nb="utdanninger" />
                 )}
             </Button>
-            {/* <SearchBox
-            className={`${styles.frontpage_options_searchbox}`}
-            focusOnMount={innerWidth >= MIN_DESKTOP_PX}
-          /> */}
           </div>
           <div className={`${styles.frontpage_searchcontainer}`}>
             <SearchBox
