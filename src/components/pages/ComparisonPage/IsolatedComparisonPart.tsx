@@ -26,6 +26,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
 
   render() {
     const { data, template, uno_ids, widget, uno_idsz } = this.props;
+    console.log("props", this.props);
     if (this.state.error) {
       return <div>Error {template.title}</div>;
     }
@@ -42,7 +43,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
     if (!template.render) {
       return <div>missing method render() on {template.title}</div>;
     }
-    if (!data) {
+    if (!data && template.title !== "Utdanningsbakgrunn") {
       return <NoData />;
     }
     try {

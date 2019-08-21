@@ -85,7 +85,7 @@ const Yrke: SammenligningTemplate[] = [
     path: "/rest/utdanning2yrke",
     render: (element: ArbeidsmarkedUtdanningElement[]) => {
       // return <Visualization unoId={element} direction="yrke2utdanning" limit={5} />
-      return <ComparisonPageVisualization uno_id={element} direction="yrke2utdanning" />
+      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" />
 
     },
   },
