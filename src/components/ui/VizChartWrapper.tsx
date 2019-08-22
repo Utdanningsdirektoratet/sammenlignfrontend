@@ -24,10 +24,11 @@ type Props = {
 type State = {
     layout: string
     expanded: Boolean
+    disaggregate: string[] | null
 }
 
 class VizChartWrapper extends Component<Props, State>{
-    state: State = { layout: "bars", expanded: false };
+    state: State = { layout: "bars", expanded: false, disaggregate: null };
 
     clickHandler = (e: any) => {
         console.log("i r clicked", e.target.attributes[0].nodeValue);
@@ -39,15 +40,35 @@ class VizChartWrapper extends Component<Props, State>{
     toggleExpansion = () => {
         this.setState({ expanded: !this.state.expanded });
     };
-
+    // <button onClick={() => setDisaggregate(disaggregate ? null : disaggregationValues)}>{"Toggle disaggregations"}</button>
     render() {
         console.log("state", this.state);
         const { uno_ids, rowData, comparison } = this.props;
 
         const containerContent = (
-            <div className={`${styles.container_content}`}>
-                <button onClick={this.clickHandler} value={"tree"}>tree</button>
-                <button onClick={this.clickHandler} value={"bars"}>bar</button>
+            <div className={`${styles.containerContent}`}>
+                <div className={`${styles.optionsFirst}`}>
+                    <Translate nb="Vis som"></Translate>
+                    <label>
+                        <input type="radio" onChange={this.clickHandler} value={"tree"}></input>
+                        Tre
+                        </label>
+                    <label>
+                        <input type="radio" onChange={this.clickHandler} value={"bars"}></input>
+                        Stolper
+                    </label>
+                </div>
+                <div className={`${styles.optionsSecond}`}>
+                    <Translate nb="Vis også(?)"></Translate>
+                    <label>
+                        <input type="radio" onChange={this.clickHandler} value={"all"}></input>
+                        Alle
+                        </label>
+                    <label>
+                        <input type="radio" onChange={this.clickHandler} value={"disaggregate"}></input>
+                        Menn/Kvinner
+                    </label>
+                </div>
             </div>
         );
         return (
