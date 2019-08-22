@@ -19,6 +19,7 @@ import BarChart from "../visualizations/Generic/BarChart";
 import LenkeVisualizationWrapper from "../visualizations/Lenke/LenkeVisualizationWrapper";
 import { Visualization } from "job-market-visuals";
 import ComparisonPageVisualization from "../ui/ComparisonPageVisualization";
+import VizChartWrapper from "../ui/VizChartWrapper";
 
 
 const Yrke: SammenligningTemplate[] = [
@@ -80,12 +81,15 @@ const Yrke: SammenligningTemplate[] = [
   },
   {
     title: "Arbeidsmarked",
-    description: TranslateString("Andre like yrker"),
+    description: TranslateString("De som har denne utdanningen jobber som"),
     widget_id: "arbeidsmarkedUtdanning",
     path: "/rest/utdanning2yrke",
-    render: (element: ArbeidsmarkedUtdanningElement[]) => {
+    render: (element: ArbeidsmarkedUtdanningElement[], layout) => {
+      console.log("layout", layout);
       // return <Visualization unoId={element} direction="yrke2utdanning" limit={5} />
-      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" />
+      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" layout={layout} />
+      // return <VizChartWrapper uno_id={element} direction="utdanning2yrke" />
+
 
     },
   },

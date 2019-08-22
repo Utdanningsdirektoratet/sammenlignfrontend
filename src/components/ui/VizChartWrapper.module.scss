@@ -1,0 +1,21 @@
+.buttonContainer{
+    background-color:#cecece;
+
+    &:hover {
+        box-shadow: 0px 10px 10px 0px #cecece;
+      }
+}
+
+.header{
+    color: #000066;
+    text-decoration: underline;
+}
+
+.head_icon{
+    span{
+        background-color: white;
+        float: none;
+        margin-left: 8px;
+        display: inline-block;
+    }
+}

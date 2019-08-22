@@ -30,7 +30,7 @@ export interface AppStateProps {
 const AppContext = React.createContext({} as AppState);
 
 export function with_app_state<P>(WrappedComponent: React.ComponentClass<any>) {
-  return (function(props: any) {
+  return (function (props: any) {
     return (
       <AppContext.Consumer>
         {appState => <WrappedComponent appState={appState} {...props} />}

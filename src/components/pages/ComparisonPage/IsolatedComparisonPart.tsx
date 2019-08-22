@@ -11,6 +11,7 @@ type Props = {
   uno_ids?: string[];
   widget: boolean;
   uno_idsz?: string;
+  layout: string;
 };
 
 type State = { error: boolean };
@@ -25,8 +26,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
   }
 
   render() {
-    const { data, template, uno_ids, widget, uno_idsz } = this.props;
-    console.log("props", this.props);
+    const { data, template, uno_ids, widget, uno_idsz, layout } = this.props;
     if (this.state.error) {
       return <div>Error {template.title}</div>;
     }
@@ -43,13 +43,13 @@ class IsolatedComparisonPart extends Component<Props, State> {
     if (!template.render) {
       return <div>missing method render() on {template.title}</div>;
     }
-    if (!data && template.title !== "Utdanningsbakgrunn") {
+    if (!data) {
       return <NoData />;
     }
     try {
       return (
         <div className={`${visualizationStyles.visualization_container}`}>
-          {template.render(uno_idsz)}
+          {template.render(uno_idsz, layout)}
         </div>
       );
     } catch (error) {

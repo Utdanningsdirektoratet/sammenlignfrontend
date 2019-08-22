@@ -17,7 +17,8 @@ export interface SammenligningTemplate {
   widget_id: string;
   path: string;
   query?: QueryObject;
-  render?: (data: any) => JSX.Element;
+  // render?: (data: any) => JSX.Element;
+  render?: (data: any, layout: string) => JSX.Element;
   Component?: React.ComponentClass<ComparisonComponentProps<any>>;
 }
 

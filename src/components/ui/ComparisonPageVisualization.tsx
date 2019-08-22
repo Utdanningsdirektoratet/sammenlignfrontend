@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Visualization } from "job-market-visuals";
 
-import styles from "./ComparisonPageVisualization.module.scss";
-
-const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"];
+// const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"];
 const disaggregationLabels = ["kvinner", "menn", "ukjent kjonn"];
 
 const ComparisonPageVisualization = (props: any) => {
-    const { uno_id, direction } = props;
-    const [layout, setLayout] = useState("bars");
-    let setDisaggregate: any;
-    let disaggregate: any = null;
-    [disaggregate, setDisaggregate] = useState(null);
+    const { uno_id, direction, layout, disaggregate } = props;
     return (
         <React.Fragment>
-            <button className={`${styles.button}`} onClick={() => setLayout("tree")}>{"Tre"}</button>
-            <button className={`${styles.button}`} onClick={() => setLayout("bars")}>{"Stolpe"}</button>
-            <button className={`${styles.button} ${styles.fordeling}`} onClick={() => setDisaggregate(disaggregate ? null : disaggregationValues)}>{"Kjønnsfordeling"}</button>
             <Visualization
                 unoId={uno_id}
                 limit={8}

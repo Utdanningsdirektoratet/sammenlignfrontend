@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { RouteComponentProps, Redirect } from "react-router";
 
 import styles from "./ComparisonPage.module.scss";
@@ -20,6 +20,8 @@ import IsolatedComparisonPart from "./ComparisonPage/IsolatedComparisonPart";
 import Breadcrumb from "./ComparisonPage/Breadcrumb";
 import Frontpage from "./Frontpage";
 
+import VizChartWrapper from "../ui/VizChartWrapper";
+
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
   AppStateProps;
@@ -28,6 +30,10 @@ class ComparisonPage extends Component<Props, State> {
   state: State = {};
   componentDidMount() {
     this.fetchData();
+    // const [layout, setLayout] = useState("bars");
+    // let setDisaggregate: any;
+    // let disaggregate: any = null;
+    // [disaggregate, setDisaggregate] = useState(null);
   }
   static getDerivedStateFromProps(props: any, state: State) {
     const oldSelected: string[] = state.selected_uno_id as any;
@@ -85,6 +91,7 @@ class ComparisonPage extends Component<Props, State> {
       // TODO: set timeout to render loading page
     });
   }
+
   render() {
     const { innholdstype } = this.props.match.params;
     const comparisons = comparisonsConfig[innholdstype];
@@ -117,6 +124,28 @@ class ComparisonPage extends Component<Props, State> {
                 comparison.path + JSON.stringify(comparison.query);
               const rowData = this.state[dataKey];
               if (!rowData) return null;
+              console.log("comparisoN", comparison);
+              if (comparison.title === "Arbeidsmarked") {
+                return (
+                  <div key={i}>
+                    <ComparisonHeader comparison={comparison} />
+                    {/* <button>tree</button>
+                    <button>bar</button> */}
+                    {/* <ComparisonRow>
+                      {uno_ids.map(uno_id => (
+                        <IsolatedComparisonPart
+                          key={uno_id}
+                          uno_idsz={uno_id}
+                          data={rowData[uno_id]}
+                          template={comparison}
+                          widget={false}
+                        />
+                      ))}
+                    </ComparisonRow> */}
+                    <VizChartWrapper uno_ids={uno_ids} rowData={rowData} comparison={comparison} />
+                  </div>
+                )
+              }
               if (comparison.Component) {
                 return (
                   <IsolatedComparisonPart
@@ -125,6 +154,7 @@ class ComparisonPage extends Component<Props, State> {
                     template={comparison}
                     uno_ids={uno_ids}
                     widget={false}
+                    layout={""}
                   />
                 );
               }
@@ -139,6 +169,7 @@ class ComparisonPage extends Component<Props, State> {
                         data={rowData[uno_id]}
                         template={comparison}
                         widget={false}
+                        layout={""}
                       />
                     ))}
                   </ComparisonRow>

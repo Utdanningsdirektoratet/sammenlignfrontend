@@ -35,9 +35,9 @@ class Widget extends Component<Props, State> {
       this.setState({ template: template });
       fetch(
         API_DOMAIN +
-          template.path +
-          "?" +
-          objectToQueryString({ ...template.query, uno_id: uno_id })
+        template.path +
+        "?" +
+        objectToQueryString({ ...template.query, uno_id: uno_id })
       )
         .then(r => r.json())
         .then(data => {
@@ -62,13 +62,14 @@ class Widget extends Component<Props, State> {
           template={template}
           uno_ids={uno_id.split(",")}
           widget={true}
+          layout={""}
         />
       );
     }
     return <div>{widget_name}</div>;
   }
 }
-export default function(props: Props) {
+export default function (props: Props) {
   setLang(props.lang);
 
   return (
