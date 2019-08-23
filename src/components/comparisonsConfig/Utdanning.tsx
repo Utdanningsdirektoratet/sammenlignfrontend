@@ -78,10 +78,11 @@ const Utdanning: SammenligningTemplate[] = [
     description: TranslateString("Vanligste yrker for utdanningen"),
     widget_id: "arbeidsmarkedUtdanning",
     path: "/rest/utdanning2yrke",
-    render: (element: ArbeidsmarkedUtdanningElement[]) => {
-      return (
-        <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke"></ComparisonPageVisualization>
-      )
+    render: (element: ArbeidsmarkedUtdanningElement[], layout, disaggregate) => {
+      // return (
+      //   <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke"></ComparisonPageVisualization>
+      // )
+      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" layout={layout} disaggregate={disaggregate} />
     },
   },
   {

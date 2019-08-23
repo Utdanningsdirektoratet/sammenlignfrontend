@@ -63,6 +63,7 @@ class Widget extends Component<Props, State> {
           uno_ids={uno_id.split(",")}
           widget={true}
           layout={""}
+          disaggregate={null}
         />
       );
     }

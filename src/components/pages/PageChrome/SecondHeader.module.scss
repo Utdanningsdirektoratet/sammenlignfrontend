@@ -27,3 +27,26 @@
     }
   }
 }
+
+.warningcontainer{
+  background-color:lightgreen;
+  width:40%;
+  display:flex;
+  justify-content: center;
+  &_text{
+    min-width: 10em;
+    margin-top:auto;
+    margin-bottom:auto;
+  }
+
+  &_logo{
+    @media screen and(max-width:850px){
+      display:none;
+    }
+    margin-top:auto;
+    margin-bottom:auto;
+    width:60px;
+    height:60px;
+    margin-right:15px;
+  }
+}

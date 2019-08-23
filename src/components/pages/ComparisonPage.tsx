@@ -124,8 +124,7 @@ class ComparisonPage extends Component<Props, State> {
                 comparison.path + JSON.stringify(comparison.query);
               const rowData = this.state[dataKey];
               if (!rowData) return null;
-              console.log("comparisoN", comparison);
-              if (comparison.title === "Arbeidsmarked") {
+              if (comparison.title === "Arbeidsmarked" || comparison.title === "Utdanningsbakgrunn") {
                 return (
                   <div key={i}>
                     <ComparisonHeader comparison={comparison} />
@@ -155,6 +154,7 @@ class ComparisonPage extends Component<Props, State> {
                     uno_ids={uno_ids}
                     widget={false}
                     layout={""}
+                    disaggregate={null}
                   />
                 );
               }
@@ -170,6 +170,7 @@ class ComparisonPage extends Component<Props, State> {
                         template={comparison}
                         widget={false}
                         layout={""}
+                        disaggregate={null}
                       />
                     ))}
                   </ComparisonRow>

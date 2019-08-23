@@ -12,6 +12,7 @@ type Props = {
   widget: boolean;
   uno_idsz?: string;
   layout: string;
+  disaggregate: string[] | null;
 };
 
 type State = { error: boolean };
@@ -26,7 +27,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
   }
 
   render() {
-    const { data, template, uno_ids, widget, uno_idsz, layout } = this.props;
+    const { data, template, uno_ids, widget, uno_idsz, layout, disaggregate } = this.props;
     if (this.state.error) {
       return <div>Error {template.title}</div>;
     }
@@ -43,13 +44,13 @@ class IsolatedComparisonPart extends Component<Props, State> {
     if (!template.render) {
       return <div>missing method render() on {template.title}</div>;
     }
-    if (!data) {
+    if (!data && template.title !== "Utdanningsbakgrunn") {
       return <NoData />;
     }
     try {
       return (
         <div className={`${visualizationStyles.visualization_container}`}>
-          {template.render(uno_idsz, layout)}
+          {template.render(uno_idsz, layout, disaggregate)}
         </div>
       );
     } catch (error) {

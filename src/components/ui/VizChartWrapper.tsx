@@ -12,9 +12,6 @@ import styles from "./VizChartWrapper.module.scss";
 import OpenIcon from "../visualizations/Generic/OpenIcon";
 import CloseIcon2 from "../visualizations/Generic/CloseIcon2";
 
-const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"];
-const disaggregationLabels = ["kvinner", "menn", "ukjent kjonn"];
-
 type Props = {
     uno_ids: string[];
     rowData: { [uno_id: string]: any };
@@ -31,43 +28,59 @@ class VizChartWrapper extends Component<Props, State>{
     state: State = { layout: "bars", expanded: false, disaggregate: null };
 
     clickHandler = (e: any) => {
-        console.log("i r clicked", e.target.attributes[0].nodeValue);
-        if (e.target.attributes[0].nodeValue) {
-            this.setState({ layout: e.target.attributes[0].nodeValue });
+        if (e.target.attributes[2].nodeValue) {
+            if (e.target.attributes[2].nodeValue === "all") {
+                this.setState({ disaggregate: null })
+            } else if (e.target.attributes[2].nodeValue === "disaggregate") {
+                const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"]
+                this.setState({ disaggregate: disaggregationValues })
+            } else
+                this.setState({ layout: e.target.attributes[2].nodeValue });
         }
     }
 
     toggleExpansion = () => {
         this.setState({ expanded: !this.state.expanded });
     };
-    // <button onClick={() => setDisaggregate(disaggregate ? null : disaggregationValues)}>{"Toggle disaggregations"}</button>
     render() {
-        console.log("state", this.state);
         const { uno_ids, rowData, comparison } = this.props;
-
         const containerContent = (
             <div className={`${styles.containerContent}`}>
                 <div className={`${styles.optionsFirst}`}>
-                    <Translate nb="Vis som"></Translate>
-                    <label>
-                        <input type="radio" onChange={this.clickHandler} value={"tree"}></input>
-                        Tre
-                        </label>
-                    <label>
-                        <input type="radio" onChange={this.clickHandler} value={"bars"}></input>
-                        Stolper
-                    </label>
+                    <ul>
+                        <div className={`${styles.optionsFirst_text}`}>
+                            <Translate nb="Vis som"></Translate>
+                        </div>
+                        <li>
+                            <label>
+                                <input type="radio" name="diagramtype" onChange={this.clickHandler} value={"bars"} defaultChecked></input>
+                                Stolper
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="diagramtype" onChange={this.clickHandler} value={"tree"}></input>
+                                Tre
+                            </label>
+                        </li>
+                    </ul>
                 </div>
                 <div className={`${styles.optionsSecond}`}>
-                    <Translate nb="Vis også(?)"></Translate>
-                    <label>
-                        <input type="radio" onChange={this.clickHandler} value={"all"}></input>
-                        Alle
-                        </label>
-                    <label>
-                        <input type="radio" onChange={this.clickHandler} value={"disaggregate"}></input>
-                        Menn/Kvinner
-                    </label>
+                    <ul>
+                        <Translate nb="Vis også (?)"></Translate>
+                        <li>
+                            <label>
+                                <input type="radio" name="disaggregate" onChange={this.clickHandler} value={"all"} defaultChecked></input>
+                                Alle
+                                </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="disaggregate" onChange={this.clickHandler} value={"disaggregate"}></input>
+                                Menn/Kvinner
+                            </label>
+                        </li>
+                    </ul>
                 </div>
             </div>
         );
@@ -80,7 +93,6 @@ class VizChartWrapper extends Component<Props, State>{
                     </div>
                 </div>
                 {this.state.expanded ? containerContent : null}
-                {/* <button onClick={this.clickHandler} value={"kjonn"}>bar</button> */}
                 <ComparisonRow>
                     {uno_ids.map(uno_id => (
                         <IsolatedComparisonPart
@@ -90,6 +102,7 @@ class VizChartWrapper extends Component<Props, State>{
                             template={comparison}
                             widget={false}
                             layout={this.state.layout}
+                            disaggregate={this.state.disaggregate}
                         />
                     ))}
                 </ComparisonRow>
