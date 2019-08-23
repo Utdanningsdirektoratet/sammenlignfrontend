@@ -44,7 +44,7 @@ class IsolatedComparisonPart extends Component<Props, State> {
     if (!template.render) {
       return <div>missing method render() on {template.title}</div>;
     }
-    if (!data && template.title !== "Utdanningsbakgrunn") {
+    if (!data && template.title !== "Utdanningsbakgrunn" && template.title !== "Arbeidsmarked") {
       return <NoData />;
     }
     try {
