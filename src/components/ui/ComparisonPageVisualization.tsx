@@ -19,7 +19,7 @@ const ComparisonPageVisualization = (props: any) => {
                     text: "#333",
                     textTree: "#333",
                     primary: "#ff9800",
-                    disaggregations: ["#ffcc80", "#f57c00", "#ddd"],
+                    disaggregations: ["#84012e", "#9bbad3", "#ddd"],
                     notWorking: "#ff5722",
                     unemployed: "#f44336",
                     inEducation: "#ff9800",

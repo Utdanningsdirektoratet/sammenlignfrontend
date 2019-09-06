@@ -18,7 +18,6 @@ class SecondHeader extends PureComponent {
               Denne nettjenesten er under utvikling. Feil og mangler kan forekomme.
           </span>
           </div>
-          <input placeholder="Finn utdanning, yrke eller skole" />
         </div>
       </div>
     );

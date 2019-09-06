@@ -30,6 +30,25 @@ const Utdanning: SammenligningTemplate[] = [
     path: "/rest/arbeidsledighet",
     Component: ArbeidsledighetWrapper,
   },
+
+  {
+    title: "Arbeidsmarked",
+    description: TranslateString("Vanligste yrker for utdanningen"),
+    widget_id: "arbeidsmarkedUtdanning",
+    path: "/rest/utdanning2yrke",
+    render: (element: ArbeidsmarkedUtdanningElement[], layout, disaggregate) => {
+      // return (
+      //   <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke"></ComparisonPageVisualization>
+      // )
+      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" layout={layout} disaggregate={disaggregate} />
+    },
+  },
+  {
+    title: "Selvstendig næringsdrivende",
+    widget_id: "entrepenorskap",
+    path: "/rest/entrepenorskap",
+    Component: EntreprenorskapWrapper,
+  },
   {
     title: "Sektorer",
     widget_id: "sektor",
@@ -72,24 +91,6 @@ const Utdanning: SammenligningTemplate[] = [
           <BarChart values={SektorConfig.values} element={element} />
         );
     },
-  },
-  {
-    title: "Arbeidsmarked",
-    description: TranslateString("Vanligste yrker for utdanningen"),
-    widget_id: "arbeidsmarkedUtdanning",
-    path: "/rest/utdanning2yrke",
-    render: (element: ArbeidsmarkedUtdanningElement[], layout, disaggregate) => {
-      // return (
-      //   <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke"></ComparisonPageVisualization>
-      // )
-      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" layout={layout} disaggregate={disaggregate} />
-    },
-  },
-  {
-    title: "Selvstendig næringsdrivende",
-    widget_id: "entrepenorskap",
-    path: "/rest/entrepenorskap",
-    Component: EntreprenorskapWrapper,
   },
   {
     title: "Lenke",
