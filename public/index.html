@@ -5,17 +5,50 @@
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Sammenlign arbeidsmarked og lønn i utdanninger og yrker." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://sammenlign.utdanning.no/" />
-  <meta property="og:locale" content="nb_NO" />
-  <meta name="twitter:creator" content="@utdanningno">
+
+
   <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Sammenlign arbeidsmarked, lønnsnivå og utdanningsbakgrunn i 800 forskjellige yrker og utdanninger i Norge.">
   <link rel="canonical" href="https://sammenlign.utdanning.no/" />
+
+  <!-- Icon in the highest resolution we need it for -->
+  <link rel="icon" sizes="192x192" href="/path/to/icon.png">
+
+  <!-- Apple Touch Icon (reuse 192px icon.png) -->
+  <link rel="apple-touch-icon" href="https://utdanning.no/apple-touch-icon.png">
+
+  <!-- Safari Pinned Tab Icon -->
+  <link rel="mask-icon" href="https://utdanning.no/icon.svg" color="blue">
+
+  <!-- Open graph -->
+  <meta property="og:site_name" content="utdanning.no" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sammenlign utdanninger og yrker" />
+  <meta property="og:url" content="https://sammenlign.utdanning.no" />
+  <meta property="og:description" content="Sammenlign arbeidsmarked, lønnsnivå og utdanningsbakgrunn i 800 forskjellige yrker og utdanninger i Norge." />
+  <meta property="og:image" content="https://utdanning.no/sites/all/themes/utdanning/logo.png" />
+  <meta property="og:image:secure_url" content="https://utdanning.no/sites/all/themes/utdanning/logo.png" />
+  <meta property="og:locale" content="nb_NO" />
+
+  <!-- Facebook  -->
+  <meta property="fb:admins" content="603225588" /> <!-- th -->
+  <meta property="fb:admins" content="894555620" /> <!-- hg -->
+  <meta property="fb:admins" content="670235394" /> <!-- emf -->
+
+  <!-- Twitter  -->
+  <meta name="twitter:site" content="@utdanningno">
+  <meta name="twitter:description" content="Sammenlign arbeidsmarked, lønnsnivå og utdanningsbakgrunn i 800 forskjellige yrker og utdanninger">
+  <meta name="twitter:image" content="https://utdanning.no/sites/all/themes/utdanning/logo.png">
+
+  <meta name="robots" content="index,follow"><!-- All Search Engines -->
+  <meta name="googlebot" content="index,follow"><!-- Google Specific -->
+  <meta name="robots" content="noodp" />
+
   <script type="text/javascript" src="%PUBLIC_URL%/jQuery.js"></script>
+
   <script type="text/javascript" src="%PUBLIC_URL%/uno-external-header.js"></script>
   <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
-
+  <link rel="stylesheet" href="%PUBLIC_URL%/minipanels.css" />
   <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -30,8 +63,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <!-- <title>Utdanning.no Sammenligningsportal</title> -->
-  <title>sammenligning.utdanning.no</title>
+  <title>Sammenlign utdanninger og yrker | utdanning.no</title>
   <!-- Start Single Page Apps for GitHub Pages -->
   <script type="text/javascript">
     // Single Page Apps for GitHub Pages
@@ -78,8 +110,8 @@
   <noscript>
     https://sammenlign.utdanning.no krever Javascript aktivert i nettleseren.
   </noscript>
+  <header id="section-header" className="section section-header"></header>
   <div id="udir_sammenligning_root_8rBHo7hGy"></div>
-  <header id="section-header" class="section section-header"></header>
   <script src="/config.js"></script>
   <!--
       This HTML file is a template.

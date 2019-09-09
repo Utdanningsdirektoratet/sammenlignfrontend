@@ -21,3 +21,10 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+#section-header{
+  position: absolute;
+  width:100%;
+  top:64px;
+  z-index:1022;
+}

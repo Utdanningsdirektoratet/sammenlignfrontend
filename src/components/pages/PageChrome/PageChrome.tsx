@@ -5,7 +5,6 @@ import SecondHeader from "./SecondHeader";
 import { getLang } from "../../app/Translate";
 import ErrorModal from "./ErrorModal";
 import Footer from "./Footer";
-
 //import './PageChrome.css'
 
 class PageChrome extends PureComponent {

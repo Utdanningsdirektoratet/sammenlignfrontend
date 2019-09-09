@@ -1,9 +1,10 @@
 @import "src/styles/_constants.scss";
 .secondheader {
   flex-flow: row;
+  margin-top:64px;
   width: 100%;
   height: 6em;
-  border-bottom: solid #d8d8d8 1px;
+  // border-bottom: solid #d8d8d8 1px;
   padding-top: 20px;
   padding-bottom: 20px;
 
