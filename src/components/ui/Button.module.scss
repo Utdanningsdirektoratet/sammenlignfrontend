@@ -14,7 +14,7 @@
   }
   &_light {
     border-color: $color-primary;
-    color: black;
+    color: $color-global-text;
   }
   &_selected {
     background-color: $color-primary-light;

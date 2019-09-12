@@ -25,7 +25,8 @@ $bar-width: 60px;
 
       &_A {
         .container_data_text {
-          color: black;
+          // color: black;
+          // color: $color-global-text;
           font-weight: 700;
         }
       }
