@@ -95,6 +95,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
       <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
         <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
           {x === "A" ? <Translate nb="Alle totalt: "></Translate> : <Translate nb="Nyutdanna: "></Translate>}
+
         </h3>
         <p className={`${styles.arbeidsledighetvisualization_percentageText} ${riskClass}`}>{dataArr[x]}</p>
         <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
@@ -126,6 +127,8 @@ class ArbeidsledighetVisualization extends Component<Props> {
         }
       });
     }
+    let full = fullført.slice(0);
+    full = full.reverse();
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
@@ -140,7 +143,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
             max={maxValue}
           /> */}
           <div>
-            {fullført.map(x => {
+            {full.map(x => {
               if (dataArr[x] == null) return null;
               return (
                 <li
