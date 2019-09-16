@@ -4,6 +4,7 @@ import { Visualization } from "job-market-visuals";
 // import styles from "./ComparisonPageVisualization.module.scss";
 
 import ComparisonPageVisualization from "../ui/ComparisonPageVisualization";
+import VizChartOptions from "./VizChartOptions";
 import ComparisonRow from "../pages/ComparisonPage/ComparisonRow";
 import { SammenligningTemplate } from "../comparisonsConfig";
 import IsolatedComparisonPart from "../pages/ComparisonPage/IsolatedComparisonPart";
@@ -52,7 +53,6 @@ class VizChartWrapper extends Component<Props, State>{
     };
     render() {
         const { uno_ids, rowData, comparison } = this.props;
-        let disaggregateOptions = ["all", "disaggregate"];
         const containerContent = (
             <div className={`${styles.containerContent}`}>
                 <div className={`${styles.optionsFirst}`}>
@@ -60,44 +60,13 @@ class VizChartWrapper extends Component<Props, State>{
                         <div className={`${styles.optionsFirst_text}`}>
                             <Translate nb="Vis som"></Translate>
                         </div>
-                        <li>
-                            <label>
-                                <input type="radio" name="diagramtype" onChange={this.clickHandler} value={"bars"} defaultChecked></input>
-                                Stolper
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="radio" name="diagramtype" onChange={this.clickHandler} value={"tree"}></input>
-                                Tre
-                            </label>
-                        </li>
+                        <VizChartOptions type="diagramtype" widget_id={comparison.widget_id} val={["bars", "tree"]} text={["Stolper", "Tre"]} changeHandler={this.clickHandler} lastSelection={null}></VizChartOptions>
                     </ul>
                 </div>
                 {this.state.showDisagg && <div className={`${styles.optionsSecond}`}>
                     <ul>
                         <Translate nb="Vis også (?)"></Translate>
-                        {disaggregateOptions.map((option) => {
-                            if (option === "all") {
-                                return (
-                                    <li>
-                                        <label>
-                                            <input type="radio" name="disaggregate" onChange={this.clickHandler} value={option} defaultChecked checked={option === this.state.lastSelection}></input>
-                                            Alle
-                                        </label>
-                                    </li>
-                                )
-                            } else {
-                                return (
-                                    <li>
-                                        <label>
-                                            <input type="radio" name="disaggregate" onChange={this.clickHandler} value={option} checked={option === this.state.lastSelection}></input>
-                                            Menn/Kvinner
-                                        </label>
-                                    </li>
-                                )
-                            }
-                        })}
+                        <VizChartOptions type="disaggregate" widget_id={comparison.widget_id} val={["all", "disaggregate"]} text={["Alle", "Menn/Kvinner"]} changeHandler={this.clickHandler} lastSelection={this.state.lastSelection}></VizChartOptions>
                     </ul>
                 </div>}
             </div>
