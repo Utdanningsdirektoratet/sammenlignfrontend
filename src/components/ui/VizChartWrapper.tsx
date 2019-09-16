@@ -21,21 +21,29 @@ type Props = {
 type State = {
     layout: string
     expanded: Boolean
-    disaggregate: string[] | null
+    disaggregate: string[] | null,
+    showDisagg: Boolean,
+    lastSelection: string
 }
 
 class VizChartWrapper extends Component<Props, State>{
-    state: State = { layout: "bars", expanded: false, disaggregate: null };
+    state: State = { layout: "bars", expanded: false, disaggregate: null, showDisagg: true, lastSelection: "all" };
 
     clickHandler = (e: any) => {
+        console.log("target :", e.target);
+        console.log("attributes", e.target.attributes);
         if (e.target.attributes[2].nodeValue) {
             if (e.target.attributes[2].nodeValue === "all") {
-                this.setState({ disaggregate: null })
+                this.setState({ disaggregate: null, lastSelection: "all" })
             } else if (e.target.attributes[2].nodeValue === "disaggregate") {
                 const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"]
-                this.setState({ disaggregate: disaggregationValues })
-            } else
-                this.setState({ layout: e.target.attributes[2].nodeValue });
+                this.setState({ disaggregate: disaggregationValues, lastSelection: "disaggregate" })
+            } else {
+                if (e.target.attributes[2].nodeValue === "tree")
+                    this.setState({ layout: e.target.attributes[2].nodeValue, showDisagg: false });
+                else
+                    this.setState({ layout: e.target.attributes[2].nodeValue, showDisagg: true });
+            }
         }
     }
 
@@ -44,6 +52,7 @@ class VizChartWrapper extends Component<Props, State>{
     };
     render() {
         const { uno_ids, rowData, comparison } = this.props;
+        let disaggregateOptions = ["all", "disaggregate"];
         const containerContent = (
             <div className={`${styles.containerContent}`}>
                 <div className={`${styles.optionsFirst}`}>
@@ -65,23 +74,32 @@ class VizChartWrapper extends Component<Props, State>{
                         </li>
                     </ul>
                 </div>
-                <div className={`${styles.optionsSecond}`}>
+                {this.state.showDisagg && <div className={`${styles.optionsSecond}`}>
                     <ul>
                         <Translate nb="Vis også (?)"></Translate>
-                        <li>
-                            <label>
-                                <input type="radio" name="disaggregate" onChange={this.clickHandler} value={"all"} defaultChecked></input>
-                                Alle
-                                </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="radio" name="disaggregate" onChange={this.clickHandler} value={"disaggregate"}></input>
-                                Menn/Kvinner
-                            </label>
-                        </li>
+                        {disaggregateOptions.map((option) => {
+                            if (option === "all") {
+                                return (
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="disaggregate" onChange={this.clickHandler} value={option} defaultChecked checked={option === this.state.lastSelection}></input>
+                                            Alle
+                                        </label>
+                                    </li>
+                                )
+                            } else {
+                                return (
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="disaggregate" onChange={this.clickHandler} value={option} checked={option === this.state.lastSelection}></input>
+                                            Menn/Kvinner
+                                        </label>
+                                    </li>
+                                )
+                            }
+                        })}
                     </ul>
-                </div>
+                </div>}
             </div>
         );
         return (
