@@ -68,16 +68,17 @@ class EntreprenorskapVisualization extends Component<Props> {
         <div className={styles.container}>
           {fullfortArray.map(f => {
             let data = this.getDataQuery(f);
+            console.log("data", data);
             return (
               <div key={f}>
                 <div className={styles.container_header}>
                   {f === "A" ? (
-                    <Translate nb="totalt" />
+                    <Translate nb="Alle totalt" />
                   ) : f === "13" ? (
-                    <Translate nb="utdannet 1-3 år siden" />
+                    <Translate nb="Utdannet 1-3 år siden" />
                   ) : (
-                    <Translate nb="utdannet 7-10 år siden" />
-                  )}
+                        <Translate nb="Utdannet 7-10 år siden" />
+                      )}
                 </div>
                 {visning === "Antall" ? (
                   !data ? (
@@ -85,23 +86,23 @@ class EntreprenorskapVisualization extends Component<Props> {
                       <Translate nb="Ingen data" />
                     </div>
                   ) : (
-                    <div className={styles.container_antall}>{data}</div>
-                  )
+                      <div className={styles.container_antall}>{data}</div>
+                    )
                 ) : !data ? (
                   <div className={styles.container_noData}>
                     <Translate nb="Ingen data" />
                   </div>
                 ) : (
-                  <div
-                    className={styles.container_andel}
-                    style={{ marginBottom: `${f === "710" ? 0 : 20}px` }}
-                  >
-                    <PercentageBar
-                      value={data}
-                      maxPercentageEqualsTen={false}
-                    />
-                  </div>
-                )}
+                      <div
+                        className={styles.container_andel}
+                        style={{ marginBottom: `${f === "710" ? 0 : 20}px` }}
+                      >
+                        <PercentageBar
+                          value={data}
+                          maxPercentageEqualsTen={false}
+                        />
+                      </div>
+                    )}
               </div>
             );
           })}

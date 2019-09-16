@@ -16,7 +16,8 @@ type Props = {
 
 
 class VizChartOptions extends Component<Props>{
-    handleChange = (e: any) => {
+
+    handleClick = (e: any) => {
         this.props.changeHandler(e);
     }
 
@@ -28,14 +29,14 @@ class VizChartOptions extends Component<Props>{
                 <React.Fragment>
                     <li key={widget_id + type + "0"}>
                         <label>
-                            <input type="radio" name={type + widget_id} onChange={this.handleChange} value={val[0]} defaultChecked></input>
+                            <input type="radio" name={type + widget_id} onClick={this.handleClick} value={val[0]} defaultChecked></input>
                             {<Translate nb={text[0]}></Translate>}
                         </label>
                     </li>
 
                     <li key={widget_id + type + "1"}>
                         <label>
-                            <input type="radio" name={type + widget_id} onChange={this.handleChange} value={val[1]} checked={lastSelection === type}></input>
+                            <input type="radio" name={type + widget_id} onClick={this.handleClick} value={val[1]} checked={lastSelection === type}></input>
                             {<Translate nb={text[1]}></Translate>}
                         </label>
                     </li>
@@ -46,14 +47,14 @@ class VizChartOptions extends Component<Props>{
                 <React.Fragment>
                     <li key={widget_id + type + "0"}>
                         <label>
-                            <input type="radio" name={type + widget_id} onChange={this.handleChange} value={val[0]} defaultChecked></input>
+                            <input type="radio" name={type + widget_id} onClick={this.handleClick} value={val[0]} defaultChecked></input>
                             {<Translate nb={text[0]}></Translate>}
                         </label>
                     </li>
 
                     <li key={widget_id + type + "1"}>
                         <label>
-                            <input type="radio" name={type + widget_id} onChange={this.handleChange} value={val[1]}></input>
+                            <input type="radio" name={type + widget_id} onClick={this.handleClick} value={val[1]}></input>
                             {<Translate nb={text[1]}></Translate>}
                         </label>
                     </li>

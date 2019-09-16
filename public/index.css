@@ -29,3 +29,8 @@ html {
   top:64px;
   z-index:1022;
 }
+
+#section-header .hidden-sm{
+  display:none;
+}
+

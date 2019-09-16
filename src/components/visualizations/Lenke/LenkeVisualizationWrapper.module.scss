@@ -1,10 +1,12 @@
 @import "src/styles/_constants.scss";
 .container {
   text-align: center;
+  border-right: 1px dotted gray;
   &_title {
     word-break: break-word;
     font-size: 1.3em;
     margin-bottom: 20px;
+    padding:10px;
   }
   &_link {
     border: 2px solid $color-primary;
