@@ -4,15 +4,19 @@
 
   &_heading {
     font-size: 14px;
+    font-weight: bold;
     margin-bottom:0;
-    text-transform: uppercase;
+    // text-transform: uppercase;
+    
     display:flex;
     justify-content: center;
-    font-weight: 500;
+    // font-weight: 500;
   }
 
   &_percentageText{
-    font-size:30px;
+    // font-size:30px;
+    font-size:20px;
+    font-weight: bold;
     display:inline-block;
     margin-top:5px;
     margin-bottom:5px;
@@ -21,29 +25,29 @@
     justify-content: center;
     
     &_vLow{
-      color: #14DF05;
+      color: #3455DB;
     }
 
     &_low{
-      color: #9AEC0F;
+      color: #0C7120;
     }
 
     &_medium{
-      color: #F6EE16;
+      color: #804600;
     }
 
     &_high{
-      color: #FA840D;
+      color: #B11030;
     }
 
     &_vHigh{
-      color: #FE1403;
+      color: #B50000;
     }
 
     &::after{
       content:'%';
-      font-size:21px;
-      margin-top:7px;
+      font-size:20px;
+      font-weight: bold;
       margin-left: 4px;
     }
   }
@@ -59,7 +63,9 @@
   &_percentageRisk{
     margin:0;
     margin-bottom:12px;
-    font-size:20px;
+    // font-size:20px;
+    font-size: 14px;
+    text-transform: uppercase;
     display:flex;
     justify-content: center;
     font-weight: bold;

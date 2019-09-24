@@ -98,7 +98,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
 
         </h3>
         <p className={`${styles.arbeidsledighetvisualization_percentageText} ${riskClass}`}>{dataArr[x]}</p>
-        <p className={`${styles.arbeidsledighetvisualization_percentageRisk}`}>{intervaller[x]}</p>
+        <p className={`${styles.arbeidsledighetvisualization_percentageRisk} ${riskClass}`}>{intervaller[x]}</p>
       </div>
     )
   }
