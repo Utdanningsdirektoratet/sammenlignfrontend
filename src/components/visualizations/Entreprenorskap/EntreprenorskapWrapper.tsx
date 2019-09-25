@@ -72,9 +72,11 @@ class EntreprenorskapWrapper extends Component<
           }
         />
         <div className={`${styles.container_filter}`}>
-          <span className={`${styles.container_filter_text}`}>Vis nyutdannede</span>
-          <div className={`${styles.container_filter_icon}`} onClick={() => this.onFilterClicked(event, "showAll")}>
-            {icon}
+          <div className={`${styles.container_filter_container}`}>
+            <span className={`${styles.container_filter_container_text}`}>Vis nyutdannede</span>
+            <div className={`${styles.container_filter_container_icon}`} onClick={() => this.onFilterClicked(event, "showAll")}>
+              {icon}
+            </div>
           </div>
         </div>
         <ComparisonRow>

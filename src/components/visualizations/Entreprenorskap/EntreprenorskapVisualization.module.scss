@@ -4,16 +4,22 @@
   &_filter {
     display:flex;
     justify-content: flex-end;
-    margin-right:250px;
-    &_text{
-      font-size: 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    &_icon{
-      margin-left:0.3em;
-      width:28px;
-      height:28px;
+    &_container{
+      display:flex;
+      width:76%;
+      // max-width: 830px;
+      &_text{
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+       
+      }
+      &_icon{
+        margin-left:0.3em;
+        width:28px;
+        height:28px;
+        
+      }
     }
   }
   &_header {
