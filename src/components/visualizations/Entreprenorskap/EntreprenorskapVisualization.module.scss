@@ -1,7 +1,25 @@
 .container {
   height: 360px;
+
+  &_filter {
+    display:flex;
+    justify-content: flex-end;
+    margin-right:250px;
+    &_text{
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &_icon{
+      margin-left:0.3em;
+      width:28px;
+      height:28px;
+    }
+  }
   &_header {
     font-weight: 600;
+    font-weight: bold;
+    font-size:14px;
   }
   &_andel {
     margin-bottom: 20px;

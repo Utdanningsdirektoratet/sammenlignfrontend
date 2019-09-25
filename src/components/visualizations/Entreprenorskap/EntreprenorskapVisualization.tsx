@@ -77,7 +77,7 @@ class EntreprenorskapVisualization extends Component<Props> {
                   ) : f === "13" ? (
                     <Translate nb="Utdannet 1-3 år siden" />
                   ) : (
-                        <Translate nb="Utdannet 7-10 år siden" />
+                        <Translate nb="Utdannet 4-10 år siden" />
                       )}
                 </div>
                 {visning === "Antall" ? (

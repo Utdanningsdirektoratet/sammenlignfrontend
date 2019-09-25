@@ -3,13 +3,18 @@
   //Scalable font size
   font-size: 1em;
   width: 100%;
+  display: flex;
 
   &_mainbar {
     border-radius: 1em;
     height: 1.2em;
     background-color: white;
-    border: 2px solid #b1b1b1;
+    // border: 2px solid #b1b1b1;
     overflow: hidden;
+    width:100%;
+    margin-top:7px;
+    height:17px;
+    // display:inline-block;
   }
 
   &_overlaybar {
@@ -18,15 +23,24 @@
   }
 
   &_percentage {
+    min-width:40px;
     font-size: 1.7em;
+    font-size:14px;
     font-weight: 500;
+    font-weight: bold;
     margin-top: 0.4em;
-    margin-left: 20px;
+    margin-right:0.3em;
+    // margin-left: 20px;
+    // display:inline-block;
     &_main {
       font-size: 1.2em;
+      font-size: 14px;
+      font-weight: bold;
     }
     &_second {
       font-size: 0.6em;
+      font-size: 14px;
+      font-weight: bold;
     }
   }
 }

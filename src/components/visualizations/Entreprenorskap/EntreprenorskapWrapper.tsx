@@ -7,21 +7,30 @@ import EntreprenorskapVisualization from "./EntreprenorskapVisualization";
 import { Fullført, Visning } from "../Arbeidsledighet/ArbeidsledighetWrapper";
 import Header from "../Shared/HeaderVisualizations";
 import Translate from "../../app/Translate";
+import CloseIcon from "../Generic/CloseIcon2";
+import OpenIcon from "../Generic/OpenIcon";
+import styles from "./EntreprenorskapVisualization.module.scss";
 
 export type EntreprenorskapHeaderConfig = {
   Fullført: Fullført[];
+  showValA: Fullført[];
+  showVal: Fullført[];
   Visning: Visning;
+  showAll: Boolean;
 };
 
 class EntreprenorskapWrapper extends Component<
   ComparisonComponentProps<EntrepenorElement>,
   EntreprenorskapHeaderConfig
-> {
+  > {
   constructor(props: ComparisonComponentProps<EntrepenorElement>) {
     super(props);
     this.state = {
-      Fullført: ["13", "710", "A"],
+      Fullført: ["A"],
+      showVal: ["A"],
+      showValA: ["13", "710", "A"],
       Visning: "Andel",
+      showAll: false,
     };
   }
 
@@ -32,6 +41,12 @@ class EntreprenorskapWrapper extends Component<
   onFilterClicked = (event: any, key: string) => {
     var value = event.target.id;
     switch (key) {
+      case "showAll":
+        if (this.state.showAll)
+          this.setConfig({ ...this.state, showAll: !this.state.showAll, Fullført: this.state.showVal })
+        else
+          this.setConfig({ ...this.state, showAll: !this.state.showAll, Fullført: this.state.showValA })
+        break;
       case "Fullført":
         this.setConfig({ ...this.state, Fullført: value });
         break;
@@ -46,6 +61,7 @@ class EntreprenorskapWrapper extends Component<
   render() {
     const { data, uno_ids } = this.props;
     const config = this.state;
+    let icon = this.state.showAll ? <CloseIcon /> : <OpenIcon />
     if (!data || Object.keys(data).length === 0) return <NoData />;
     return (
       <div>
@@ -55,6 +71,12 @@ class EntreprenorskapWrapper extends Component<
             <Translate nb="Andel som har startet egen virksomhet" />
           }
         />
+        <div className={`${styles.container_filter}`}>
+          <span className={`${styles.container_filter_text}`}>Vis nyutdannede</span>
+          <div className={`${styles.container_filter_icon}`} onClick={() => this.onFilterClicked(event, "showAll")}>
+            {icon}
+          </div>
+        </div>
         <ComparisonRow>
           {uno_ids.map(uno_id => {
             const d = data[uno_id];

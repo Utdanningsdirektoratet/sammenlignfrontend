@@ -12,12 +12,17 @@ class PercentageBar extends React.Component<PercentageBarProps> {
     if (!value) return null;
     let width = value as number;
     if (maxPercentageEqualsTen) width = width * 10;
-    let values = value.toString().split(".");
+    let multiplier = Math.pow(10, 1);
+    let roundedVal = Math.round(value * multiplier) / multiplier;
+    let values = roundedVal.toString().split(".");
     let mainNumber = values[0];
-    let secondNumber = "00";
+    let secondNumber = "0";
+    let maxBarWidth = 12;
+    let barWidthPercentage = (width / 12) * 100;
     if (values.length > 1) {
       var svalue = values[1].split("");
-      secondNumber = svalue[0] + svalue[1];
+      secondNumber = svalue[0];
+      // secondNumber = svalue[0] + svalue[1];
     }
     return (
       <div className={`${styles.percentagebar}`}>
@@ -30,10 +35,11 @@ class PercentageBar extends React.Component<PercentageBarProps> {
           </span>
           %
         </div>
-        <div className={`${styles.percentagebar_mainbar}`}>
+        <div className={`${styles.percentagebar_mainbar}`} style={{ width: `${barWidthPercentage}%` }}>
           <div
             className={`${styles.percentagebar_overlaybar}`}
-            style={{ width: `${width < 100 ? width : 100}%` }}
+            // style={{ width: `${width < 100 ? width : 100}%` }}
+            style={{ width: `${100}%` }}
           />
         </div>
       </div>
