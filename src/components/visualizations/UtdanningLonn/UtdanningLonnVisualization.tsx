@@ -71,7 +71,8 @@ class UtdanningLonnVisualization extends Component<Props> {
       let brutto = wage.replace("_overtime", "");
       let bruttoCalc = this.getTimeUnit(brutto);
       if (bruttoCalc === null) return null;
-      wageCalc += bruttoCalc;
+      // wageCalc += bruttoCalc;
+      wageCalc = bruttoCalc;
     }
 
     if (notLocale) return Math.round(wageCalc);
@@ -81,7 +82,6 @@ class UtdanningLonnVisualization extends Component<Props> {
   getTimeUnit = (wage: string) => {
     let fullført = this.props.getFullførtString(this.props.fullført);
     if (!(this.props.data as any)[fullført][wage]) return null;
-
     let wageCalc = (this.props.data as any)[fullført][wage] as number;
     switch (this.props.tidsenhet) {
       case "Årlig":
@@ -121,7 +121,7 @@ class UtdanningLonnVisualization extends Component<Props> {
         <div
           className={`${visualizationstyles.visualization_container} ${
             styles.container
-          }`}
+            }`}
         >
           {showGraphics ? (
             <ColumnChart
@@ -149,7 +149,7 @@ class UtdanningLonnVisualization extends Component<Props> {
       <div
         className={`${visualizationstyles.visualization_container} ${
           styles.container
-        }`}
+          }`}
       >
         {showGraphics ? (
           <ColumnChart

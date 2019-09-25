@@ -13,7 +13,7 @@ import { getMaxValue } from "../Lonn/LonnWrapper";
 class UtdanningLonnWrapper extends Component<
   ComparisonComponentProps<UtdanningLonnElement>,
   UtdanningLonnConfig
-> {
+  > {
   constructor(props: ComparisonComponentProps<UtdanningLonnElement>) {
     super(props);
     this.state = {
