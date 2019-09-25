@@ -147,7 +147,7 @@ class LonnVisualization extends Component<Props> {
         <div
           className={`${visualizationstyles.visualization_container} ${
             styles.container
-          }`}
+            }`}
         >
           {showGraphics ? (
             <ColumnChart
@@ -176,7 +176,7 @@ class LonnVisualization extends Component<Props> {
         <div
           className={`${visualizationstyles.visualization_container} ${
             styles.container
-          }`}
+            }`}
         >
           {showGraphics ? (
             <ColumnChart
@@ -217,7 +217,7 @@ class LonnVisualization extends Component<Props> {
         <div
           className={`${visualizationstyles.visualization_container} ${
             styles.container
-          }`}
+            }`}
         >
           {showGraphics ? (
             <ColumnChart
@@ -251,8 +251,8 @@ class LonnVisualization extends Component<Props> {
                   ) : tidsenhet === "Ca. timelønn" ? (
                     "ca " + menn + " kr"
                   ) : (
-                    menn + " kr"
-                  )}
+                        menn + " kr"
+                      )}
                   <div>
                     <Man />
                   </div>
@@ -263,12 +263,12 @@ class LonnVisualization extends Component<Props> {
                   ) : tidsenhet === "Ca. timelønn" ? (
                     "ca " + kvinner + " kr"
                   ) : (
-                    kvinner + " kr"
-                  )}
+                        kvinner + " kr"
+                      )}
                   <div
                     className={`${
                       styles.lonnVisualization_kjonn_text_K_iconContainer
-                    }`}
+                      }`}
                   >
                     <Woman />
                   </div>
