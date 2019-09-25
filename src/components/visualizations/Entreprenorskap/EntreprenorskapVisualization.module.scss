@@ -3,11 +3,16 @@
 
   &_filter {
     display:flex;
-    justify-content: flex-end;
     &_container{
       display:flex;
-      width:76%;
-      // max-width: 830px;
+      padding-left:22.5em;
+
+      @media screen and (max-width: 768px){
+        padding-left:17em;
+      }
+      @media screen and (max-width: 515px){
+        padding-left:1.4em;
+      }
       &_text{
         font-size: 20px;
         font-weight: bold;
@@ -18,7 +23,6 @@
         margin-left:0.3em;
         width:28px;
         height:28px;
-        
       }
     }
   }
