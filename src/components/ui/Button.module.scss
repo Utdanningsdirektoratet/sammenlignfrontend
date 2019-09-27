@@ -15,9 +15,11 @@
   &_light {
     border-color: $color-primary;
     color: $color-global-text;
+    color:black;
   }
   &_selected {
     background-color: $color-primary-light;
     border-color: $color-primary-light;
+    // color:black;
   }
 }
