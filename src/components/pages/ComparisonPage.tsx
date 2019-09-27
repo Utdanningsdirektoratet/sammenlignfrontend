@@ -79,7 +79,7 @@ class ComparisonPage extends Component<Props, State> {
       )
         .then(res => res.json())
         .then(data => {
-          if (data.error) {
+          if (data.error || data.grouped && data.grouped.uno_id.matches == 0) { // Special case for data for utdanningsbakgrunn
             this.setState({ [dataKey]: false });
           } else {
             this.setState({ [dataKey]: data });
@@ -128,19 +128,6 @@ class ComparisonPage extends Component<Props, State> {
                 return (
                   <div key={i}>
                     <ComparisonHeader comparison={comparison} />
-                    {/* <button>tree</button>
-                    <button>bar</button> */}
-                    {/* <ComparisonRow>
-                      {uno_ids.map(uno_id => (
-                        <IsolatedComparisonPart
-                          key={uno_id}
-                          uno_idsz={uno_id}
-                          data={rowData[uno_id]}
-                          template={comparison}
-                          widget={false}
-                        />
-                      ))}
-                    </ComparisonRow> */}
                     <VizChartWrapper uno_ids={uno_ids} rowData={rowData} comparison={comparison} />
                   </div>
                 )
