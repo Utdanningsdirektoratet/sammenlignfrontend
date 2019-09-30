@@ -17,8 +17,8 @@ class PercentageBar extends React.Component<PercentageBarProps> {
     let values = roundedVal.toString().split(".");
     let mainNumber = values[0];
     let secondNumber = "0";
-    let maxBarWidth = 12;
-    let barWidthPercentage = (width / 12) * 100;
+    let maxBarWidth = 33;
+    let barWidthPercentage = (width / maxBarWidth) * 100;
     if (values.length > 1) {
       var svalue = values[1].split("");
       secondNumber = svalue[0];
