@@ -20,7 +20,8 @@
       padding: 10px 15px;
        width: 100%;
       font-size: inherit;
-      color: $color-global-text;
+      // color: $color-global-text;
+      
       &:focus {
         outline: none;
         border-color: $color-primary;
@@ -61,6 +62,7 @@
     border: 1px solid black;
     &_help {
       color: gray;
+      color: #555555;
       font-weight: bold;
       text-transform: uppercase;
     }
