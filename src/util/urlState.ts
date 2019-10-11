@@ -1,3 +1,5 @@
+import UnoIdValidator from "./UnoIdValidator";
+
 export function parseUrl(url?: string) {
   if (url) {
     const hashIndex = url.lastIndexOf("#");
@@ -9,7 +11,10 @@ export function parseUrl(url?: string) {
   return [];
 }
 export function getUrlState() {
-  return parseUrl(window.location.hash);
+  let hash = parseUrl(window.location.hash);
+  return UnoIdValidator(hash);
+
+  // return parseUrl(window.location.hash);
 }
 export function setUrlState(state: string[]) {
   if (!window.location.hash && state.length === 0) {

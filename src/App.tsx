@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactModal from "react-modal";
 
 import styles from "./App.module.css";
+import jsonData from "./data/main.json";
 import AlphabeticOverviewPage from "./components/pages/AlphabeticOverviewPage";
 import Translate, { TranslateRoot, getLang } from "./components/app/Translate";
 import AppContext, { AppState } from "./components/app/AppContext";
@@ -14,6 +15,8 @@ import SearchBoxPage from "./components/pages/AlphabeticComparisonPage/SearchPag
 import Widget from "./components/widget/Widget";
 import { NUM_COMPARES_MOBILE, NUM_COMPARES_DESKTOP } from "./config";
 import { MIN_DESKTOP_PX } from "./util/Constants";
+import { url } from "inspector";
+import UnoIdValidator from "./util/UnoIdValidator";
 // import ErrorBoundry from "./components/app/ErrorBoundry";
 
 function render(Component: React.ComponentClass) {
@@ -43,12 +46,15 @@ class App extends Component<{}, AppState> {
   }
   hashChangeListener = (e: HashChangeEvent) => {
     const urlState = parseUrl(window.location.hash);
+    let urlCopy = UnoIdValidator(urlState);
+
     const reactState = this.state.selected_uno_id;
     if (
-      urlState.length !== reactState.length ||
-      !urlState.every((_, i) => urlState[i] === reactState[i])
+      urlCopy.length !== reactState.length ||
+      !urlCopy.every((_, i) => urlCopy[i] === reactState[i])
     ) {
-      this.setState({ selected_uno_id: urlState });
+      // this.setState({ selected_uno_id: urlState });
+      this.setState({ selected_uno_id: urlCopy });
     }
   };
 
@@ -114,7 +120,6 @@ class App extends Component<{}, AppState> {
       if (thisIndex !== -1) {
         selected[thisIndex] = new_uno_id;
       }
-
       setUrlState(selected);
       return { selected_uno_id: selected };
     });

@@ -15,10 +15,10 @@ export function getMain(result: (data: Main) => void) {
     });
   mainFetchStarted = fetch(
     API_DOMAIN +
-      "/rest/main?" +
-      objectToQueryString({
-        felt: "tittel,interesser,utdanningstype",
-      })
+    "/rest/main?" +
+    objectToQueryString({
+      felt: "tittel,interesser,utdanningstype",
+    })
   )
     .then(response => response.json())
     .then(data => {

@@ -28,7 +28,7 @@ type State = {
 class SelectedCompares extends Component<
   AppStateProps & Props & ScreenSizeProps,
   State
-> {
+  > {
   state = { showSearchModal: false, replace: null };
   handleRemoveClick = (e: React.MouseEvent<HTMLElement>) => {
     const {
@@ -71,19 +71,19 @@ class SelectedCompares extends Component<
                   filtered_uno_id[i]
                     ? styles.selection_item_text
                     : styles.selection_item_text +
-                      " " +
-                      styles.selection_item_text_search
-                }`}
+                    " " +
+                    styles.selection_item_text_search
+                  }`}
                 onClick={this.openModalClick}
                 data-uno-id={filtered_uno_id[i]}
               >
                 {filtered_uno_id[i] ? (
                   <UnoId uno_id={filtered_uno_id[i]} />
                 ) : (
-                  TranslateString("Finn %hva%", {
-                    "%hva%": this.props.innholdstype as string,
-                  })
-                )}
+                    TranslateString("Finn %hva%", {
+                      "%hva%": this.props.innholdstype as string,
+                    })
+                  )}
               </div>
               {filtered_uno_id[i] ? (
                 <button
@@ -93,13 +93,13 @@ class SelectedCompares extends Component<
                   <Times />
                 </button>
               ) : (
-                <button
-                  onClick={this.openModalClick}
-                  data-uno-id={filtered_uno_id[i]}
-                >
-                  <Edit />
-                </button>
-              )}
+                  <button
+                    onClick={this.openModalClick}
+                    data-uno-id={filtered_uno_id[i]}
+                  >
+                    <Edit />
+                  </button>
+                )}
             </div>
           </div>
         );

@@ -36,6 +36,7 @@ class ComparisonPage extends Component<Props, State> {
     // [disaggregate, setDisaggregate] = useState(null);
   }
   static getDerivedStateFromProps(props: any, state: State) {
+    console.log("state", state);
     const oldSelected: string[] = state.selected_uno_id as any;
     const newSelected: string[] = props.appState.selected_uno_id;
     if (!oldSelected) return { selected_uno_id: newSelected };
