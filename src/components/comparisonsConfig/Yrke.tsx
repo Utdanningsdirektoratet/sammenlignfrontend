@@ -26,7 +26,7 @@ const Yrke: SammenligningTemplate[] = [
   {
     title: "Lønnsstatistikk",
     widget_id: "lonn",
-    path: "/rest/lonn",
+    path: "/rest/lonn2",
     // query: { sektor: "A" },
     Component: LonnWrapper,
   },

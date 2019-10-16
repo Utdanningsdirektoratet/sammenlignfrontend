@@ -58,17 +58,22 @@ export function getMaxValue(
       wage += "_q3";
       break;
   }
-
   if (!data[dataSelector]) return 0;
-  if (!data[dataSelector][wage] && lønn !== "Med overtid") return 0;
-  let wageCalc = (data[dataSelector][wage] as number) || 0;
+  let wageCalc;
+  let innerSelector = "A"
+  if (data.yrke) {    // Special case for lonn for yrker
+    if (!data[dataSelector][innerSelector][innerSelector] && lønn !== "Med overtid") return 0;
+  } else {
+    if (!data[dataSelector][wage] && lønn !== "Med overtid") return 0;
+  }
+  wageCalc = data.yrke ? (data[dataSelector][innerSelector][innerSelector][wage] as number) || 0 : (data[dataSelector][wage] as number) || 0;
   wageCalc = getTimeUnit(wageCalc, tidsenhet);
 
   if (lønn === "Med overtid") {
     let brutto = wage.replace("_overtime", "");
     let bruttoCalc = 0;
-    if (data[dataSelector][brutto])
-      bruttoCalc = data[dataSelector][brutto] as number;
+    if (data[dataSelector][brutto] || data[dataSelector][innerSelector][innerSelector][brutto])
+      bruttoCalc = data.yrke ? data[dataSelector][innerSelector][innerSelector][brutto] as number : data[dataSelector][brutto] as number;
     bruttoCalc = getTimeUnit(bruttoCalc, tidsenhet);
 
     wageCalc += bruttoCalc;
@@ -79,7 +84,7 @@ export function getMaxValue(
 class LonnWrapper extends Component<
   ComparisonComponentProps<LonnElement>,
   VisualizationHeaderConfigLonn
-> {
+  > {
   constructor(props: ComparisonComponentProps<LonnElement>) {
     super(props);
     this.state = {
@@ -163,7 +168,6 @@ class LonnWrapper extends Component<
   render() {
     const { data, uno_ids, widget } = this.props;
     const { Sektor, widgetShowMobileMenu, lonnDivRef } = this.state;
-
     let maxValue: number = 0;
 
     this.props.uno_ids.forEach(uno_id => {
@@ -177,7 +181,8 @@ class LonnWrapper extends Component<
         return;
       }
       let unoData = data[uno_id][ssbSektor][Sektor];
-
+      if (unoData && uno_id.substr(0, 1) == "y")
+        unoData.yrke = true;
       if (this.state.Kjønn === "A") {
         var wage = getMaxValue(
           "A",
@@ -241,15 +246,15 @@ class LonnWrapper extends Component<
               widget={true}
             />
           ) : (
-            <div className={`${styles.widget_header_container}`}>
-              <HeaderLonnFilters
-                config={this.state}
-                onFilterClicked={this.onFilterClicked}
-                showHeaders={true}
-                showHeaderHelpText={true}
-              />
-            </div>
-          )}
+              <div className={`${styles.widget_header_container}`}>
+                <HeaderLonnFilters
+                  config={this.state}
+                  onFilterClicked={this.onFilterClicked}
+                  showHeaders={true}
+                  showHeaderHelpText={true}
+                />
+              </div>
+            )}
           <LonnSpecificChoice
             key={uno_id}
             data={data[uno_id]}

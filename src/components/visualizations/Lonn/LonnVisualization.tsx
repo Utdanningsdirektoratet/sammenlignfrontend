@@ -56,11 +56,16 @@ class LonnVisualization extends Component<Props> {
   };
 
   getTimeUnit = (wage: string) => {
-    if (!(this.props.data as any)[this.props.arbeidstid][wage]) return null;
+    let innerSelector = "A";
+    if (this.props.data.yrke) {
+      if (!(this.props.data as any)[this.props.arbeidstid][innerSelector][innerSelector][wage]) return null;
+    } else
+      if (!(this.props.data as any)[this.props.arbeidstid][wage]) return null;
 
-    let wageCalc = (this.props.data as any)[this.props.arbeidstid][
-      wage
-    ] as number;
+    let wageCalc = this.props.data.yrke ? (this.props.data as any)[this.props.arbeidstid][innerSelector][innerSelector][wage] as number : (this.props.data as any)[this.props.arbeidstid][wage] as number;
+    // let wageCalc = (this.props.data as any)[this.props.arbeidstid][
+    //   wage
+    // ] as number;
     switch (this.props.tidsenhet) {
       case "Årlig":
         wageCalc *= 12;
@@ -75,14 +80,18 @@ class LonnVisualization extends Component<Props> {
 
   calcWageTimeUnit = (wage: string, notLocale?: boolean) => {
     if (!(this.props.data as any)[this.props.arbeidstid]) return null;
-    if (
-      !(this.props.data as any)[this.props.arbeidstid][wage] &&
-      this.props.lønn !== "Med overtid"
-    )
-      return null;
-    let wageCalc = (this.props.data as any)[this.props.arbeidstid][wage]
-      ? (this.getTimeUnit(wage) as number)
-      : 0;
+
+    let innerSelector = "A";
+    if (this.props.data.yrke) {
+      if (!(this.props.data as any)[this.props.arbeidstid][innerSelector][innerSelector][wage] && this.props.lønn !== "Med overtid")
+        return null;
+    } else {
+      if (
+        !(this.props.data as any)[this.props.arbeidstid][wage] && this.props.lønn !== "Med overtid")
+        return null;
+    }
+
+    let wageCalc = this.props.data.yrke ? (this.props.data as any)[this.props.arbeidstid][innerSelector][innerSelector][wage] ? (this.getTimeUnit(wage) as number) : 0 : (this.props.data as any)[this.props.arbeidstid][wage] ? (this.getTimeUnit(wage) as number) : 0;
 
     if (this.props.lønn === "Med overtid") {
       let brutto = wage.replace("_overtime", "");
@@ -116,7 +125,6 @@ class LonnVisualization extends Component<Props> {
           true
         );
         q3[kjønn] = this.calcWageTimeUnit(this.getDataQuery(kjønn, "q3"), true);
-
         if (!q1[kjønn] && !median[kjønn] && !q3[kjønn]) return <NoData />;
       } else {
         q1["K"] = this.calcWageTimeUnit(this.getDataQuery("K", "q1"), true);

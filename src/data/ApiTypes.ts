@@ -102,6 +102,7 @@ export interface IArbeidstid {
   A?: LonnObject;
   D?: LonnObject;
   H?: LonnObject;
+  yrke?: boolean;
 }
 export type Arbeidstid = "A" | "D" | "H";
 export interface ISektor {
