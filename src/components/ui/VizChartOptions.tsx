@@ -6,7 +6,7 @@ import { SammenligningTemplate } from "../comparisonsConfig";
 import Translate from "../app/Translate";
 
 type Props = {
-    type: string,
+    type: string[],
     widget_id: string,
     val: string[],
     text: string[],
@@ -23,11 +23,32 @@ class VizChartOptions extends Component<Props>{
 
     render() {
         const { type, widget_id, val, text, lastSelection } = this.props;
-
-        if (type === "disaggregate") {
+        const data = val.map((value, index) => {
+            if (index == 0) {
+                return (
+                    <li key={widget_id + type + index}>
+                        <label>
+                            <input type="radio" name={type + widget_id} onChange={this.handleClick} value={value} defaultChecked></input>
+                            {<Translate nb={text[index]}></Translate>}
+                        </label>
+                    </li>
+                )
+            } else {
+                return (
+                    <li key={widget_id + type + index}>
+                        <label>
+                            <input type="radio" name={type + widget_id} onChange={this.handleClick} value={value} checked={lastSelection === type[index]}></input>
+                            {<Translate nb={text[index]}></Translate>}
+                        </label>
+                    </li>
+                )
+            }
+        })
+        if (type[0] !== "diagramtype") {
             return (
                 <React.Fragment>
-                    <li key={widget_id + type + "0"}>
+                    {data}
+                    {/* <li key={widget_id + type + "0"}>
                         <label>
                             <input type="radio" name={type + widget_id} onClick={this.handleClick} value={val[0]} defaultChecked></input>
                             {<Translate nb={text[0]}></Translate>}
@@ -39,7 +60,7 @@ class VizChartOptions extends Component<Props>{
                             <input type="radio" name={type + widget_id} onClick={this.handleClick} value={val[1]} checked={lastSelection === type}></input>
                             {<Translate nb={text[1]}></Translate>}
                         </label>
-                    </li>
+                    </li> */}
                 </React.Fragment>
             )
         } else {

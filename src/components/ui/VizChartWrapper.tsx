@@ -36,9 +36,18 @@ class VizChartWrapper extends Component<Props, State>{
         if (e.target.attributes[2].nodeValue) {
             if (e.target.attributes[2].nodeValue === "all") {
                 this.setState({ disaggregate: null, lastSelection: "all" })
-            } else if (e.target.attributes[2].nodeValue === "disaggregate") {
+            } else if (e.target.attributes[2].nodeValue === "gender") {
                 const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"]
-                this.setState({ disaggregate: disaggregationValues, lastSelection: "disaggregate" })
+                this.setState({ disaggregate: disaggregationValues, lastSelection: "gender" })
+            } else if (e.target.attributes[2].nodeValue === "40") {
+                const disaggregationValues = ["antall_40", "over_40", "40"]
+                this.setState({ disaggregate: disaggregationValues, lastSelection: "40" })
+            } else if (e.target.attributes[2].nodeValue === "sector") {
+                const disaggregationValues = ["antall_offentlig", "antall_privat", "antall_ukjent_sektor", "sector"]
+                this.setState({ disaggregate: disaggregationValues, lastSelection: "sector" })
+            } else if (e.target.attributes[2].nodeValue === "experience") {
+                const disaggregationValues = ["antall_13", "antall_710", "other_experience", "experience"]
+                this.setState({ disaggregate: disaggregationValues, lastSelection: "experience" })
             } else {
                 if (e.target.attributes[2].nodeValue === "tree")
                     this.setState({ layout: e.target.attributes[2].nodeValue, showDisagg: false });
@@ -53,6 +62,13 @@ class VizChartWrapper extends Component<Props, State>{
     };
     render() {
         const { uno_ids, rowData, comparison } = this.props;
+        const values = [
+            "all",
+            "gender",
+            "40",
+            "sector",
+            "experience"
+        ];
         const containerContent = (
             <div className={`${styles.containerContent}`}>
                 <div className={`${styles.optionsFirst}`}>
@@ -60,13 +76,14 @@ class VizChartWrapper extends Component<Props, State>{
                         <div className={`${styles.optionsFirst_text}`}>
                             <Translate nb="Vis som"></Translate>
                         </div>
-                        <VizChartOptions type="diagramtype" widget_id={comparison.widget_id} val={["bars", "tree"]} text={["Stolper", "Tre"]} changeHandler={this.clickHandler} lastSelection={null}></VizChartOptions>
+                        <VizChartOptions type={["diagramtype"]} widget_id={comparison.widget_id} val={["bars", "tree"]} text={["Stolper", "Tre"]} changeHandler={this.clickHandler} lastSelection={null}></VizChartOptions>
                     </ul>
                 </div>
                 {this.state.showDisagg && <div className={`${styles.optionsSecond}`}>
                     <ul>
                         <Translate nb="Vis også (?)"></Translate>
-                        <VizChartOptions type="disaggregate" widget_id={comparison.widget_id} val={["all", "disaggregate"]} text={["Alle", "Menn/Kvinner"]} changeHandler={this.clickHandler} lastSelection={this.state.lastSelection}></VizChartOptions>
+                        {/* <VizChartOptions type="disaggregate" widget_id={comparison.widget_id} val={["all", "disaggregate",""]} text={["Alle", "Menn/Kvinner", "Under 40/Over 40", "Sektor", "Erfaring"]} changeHandler={this.clickHandler} lastSelection={this.state.lastSelection}></VizChartOptions> */}
+                        <VizChartOptions type={values} widget_id={comparison.widget_id} val={values} text={["Alle", "Menn/Kvinner", "Under 40/Over 40", "Sektor", "Erfaring"]} changeHandler={this.clickHandler} lastSelection={this.state.lastSelection}></VizChartOptions>
                     </ul>
                 </div>}
             </div>
