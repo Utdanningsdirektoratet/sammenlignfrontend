@@ -1,5 +1,6 @@
 .container {
   height: 360px;
+  height: 200px;
 
   &_filter {
     display:flex;
@@ -43,7 +44,8 @@
     }
   }
   &_noData {
-    margin-top: 20px;
-    margin-bottom: 45px;
+    font-size:14px;
+    margin-top:0.4em;
+    margin-bottom: 20px;
   }
 }
