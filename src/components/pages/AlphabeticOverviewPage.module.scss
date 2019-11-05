@@ -124,6 +124,7 @@
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
     &_label {
+      font-size:14px;
       @media (max-width: $max-mobile) {
         display: block;
         background-color: lightgrey;
@@ -166,6 +167,8 @@
       padding: 12px;
       border-radius: 22px;
       width: 10em;
+      font-size:14px;
+      font-family: "Roboto",sans-serif;
       text-align: center;
       @media (max-width: $max-mobile) {
         display: none;

@@ -9,6 +9,7 @@
 
   &_text {
     font-weight: 600;
+    font-size:14px;
     &_header {
       text-transform: uppercase;
     }
@@ -41,10 +42,12 @@
     &_text {
       font-weight: 600;
       &_header {
+        font-size:14px;
         text-transform: uppercase;
       }
       &_content {
         li {
+          font-size:14px;
           list-style-type: none;
         }
       }

@@ -4,6 +4,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Roboto Slab", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  font-family: "Roboto",sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
@@ -16,9 +17,14 @@ html {
 
 h1{
   font-family: "Roboto Slab",sans-serif;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: bold;
 }
+
+h2{
+  font-family: "Roboto Slab",sans-serif;
+}
+
 
 html {
   box-sizing: border-box;
@@ -39,4 +45,10 @@ html {
 #section-header .hidden-sm{
   display:none;
 }
+
+span, label, button{
+  font-family: "Roboto",sans-serif;
+}
+
+
 

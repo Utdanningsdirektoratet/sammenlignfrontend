@@ -13,10 +13,13 @@
         margin-left: 20px;
 
         h2 {
+          align-self:center;
           margin-bottom: 10px;
+          margin-bottom:0;
           font-size: 1.8em;
           @media (min-width: $min-not-mobile) {
             font-size: 2em;
+            font-size:1.25em;
             margin-left: 50px;
           }
         }
@@ -27,6 +30,7 @@
           @media (min-width: $min-not-mobile) {
             font-size: 1.2em;
             padding-top: 16px;
+            font-size:1em;
           }
           ul {
             display: inline-block;
@@ -137,6 +141,7 @@
       }
       &_filters {
         font-size: 1.1em;
+        font-size:0.875em;
         ul {
           padding-left: 0;
         }
