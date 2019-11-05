@@ -1,6 +1,7 @@
+@import "src/styles/_constants.scss";
 .arbeidsledighetvisualization {
   // height: 360px;
-  height: 250px;
+  min-height: 250px;
 
   &_heading {
     font-size: 14px;
@@ -11,6 +12,33 @@
     display:flex;
     justify-content: center;
     // font-weight: 500;
+  }
+
+  &_showingDataFor{
+    color:black;
+    &_toggler{
+      color:black;
+      &_icon{
+        margin-left:5px;
+        width:22px;
+        height:22px;
+        transform: rotate(90deg);
+        vertical-align: middle;
+        path {
+          fill: $color-primary;
+        }
+      }
+      &_iconClosed{
+        margin-left:5px;
+        width:22px;
+        height:22px;
+        transform: rotate(-90deg);
+        vertical-align: middle;
+        path {
+          fill: $color-primary;
+        }
+      }
+    }
   }
 
   &_percentageText{

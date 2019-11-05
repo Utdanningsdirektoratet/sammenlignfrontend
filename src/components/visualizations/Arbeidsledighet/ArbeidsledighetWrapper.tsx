@@ -24,7 +24,7 @@ export type LedighetsintervallVerdi = { fra: number; til: number };
 class ArbeidsledighetWrapper extends React.Component<
   ComparisonComponentProps<ArbeidsledighetElement>,
   VisualizationHeaderConfigArbeidsledighet
-> {
+  > {
   setConfig = (config: VisualizationHeaderConfigArbeidsledighet) => {
     this.setState(config);
   };
@@ -180,6 +180,7 @@ class ArbeidsledighetWrapper extends React.Component<
           }
         />
         <ComparisonRow>{uno_ids.map(this.renderCell)}</ComparisonRow>
+        <label><Translate nb="Kilde: SSB / Nav. Data fra november 2018"></Translate></label>
       </div>
     );
   }

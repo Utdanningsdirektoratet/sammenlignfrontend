@@ -68,7 +68,6 @@ class EntreprenorskapVisualization extends Component<Props> {
         <div className={styles.container}>
           {fullfortArray.map(f => {
             let data = this.getDataQuery(f);
-            console.log("data", data);
             return (
               <div key={f}>
                 <div className={styles.container_header}>

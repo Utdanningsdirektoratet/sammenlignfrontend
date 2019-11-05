@@ -31,8 +31,6 @@ class VizChartWrapper extends Component<Props, State>{
     state: State = { layout: "bars", expanded: false, disaggregate: null, showDisagg: true, lastSelection: "all" };
 
     clickHandler = (e: any) => {
-        console.log("target :", e.target);
-        console.log("attributes", e.target.attributes);
         if (e.target.attributes[2].nodeValue) {
             if (e.target.attributes[2].nodeValue === "all") {
                 this.setState({ disaggregate: null, lastSelection: "all" })

@@ -16,6 +16,7 @@ import styles from "./ArbeidsledighetVisualization.module.scss";
 import Translate from "../../app/Translate";
 import { ReactComponent as Alle } from "../Generic/AlleIcon.svg";
 import { ReactComponent as Nyutdannet } from "../Generic/NyutdannaIcon.svg";
+import { ReactComponent as GreaterThan } from "../../../fontawesome/solid/greater-than.svg";
 
 type Props = {
   data: ArbeidsledighetObject;
@@ -25,11 +26,15 @@ type Props = {
   maxValue: number;
 };
 
+
+type State = { showMore: boolean };
+
 export interface IDictionary {
   [index: string]: any;
 }
 
-class ArbeidsledighetVisualization extends Component<Props> {
+class ArbeidsledighetVisualization extends Component<Props, State> {
+  state: State = { showMore: false };
   getDataQuery = (fullført: Fullført) => {
     let qry = "arbeidsledige";
 
@@ -66,6 +71,24 @@ class ArbeidsledighetVisualization extends Component<Props> {
 
     return num;
   };
+
+  handleClick = (e: any) => {
+    this.setState({ showMore: !this.state.showMore });
+  }
+
+  renderNumbersFrom = () => {
+    if (!this.props.data.nus_kortnavn) {
+      return null;
+    }
+
+    let nusNavn = this.props.data.nus_kortnavn.replace(new RegExp(" ;", "g"), "");
+    let nusArr = nusNavn.split(',');
+
+    const nusFrom = nusArr.map(nus => {
+      return <li>{nus}</li>
+    })
+    return nusFrom;
+  }
 
   renderOption = (x: string, dataArr: any, intervaller: any) => {
     let riskClass = "";
@@ -129,6 +152,7 @@ class ArbeidsledighetVisualization extends Component<Props> {
     }
     let full = fullført.slice(0);
     full = full.reverse();
+    let iconClass = this.state.showMore ? styles.arbeidsledighetvisualization_showingDataFor_toggler_icon : styles.arbeidsledighetvisualization_showingDataFor_toggler_iconClosed;
     return (
       <div className={`${visualizationstyles.visualization_container}`}>
         <div className={`${styles.arbeidsledighetvisualization}`}>
@@ -176,6 +200,17 @@ class ArbeidsledighetVisualization extends Component<Props> {
                 </li>
               );
             })}
+            <div className={`${styles.arbeidsledighetvisualization_showingDataFor}`}>
+              <p className={`${styles.arbeidsledighetvisualization_showingDataFor_toggler}`} onClick={this.handleClick}>Viser tall for <GreaterThan className={iconClass} /></p>
+              {this.state.showMore &&
+                <React.Fragment>
+                  <p><Translate nb="Viser andel registrerte arbeidsledige for personer med disse utdanningene:"></Translate></p>
+                  <ul>
+                    {this.renderNumbersFrom()}
+                  </ul>
+                </React.Fragment>
+              }
+            </div>
           </div>
         </div>
       </div>

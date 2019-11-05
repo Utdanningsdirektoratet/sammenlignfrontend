@@ -21,6 +21,7 @@ import Breadcrumb from "./ComparisonPage/Breadcrumb";
 import Frontpage from "./Frontpage";
 
 import VizChartWrapper from "../ui/VizChartWrapper";
+import Translate from "../app/Translate";
 
 type State = { [dataKey: string]: { [uno_id: string]: any } | false };
 type Props = RouteComponentProps<{ innholdstype: Innholdstype }> &
