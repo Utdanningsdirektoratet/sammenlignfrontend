@@ -201,7 +201,7 @@ class ArbeidsledighetVisualization extends Component<Props, State> {
               );
             })}
             <div className={`${styles.arbeidsledighetvisualization_showingDataFor}`}>
-              <p className={`${styles.arbeidsledighetvisualization_showingDataFor_toggler}`} onClick={this.handleClick}>Viser tall for <GreaterThan className={iconClass} /></p>
+              <p onClick={this.handleClick}>Viser tall for <GreaterThan className={iconClass} /></p>
               {this.state.showMore &&
                 <React.Fragment>
                   <p><Translate nb="Andel av personer med disse utdanningene som var registrert arbeidsledig av NAV i november 2018:"></Translate></p>
