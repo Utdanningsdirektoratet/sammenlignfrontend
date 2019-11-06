@@ -17,6 +17,9 @@ import Translate from "../../app/Translate";
 import { ReactComponent as Alle } from "../Generic/AlleIcon.svg";
 import { ReactComponent as Nyutdannet } from "../Generic/NyutdannaIcon.svg";
 import { ReactComponent as GreaterThan } from "../../../fontawesome/solid/greater-than.svg";
+import { ReactComponent as ToolTip } from "../../../fontawesome/solid/question-circle.svg";
+import { thresholdSturges } from "d3";
+import Tooltip from "../../defaultComponents/Tooltip";
 
 type Props = {
   data: ArbeidsledighetObject;
@@ -84,8 +87,8 @@ class ArbeidsledighetVisualization extends Component<Props, State> {
     let nusNavn = this.props.data.nus_kortnavn.replace(new RegExp(" ;", "g"), "");
     let nusArr = nusNavn.split(',');
 
-    const nusFrom = nusArr.map(nus => {
-      return <li>{nus}</li>
+    const nusFrom = nusArr.map((nus, index) => {
+      return <li key={index}>{nus}</li>
     })
     return nusFrom;
   }
@@ -114,11 +117,40 @@ class ArbeidsledighetVisualization extends Component<Props, State> {
       default:
         break;
     }
+    let level = intervaller[x];
+    let dataToShow = dataArr[x];
+    let customEl = <p className={`${styles.arbeidsledighetvisualization_percentageRisk} ${riskClass}`}>{level}</p>;
+    if (x === "13" && dataArr[x] == null) {   // Ingen data på 1-3 år etter utdannelse. Sjekk om det er 0% eller null.
+      if (this.props.data.arbeidstakere_antall13 && this.props.data.arbeidstakere_antall13 < 99 && this.props.data.arbeidsledige_andel13 == 0) {
+        dataToShow = "0";
+        level = "Ingen ledighet";
+        customEl = <p className={`${styles.arbeidsledighetvisualization_percentageRisk} ${riskClass}`}>{level}</p>;
+        return (
+          <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
+            <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
+              <Translate nb="Nyutdanna: "></Translate>
+            </h3>
+            <p className={`${styles.arbeidsledighetvisualization_percentageText} ${riskClass}`}>{dataToShow}</p>
+            <div className={styles.arbeidsledighetvisualization_dec}>
+              {customEl}
+              <div className={styles.arbeidsledighetvisualization_dec_tooltipContainer}>
+                <ToolTip className={styles.arbeidsledighetvisualization_dec_tooltipContainer_tooltip}></ToolTip>
+              </div>
+              <div className={styles.arbeidsledighetvisualization_dec_tip}>
+                <p><Translate nb="Færre enn 3 registrerte ledige."></Translate></p>
+              </div>
+            </div>
+
+          </div>
+        )
+      } else if (this.props.data.arbeidstakere_antall13 && this.props.data.arbeidstakere_antall13 < 100) {
+        return null;
+      }
+    }
     return (
       <div className={`${styles.arbeidsledighetvisualization_list_text}`}>
         <h3 className={`${styles.arbeidsledighetvisualization_heading}`}>
           {x === "A" ? <Translate nb="Alle totalt: "></Translate> : <Translate nb="Nyutdanna: "></Translate>}
-
         </h3>
         <p className={`${styles.arbeidsledighetvisualization_percentageText} ${riskClass}`}>{dataArr[x]}</p>
         <p className={`${styles.arbeidsledighetvisualization_percentageRisk} ${riskClass}`}>{intervaller[x]}</p>
@@ -131,10 +163,11 @@ class ArbeidsledighetVisualization extends Component<Props, State> {
     var dataArr = {} as IDictionary;
     var emptyResults = 0;
     fullført.map(f => {
+      console.log("data: f", f);
       dataArr[f] = this.getDataQuery(f);
       if (dataArr[f] == null) emptyResults++;
     });
-
+    console.log("data: props", this.props.data);
     if (emptyResults == fullført.length) return <NoData />;
 
     var intervaller = {} as IDictionary;
@@ -168,7 +201,8 @@ class ArbeidsledighetVisualization extends Component<Props, State> {
           /> */}
           <div>
             {full.map(x => {
-              if (dataArr[x] == null) return null;
+              console.log("data: x", x);
+              // if (dataArr[x] == null) return null;
               return (
                 <li
                   key={x}

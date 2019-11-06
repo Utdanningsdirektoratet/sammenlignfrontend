@@ -50,6 +50,7 @@
       text-transform: uppercase;
       @media (max-width: $max-mobile) {
         // width: 80%;
+        max-width: none;
         width: 95%;
         margin: auto;
         margin-top: 10px;

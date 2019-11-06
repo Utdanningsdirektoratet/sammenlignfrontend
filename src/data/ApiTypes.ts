@@ -60,6 +60,9 @@ export interface ArbeidsledighetObject {
   arbeidsledige_antall?: number;
   arbeidsledige_antall710?: number;
   arbeidsledige_andel?: number;
+  arbeidstakere_antall?: number;
+  arbeidstakere_antall13?: number;
+  arbeidstakere_antall710?: number;
 }
 
 export interface LonnObject {

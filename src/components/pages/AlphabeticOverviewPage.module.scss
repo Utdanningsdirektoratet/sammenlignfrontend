@@ -5,6 +5,9 @@
   padding: 0;
   margin: 2em;
   margin-top: 1em; // test
+  margin-left:auto;
+  margin-right:auto;
+  width:95%;
   @media (min-width: $max-mobile){
     width: 100%; // test
   } 
@@ -111,6 +114,7 @@
     }
     @media only screen and (max-width: $max-mobile) {
       width: 100%;
+      margin-right:0;
     }
 
     word-break: break-word;
