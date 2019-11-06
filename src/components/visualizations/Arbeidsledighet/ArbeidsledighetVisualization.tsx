@@ -204,7 +204,7 @@ class ArbeidsledighetVisualization extends Component<Props, State> {
               <p className={`${styles.arbeidsledighetvisualization_showingDataFor_toggler}`} onClick={this.handleClick}>Viser tall for <GreaterThan className={iconClass} /></p>
               {this.state.showMore &&
                 <React.Fragment>
-                  <p><Translate nb="Viser andel registrerte arbeidsledige for personer med disse utdanningene:"></Translate></p>
+                  <p><Translate nb="Andel av personer med disse utdanningene som var registrert arbeidsledig av NAV i november 2018:"></Translate></p>
                   <ul>
                     {this.renderNumbersFrom()}
                   </ul>

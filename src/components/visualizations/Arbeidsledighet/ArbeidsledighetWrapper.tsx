@@ -6,6 +6,7 @@ import { ComparisonComponentProps } from "../../comparisonsConfig";
 import ComparisonRow from "../../pages/ComparisonPage/ComparisonRow";
 import Translate from "../../app/Translate";
 import Header from "../Shared/HeaderVisualizations";
+import styles from "./ArbeidsledighetVisualization.module.scss";
 
 export type VisualizationHeaderConfigArbeidsledighet = {
   Fullført: Fullført[];
@@ -180,7 +181,7 @@ class ArbeidsledighetWrapper extends React.Component<
           }
         />
         <ComparisonRow>{uno_ids.map(this.renderCell)}</ComparisonRow>
-        <label><Translate nb="Kilde: SSB / Nav. Data fra november 2018"></Translate></label>
+        <label className={styles.arbeidsledighetvisualization_dataSource}><Translate nb="Kilde: SSB"></Translate></label>
       </div>
     );
   }

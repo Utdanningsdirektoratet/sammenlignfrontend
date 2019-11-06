@@ -2,7 +2,10 @@
 .arbeidsledighetvisualization {
   // height: 360px;
   min-height: 250px;
-
+  &_dataSource{
+    color: #767676;
+    color: $color-global-text;
+  }
   &_heading {
     font-size: 14px;
     font-weight: bold;
@@ -17,6 +20,17 @@
   &_showingDataFor{
     font-family: "Roboto",sans-serif;
     font-size:14px;
+    color: $color-global-text;
+
+    ul{
+      padding-left:0px;
+      list-style-type: none;
+    }
+
+    ul > li:before{
+      content: "- ";
+    }
+
     &_toggler{
       &_icon{
         margin-left:5px;
