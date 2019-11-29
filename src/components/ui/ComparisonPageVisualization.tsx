@@ -1,5 +1,5 @@
 import React from "react";
-import { Visualization } from "job-market-visuals";
+import { Context3 } from "job-market-visuals";
 
 // const disaggregationValues = ["antall_kvinner", "antall_menn", "antall_ukjent_kjonn"];
 // const disaggregationLabels = ["kvinner", "menn", "ukjent kjonn"];
@@ -33,8 +33,8 @@ const ComparisonPageVisualization = (props: any) => {
 
     return (
         <React.Fragment>
-            <Visualization
-                unoId={uno_id}
+            <Context3
+                id={uno_id}
                 limit={8}
                 layout={layout}
                 disaggregateBy={dis}

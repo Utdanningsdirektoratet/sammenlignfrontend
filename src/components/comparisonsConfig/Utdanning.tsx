@@ -40,7 +40,7 @@ const Utdanning: SammenligningTemplate[] = [
       // return (
       //   <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke"></ComparisonPageVisualization>
       // )
-      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" layout={layout} disaggregate={disaggregate} />
+      return <ComparisonPageVisualization uno_id={element} direction="uno_id2styrk08" layout={layout} disaggregate={disaggregate} />
     },
   },
   {

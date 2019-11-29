@@ -44,7 +44,7 @@ const Yrke: SammenligningTemplate[] = [
     path: "/rest/utdanning2yrke",
     render: (element: ArbeidsmarkedUtdanningElement[], layout, disaggregate) => {
       // return <Visualization unoId={element} direction="yrke2utdanning" limit={5} />
-      return <ComparisonPageVisualization uno_id={element} direction="utdanning2yrke" layout={layout} disaggregate={disaggregate} />
+      return <ComparisonPageVisualization uno_id={element} direction="uno_id2styrk08" layout={layout} disaggregate={disaggregate} />
       // return <VizChartWrapper uno_id={element} direction="utdanning2yrke" />
 
 
@@ -63,7 +63,7 @@ const Yrke: SammenligningTemplate[] = [
       //   direction="yrke2utdanning"
       // />
       // return <ComparisonPageVisualization uno_id={element} direction="yrke2utdanning" />
-      return <ComparisonPageVisualization uno_id={element} direction="yrke2utdanning" layout={layout} disaggregate={disaggregate} />
+      return <ComparisonPageVisualization uno_id={element} direction="uno_id2styrk08" layout={layout} disaggregate={disaggregate} />
     },
   },
   {
