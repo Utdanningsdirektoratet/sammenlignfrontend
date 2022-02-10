@@ -12,7 +12,7 @@
     "@types/react-router-dom": "^4.3.1",
     "d3": "^5.7.0",
     "job-market-visuals": "^2.0.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^7.0.0",
     "plotly.js": "^1.42.5",
     "react": "^16.8.6",
     "react-app-polyfill": "^0.1.3",
